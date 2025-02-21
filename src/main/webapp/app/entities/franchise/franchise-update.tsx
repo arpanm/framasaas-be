@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, isNumber, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
@@ -55,6 +56,8 @@ export const FranchiseUpdate = () => {
     if (values.performanceScore !== undefined && typeof values.performanceScore !== 'number') {
       values.performanceScore = Number(values.performanceScore);
     }
+    values.createdTime = convertDateTimeToServer(values.createdTime);
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
     const entity = {
       ...franchiseEntity,
@@ -71,11 +74,16 @@ export const FranchiseUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          createdTime: displayDefaultDateTime(),
+          updatedTime: displayDefaultDateTime(),
+        }
       : {
           franchiseStatus: 'PendingApproval',
           performanceTag: 'High',
           ...franchiseEntity,
+          createdTime: convertDateTimeFromServer(franchiseEntity.createdTime),
+          updatedTime: convertDateTimeFromServer(franchiseEntity.updatedTime),
           address: franchiseEntity?.address?.id,
         };
 
@@ -195,6 +203,48 @@ export const FranchiseUpdate = () => {
                   </option>
                 ))}
               </ValidatedField>
+              <ValidatedField
+                label={translate('framasaasApp.franchise.createddBy')}
+                id="franchise-createddBy"
+                name="createddBy"
+                data-cy="createddBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchise.createdTime')}
+                id="franchise-createdTime"
+                name="createdTime"
+                data-cy="createdTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchise.updatedBy')}
+                id="franchise-updatedBy"
+                name="updatedBy"
+                data-cy="updatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchise.updatedTime')}
+                id="franchise-updatedTime"
+                name="updatedTime"
+                data-cy="updatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
               <ValidatedField
                 id="franchise-address"
                 name="address"

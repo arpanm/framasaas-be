@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './franchise.reducer';
@@ -85,6 +86,34 @@ export const FranchiseDetail = () => {
             </span>
           </dt>
           <dd>{franchiseEntity.performanceTag}</dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.franchise.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.franchise.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseEntity.createdTime ? <TextFormat value={franchiseEntity.createdTime} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
+          <dt>
+            <span id="updatedBy">
+              <Translate contentKey="framasaasApp.franchise.updatedBy">Updated By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseEntity.updatedBy}</dd>
+          <dt>
+            <span id="updatedTime">
+              <Translate contentKey="framasaasApp.franchise.updatedTime">Updated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseEntity.updatedTime ? <TextFormat value={franchiseEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
           <dt>
             <Translate contentKey="framasaasApp.franchise.address">Address</Translate>
           </dt>

@@ -51,7 +51,11 @@ public class FranchiseDocumentAsserts {
             .satisfies(a -> assertThat(a.getDocumentType()).as("check documentType").isEqualTo(expected.getDocumentType()))
             .satisfies(a -> assertThat(a.getDocumentFormat()).as("check documentFormat").isEqualTo(expected.getDocumentFormat()))
             .satisfies(a -> assertThat(a.getDocumentSize()).as("check documentSize").isEqualTo(expected.getDocumentSize()))
-            .satisfies(a -> assertThat(a.getDocumentPath()).as("check documentPath").isEqualTo(expected.getDocumentPath()));
+            .satisfies(a -> assertThat(a.getDocumentPath()).as("check documentPath").isEqualTo(expected.getDocumentPath()))
+            .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
+            .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
+            .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
+            .satisfies(a -> assertThat(a.getUpdatedTime()).as("check updatedTime").isEqualTo(expected.getUpdatedTime()));
     }
 
     /**

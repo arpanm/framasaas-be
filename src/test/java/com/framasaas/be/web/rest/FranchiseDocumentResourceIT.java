@@ -14,6 +14,8 @@ import com.framasaas.be.domain.enumeration.DocumentFormat;
 import com.framasaas.be.domain.enumeration.DocumentType;
 import com.framasaas.be.repository.FranchiseDocumentRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -49,6 +51,18 @@ class FranchiseDocumentResourceIT {
     private static final String DEFAULT_DOCUMENT_PATH = "AAAAAAAAAA";
     private static final String UPDATED_DOCUMENT_PATH = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
     private static final String ENTITY_API_URL = "/api/franchise-documents";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -83,7 +97,11 @@ class FranchiseDocumentResourceIT {
             .documentType(DEFAULT_DOCUMENT_TYPE)
             .documentFormat(DEFAULT_DOCUMENT_FORMAT)
             .documentSize(DEFAULT_DOCUMENT_SIZE)
-            .documentPath(DEFAULT_DOCUMENT_PATH);
+            .documentPath(DEFAULT_DOCUMENT_PATH)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -98,7 +116,11 @@ class FranchiseDocumentResourceIT {
             .documentType(UPDATED_DOCUMENT_TYPE)
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
-            .documentPath(UPDATED_DOCUMENT_PATH);
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -219,6 +241,70 @@ class FranchiseDocumentResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setCreateddBy(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setCreatedTime(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setUpdatedBy(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setUpdatedTime(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllFranchiseDocuments() throws Exception {
         // Initialize the database
         insertedFranchiseDocument = franchiseDocumentRepository.saveAndFlush(franchiseDocument);
@@ -233,7 +319,11 @@ class FranchiseDocumentResourceIT {
             .andExpect(jsonPath("$.[*].documentType").value(hasItem(DEFAULT_DOCUMENT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].documentFormat").value(hasItem(DEFAULT_DOCUMENT_FORMAT.toString())))
             .andExpect(jsonPath("$.[*].documentSize").value(hasItem(DEFAULT_DOCUMENT_SIZE.intValue())))
-            .andExpect(jsonPath("$.[*].documentPath").value(hasItem(DEFAULT_DOCUMENT_PATH)));
+            .andExpect(jsonPath("$.[*].documentPath").value(hasItem(DEFAULT_DOCUMENT_PATH)))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -252,7 +342,11 @@ class FranchiseDocumentResourceIT {
             .andExpect(jsonPath("$.documentType").value(DEFAULT_DOCUMENT_TYPE.toString()))
             .andExpect(jsonPath("$.documentFormat").value(DEFAULT_DOCUMENT_FORMAT.toString()))
             .andExpect(jsonPath("$.documentSize").value(DEFAULT_DOCUMENT_SIZE.intValue()))
-            .andExpect(jsonPath("$.documentPath").value(DEFAULT_DOCUMENT_PATH));
+            .andExpect(jsonPath("$.documentPath").value(DEFAULT_DOCUMENT_PATH))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -279,7 +373,11 @@ class FranchiseDocumentResourceIT {
             .documentType(UPDATED_DOCUMENT_TYPE)
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
-            .documentPath(UPDATED_DOCUMENT_PATH);
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseDocumentMockMvc
             .perform(
@@ -360,10 +458,12 @@ class FranchiseDocumentResourceIT {
         partialUpdatedFranchiseDocument.setId(franchiseDocument.getId());
 
         partialUpdatedFranchiseDocument
+            .documentName(UPDATED_DOCUMENT_NAME)
             .documentType(UPDATED_DOCUMENT_TYPE)
-            .documentFormat(UPDATED_DOCUMENT_FORMAT)
-            .documentSize(UPDATED_DOCUMENT_SIZE)
-            .documentPath(UPDATED_DOCUMENT_PATH);
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseDocumentMockMvc
             .perform(
@@ -399,7 +499,11 @@ class FranchiseDocumentResourceIT {
             .documentType(UPDATED_DOCUMENT_TYPE)
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
-            .documentPath(UPDATED_DOCUMENT_PATH);
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseDocumentMockMvc
             .perform(

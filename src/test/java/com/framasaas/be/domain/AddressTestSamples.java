@@ -19,7 +19,9 @@ public class AddressTestSamples {
             .district("district1")
             .pincode(1L)
             .state("state1")
-            .country("country1");
+            .country("country1")
+            .createddBy("createddBy1")
+            .updatedBy("updatedBy1");
     }
 
     public static Address getAddressSample2() {
@@ -32,7 +34,9 @@ public class AddressTestSamples {
             .district("district2")
             .pincode(2L)
             .state("state2")
-            .country("country2");
+            .country("country2")
+            .createddBy("createddBy2")
+            .updatedBy("updatedBy2");
     }
 
     public static Address getAddressRandomSampleGenerator() {
@@ -45,6 +49,8 @@ public class AddressTestSamples {
             .district(UUID.randomUUID().toString())
             .pincode(longCount.incrementAndGet())
             .state(UUID.randomUUID().toString())
-            .country(UUID.randomUUID().toString());
+            .country(UUID.randomUUID().toString())
+            .createddBy(UUID.randomUUID().toString())
+            .updatedBy(UUID.randomUUID().toString());
     }
 }

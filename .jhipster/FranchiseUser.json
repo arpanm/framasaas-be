@@ -1,0 +1,70 @@
+{
+  "annotations": {
+    "changelogDate": "20250221042837"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern", "required"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "Long",
+      "fieldValidateRules": ["min", "max", "required"],
+      "fieldValidateRulesMax": "9999999999",
+      "fieldValidateRulesMin": "1000000000"
+    },
+    {
+      "fieldName": "userStatus",
+      "fieldType": "FranchiseUserStatus",
+      "fieldValues": "PendingApproval,Active,Blocked"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchiseUser",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchiseUserStatusHistory",
+      "otherEntityRelationshipName": "franchiseUser",
+      "relationshipName": "franchiseUserStatusHistory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

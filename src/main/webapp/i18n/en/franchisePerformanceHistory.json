@@ -22,6 +22,8 @@
       "performanceTag": "Performance Tag",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
       "franchise": "Franchise"
     }
   }

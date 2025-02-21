@@ -47,7 +47,11 @@ public class LocationMappingAsserts {
     public static void assertLocationMappingUpdatableFieldsEquals(LocationMapping expected, LocationMapping actual) {
         assertThat(actual)
             .as("Verify LocationMapping relevant properties")
-            .satisfies(a -> assertThat(a.getLocationName()).as("check locationName").isEqualTo(expected.getLocationName()));
+            .satisfies(a -> assertThat(a.getLocationName()).as("check locationName").isEqualTo(expected.getLocationName()))
+            .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
+            .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
+            .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
+            .satisfies(a -> assertThat(a.getUpdatedTime()).as("check updatedTime").isEqualTo(expected.getUpdatedTime()));
     }
 
     /**

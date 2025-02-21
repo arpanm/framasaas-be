@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
@@ -47,6 +48,8 @@ export const FranchiseCategoryMappingUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    values.createdTime = convertDateTimeToServer(values.createdTime);
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
     const entity = {
       ...franchiseCategoryMappingEntity,
@@ -63,10 +66,15 @@ export const FranchiseCategoryMappingUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          createdTime: displayDefaultDateTime(),
+          updatedTime: displayDefaultDateTime(),
+        }
       : {
           serviceCategory: 'AC',
           ...franchiseCategoryMappingEntity,
+          createdTime: convertDateTimeFromServer(franchiseCategoryMappingEntity.createdTime),
+          updatedTime: convertDateTimeFromServer(franchiseCategoryMappingEntity.updatedTime),
           franchise: franchiseCategoryMappingEntity?.franchise?.id,
         };
 
@@ -110,6 +118,48 @@ export const FranchiseCategoryMappingUpdate = () => {
                   </option>
                 ))}
               </ValidatedField>
+              <ValidatedField
+                label={translate('framasaasApp.franchiseCategoryMapping.createddBy')}
+                id="franchise-category-mapping-createddBy"
+                name="createddBy"
+                data-cy="createddBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseCategoryMapping.createdTime')}
+                id="franchise-category-mapping-createdTime"
+                name="createdTime"
+                data-cy="createdTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseCategoryMapping.updatedBy')}
+                id="franchise-category-mapping-updatedBy"
+                name="updatedBy"
+                data-cy="updatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseCategoryMapping.updatedTime')}
+                id="franchise-category-mapping-updatedTime"
+                name="updatedTime"
+                data-cy="updatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
               <ValidatedField
                 id="franchise-category-mapping-franchise"
                 name="franchise"

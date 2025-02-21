@@ -13,6 +13,8 @@ import com.framasaas.be.domain.FranchiseCategoryMapping;
 import com.framasaas.be.domain.enumeration.ServiceCategory;
 import com.framasaas.be.repository.FranchiseCategoryMappingRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -35,6 +37,18 @@ class FranchiseCategoryMappingResourceIT {
 
     private static final ServiceCategory DEFAULT_SERVICE_CATEGORY = ServiceCategory.AC;
     private static final ServiceCategory UPDATED_SERVICE_CATEGORY = ServiceCategory.TV;
+
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/franchise-category-mappings";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -65,7 +79,12 @@ class FranchiseCategoryMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static FranchiseCategoryMapping createEntity() {
-        return new FranchiseCategoryMapping().serviceCategory(DEFAULT_SERVICE_CATEGORY);
+        return new FranchiseCategoryMapping()
+            .serviceCategory(DEFAULT_SERVICE_CATEGORY)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -75,7 +94,12 @@ class FranchiseCategoryMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static FranchiseCategoryMapping createUpdatedEntity() {
-        return new FranchiseCategoryMapping().serviceCategory(UPDATED_SERVICE_CATEGORY);
+        return new FranchiseCategoryMapping()
+            .serviceCategory(UPDATED_SERVICE_CATEGORY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -153,6 +177,70 @@ class FranchiseCategoryMappingResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseCategoryMapping.setCreateddBy(null);
+
+        // Create the FranchiseCategoryMapping, which fails.
+
+        restFranchiseCategoryMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseCategoryMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseCategoryMapping.setCreatedTime(null);
+
+        // Create the FranchiseCategoryMapping, which fails.
+
+        restFranchiseCategoryMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseCategoryMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseCategoryMapping.setUpdatedBy(null);
+
+        // Create the FranchiseCategoryMapping, which fails.
+
+        restFranchiseCategoryMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseCategoryMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseCategoryMapping.setUpdatedTime(null);
+
+        // Create the FranchiseCategoryMapping, which fails.
+
+        restFranchiseCategoryMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseCategoryMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllFranchiseCategoryMappings() throws Exception {
         // Initialize the database
         insertedFranchiseCategoryMapping = franchiseCategoryMappingRepository.saveAndFlush(franchiseCategoryMapping);
@@ -163,7 +251,11 @@ class FranchiseCategoryMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(franchiseCategoryMapping.getId().intValue())))
-            .andExpect(jsonPath("$.[*].serviceCategory").value(hasItem(DEFAULT_SERVICE_CATEGORY.toString())));
+            .andExpect(jsonPath("$.[*].serviceCategory").value(hasItem(DEFAULT_SERVICE_CATEGORY.toString())))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -178,7 +270,11 @@ class FranchiseCategoryMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(franchiseCategoryMapping.getId().intValue()))
-            .andExpect(jsonPath("$.serviceCategory").value(DEFAULT_SERVICE_CATEGORY.toString()));
+            .andExpect(jsonPath("$.serviceCategory").value(DEFAULT_SERVICE_CATEGORY.toString()))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -202,7 +298,12 @@ class FranchiseCategoryMappingResourceIT {
             .orElseThrow();
         // Disconnect from session so that the updates on updatedFranchiseCategoryMapping are not directly saved in db
         em.detach(updatedFranchiseCategoryMapping);
-        updatedFranchiseCategoryMapping.serviceCategory(UPDATED_SERVICE_CATEGORY);
+        updatedFranchiseCategoryMapping
+            .serviceCategory(UPDATED_SERVICE_CATEGORY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseCategoryMappingMockMvc
             .perform(
@@ -282,7 +383,11 @@ class FranchiseCategoryMappingResourceIT {
         FranchiseCategoryMapping partialUpdatedFranchiseCategoryMapping = new FranchiseCategoryMapping();
         partialUpdatedFranchiseCategoryMapping.setId(franchiseCategoryMapping.getId());
 
-        partialUpdatedFranchiseCategoryMapping.serviceCategory(UPDATED_SERVICE_CATEGORY);
+        partialUpdatedFranchiseCategoryMapping
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseCategoryMappingMockMvc
             .perform(
@@ -313,7 +418,12 @@ class FranchiseCategoryMappingResourceIT {
         FranchiseCategoryMapping partialUpdatedFranchiseCategoryMapping = new FranchiseCategoryMapping();
         partialUpdatedFranchiseCategoryMapping.setId(franchiseCategoryMapping.getId());
 
-        partialUpdatedFranchiseCategoryMapping.serviceCategory(UPDATED_SERVICE_CATEGORY);
+        partialUpdatedFranchiseCategoryMapping
+            .serviceCategory(UPDATED_SERVICE_CATEGORY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseCategoryMappingMockMvc
             .perform(

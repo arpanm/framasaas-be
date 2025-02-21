@@ -72,6 +72,18 @@ public class FranchiseServiceImpl implements FranchiseService {
                 if (franchise.getPerformanceTag() != null) {
                     existingFranchise.setPerformanceTag(franchise.getPerformanceTag());
                 }
+                if (franchise.getCreateddBy() != null) {
+                    existingFranchise.setCreateddBy(franchise.getCreateddBy());
+                }
+                if (franchise.getCreatedTime() != null) {
+                    existingFranchise.setCreatedTime(franchise.getCreatedTime());
+                }
+                if (franchise.getUpdatedBy() != null) {
+                    existingFranchise.setUpdatedBy(franchise.getUpdatedBy());
+                }
+                if (franchise.getUpdatedTime() != null) {
+                    existingFranchise.setUpdatedTime(franchise.getUpdatedTime());
+                }
 
                 return existingFranchise;
             })

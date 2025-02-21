@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, getPaginationState } from 'react-jhipster';
+import { TextFormat, Translate, getPaginationState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
@@ -139,6 +140,22 @@ export const FranchiseBrandMapping = () => {
                     <Translate contentKey="framasaasApp.franchiseBrandMapping.brand">Brand</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('brand')} />
                   </th>
+                  <th className="hand" onClick={sort('createddBy')}>
+                    <Translate contentKey="framasaasApp.franchiseBrandMapping.createddBy">Createdd By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('createdTime')}>
+                    <Translate contentKey="framasaasApp.franchiseBrandMapping.createdTime">Created Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('createdTime')} />
+                  </th>
+                  <th className="hand" onClick={sort('updatedBy')}>
+                    <Translate contentKey="framasaasApp.franchiseBrandMapping.updatedBy">Updated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('updatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('updatedTime')}>
+                    <Translate contentKey="framasaasApp.franchiseBrandMapping.updatedTime">Updated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
+                  </th>
                   <th>
                     <Translate contentKey="framasaasApp.franchiseBrandMapping.franchise">Franchise</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
@@ -156,6 +173,18 @@ export const FranchiseBrandMapping = () => {
                     </td>
                     <td>
                       <Translate contentKey={`framasaasApp.Brand.${franchiseBrandMapping.brand}`} />
+                    </td>
+                    <td>{franchiseBrandMapping.createddBy}</td>
+                    <td>
+                      {franchiseBrandMapping.createdTime ? (
+                        <TextFormat type="date" value={franchiseBrandMapping.createdTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
+                    <td>{franchiseBrandMapping.updatedBy}</td>
+                    <td>
+                      {franchiseBrandMapping.updatedTime ? (
+                        <TextFormat type="date" value={franchiseBrandMapping.updatedTime} format={APP_DATE_FORMAT} />
+                      ) : null}
                     </td>
                     <td>
                       {franchiseBrandMapping.franchise ? (

@@ -15,11 +15,22 @@
     },
     {
       "fieldName": "updatedBy",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "updatedTime",
-      "fieldType": "LocalTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
       "fieldValidateRules": ["required"]
     }
   ],

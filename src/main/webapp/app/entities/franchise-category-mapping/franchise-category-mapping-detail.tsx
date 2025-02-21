@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './franchise-category-mapping.reducer';
@@ -37,6 +38,38 @@ export const FranchiseCategoryMappingDetail = () => {
             </span>
           </dt>
           <dd>{franchiseCategoryMappingEntity.serviceCategory}</dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.franchiseCategoryMapping.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseCategoryMappingEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.franchiseCategoryMapping.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseCategoryMappingEntity.createdTime ? (
+              <TextFormat value={franchiseCategoryMappingEntity.createdTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="updatedBy">
+              <Translate contentKey="framasaasApp.franchiseCategoryMapping.updatedBy">Updated By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseCategoryMappingEntity.updatedBy}</dd>
+          <dt>
+            <span id="updatedTime">
+              <Translate contentKey="framasaasApp.franchiseCategoryMapping.updatedTime">Updated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseCategoryMappingEntity.updatedTime ? (
+              <TextFormat value={franchiseCategoryMappingEntity.updatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
           <dt>
             <Translate contentKey="framasaasApp.franchiseCategoryMapping.franchise">Franchise</Translate>
           </dt>

@@ -59,7 +59,11 @@ public class FranchiseCategoryMappingAsserts {
     ) {
         assertThat(actual)
             .as("Verify FranchiseCategoryMapping relevant properties")
-            .satisfies(a -> assertThat(a.getServiceCategory()).as("check serviceCategory").isEqualTo(expected.getServiceCategory()));
+            .satisfies(a -> assertThat(a.getServiceCategory()).as("check serviceCategory").isEqualTo(expected.getServiceCategory()))
+            .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
+            .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
+            .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
+            .satisfies(a -> assertThat(a.getUpdatedTime()).as("check updatedTime").isEqualTo(expected.getUpdatedTime()));
     }
 
     /**

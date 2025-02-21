@@ -5,6 +5,7 @@ import com.framasaas.be.domain.enumeration.ServiceCategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -30,9 +31,27 @@ public class FranchiseCategoryMapping implements Serializable {
     @Column(name = "service_category", nullable = false)
     private ServiceCategory serviceCategory;
 
+    @NotNull
+    @Column(name = "createdd_by", nullable = false)
+    private String createddBy;
+
+    @NotNull
+    @Column(name = "created_time", nullable = false)
+    private Instant createdTime;
+
+    @NotNull
+    @Column(name = "updated_by", nullable = false)
+    private String updatedBy;
+
+    @NotNull
+    @Column(name = "updated_time", nullable = false)
+    private Instant updatedTime;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        value = {
+            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+        },
         allowSetters = true
     )
     private Franchise franchise;
@@ -63,6 +82,58 @@ public class FranchiseCategoryMapping implements Serializable {
 
     public void setServiceCategory(ServiceCategory serviceCategory) {
         this.serviceCategory = serviceCategory;
+    }
+
+    public String getCreateddBy() {
+        return this.createddBy;
+    }
+
+    public FranchiseCategoryMapping createddBy(String createddBy) {
+        this.setCreateddBy(createddBy);
+        return this;
+    }
+
+    public void setCreateddBy(String createddBy) {
+        this.createddBy = createddBy;
+    }
+
+    public Instant getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public FranchiseCategoryMapping createdTime(Instant createdTime) {
+        this.setCreatedTime(createdTime);
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public FranchiseCategoryMapping updatedBy(String updatedBy) {
+        this.setUpdatedBy(updatedBy);
+        return this;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Instant getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public FranchiseCategoryMapping updatedTime(Instant updatedTime) {
+        this.setUpdatedTime(updatedTime);
+        return this;
+    }
+
+    public void setUpdatedTime(Instant updatedTime) {
+        this.updatedTime = updatedTime;
     }
 
     public Franchise getFranchise() {
@@ -103,6 +174,10 @@ public class FranchiseCategoryMapping implements Serializable {
         return "FranchiseCategoryMapping{" +
             "id=" + getId() +
             ", serviceCategory='" + getServiceCategory() + "'" +
+            ", createddBy='" + getCreateddBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
+            ", updatedBy='" + getUpdatedBy() + "'" +
+            ", updatedTime='" + getUpdatedTime() + "'" +
             "}";
     }
 }

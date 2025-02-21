@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './franchise-document.reducer';
@@ -61,6 +62,38 @@ export const FranchiseDocumentDetail = () => {
             </span>
           </dt>
           <dd>{franchiseDocumentEntity.documentPath}</dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.franchiseDocument.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseDocumentEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.franchiseDocument.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseDocumentEntity.createdTime ? (
+              <TextFormat value={franchiseDocumentEntity.createdTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="updatedBy">
+              <Translate contentKey="framasaasApp.franchiseDocument.updatedBy">Updated By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseDocumentEntity.updatedBy}</dd>
+          <dt>
+            <span id="updatedTime">
+              <Translate contentKey="framasaasApp.franchiseDocument.updatedTime">Updated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseDocumentEntity.updatedTime ? (
+              <TextFormat value={franchiseDocumentEntity.updatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
           <dt>
             <Translate contentKey="framasaasApp.franchiseDocument.franchise">Franchise</Translate>
           </dt>

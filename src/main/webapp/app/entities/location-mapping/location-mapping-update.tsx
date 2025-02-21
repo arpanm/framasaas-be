@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { createEntity, getEntity, updateEntity } from './location-mapping.reducer';
@@ -41,6 +42,8 @@ export const LocationMappingUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    values.createdTime = convertDateTimeToServer(values.createdTime);
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
     const entity = {
       ...locationMappingEntity,
@@ -56,9 +59,14 @@ export const LocationMappingUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          createdTime: displayDefaultDateTime(),
+          updatedTime: displayDefaultDateTime(),
+        }
       : {
           ...locationMappingEntity,
+          createdTime: convertDateTimeFromServer(locationMappingEntity.createdTime),
+          updatedTime: convertDateTimeFromServer(locationMappingEntity.updatedTime),
         };
 
   return (
@@ -92,6 +100,48 @@ export const LocationMappingUpdate = () => {
                 name="locationName"
                 data-cy="locationName"
                 type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.locationMapping.createddBy')}
+                id="location-mapping-createddBy"
+                name="createddBy"
+                data-cy="createddBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.locationMapping.createdTime')}
+                id="location-mapping-createdTime"
+                name="createdTime"
+                data-cy="createdTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.locationMapping.updatedBy')}
+                id="location-mapping-updatedBy"
+                name="updatedBy"
+                data-cy="updatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.locationMapping.updatedTime')}
+                id="location-mapping-updatedTime"
+                name="updatedTime"
+                data-cy="updatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },
                 }}

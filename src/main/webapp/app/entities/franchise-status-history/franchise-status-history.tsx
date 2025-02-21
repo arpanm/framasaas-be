@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, getPaginationState } from 'react-jhipster';
+import { TextFormat, Translate, getPaginationState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
@@ -166,7 +167,11 @@ export const FranchiseStatusHistory = () => {
                       <Translate contentKey={`framasaasApp.FranchiseStatus.${franchiseStatusHistory.franchiseSatus}`} />
                     </td>
                     <td>{franchiseStatusHistory.updatedBy}</td>
-                    <td>{franchiseStatusHistory.updatedTime}</td>
+                    <td>
+                      {franchiseStatusHistory.updatedTime ? (
+                        <TextFormat type="date" value={franchiseStatusHistory.updatedTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
                     <td>
                       {franchiseStatusHistory.franchise ? (
                         <Link to={`/franchise/${franchiseStatusHistory.franchise.id}`}>{franchiseStatusHistory.franchise.id}</Link>

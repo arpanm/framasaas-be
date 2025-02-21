@@ -14,6 +14,8 @@ import com.framasaas.be.domain.enumeration.FranchiseStatus;
 import com.framasaas.be.domain.enumeration.PerformanceTag;
 import com.framasaas.be.repository.FranchiseRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -40,8 +42,8 @@ class FranchiseResourceIT {
     private static final String DEFAULT_OWNER = "AAAAAAAAAA";
     private static final String UPDATED_OWNER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "B@Hd^<.^%l(G'";
-    private static final String UPDATED_EMAIL = "UaJZW@~.N\"cA";
+    private static final String DEFAULT_EMAIL = "&@XId|&j.flg91,";
+    private static final String UPDATED_EMAIL = "qY]@v.f#LA?";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -60,6 +62,18 @@ class FranchiseResourceIT {
 
     private static final PerformanceTag DEFAULT_PERFORMANCE_TAG = PerformanceTag.High;
     private static final PerformanceTag UPDATED_PERFORMANCE_TAG = PerformanceTag.Medium;
+
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/franchises";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -99,7 +113,11 @@ class FranchiseResourceIT {
             .gstNumber(DEFAULT_GST_NUMBER)
             .registrationNumber(DEFAULT_REGISTRATION_NUMBER)
             .performanceScore(DEFAULT_PERFORMANCE_SCORE)
-            .performanceTag(DEFAULT_PERFORMANCE_TAG);
+            .performanceTag(DEFAULT_PERFORMANCE_TAG)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -118,7 +136,11 @@ class FranchiseResourceIT {
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
-            .performanceTag(UPDATED_PERFORMANCE_TAG);
+            .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -223,6 +245,70 @@ class FranchiseResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchise.setCreateddBy(null);
+
+        // Create the Franchise, which fails.
+
+        restFranchiseMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchise)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchise.setCreatedTime(null);
+
+        // Create the Franchise, which fails.
+
+        restFranchiseMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchise)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchise.setUpdatedBy(null);
+
+        // Create the Franchise, which fails.
+
+        restFranchiseMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchise)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchise.setUpdatedTime(null);
+
+        // Create the Franchise, which fails.
+
+        restFranchiseMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchise)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllFranchises() throws Exception {
         // Initialize the database
         insertedFranchise = franchiseRepository.saveAndFlush(franchise);
@@ -241,7 +327,11 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.[*].gstNumber").value(hasItem(DEFAULT_GST_NUMBER)))
             .andExpect(jsonPath("$.[*].registrationNumber").value(hasItem(DEFAULT_REGISTRATION_NUMBER)))
             .andExpect(jsonPath("$.[*].performanceScore").value(hasItem(DEFAULT_PERFORMANCE_SCORE.doubleValue())))
-            .andExpect(jsonPath("$.[*].performanceTag").value(hasItem(DEFAULT_PERFORMANCE_TAG.toString())));
+            .andExpect(jsonPath("$.[*].performanceTag").value(hasItem(DEFAULT_PERFORMANCE_TAG.toString())))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -264,7 +354,11 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.gstNumber").value(DEFAULT_GST_NUMBER))
             .andExpect(jsonPath("$.registrationNumber").value(DEFAULT_REGISTRATION_NUMBER))
             .andExpect(jsonPath("$.performanceScore").value(DEFAULT_PERFORMANCE_SCORE.doubleValue()))
-            .andExpect(jsonPath("$.performanceTag").value(DEFAULT_PERFORMANCE_TAG.toString()));
+            .andExpect(jsonPath("$.performanceTag").value(DEFAULT_PERFORMANCE_TAG.toString()))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -295,7 +389,11 @@ class FranchiseResourceIT {
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
-            .performanceTag(UPDATED_PERFORMANCE_TAG);
+            .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseMockMvc
             .perform(
@@ -375,14 +473,10 @@ class FranchiseResourceIT {
 
         partialUpdatedFranchise
             .franchiseName(UPDATED_FRANCHISE_NAME)
-            .owner(UPDATED_OWNER)
             .email(UPDATED_EMAIL)
-            .contact(UPDATED_CONTACT)
             .franchiseStatus(UPDATED_FRANCHISE_STATUS)
-            .gstNumber(UPDATED_GST_NUMBER)
-            .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceScore(UPDATED_PERFORMANCE_SCORE)
-            .performanceTag(UPDATED_PERFORMANCE_TAG);
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restFranchiseMockMvc
             .perform(
@@ -422,7 +516,11 @@ class FranchiseResourceIT {
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
-            .performanceTag(UPDATED_PERFORMANCE_TAG);
+            .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseMockMvc
             .perform(

@@ -23,6 +23,10 @@
       "documentFormat": "Document Format",
       "documentSize": "Document Size",
       "documentPath": "Document Path",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
       "franchise": "Franchise"
     }
   }

@@ -13,6 +13,8 @@ import com.framasaas.be.domain.FranchiseBrandMapping;
 import com.framasaas.be.domain.enumeration.Brand;
 import com.framasaas.be.repository.FranchiseBrandMappingRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -35,6 +37,18 @@ class FranchiseBrandMappingResourceIT {
 
     private static final Brand DEFAULT_BRAND = Brand.Samsung;
     private static final Brand UPDATED_BRAND = Brand.LG;
+
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/franchise-brand-mappings";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -65,7 +79,12 @@ class FranchiseBrandMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static FranchiseBrandMapping createEntity() {
-        return new FranchiseBrandMapping().brand(DEFAULT_BRAND);
+        return new FranchiseBrandMapping()
+            .brand(DEFAULT_BRAND)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -75,7 +94,12 @@ class FranchiseBrandMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static FranchiseBrandMapping createUpdatedEntity() {
-        return new FranchiseBrandMapping().brand(UPDATED_BRAND);
+        return new FranchiseBrandMapping()
+            .brand(UPDATED_BRAND)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -151,6 +175,70 @@ class FranchiseBrandMappingResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseBrandMapping.setCreateddBy(null);
+
+        // Create the FranchiseBrandMapping, which fails.
+
+        restFranchiseBrandMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseBrandMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseBrandMapping.setCreatedTime(null);
+
+        // Create the FranchiseBrandMapping, which fails.
+
+        restFranchiseBrandMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseBrandMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseBrandMapping.setUpdatedBy(null);
+
+        // Create the FranchiseBrandMapping, which fails.
+
+        restFranchiseBrandMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseBrandMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseBrandMapping.setUpdatedTime(null);
+
+        // Create the FranchiseBrandMapping, which fails.
+
+        restFranchiseBrandMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseBrandMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllFranchiseBrandMappings() throws Exception {
         // Initialize the database
         insertedFranchiseBrandMapping = franchiseBrandMappingRepository.saveAndFlush(franchiseBrandMapping);
@@ -161,7 +249,11 @@ class FranchiseBrandMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(franchiseBrandMapping.getId().intValue())))
-            .andExpect(jsonPath("$.[*].brand").value(hasItem(DEFAULT_BRAND.toString())));
+            .andExpect(jsonPath("$.[*].brand").value(hasItem(DEFAULT_BRAND.toString())))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -176,7 +268,11 @@ class FranchiseBrandMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(franchiseBrandMapping.getId().intValue()))
-            .andExpect(jsonPath("$.brand").value(DEFAULT_BRAND.toString()));
+            .andExpect(jsonPath("$.brand").value(DEFAULT_BRAND.toString()))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -200,7 +296,12 @@ class FranchiseBrandMappingResourceIT {
             .orElseThrow();
         // Disconnect from session so that the updates on updatedFranchiseBrandMapping are not directly saved in db
         em.detach(updatedFranchiseBrandMapping);
-        updatedFranchiseBrandMapping.brand(UPDATED_BRAND);
+        updatedFranchiseBrandMapping
+            .brand(UPDATED_BRAND)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseBrandMappingMockMvc
             .perform(
@@ -280,6 +381,8 @@ class FranchiseBrandMappingResourceIT {
         FranchiseBrandMapping partialUpdatedFranchiseBrandMapping = new FranchiseBrandMapping();
         partialUpdatedFranchiseBrandMapping.setId(franchiseBrandMapping.getId());
 
+        partialUpdatedFranchiseBrandMapping.createddBy(UPDATED_CREATEDD_BY);
+
         restFranchiseBrandMappingMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedFranchiseBrandMapping.getId())
@@ -309,7 +412,12 @@ class FranchiseBrandMappingResourceIT {
         FranchiseBrandMapping partialUpdatedFranchiseBrandMapping = new FranchiseBrandMapping();
         partialUpdatedFranchiseBrandMapping.setId(franchiseBrandMapping.getId());
 
-        partialUpdatedFranchiseBrandMapping.brand(UPDATED_BRAND);
+        partialUpdatedFranchiseBrandMapping
+            .brand(UPDATED_BRAND)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseBrandMappingMockMvc
             .perform(

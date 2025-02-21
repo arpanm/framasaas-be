@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './address.reducer';
@@ -79,6 +80,34 @@ export const AddressDetail = () => {
             </span>
           </dt>
           <dd>{addressEntity.country}</dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.address.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{addressEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.address.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {addressEntity.createdTime ? <TextFormat value={addressEntity.createdTime} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
+          <dt>
+            <span id="updatedBy">
+              <Translate contentKey="framasaasApp.address.updatedBy">Updated By</Translate>
+            </span>
+          </dt>
+          <dd>{addressEntity.updatedBy}</dd>
+          <dt>
+            <span id="updatedTime">
+              <Translate contentKey="framasaasApp.address.updatedTime">Updated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {addressEntity.updatedTime ? <TextFormat value={addressEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
           <dt>
             <Translate contentKey="framasaasApp.address.location">Location</Translate>
           </dt>

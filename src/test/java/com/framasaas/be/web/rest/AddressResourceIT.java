@@ -12,6 +12,8 @@ import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.Address;
 import com.framasaas.be.repository.AddressRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -56,6 +58,18 @@ class AddressResourceIT {
     private static final String DEFAULT_COUNTRY = "AAAAAAAAAA";
     private static final String UPDATED_COUNTRY = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
     private static final String ENTITY_API_URL = "/api/addresses";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -93,7 +107,11 @@ class AddressResourceIT {
             .district(DEFAULT_DISTRICT)
             .pincode(DEFAULT_PINCODE)
             .state(DEFAULT_STATE)
-            .country(DEFAULT_COUNTRY);
+            .country(DEFAULT_COUNTRY)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -111,7 +129,11 @@ class AddressResourceIT {
             .district(UPDATED_DISTRICT)
             .pincode(UPDATED_PINCODE)
             .state(UPDATED_STATE)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -216,6 +238,70 @@ class AddressResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        address.setCreateddBy(null);
+
+        // Create the Address, which fails.
+
+        restAddressMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(address)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        address.setCreatedTime(null);
+
+        // Create the Address, which fails.
+
+        restAddressMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(address)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        address.setUpdatedBy(null);
+
+        // Create the Address, which fails.
+
+        restAddressMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(address)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        address.setUpdatedTime(null);
+
+        // Create the Address, which fails.
+
+        restAddressMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(address)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllAddresses() throws Exception {
         // Initialize the database
         insertedAddress = addressRepository.saveAndFlush(address);
@@ -233,7 +319,11 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.[*].district").value(hasItem(DEFAULT_DISTRICT)))
             .andExpect(jsonPath("$.[*].pincode").value(hasItem(DEFAULT_PINCODE.intValue())))
             .andExpect(jsonPath("$.[*].state").value(hasItem(DEFAULT_STATE)))
-            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)));
+            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -255,7 +345,11 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.district").value(DEFAULT_DISTRICT))
             .andExpect(jsonPath("$.pincode").value(DEFAULT_PINCODE.intValue()))
             .andExpect(jsonPath("$.state").value(DEFAULT_STATE))
-            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY));
+            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -285,7 +379,11 @@ class AddressResourceIT {
             .district(UPDATED_DISTRICT)
             .pincode(UPDATED_PINCODE)
             .state(UPDATED_STATE)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restAddressMockMvc
             .perform(
@@ -361,7 +459,13 @@ class AddressResourceIT {
         Address partialUpdatedAddress = new Address();
         partialUpdatedAddress.setId(address.getId());
 
-        partialUpdatedAddress.address1(UPDATED_ADDRESS_1).area(UPDATED_AREA).state(UPDATED_STATE).country(UPDATED_COUNTRY);
+        partialUpdatedAddress
+            .address1(UPDATED_ADDRESS_1)
+            .address2(UPDATED_ADDRESS_2)
+            .area(UPDATED_AREA)
+            .district(UPDATED_DISTRICT)
+            .state(UPDATED_STATE)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restAddressMockMvc
             .perform(
@@ -397,7 +501,11 @@ class AddressResourceIT {
             .district(UPDATED_DISTRICT)
             .pincode(UPDATED_PINCODE)
             .state(UPDATED_STATE)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restAddressMockMvc
             .perform(

@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
@@ -50,6 +51,8 @@ export const FranchisePerformanceHistoryUpdate = () => {
     if (values.performanceScore !== undefined && typeof values.performanceScore !== 'number') {
       values.performanceScore = Number(values.performanceScore);
     }
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
+    values.createdTime = convertDateTimeToServer(values.createdTime);
 
     const entity = {
       ...franchisePerformanceHistoryEntity,
@@ -66,10 +69,15 @@ export const FranchisePerformanceHistoryUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          updatedTime: displayDefaultDateTime(),
+          createdTime: displayDefaultDateTime(),
+        }
       : {
           performanceTag: 'High',
           ...franchisePerformanceHistoryEntity,
+          updatedTime: convertDateTimeFromServer(franchisePerformanceHistoryEntity.updatedTime),
+          createdTime: convertDateTimeFromServer(franchisePerformanceHistoryEntity.createdTime),
           franchise: franchisePerformanceHistoryEntity?.franchise?.id,
         };
 
@@ -126,14 +134,38 @@ export const FranchisePerformanceHistoryUpdate = () => {
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
               />
               <ValidatedField
                 label={translate('framasaasApp.franchisePerformanceHistory.updatedTime')}
                 id="franchise-performance-history-updatedTime"
                 name="updatedTime"
                 data-cy="updatedTime"
-                type="time"
-                placeholder="HH:mm"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchisePerformanceHistory.createddBy')}
+                id="franchise-performance-history-createddBy"
+                name="createddBy"
+                data-cy="createddBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchisePerformanceHistory.createdTime')}
+                id="franchise-performance-history-createdTime"
+                name="createdTime"
+                data-cy="createdTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },
                 }}

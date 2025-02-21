@@ -48,6 +48,18 @@ public class FranchiseCategoryMappingServiceImpl implements FranchiseCategoryMap
                 if (franchiseCategoryMapping.getServiceCategory() != null) {
                     existingFranchiseCategoryMapping.setServiceCategory(franchiseCategoryMapping.getServiceCategory());
                 }
+                if (franchiseCategoryMapping.getCreateddBy() != null) {
+                    existingFranchiseCategoryMapping.setCreateddBy(franchiseCategoryMapping.getCreateddBy());
+                }
+                if (franchiseCategoryMapping.getCreatedTime() != null) {
+                    existingFranchiseCategoryMapping.setCreatedTime(franchiseCategoryMapping.getCreatedTime());
+                }
+                if (franchiseCategoryMapping.getUpdatedBy() != null) {
+                    existingFranchiseCategoryMapping.setUpdatedBy(franchiseCategoryMapping.getUpdatedBy());
+                }
+                if (franchiseCategoryMapping.getUpdatedTime() != null) {
+                    existingFranchiseCategoryMapping.setUpdatedTime(franchiseCategoryMapping.getUpdatedTime());
+                }
 
                 return existingFranchiseCategoryMapping;
             })

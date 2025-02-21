@@ -13,7 +13,8 @@ import com.framasaas.be.domain.FranchisePerformanceHistory;
 import com.framasaas.be.domain.enumeration.PerformanceTag;
 import com.framasaas.be.repository.FranchisePerformanceHistoryRepository;
 import jakarta.persistence.EntityManager;
-import java.time.LocalTime;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -43,8 +44,14 @@ class FranchisePerformanceHistoryResourceIT {
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
-    private static final LocalTime DEFAULT_UPDATED_TIME = LocalTime.NOON;
-    private static final LocalTime UPDATED_UPDATED_TIME = LocalTime.MAX.withNano(0);
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/franchise-performance-histories";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -79,7 +86,9 @@ class FranchisePerformanceHistoryResourceIT {
             .performanceScore(DEFAULT_PERFORMANCE_SCORE)
             .performanceTag(DEFAULT_PERFORMANCE_TAG)
             .updatedBy(DEFAULT_UPDATED_BY)
-            .updatedTime(DEFAULT_UPDATED_TIME);
+            .updatedTime(DEFAULT_UPDATED_TIME)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME);
     }
 
     /**
@@ -93,7 +102,9 @@ class FranchisePerformanceHistoryResourceIT {
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
             .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .updatedTime(UPDATED_UPDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
     }
 
     @BeforeEach
@@ -157,10 +168,64 @@ class FranchisePerformanceHistoryResourceIT {
 
     @Test
     @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchisePerformanceHistory.setUpdatedBy(null);
+
+        // Create the FranchisePerformanceHistory, which fails.
+
+        restFranchisePerformanceHistoryMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchisePerformanceHistory))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void checkUpdatedTimeIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
         franchisePerformanceHistory.setUpdatedTime(null);
+
+        // Create the FranchisePerformanceHistory, which fails.
+
+        restFranchisePerformanceHistoryMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchisePerformanceHistory))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchisePerformanceHistory.setCreateddBy(null);
+
+        // Create the FranchisePerformanceHistory, which fails.
+
+        restFranchisePerformanceHistoryMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchisePerformanceHistory))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchisePerformanceHistory.setCreatedTime(null);
 
         // Create the FranchisePerformanceHistory, which fails.
 
@@ -188,7 +253,9 @@ class FranchisePerformanceHistoryResourceIT {
             .andExpect(jsonPath("$.[*].performanceScore").value(hasItem(DEFAULT_PERFORMANCE_SCORE.doubleValue())))
             .andExpect(jsonPath("$.[*].performanceTag").value(hasItem(DEFAULT_PERFORMANCE_TAG.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())));
     }
 
     @Test
@@ -206,7 +273,9 @@ class FranchisePerformanceHistoryResourceIT {
             .andExpect(jsonPath("$.performanceScore").value(DEFAULT_PERFORMANCE_SCORE.doubleValue()))
             .andExpect(jsonPath("$.performanceTag").value(DEFAULT_PERFORMANCE_TAG.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
-            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()));
     }
 
     @Test
@@ -234,7 +303,9 @@ class FranchisePerformanceHistoryResourceIT {
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
             .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .updatedTime(UPDATED_UPDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restFranchisePerformanceHistoryMockMvc
             .perform(
@@ -314,7 +385,10 @@ class FranchisePerformanceHistoryResourceIT {
         FranchisePerformanceHistory partialUpdatedFranchisePerformanceHistory = new FranchisePerformanceHistory();
         partialUpdatedFranchisePerformanceHistory.setId(franchisePerformanceHistory.getId());
 
-        partialUpdatedFranchisePerformanceHistory.performanceScore(UPDATED_PERFORMANCE_SCORE).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedFranchisePerformanceHistory
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchisePerformanceHistoryMockMvc
             .perform(
@@ -349,7 +423,9 @@ class FranchisePerformanceHistoryResourceIT {
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
             .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .updatedTime(UPDATED_UPDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restFranchisePerformanceHistoryMockMvc
             .perform(
