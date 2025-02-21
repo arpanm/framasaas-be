@@ -54,7 +54,10 @@ public class Address implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private LocationMapping location;
 
-    @JsonIgnoreProperties(value = { "address", "franchiseStatusHistories", "brands", "categories", "documents" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        allowSetters = true
+    )
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
     private Franchise franchise;
 

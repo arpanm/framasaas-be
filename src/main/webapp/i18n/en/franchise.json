@@ -26,8 +26,10 @@
       "gstNumber": "Gst Number",
       "registrationNumber": "Registration Number",
       "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
       "address": "Address",
       "franchiseStatusHistory": "Franchise Status History",
+      "franchisePerformanceHistory": "Franchise Performance History",
       "brands": "Brands",
       "categories": "Categories",
       "documents": "Documents"

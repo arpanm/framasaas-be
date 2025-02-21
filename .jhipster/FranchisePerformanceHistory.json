@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20250221040159"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "performanceScore",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "performanceTag",
+      "fieldType": "PerformanceTag",
+      "fieldValues": "High,Medium,Low"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "LocalTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchisePerformanceHistory",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

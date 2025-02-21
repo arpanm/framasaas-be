@@ -7,33 +7,12 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity Franchise.
+        Added the entity FranchisePerformanceHistory.
     -->
-    <changeSet id="20250221035619-1" author="jhipster">
-        <createTable tableName="franchise">
+    <changeSet id="20250221040159-1" author="jhipster">
+        <createTable tableName="franchise_performance_history">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="franchise_name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="owner" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="email" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="contact" type="bigint">
-                <constraints nullable="false" />
-            </column>
-            <column name="franchise_status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="gst_number" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="registration_number" type="varchar(255)">
-                <constraints nullable="true" />
             </column>
             <column name="performance_score" type="${floatType}">
                 <constraints nullable="true" />
@@ -41,8 +20,14 @@
             <column name="performance_tag" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="address_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_franchise__address_id" />
+            <column name="updated_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_time" type="${timeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="franchise_id" type="bigint">
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -58,22 +43,17 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20250221035619-1-data" author="jhipster" context="faker">
+    <changeSet id="20250221040159-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/franchise.csv"
+                  file="config/liquibase/fake-data/franchise_performance_history.csv"
                   separator=";"
-                  tableName="franchise"
+                  tableName="franchise_performance_history"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="franchise_name" type="string"/>
-            <column name="owner" type="string"/>
-            <column name="email" type="string"/>
-            <column name="contact" type="numeric"/>
-            <column name="franchise_status" type="string"/>
-            <column name="gst_number" type="string"/>
-            <column name="registration_number" type="string"/>
             <column name="performance_score" type="numeric"/>
             <column name="performance_tag" type="string"/>
+            <column name="updated_by" type="string"/>
+            <column name="updated_time" type="time"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

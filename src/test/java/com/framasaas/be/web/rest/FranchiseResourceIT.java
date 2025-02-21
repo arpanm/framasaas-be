@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.Franchise;
 import com.framasaas.be.domain.enumeration.FranchiseStatus;
+import com.framasaas.be.domain.enumeration.PerformanceTag;
 import com.framasaas.be.repository.FranchiseRepository;
 import jakarta.persistence.EntityManager;
 import java.util.Random;
@@ -39,8 +40,8 @@ class FranchiseResourceIT {
     private static final String DEFAULT_OWNER = "AAAAAAAAAA";
     private static final String UPDATED_OWNER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "R@]{e(!v.Hg";
-    private static final String UPDATED_EMAIL = "X`4+y@hx1{.L";
+    private static final String DEFAULT_EMAIL = "B@Hd^<.^%l(G'";
+    private static final String UPDATED_EMAIL = "UaJZW@~.N\"cA";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -56,6 +57,9 @@ class FranchiseResourceIT {
 
     private static final Float DEFAULT_PERFORMANCE_SCORE = 1F;
     private static final Float UPDATED_PERFORMANCE_SCORE = 2F;
+
+    private static final PerformanceTag DEFAULT_PERFORMANCE_TAG = PerformanceTag.High;
+    private static final PerformanceTag UPDATED_PERFORMANCE_TAG = PerformanceTag.Medium;
 
     private static final String ENTITY_API_URL = "/api/franchises";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -94,7 +98,8 @@ class FranchiseResourceIT {
             .franchiseStatus(DEFAULT_FRANCHISE_STATUS)
             .gstNumber(DEFAULT_GST_NUMBER)
             .registrationNumber(DEFAULT_REGISTRATION_NUMBER)
-            .performanceScore(DEFAULT_PERFORMANCE_SCORE);
+            .performanceScore(DEFAULT_PERFORMANCE_SCORE)
+            .performanceTag(DEFAULT_PERFORMANCE_TAG);
     }
 
     /**
@@ -112,7 +117,8 @@ class FranchiseResourceIT {
             .franchiseStatus(UPDATED_FRANCHISE_STATUS)
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceScore(UPDATED_PERFORMANCE_SCORE);
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .performanceTag(UPDATED_PERFORMANCE_TAG);
     }
 
     @BeforeEach
@@ -234,7 +240,8 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.[*].franchiseStatus").value(hasItem(DEFAULT_FRANCHISE_STATUS.toString())))
             .andExpect(jsonPath("$.[*].gstNumber").value(hasItem(DEFAULT_GST_NUMBER)))
             .andExpect(jsonPath("$.[*].registrationNumber").value(hasItem(DEFAULT_REGISTRATION_NUMBER)))
-            .andExpect(jsonPath("$.[*].performanceScore").value(hasItem(DEFAULT_PERFORMANCE_SCORE.doubleValue())));
+            .andExpect(jsonPath("$.[*].performanceScore").value(hasItem(DEFAULT_PERFORMANCE_SCORE.doubleValue())))
+            .andExpect(jsonPath("$.[*].performanceTag").value(hasItem(DEFAULT_PERFORMANCE_TAG.toString())));
     }
 
     @Test
@@ -256,7 +263,8 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.franchiseStatus").value(DEFAULT_FRANCHISE_STATUS.toString()))
             .andExpect(jsonPath("$.gstNumber").value(DEFAULT_GST_NUMBER))
             .andExpect(jsonPath("$.registrationNumber").value(DEFAULT_REGISTRATION_NUMBER))
-            .andExpect(jsonPath("$.performanceScore").value(DEFAULT_PERFORMANCE_SCORE.doubleValue()));
+            .andExpect(jsonPath("$.performanceScore").value(DEFAULT_PERFORMANCE_SCORE.doubleValue()))
+            .andExpect(jsonPath("$.performanceTag").value(DEFAULT_PERFORMANCE_TAG.toString()));
     }
 
     @Test
@@ -286,7 +294,8 @@ class FranchiseResourceIT {
             .franchiseStatus(UPDATED_FRANCHISE_STATUS)
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceScore(UPDATED_PERFORMANCE_SCORE);
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .performanceTag(UPDATED_PERFORMANCE_TAG);
 
         restFranchiseMockMvc
             .perform(
@@ -366,11 +375,14 @@ class FranchiseResourceIT {
 
         partialUpdatedFranchise
             .franchiseName(UPDATED_FRANCHISE_NAME)
+            .owner(UPDATED_OWNER)
             .email(UPDATED_EMAIL)
             .contact(UPDATED_CONTACT)
+            .franchiseStatus(UPDATED_FRANCHISE_STATUS)
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceScore(UPDATED_PERFORMANCE_SCORE);
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .performanceTag(UPDATED_PERFORMANCE_TAG);
 
         restFranchiseMockMvc
             .perform(
@@ -409,7 +421,8 @@ class FranchiseResourceIT {
             .franchiseStatus(UPDATED_FRANCHISE_STATUS)
             .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceScore(UPDATED_PERFORMANCE_SCORE);
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .performanceTag(UPDATED_PERFORMANCE_TAG);
 
         restFranchiseMockMvc
             .perform(

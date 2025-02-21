@@ -9,9 +9,9 @@ import { ASC, DESC, ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants'
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { getEntities, reset } from './franchise.reducer';
+import { getEntities, reset } from './franchise-performance-history.reducer';
 
-export const Franchise = () => {
+export const FranchisePerformanceHistory = () => {
   const dispatch = useAppDispatch();
 
   const pageLocation = useLocation();
@@ -21,10 +21,10 @@ export const Franchise = () => {
   );
   const [sorting, setSorting] = useState(false);
 
-  const franchiseList = useAppSelector(state => state.franchise.entities);
-  const loading = useAppSelector(state => state.franchise.loading);
-  const links = useAppSelector(state => state.franchise.links);
-  const updateSuccess = useAppSelector(state => state.franchise.updateSuccess);
+  const franchisePerformanceHistoryList = useAppSelector(state => state.franchisePerformanceHistory.entities);
+  const loading = useAppSelector(state => state.franchisePerformanceHistory.loading);
+  const links = useAppSelector(state => state.franchisePerformanceHistory.links);
+  const updateSuccess = useAppSelector(state => state.franchisePerformanceHistory.updateSuccess);
 
   const getAllEntities = () => {
     dispatch(
@@ -101,114 +101,116 @@ export const Franchise = () => {
 
   return (
     <div>
-      <h2 id="franchise-heading" data-cy="FranchiseHeading">
-        <Translate contentKey="framasaasApp.franchise.home.title">Franchises</Translate>
+      <h2 id="franchise-performance-history-heading" data-cy="FranchisePerformanceHistoryHeading">
+        <Translate contentKey="framasaasApp.franchisePerformanceHistory.home.title">Franchise Performance Histories</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="framasaasApp.franchise.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="framasaasApp.franchisePerformanceHistory.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to="/franchise/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link
+            to="/franchise-performance-history/new"
+            className="btn btn-primary jh-create-entity"
+            id="jh-create-entity"
+            data-cy="entityCreateButton"
+          >
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="framasaasApp.franchise.home.createLabel">Create new Franchise</Translate>
+            <Translate contentKey="framasaasApp.franchisePerformanceHistory.home.createLabel">
+              Create new Franchise Performance History
+            </Translate>
           </Link>
         </div>
       </h2>
       <div className="table-responsive">
         <InfiniteScroll
-          dataLength={franchiseList ? franchiseList.length : 0}
+          dataLength={franchisePerformanceHistoryList ? franchisePerformanceHistoryList.length : 0}
           next={handleLoadMore}
           hasMore={paginationState.activePage - 1 < links.next}
           loader={<div className="loader">Loading ...</div>}
         >
-          {franchiseList && franchiseList.length > 0 ? (
+          {franchisePerformanceHistoryList && franchisePerformanceHistoryList.length > 0 ? (
             <Table responsive>
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="framasaasApp.franchise.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
-                  </th>
-                  <th className="hand" onClick={sort('franchiseName')}>
-                    <Translate contentKey="framasaasApp.franchise.franchiseName">Franchise Name</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseName')} />
-                  </th>
-                  <th className="hand" onClick={sort('owner')}>
-                    <Translate contentKey="framasaasApp.franchise.owner">Owner</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('owner')} />
-                  </th>
-                  <th className="hand" onClick={sort('email')}>
-                    <Translate contentKey="framasaasApp.franchise.email">Email</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('email')} />
-                  </th>
-                  <th className="hand" onClick={sort('contact')}>
-                    <Translate contentKey="framasaasApp.franchise.contact">Contact</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('contact')} />
-                  </th>
-                  <th className="hand" onClick={sort('franchiseStatus')}>
-                    <Translate contentKey="framasaasApp.franchise.franchiseStatus">Franchise Status</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseStatus')} />
-                  </th>
-                  <th className="hand" onClick={sort('gstNumber')}>
-                    <Translate contentKey="framasaasApp.franchise.gstNumber">Gst Number</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('gstNumber')} />
-                  </th>
-                  <th className="hand" onClick={sort('registrationNumber')}>
-                    <Translate contentKey="framasaasApp.franchise.registrationNumber">Registration Number</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('registrationNumber')} />
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.id">ID</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                   </th>
                   <th className="hand" onClick={sort('performanceScore')}>
-                    <Translate contentKey="framasaasApp.franchise.performanceScore">Performance Score</Translate>{' '}
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.performanceScore">Performance Score</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('performanceScore')} />
                   </th>
                   <th className="hand" onClick={sort('performanceTag')}>
-                    <Translate contentKey="framasaasApp.franchise.performanceTag">Performance Tag</Translate>{' '}
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.performanceTag">Performance Tag</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('performanceTag')} />
                   </th>
+                  <th className="hand" onClick={sort('updatedBy')}>
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.updatedBy">Updated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('updatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('updatedTime')}>
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.updatedTime">Updated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
+                  </th>
                   <th>
-                    <Translate contentKey="framasaasApp.franchise.address">Address</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.franchise">Franchise</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
               </thead>
               <tbody>
-                {franchiseList.map((franchise, i) => (
+                {franchisePerformanceHistoryList.map((franchisePerformanceHistory, i) => (
                   <tr key={`entity-${i}`} data-cy="entityTable">
                     <td>
-                      <Button tag={Link} to={`/franchise/${franchise.id}`} color="link" size="sm">
-                        {franchise.id}
+                      <Button tag={Link} to={`/franchise-performance-history/${franchisePerformanceHistory.id}`} color="link" size="sm">
+                        {franchisePerformanceHistory.id}
                       </Button>
                     </td>
-                    <td>{franchise.franchiseName}</td>
-                    <td>{franchise.owner}</td>
-                    <td>{franchise.email}</td>
-                    <td>{franchise.contact}</td>
+                    <td>{franchisePerformanceHistory.performanceScore}</td>
                     <td>
-                      <Translate contentKey={`framasaasApp.FranchiseStatus.${franchise.franchiseStatus}`} />
+                      <Translate contentKey={`framasaasApp.PerformanceTag.${franchisePerformanceHistory.performanceTag}`} />
                     </td>
-                    <td>{franchise.gstNumber}</td>
-                    <td>{franchise.registrationNumber}</td>
-                    <td>{franchise.performanceScore}</td>
+                    <td>{franchisePerformanceHistory.updatedBy}</td>
+                    <td>{franchisePerformanceHistory.updatedTime}</td>
                     <td>
-                      <Translate contentKey={`framasaasApp.PerformanceTag.${franchise.performanceTag}`} />
+                      {franchisePerformanceHistory.franchise ? (
+                        <Link to={`/franchise/${franchisePerformanceHistory.franchise.id}`}>
+                          {franchisePerformanceHistory.franchise.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
                     </td>
-                    <td>{franchise.address ? <Link to={`/address/${franchise.address.id}`}>{franchise.address.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`/franchise/${franchise.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                        <Button
+                          tag={Link}
+                          to={`/franchise-performance-history/${franchisePerformanceHistory.id}`}
+                          color="info"
+                          size="sm"
+                          data-cy="entityDetailsButton"
+                        >
                           <FontAwesomeIcon icon="eye" />{' '}
                           <span className="d-none d-md-inline">
                             <Translate contentKey="entity.action.view">View</Translate>
                           </span>
                         </Button>
-                        <Button tag={Link} to={`/franchise/${franchise.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+                        <Button
+                          tag={Link}
+                          to={`/franchise-performance-history/${franchisePerformanceHistory.id}/edit`}
+                          color="primary"
+                          size="sm"
+                          data-cy="entityEditButton"
+                        >
                           <FontAwesomeIcon icon="pencil-alt" />{' '}
                           <span className="d-none d-md-inline">
                             <Translate contentKey="entity.action.edit">Edit</Translate>
                           </span>
                         </Button>
                         <Button
-                          onClick={() => (window.location.href = `/franchise/${franchise.id}/delete`)}
+                          onClick={() => (window.location.href = `/franchise-performance-history/${franchisePerformanceHistory.id}/delete`)}
                           color="danger"
                           size="sm"
                           data-cy="entityDeleteButton"
@@ -227,7 +229,9 @@ export const Franchise = () => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="framasaasApp.franchise.home.notFound">No Franchises found</Translate>
+                <Translate contentKey="framasaasApp.franchisePerformanceHistory.home.notFound">
+                  No Franchise Performance Histories found
+                </Translate>
               </div>
             )
           )}
@@ -237,4 +241,4 @@ export const Franchise = () => {
   );
 };
 
-export default Franchise;
+export default FranchisePerformanceHistory;

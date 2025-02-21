@@ -1,7 +1,7 @@
 package com.framasaas.be.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.framasaas.be.domain.enumeration.FranchiseStatus;
+import com.framasaas.be.domain.enumeration.PerformanceTag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -10,13 +10,13 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * A FranchiseStatusHistory.
+ * A FranchisePerformanceHistory.
  */
 @Entity
-@Table(name = "franchise_status_history")
+@Table(name = "franchise_performance_history")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class FranchiseStatusHistory implements Serializable {
+public class FranchisePerformanceHistory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,13 +26,14 @@ public class FranchiseStatusHistory implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "franchise_satus", nullable = false)
-    private FranchiseStatus franchiseSatus;
+    @Column(name = "performance_score")
+    private Float performanceScore;
 
-    @NotNull
-    @Column(name = "updated_by", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "performance_tag")
+    private PerformanceTag performanceTag;
+
+    @Column(name = "updated_by")
     private String updatedBy;
 
     @NotNull
@@ -52,7 +53,7 @@ public class FranchiseStatusHistory implements Serializable {
         return this.id;
     }
 
-    public FranchiseStatusHistory id(Long id) {
+    public FranchisePerformanceHistory id(Long id) {
         this.setId(id);
         return this;
     }
@@ -61,24 +62,37 @@ public class FranchiseStatusHistory implements Serializable {
         this.id = id;
     }
 
-    public FranchiseStatus getFranchiseSatus() {
-        return this.franchiseSatus;
+    public Float getPerformanceScore() {
+        return this.performanceScore;
     }
 
-    public FranchiseStatusHistory franchiseSatus(FranchiseStatus franchiseSatus) {
-        this.setFranchiseSatus(franchiseSatus);
+    public FranchisePerformanceHistory performanceScore(Float performanceScore) {
+        this.setPerformanceScore(performanceScore);
         return this;
     }
 
-    public void setFranchiseSatus(FranchiseStatus franchiseSatus) {
-        this.franchiseSatus = franchiseSatus;
+    public void setPerformanceScore(Float performanceScore) {
+        this.performanceScore = performanceScore;
+    }
+
+    public PerformanceTag getPerformanceTag() {
+        return this.performanceTag;
+    }
+
+    public FranchisePerformanceHistory performanceTag(PerformanceTag performanceTag) {
+        this.setPerformanceTag(performanceTag);
+        return this;
+    }
+
+    public void setPerformanceTag(PerformanceTag performanceTag) {
+        this.performanceTag = performanceTag;
     }
 
     public String getUpdatedBy() {
         return this.updatedBy;
     }
 
-    public FranchiseStatusHistory updatedBy(String updatedBy) {
+    public FranchisePerformanceHistory updatedBy(String updatedBy) {
         this.setUpdatedBy(updatedBy);
         return this;
     }
@@ -91,7 +105,7 @@ public class FranchiseStatusHistory implements Serializable {
         return this.updatedTime;
     }
 
-    public FranchiseStatusHistory updatedTime(LocalTime updatedTime) {
+    public FranchisePerformanceHistory updatedTime(LocalTime updatedTime) {
         this.setUpdatedTime(updatedTime);
         return this;
     }
@@ -108,7 +122,7 @@ public class FranchiseStatusHistory implements Serializable {
         this.franchise = franchise;
     }
 
-    public FranchiseStatusHistory franchise(Franchise franchise) {
+    public FranchisePerformanceHistory franchise(Franchise franchise) {
         this.setFranchise(franchise);
         return this;
     }
@@ -120,10 +134,10 @@ public class FranchiseStatusHistory implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof FranchiseStatusHistory)) {
+        if (!(o instanceof FranchisePerformanceHistory)) {
             return false;
         }
-        return getId() != null && getId().equals(((FranchiseStatusHistory) o).getId());
+        return getId() != null && getId().equals(((FranchisePerformanceHistory) o).getId());
     }
 
     @Override
@@ -135,9 +149,10 @@ public class FranchiseStatusHistory implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "FranchiseStatusHistory{" +
+        return "FranchisePerformanceHistory{" +
             "id=" + getId() +
-            ", franchiseSatus='" + getFranchiseSatus() + "'" +
+            ", performanceScore=" + getPerformanceScore() +
+            ", performanceTag='" + getPerformanceTag() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", updatedTime='" + getUpdatedTime() + "'" +
             "}";

@@ -69,6 +69,9 @@ public class FranchiseServiceImpl implements FranchiseService {
                 if (franchise.getPerformanceScore() != null) {
                     existingFranchise.setPerformanceScore(franchise.getPerformanceScore());
                 }
+                if (franchise.getPerformanceTag() != null) {
+                    existingFranchise.setPerformanceTag(franchise.getPerformanceTag());
+                }
 
                 return existingFranchise;
             })

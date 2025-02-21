@@ -2,6 +2,7 @@ package com.framasaas.be.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.framasaas.be.domain.enumeration.FranchiseStatus;
+import com.framasaas.be.domain.enumeration.PerformanceTag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -58,6 +59,10 @@ public class Franchise implements Serializable {
     @Column(name = "performance_score")
     private Float performanceScore;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "performance_tag")
+    private PerformanceTag performanceTag;
+
     @JsonIgnoreProperties(value = { "location", "franchise" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
@@ -67,6 +72,11 @@ public class Franchise implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
     private Set<FranchiseStatusHistory> franchiseStatusHistories = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
+    private Set<FranchisePerformanceHistory> franchisePerformanceHistories = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -202,6 +212,19 @@ public class Franchise implements Serializable {
         this.performanceScore = performanceScore;
     }
 
+    public PerformanceTag getPerformanceTag() {
+        return this.performanceTag;
+    }
+
+    public Franchise performanceTag(PerformanceTag performanceTag) {
+        this.setPerformanceTag(performanceTag);
+        return this;
+    }
+
+    public void setPerformanceTag(PerformanceTag performanceTag) {
+        this.performanceTag = performanceTag;
+    }
+
     public Address getAddress() {
         return this.address;
     }
@@ -243,6 +266,37 @@ public class Franchise implements Serializable {
     public Franchise removeFranchiseStatusHistory(FranchiseStatusHistory franchiseStatusHistory) {
         this.franchiseStatusHistories.remove(franchiseStatusHistory);
         franchiseStatusHistory.setFranchise(null);
+        return this;
+    }
+
+    public Set<FranchisePerformanceHistory> getFranchisePerformanceHistories() {
+        return this.franchisePerformanceHistories;
+    }
+
+    public void setFranchisePerformanceHistories(Set<FranchisePerformanceHistory> franchisePerformanceHistories) {
+        if (this.franchisePerformanceHistories != null) {
+            this.franchisePerformanceHistories.forEach(i -> i.setFranchise(null));
+        }
+        if (franchisePerformanceHistories != null) {
+            franchisePerformanceHistories.forEach(i -> i.setFranchise(this));
+        }
+        this.franchisePerformanceHistories = franchisePerformanceHistories;
+    }
+
+    public Franchise franchisePerformanceHistories(Set<FranchisePerformanceHistory> franchisePerformanceHistories) {
+        this.setFranchisePerformanceHistories(franchisePerformanceHistories);
+        return this;
+    }
+
+    public Franchise addFranchisePerformanceHistory(FranchisePerformanceHistory franchisePerformanceHistory) {
+        this.franchisePerformanceHistories.add(franchisePerformanceHistory);
+        franchisePerformanceHistory.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeFranchisePerformanceHistory(FranchisePerformanceHistory franchisePerformanceHistory) {
+        this.franchisePerformanceHistories.remove(franchisePerformanceHistory);
+        franchisePerformanceHistory.setFranchise(null);
         return this;
     }
 
@@ -371,6 +425,7 @@ public class Franchise implements Serializable {
             ", gstNumber='" + getGstNumber() + "'" +
             ", registrationNumber='" + getRegistrationNumber() + "'" +
             ", performanceScore=" + getPerformanceScore() +
+            ", performanceTag='" + getPerformanceTag() + "'" +
             "}";
     }
 }

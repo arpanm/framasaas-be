@@ -362,6 +362,7 @@ class FranchiseDocumentResourceIT {
         partialUpdatedFranchiseDocument
             .documentType(UPDATED_DOCUMENT_TYPE)
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
+            .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH);
 
         restFranchiseDocumentMockMvc

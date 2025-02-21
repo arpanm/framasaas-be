@@ -9,6 +9,7 @@ import FranchiseCategoryMapping from './franchise-category-mapping';
 import Address from './address';
 import LocationMapping from './location-mapping';
 import FranchiseDocument from './franchise-document';
+import FranchisePerformanceHistory from './franchise-performance-history';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -23,6 +24,7 @@ export default () => {
         <Route path="address/*" element={<Address />} />
         <Route path="location-mapping/*" element={<LocationMapping />} />
         <Route path="franchise-document/*" element={<FranchiseDocument />} />
+        <Route path="franchise-performance-history/*" element={<FranchisePerformanceHistory />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>
