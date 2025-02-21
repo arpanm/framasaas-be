@@ -1,0 +1,24 @@
+{
+  "framasaasApp": {
+    "locationMapping": {
+      "home": {
+        "title": "Location Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Location Mapping",
+        "createOrEditLabel": "Create or edit a Location Mapping",
+        "notFound": "No Location Mappings found"
+      },
+      "created": "A new Location Mapping is created with identifier {{ param }}",
+      "updated": "A Location Mapping is updated with identifier {{ param }}",
+      "deleted": "A Location Mapping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Location Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Location Mapping"
+      },
+      "id": "ID",
+      "locationName": "Location Name"
+    }
+  }
+}

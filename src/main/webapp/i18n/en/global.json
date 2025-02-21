@@ -7,7 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "franchise": "Franchise",
+        "franchiseStatusHistory": "Franchise Status History",
+        "franchiseBrandMapping": "Franchise Brand Mapping",
+        "franchiseCategoryMapping": "Franchise Category Mapping",
+        "address": "Address",
+        "locationMapping": "Location Mapping",
+        "franchiseDocument": "Franchise Document"
       },
       "account": {
         "main": "Account",

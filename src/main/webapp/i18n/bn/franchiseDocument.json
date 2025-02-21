@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "franchiseDocument": {
+      "home": {
+        "title": "Franchise Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Franchise Document",
+        "createOrEditLabel": "Create or edit a Franchise Document",
+        "notFound": "No Franchise Documents found"
+      },
+      "created": "A new Franchise Document is created with identifier {{ param }}",
+      "updated": "A Franchise Document is updated with identifier {{ param }}",
+      "deleted": "A Franchise Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Franchise Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Document"
+      },
+      "id": "ID",
+      "documentName": "Document Name",
+      "documentType": "Document Type",
+      "documentFormat": "Document Format",
+      "documentSize": "Document Size",
+      "documentPath": "Document Path",
+      "franchise": "Franchise"
+    }
+  }
+}
