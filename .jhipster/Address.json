@@ -1,0 +1,62 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035623"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "address1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "address2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "district",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pincode",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Address",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "locationMapping",
+      "relationshipName": "location",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "franchise",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

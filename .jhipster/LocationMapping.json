@@ -1,0 +1,18 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035624"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "locationName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "LocationMapping",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
