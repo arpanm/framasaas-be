@@ -7,7 +7,8 @@ entity Franchise {
     franchiseStatus FranchiseStatus,
     gstNumber String,
     registrationNumber String,
-    performanceScore Float
+    performanceScore Float,
+    performanceTag PerformanceTag
 }
 
 enum FranchiseStatus {
@@ -24,6 +25,23 @@ entity FranchiseStatusHistory {
 
 relationship OneToMany {
 	Franchise to FranchiseStatusHistory{franchise}
+}
+
+enum PerformanceTag {
+	High,
+    Medium,
+    Low
+}
+
+entity FranchisePerformanceHistory {
+	performanceScore Float,
+    performanceTag PerformanceTag,
+    updatedBy String,
+    updatedTime LocalTime required
+}
+
+relationship OneToMany {
+	Franchise to FranchisePerformanceHistory{franchise}
 }
 
 entity FranchiseBrandMapping {
