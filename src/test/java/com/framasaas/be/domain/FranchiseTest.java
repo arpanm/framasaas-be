@@ -7,6 +7,7 @@ import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
 import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
+import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -150,5 +151,27 @@ class FranchiseTest {
         franchise.setDocuments(new HashSet<>());
         assertThat(franchise.getDocuments()).doesNotContain(franchiseDocumentBack);
         assertThat(franchiseDocumentBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void franchiseUserTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        FranchiseUser franchiseUserBack = getFranchiseUserRandomSampleGenerator();
+
+        franchise.addFranchiseUser(franchiseUserBack);
+        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeFranchiseUser(franchiseUserBack);
+        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isNull();
+
+        franchise.franchiseUsers(new HashSet<>(Set.of(franchiseUserBack)));
+        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setFranchiseUsers(new HashSet<>());
+        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isNull();
     }
 }

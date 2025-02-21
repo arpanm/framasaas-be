@@ -13,7 +13,8 @@ import com.framasaas.be.domain.FranchiseStatusHistory;
 import com.framasaas.be.domain.enumeration.FranchiseStatus;
 import com.framasaas.be.repository.FranchiseStatusHistoryRepository;
 import jakarta.persistence.EntityManager;
-import java.time.LocalTime;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -40,8 +41,8 @@ class FranchiseStatusHistoryResourceIT {
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
-    private static final LocalTime DEFAULT_UPDATED_TIME = LocalTime.NOON;
-    private static final LocalTime UPDATED_UPDATED_TIME = LocalTime.MAX.withNano(0);
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/franchise-status-histories";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -332,7 +333,10 @@ class FranchiseStatusHistoryResourceIT {
         FranchiseStatusHistory partialUpdatedFranchiseStatusHistory = new FranchiseStatusHistory();
         partialUpdatedFranchiseStatusHistory.setId(franchiseStatusHistory.getId());
 
-        partialUpdatedFranchiseStatusHistory.franchiseSatus(UPDATED_FRANCHISE_SATUS);
+        partialUpdatedFranchiseStatusHistory
+            .franchiseSatus(UPDATED_FRANCHISE_SATUS)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseStatusHistoryMockMvc
             .perform(

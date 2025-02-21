@@ -48,6 +48,18 @@ public class FranchiseBrandMappingServiceImpl implements FranchiseBrandMappingSe
                 if (franchiseBrandMapping.getBrand() != null) {
                     existingFranchiseBrandMapping.setBrand(franchiseBrandMapping.getBrand());
                 }
+                if (franchiseBrandMapping.getCreateddBy() != null) {
+                    existingFranchiseBrandMapping.setCreateddBy(franchiseBrandMapping.getCreateddBy());
+                }
+                if (franchiseBrandMapping.getCreatedTime() != null) {
+                    existingFranchiseBrandMapping.setCreatedTime(franchiseBrandMapping.getCreatedTime());
+                }
+                if (franchiseBrandMapping.getUpdatedBy() != null) {
+                    existingFranchiseBrandMapping.setUpdatedBy(franchiseBrandMapping.getUpdatedBy());
+                }
+                if (franchiseBrandMapping.getUpdatedTime() != null) {
+                    existingFranchiseBrandMapping.setUpdatedTime(franchiseBrandMapping.getUpdatedTime());
+                }
 
                 return existingFranchiseBrandMapping;
             })

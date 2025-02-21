@@ -18,7 +18,11 @@
         "title": "Location Mapping"
       },
       "id": "ID",
-      "locationName": "Location Name"
+      "locationName": "Location Name",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time"
     }
   }
 }

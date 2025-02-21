@@ -48,6 +48,18 @@ public class LocationMappingServiceImpl implements LocationMappingService {
                 if (locationMapping.getLocationName() != null) {
                     existingLocationMapping.setLocationName(locationMapping.getLocationName());
                 }
+                if (locationMapping.getCreateddBy() != null) {
+                    existingLocationMapping.setCreateddBy(locationMapping.getCreateddBy());
+                }
+                if (locationMapping.getCreatedTime() != null) {
+                    existingLocationMapping.setCreatedTime(locationMapping.getCreatedTime());
+                }
+                if (locationMapping.getUpdatedBy() != null) {
+                    existingLocationMapping.setUpdatedBy(locationMapping.getUpdatedBy());
+                }
+                if (locationMapping.getUpdatedTime() != null) {
+                    existingLocationMapping.setUpdatedTime(locationMapping.getUpdatedTime());
+                }
 
                 return existingLocationMapping;
             })

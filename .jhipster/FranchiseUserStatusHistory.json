@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20250221042838"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "userSatus",
+      "fieldType": "FranchiseUserStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PendingApproval,Active,Blocked"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchiseUserStatusHistory",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchiseUser",
+      "relationshipName": "franchiseUser",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

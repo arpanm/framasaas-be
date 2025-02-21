@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './franchise-performance-history.reducer';
@@ -54,7 +55,27 @@ export const FranchisePerformanceHistoryDetail = () => {
               <Translate contentKey="framasaasApp.franchisePerformanceHistory.updatedTime">Updated Time</Translate>
             </span>
           </dt>
-          <dd>{franchisePerformanceHistoryEntity.updatedTime}</dd>
+          <dd>
+            {franchisePerformanceHistoryEntity.updatedTime ? (
+              <TextFormat value={franchisePerformanceHistoryEntity.updatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.franchisePerformanceHistory.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{franchisePerformanceHistoryEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.franchisePerformanceHistory.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchisePerformanceHistoryEntity.createdTime ? (
+              <TextFormat value={franchisePerformanceHistoryEntity.createdTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
           <dt>
             <Translate contentKey="framasaasApp.franchisePerformanceHistory.franchise">Franchise</Translate>
           </dt>

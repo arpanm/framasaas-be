@@ -17,7 +17,9 @@ public class FranchiseTestSamples {
             .email("email1")
             .contact(1L)
             .gstNumber("gstNumber1")
-            .registrationNumber("registrationNumber1");
+            .registrationNumber("registrationNumber1")
+            .createddBy("createddBy1")
+            .updatedBy("updatedBy1");
     }
 
     public static Franchise getFranchiseSample2() {
@@ -28,7 +30,9 @@ public class FranchiseTestSamples {
             .email("email2")
             .contact(2L)
             .gstNumber("gstNumber2")
-            .registrationNumber("registrationNumber2");
+            .registrationNumber("registrationNumber2")
+            .createddBy("createddBy2")
+            .updatedBy("updatedBy2");
     }
 
     public static Franchise getFranchiseRandomSampleGenerator() {
@@ -39,6 +43,8 @@ public class FranchiseTestSamples {
             .email(UUID.randomUUID().toString())
             .contact(longCount.incrementAndGet())
             .gstNumber(UUID.randomUUID().toString())
-            .registrationNumber(UUID.randomUUID().toString());
+            .registrationNumber(UUID.randomUUID().toString())
+            .createddBy(UUID.randomUUID().toString())
+            .updatedBy(UUID.randomUUID().toString());
     }
 }

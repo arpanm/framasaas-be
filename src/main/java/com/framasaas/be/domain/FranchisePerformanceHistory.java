@@ -5,7 +5,7 @@ import com.framasaas.be.domain.enumeration.PerformanceTag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import java.time.LocalTime;
+import java.time.Instant;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -33,16 +33,27 @@ public class FranchisePerformanceHistory implements Serializable {
     @Column(name = "performance_tag")
     private PerformanceTag performanceTag;
 
-    @Column(name = "updated_by")
+    @NotNull
+    @Column(name = "updated_by", nullable = false)
     private String updatedBy;
 
     @NotNull
     @Column(name = "updated_time", nullable = false)
-    private LocalTime updatedTime;
+    private Instant updatedTime;
+
+    @NotNull
+    @Column(name = "createdd_by", nullable = false)
+    private String createddBy;
+
+    @NotNull
+    @Column(name = "created_time", nullable = false)
+    private Instant createdTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        value = {
+            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+        },
         allowSetters = true
     )
     private Franchise franchise;
@@ -101,17 +112,43 @@ public class FranchisePerformanceHistory implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public LocalTime getUpdatedTime() {
+    public Instant getUpdatedTime() {
         return this.updatedTime;
     }
 
-    public FranchisePerformanceHistory updatedTime(LocalTime updatedTime) {
+    public FranchisePerformanceHistory updatedTime(Instant updatedTime) {
         this.setUpdatedTime(updatedTime);
         return this;
     }
 
-    public void setUpdatedTime(LocalTime updatedTime) {
+    public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public String getCreateddBy() {
+        return this.createddBy;
+    }
+
+    public FranchisePerformanceHistory createddBy(String createddBy) {
+        this.setCreateddBy(createddBy);
+        return this;
+    }
+
+    public void setCreateddBy(String createddBy) {
+        this.createddBy = createddBy;
+    }
+
+    public Instant getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public FranchisePerformanceHistory createdTime(Instant createdTime) {
+        this.setCreatedTime(createdTime);
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
     }
 
     public Franchise getFranchise() {
@@ -155,6 +192,8 @@ public class FranchisePerformanceHistory implements Serializable {
             ", performanceTag='" + getPerformanceTag() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", updatedTime='" + getUpdatedTime() + "'" +
+            ", createddBy='" + getCreateddBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
             "}";
     }
 }

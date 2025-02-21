@@ -6,6 +6,7 @@ import com.framasaas.be.domain.enumeration.PerformanceTag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.annotations.Cache;
@@ -63,6 +64,22 @@ public class Franchise implements Serializable {
     @Column(name = "performance_tag")
     private PerformanceTag performanceTag;
 
+    @NotNull
+    @Column(name = "createdd_by", nullable = false)
+    private String createddBy;
+
+    @NotNull
+    @Column(name = "created_time", nullable = false)
+    private Instant createdTime;
+
+    @NotNull
+    @Column(name = "updated_by", nullable = false)
+    private String updatedBy;
+
+    @NotNull
+    @Column(name = "updated_time", nullable = false)
+    private Instant updatedTime;
+
     @JsonIgnoreProperties(value = { "location", "franchise" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
@@ -92,6 +109,11 @@ public class Franchise implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
     private Set<FranchiseDocument> documents = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "franchise" }, allowSetters = true)
+    private Set<FranchiseUser> franchiseUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -223,6 +245,58 @@ public class Franchise implements Serializable {
 
     public void setPerformanceTag(PerformanceTag performanceTag) {
         this.performanceTag = performanceTag;
+    }
+
+    public String getCreateddBy() {
+        return this.createddBy;
+    }
+
+    public Franchise createddBy(String createddBy) {
+        this.setCreateddBy(createddBy);
+        return this;
+    }
+
+    public void setCreateddBy(String createddBy) {
+        this.createddBy = createddBy;
+    }
+
+    public Instant getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public Franchise createdTime(Instant createdTime) {
+        this.setCreatedTime(createdTime);
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public Franchise updatedBy(String updatedBy) {
+        this.setUpdatedBy(updatedBy);
+        return this;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Instant getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public Franchise updatedTime(Instant updatedTime) {
+        this.setUpdatedTime(updatedTime);
+        return this;
+    }
+
+    public void setUpdatedTime(Instant updatedTime) {
+        this.updatedTime = updatedTime;
     }
 
     public Address getAddress() {
@@ -393,6 +467,37 @@ public class Franchise implements Serializable {
         return this;
     }
 
+    public Set<FranchiseUser> getFranchiseUsers() {
+        return this.franchiseUsers;
+    }
+
+    public void setFranchiseUsers(Set<FranchiseUser> franchiseUsers) {
+        if (this.franchiseUsers != null) {
+            this.franchiseUsers.forEach(i -> i.setFranchise(null));
+        }
+        if (franchiseUsers != null) {
+            franchiseUsers.forEach(i -> i.setFranchise(this));
+        }
+        this.franchiseUsers = franchiseUsers;
+    }
+
+    public Franchise franchiseUsers(Set<FranchiseUser> franchiseUsers) {
+        this.setFranchiseUsers(franchiseUsers);
+        return this;
+    }
+
+    public Franchise addFranchiseUser(FranchiseUser franchiseUser) {
+        this.franchiseUsers.add(franchiseUser);
+        franchiseUser.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeFranchiseUser(FranchiseUser franchiseUser) {
+        this.franchiseUsers.remove(franchiseUser);
+        franchiseUser.setFranchise(null);
+        return this;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -426,6 +531,10 @@ public class Franchise implements Serializable {
             ", registrationNumber='" + getRegistrationNumber() + "'" +
             ", performanceScore=" + getPerformanceScore() +
             ", performanceTag='" + getPerformanceTag() + "'" +
+            ", createddBy='" + getCreateddBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
+            ", updatedBy='" + getUpdatedBy() + "'" +
+            ", updatedTime='" + getUpdatedTime() + "'" +
             "}";
     }
 }

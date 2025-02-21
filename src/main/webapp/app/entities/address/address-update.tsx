@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, isNumber, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getLocationMappings } from 'app/entities/location-mapping/location-mapping.reducer';
@@ -48,6 +49,8 @@ export const AddressUpdate = () => {
     if (values.pincode !== undefined && typeof values.pincode !== 'number') {
       values.pincode = Number(values.pincode);
     }
+    values.createdTime = convertDateTimeToServer(values.createdTime);
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
     const entity = {
       ...addressEntity,
@@ -64,9 +67,14 @@ export const AddressUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          createdTime: displayDefaultDateTime(),
+          updatedTime: displayDefaultDateTime(),
+        }
       : {
           ...addressEntity,
+          createdTime: convertDateTimeFromServer(addressEntity.createdTime),
+          updatedTime: convertDateTimeFromServer(addressEntity.updatedTime),
           location: addressEntity?.location?.id,
         };
 
@@ -148,6 +156,48 @@ export const AddressUpdate = () => {
                 name="country"
                 data-cy="country"
                 type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.address.createddBy')}
+                id="address-createddBy"
+                name="createddBy"
+                data-cy="createddBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.address.createdTime')}
+                id="address-createdTime"
+                name="createdTime"
+                data-cy="createdTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.address.updatedBy')}
+                id="address-updatedBy"
+                name="updatedBy"
+                data-cy="updatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.address.updatedTime')}
+                id="address-updatedTime"
+                name="updatedTime"
+                data-cy="updatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
               />
               <ValidatedField
                 id="address-location"

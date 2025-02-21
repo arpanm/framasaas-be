@@ -1,0 +1,33 @@
+{
+  "framasaasApp": {
+    "franchiseUser": {
+      "home": {
+        "title": "Franchise Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Franchise User",
+        "createOrEditLabel": "Create or edit a Franchise User",
+        "notFound": "No Franchise Users found"
+      },
+      "created": "A new Franchise User is created with identifier {{ param }}",
+      "updated": "A Franchise User is updated with identifier {{ param }}",
+      "deleted": "A Franchise User is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Franchise User {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise User"
+      },
+      "id": "ID",
+      "userName": "User Name",
+      "email": "Email",
+      "contact": "Contact",
+      "userStatus": "User Status",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseUserStatusHistory": "Franchise User Status History",
+      "franchise": "Franchise"
+    }
+  }
+}

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -51,11 +52,29 @@ public class Address implements Serializable {
     @Column(name = "country")
     private String country;
 
+    @NotNull
+    @Column(name = "createdd_by", nullable = false)
+    private String createddBy;
+
+    @NotNull
+    @Column(name = "created_time", nullable = false)
+    private Instant createdTime;
+
+    @NotNull
+    @Column(name = "updated_by", nullable = false)
+    private String updatedBy;
+
+    @NotNull
+    @Column(name = "updated_time", nullable = false)
+    private Instant updatedTime;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private LocationMapping location;
 
     @JsonIgnoreProperties(
-        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        value = {
+            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+        },
         allowSetters = true
     )
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
@@ -180,6 +199,58 @@ public class Address implements Serializable {
         this.country = country;
     }
 
+    public String getCreateddBy() {
+        return this.createddBy;
+    }
+
+    public Address createddBy(String createddBy) {
+        this.setCreateddBy(createddBy);
+        return this;
+    }
+
+    public void setCreateddBy(String createddBy) {
+        this.createddBy = createddBy;
+    }
+
+    public Instant getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public Address createdTime(Instant createdTime) {
+        this.setCreatedTime(createdTime);
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public Address updatedBy(String updatedBy) {
+        this.setUpdatedBy(updatedBy);
+        return this;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Instant getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public Address updatedTime(Instant updatedTime) {
+        this.setUpdatedTime(updatedTime);
+        return this;
+    }
+
+    public void setUpdatedTime(Instant updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
     public LocationMapping getLocation() {
         return this.location;
     }
@@ -244,6 +315,10 @@ public class Address implements Serializable {
             ", pincode=" + getPincode() +
             ", state='" + getState() + "'" +
             ", country='" + getCountry() + "'" +
+            ", createddBy='" + getCreateddBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
+            ", updatedBy='" + getUpdatedBy() + "'" +
+            ", updatedTime='" + getUpdatedTime() + "'" +
             "}";
     }
 }

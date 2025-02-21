@@ -4,6 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
@@ -47,6 +48,7 @@ export const FranchiseStatusHistoryUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
     const entity = {
       ...franchiseStatusHistoryEntity,
@@ -63,10 +65,13 @@ export const FranchiseStatusHistoryUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          updatedTime: displayDefaultDateTime(),
+        }
       : {
           franchiseSatus: 'PendingApproval',
           ...franchiseStatusHistoryEntity,
+          updatedTime: convertDateTimeFromServer(franchiseStatusHistoryEntity.updatedTime),
           franchise: franchiseStatusHistoryEntity?.franchise?.id,
         };
 
@@ -125,8 +130,8 @@ export const FranchiseStatusHistoryUpdate = () => {
                 id="franchise-status-history-updatedTime"
                 name="updatedTime"
                 data-cy="updatedTime"
-                type="time"
-                placeholder="HH:mm"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },
                 }}

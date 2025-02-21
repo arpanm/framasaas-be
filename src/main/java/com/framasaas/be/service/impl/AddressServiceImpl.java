@@ -71,6 +71,18 @@ public class AddressServiceImpl implements AddressService {
                 if (address.getCountry() != null) {
                     existingAddress.setCountry(address.getCountry());
                 }
+                if (address.getCreateddBy() != null) {
+                    existingAddress.setCreateddBy(address.getCreateddBy());
+                }
+                if (address.getCreatedTime() != null) {
+                    existingAddress.setCreatedTime(address.getCreatedTime());
+                }
+                if (address.getUpdatedBy() != null) {
+                    existingAddress.setUpdatedBy(address.getUpdatedBy());
+                }
+                if (address.getUpdatedTime() != null) {
+                    existingAddress.setUpdatedTime(address.getUpdatedTime());
+                }
 
                 return existingAddress;
             })

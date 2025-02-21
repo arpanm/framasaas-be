@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, getPaginationState } from 'react-jhipster';
+import { TextFormat, Translate, getPaginationState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
@@ -153,6 +154,14 @@ export const FranchisePerformanceHistory = () => {
                     <Translate contentKey="framasaasApp.franchisePerformanceHistory.updatedTime">Updated Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
+                  <th className="hand" onClick={sort('createddBy')}>
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.createddBy">Createdd By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('createdTime')}>
+                    <Translate contentKey="framasaasApp.franchisePerformanceHistory.createdTime">Created Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('createdTime')} />
+                  </th>
                   <th>
                     <Translate contentKey="framasaasApp.franchisePerformanceHistory.franchise">Franchise</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
@@ -173,7 +182,17 @@ export const FranchisePerformanceHistory = () => {
                       <Translate contentKey={`framasaasApp.PerformanceTag.${franchisePerformanceHistory.performanceTag}`} />
                     </td>
                     <td>{franchisePerformanceHistory.updatedBy}</td>
-                    <td>{franchisePerformanceHistory.updatedTime}</td>
+                    <td>
+                      {franchisePerformanceHistory.updatedTime ? (
+                        <TextFormat type="date" value={franchisePerformanceHistory.updatedTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
+                    <td>{franchisePerformanceHistory.createddBy}</td>
+                    <td>
+                      {franchisePerformanceHistory.createdTime ? (
+                        <TextFormat type="date" value={franchisePerformanceHistory.createdTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
                     <td>
                       {franchisePerformanceHistory.franchise ? (
                         <Link to={`/franchise/${franchisePerformanceHistory.franchise.id}`}>

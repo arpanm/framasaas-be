@@ -27,12 +27,17 @@
       "registrationNumber": "Registration Number",
       "performanceScore": "Performance Score",
       "performanceTag": "Performance Tag",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
       "address": "Address",
       "franchiseStatusHistory": "Franchise Status History",
       "franchisePerformanceHistory": "Franchise Performance History",
       "brands": "Brands",
       "categories": "Categories",
-      "documents": "Documents"
+      "documents": "Documents",
+      "franchiseUser": "Franchise User"
     }
   }
 }

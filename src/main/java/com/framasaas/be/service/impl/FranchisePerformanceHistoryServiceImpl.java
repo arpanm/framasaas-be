@@ -57,6 +57,12 @@ public class FranchisePerformanceHistoryServiceImpl implements FranchisePerforma
                 if (franchisePerformanceHistory.getUpdatedTime() != null) {
                     existingFranchisePerformanceHistory.setUpdatedTime(franchisePerformanceHistory.getUpdatedTime());
                 }
+                if (franchisePerformanceHistory.getCreateddBy() != null) {
+                    existingFranchisePerformanceHistory.setCreateddBy(franchisePerformanceHistory.getCreateddBy());
+                }
+                if (franchisePerformanceHistory.getCreatedTime() != null) {
+                    existingFranchisePerformanceHistory.setCreatedTime(franchisePerformanceHistory.getCreatedTime());
+                }
 
                 return existingFranchisePerformanceHistory;
             })

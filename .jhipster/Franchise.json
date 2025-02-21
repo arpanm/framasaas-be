@@ -47,6 +47,26 @@
       "fieldName": "performanceTag",
       "fieldType": "PerformanceTag",
       "fieldValues": "High,Medium,Low"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
     }
   ],
   "name": "Franchise",
@@ -91,6 +111,13 @@
       "otherEntityName": "franchiseDocument",
       "otherEntityRelationshipName": "franchise",
       "relationshipName": "documents",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseUser",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchiseUser",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     }

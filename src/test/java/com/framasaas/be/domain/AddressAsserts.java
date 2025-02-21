@@ -54,7 +54,11 @@ public class AddressAsserts {
             .satisfies(a -> assertThat(a.getDistrict()).as("check district").isEqualTo(expected.getDistrict()))
             .satisfies(a -> assertThat(a.getPincode()).as("check pincode").isEqualTo(expected.getPincode()))
             .satisfies(a -> assertThat(a.getState()).as("check state").isEqualTo(expected.getState()))
-            .satisfies(a -> assertThat(a.getCountry()).as("check country").isEqualTo(expected.getCountry()));
+            .satisfies(a -> assertThat(a.getCountry()).as("check country").isEqualTo(expected.getCountry()))
+            .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
+            .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
+            .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
+            .satisfies(a -> assertThat(a.getUpdatedTime()).as("check updatedTime").isEqualTo(expected.getUpdatedTime()));
     }
 
     /**

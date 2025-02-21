@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'reactstrap';
-import { Translate } from 'react-jhipster';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { APP_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './location-mapping.reducer';
@@ -37,6 +38,38 @@ export const LocationMappingDetail = () => {
             </span>
           </dt>
           <dd>{locationMappingEntity.locationName}</dd>
+          <dt>
+            <span id="createddBy">
+              <Translate contentKey="framasaasApp.locationMapping.createddBy">Createdd By</Translate>
+            </span>
+          </dt>
+          <dd>{locationMappingEntity.createddBy}</dd>
+          <dt>
+            <span id="createdTime">
+              <Translate contentKey="framasaasApp.locationMapping.createdTime">Created Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {locationMappingEntity.createdTime ? (
+              <TextFormat value={locationMappingEntity.createdTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="updatedBy">
+              <Translate contentKey="framasaasApp.locationMapping.updatedBy">Updated By</Translate>
+            </span>
+          </dt>
+          <dd>{locationMappingEntity.updatedBy}</dd>
+          <dt>
+            <span id="updatedTime">
+              <Translate contentKey="framasaasApp.locationMapping.updatedTime">Updated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {locationMappingEntity.updatedTime ? (
+              <TextFormat value={locationMappingEntity.updatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
         </dl>
         <Button tag={Link} to="/location-mapping" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

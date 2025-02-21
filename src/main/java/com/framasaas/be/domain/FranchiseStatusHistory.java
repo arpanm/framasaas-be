@@ -5,7 +5,7 @@ import com.framasaas.be.domain.enumeration.FranchiseStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import java.time.LocalTime;
+import java.time.Instant;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -37,11 +37,13 @@ public class FranchiseStatusHistory implements Serializable {
 
     @NotNull
     @Column(name = "updated_time", nullable = false)
-    private LocalTime updatedTime;
+    private Instant updatedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        value = {
+            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+        },
         allowSetters = true
     )
     private Franchise franchise;
@@ -87,16 +89,16 @@ public class FranchiseStatusHistory implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public LocalTime getUpdatedTime() {
+    public Instant getUpdatedTime() {
         return this.updatedTime;
     }
 
-    public FranchiseStatusHistory updatedTime(LocalTime updatedTime) {
+    public FranchiseStatusHistory updatedTime(Instant updatedTime) {
         this.setUpdatedTime(updatedTime);
         return this;
     }
 
-    public void setUpdatedTime(LocalTime updatedTime) {
+    public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
     }
 

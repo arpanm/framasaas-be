@@ -60,6 +60,18 @@ public class FranchiseDocumentServiceImpl implements FranchiseDocumentService {
                 if (franchiseDocument.getDocumentPath() != null) {
                     existingFranchiseDocument.setDocumentPath(franchiseDocument.getDocumentPath());
                 }
+                if (franchiseDocument.getCreateddBy() != null) {
+                    existingFranchiseDocument.setCreateddBy(franchiseDocument.getCreateddBy());
+                }
+                if (franchiseDocument.getCreatedTime() != null) {
+                    existingFranchiseDocument.setCreatedTime(franchiseDocument.getCreatedTime());
+                }
+                if (franchiseDocument.getUpdatedBy() != null) {
+                    existingFranchiseDocument.setUpdatedBy(franchiseDocument.getUpdatedBy());
+                }
+                if (franchiseDocument.getUpdatedTime() != null) {
+                    existingFranchiseDocument.setUpdatedTime(franchiseDocument.getUpdatedTime());
+                }
 
                 return existingFranchiseDocument;
             })

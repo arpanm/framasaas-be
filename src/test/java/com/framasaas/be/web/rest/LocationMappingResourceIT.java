@@ -12,6 +12,8 @@ import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.LocationMapping;
 import com.framasaas.be.repository.LocationMappingRepository;
 import jakarta.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
@@ -34,6 +36,18 @@ class LocationMappingResourceIT {
 
     private static final String DEFAULT_LOCATION_NAME = "AAAAAAAAAA";
     private static final String UPDATED_LOCATION_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_UPDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_UPDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String ENTITY_API_URL = "/api/location-mappings";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -64,7 +78,12 @@ class LocationMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static LocationMapping createEntity() {
-        return new LocationMapping().locationName(DEFAULT_LOCATION_NAME);
+        return new LocationMapping()
+            .locationName(DEFAULT_LOCATION_NAME)
+            .createddBy(DEFAULT_CREATEDD_BY)
+            .createdTime(DEFAULT_CREATED_TIME)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -74,7 +93,12 @@ class LocationMappingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static LocationMapping createUpdatedEntity() {
-        return new LocationMapping().locationName(UPDATED_LOCATION_NAME);
+        return new LocationMapping()
+            .locationName(UPDATED_LOCATION_NAME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -147,6 +171,70 @@ class LocationMappingResourceIT {
 
     @Test
     @Transactional
+    void checkCreateddByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        locationMapping.setCreateddBy(null);
+
+        // Create the LocationMapping, which fails.
+
+        restLocationMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(locationMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkCreatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        locationMapping.setCreatedTime(null);
+
+        // Create the LocationMapping, which fails.
+
+        restLocationMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(locationMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        locationMapping.setUpdatedBy(null);
+
+        // Create the LocationMapping, which fails.
+
+        restLocationMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(locationMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkUpdatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        locationMapping.setUpdatedTime(null);
+
+        // Create the LocationMapping, which fails.
+
+        restLocationMappingMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(locationMapping)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllLocationMappings() throws Exception {
         // Initialize the database
         insertedLocationMapping = locationMappingRepository.saveAndFlush(locationMapping);
@@ -157,7 +245,11 @@ class LocationMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(locationMapping.getId().intValue())))
-            .andExpect(jsonPath("$.[*].locationName").value(hasItem(DEFAULT_LOCATION_NAME)));
+            .andExpect(jsonPath("$.[*].locationName").value(hasItem(DEFAULT_LOCATION_NAME)))
+            .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
+            .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
 
     @Test
@@ -172,7 +264,11 @@ class LocationMappingResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(locationMapping.getId().intValue()))
-            .andExpect(jsonPath("$.locationName").value(DEFAULT_LOCATION_NAME));
+            .andExpect(jsonPath("$.locationName").value(DEFAULT_LOCATION_NAME))
+            .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
+            .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
 
     @Test
@@ -194,7 +290,12 @@ class LocationMappingResourceIT {
         LocationMapping updatedLocationMapping = locationMappingRepository.findById(locationMapping.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedLocationMapping are not directly saved in db
         em.detach(updatedLocationMapping);
-        updatedLocationMapping.locationName(UPDATED_LOCATION_NAME);
+        updatedLocationMapping
+            .locationName(UPDATED_LOCATION_NAME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restLocationMappingMockMvc
             .perform(
@@ -274,7 +375,7 @@ class LocationMappingResourceIT {
         LocationMapping partialUpdatedLocationMapping = new LocationMapping();
         partialUpdatedLocationMapping.setId(locationMapping.getId());
 
-        partialUpdatedLocationMapping.locationName(UPDATED_LOCATION_NAME);
+        partialUpdatedLocationMapping.locationName(UPDATED_LOCATION_NAME).createdTime(UPDATED_CREATED_TIME).updatedBy(UPDATED_UPDATED_BY);
 
         restLocationMappingMockMvc
             .perform(
@@ -305,7 +406,12 @@ class LocationMappingResourceIT {
         LocationMapping partialUpdatedLocationMapping = new LocationMapping();
         partialUpdatedLocationMapping.setId(locationMapping.getId());
 
-        partialUpdatedLocationMapping.locationName(UPDATED_LOCATION_NAME);
+        partialUpdatedLocationMapping
+            .locationName(UPDATED_LOCATION_NAME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restLocationMappingMockMvc
             .perform(

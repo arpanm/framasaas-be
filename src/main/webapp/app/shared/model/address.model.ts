@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { ILocationMapping } from 'app/shared/model/location-mapping.model';
 
 export interface IAddress {
@@ -10,6 +11,10 @@ export interface IAddress {
   pincode?: number;
   state?: string | null;
   country?: string | null;
+  createddBy?: string;
+  createdTime?: dayjs.Dayjs;
+  updatedBy?: string;
+  updatedTime?: dayjs.Dayjs;
   location?: ILocationMapping | null;
 }
 

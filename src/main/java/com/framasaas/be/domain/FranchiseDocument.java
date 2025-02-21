@@ -6,6 +6,7 @@ import com.framasaas.be.domain.enumeration.DocumentType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -47,9 +48,27 @@ public class FranchiseDocument implements Serializable {
     @Column(name = "document_path", nullable = false)
     private String documentPath;
 
+    @NotNull
+    @Column(name = "createdd_by", nullable = false)
+    private String createddBy;
+
+    @NotNull
+    @Column(name = "created_time", nullable = false)
+    private Instant createdTime;
+
+    @NotNull
+    @Column(name = "updated_by", nullable = false)
+    private String updatedBy;
+
+    @NotNull
+    @Column(name = "updated_time", nullable = false)
+    private Instant updatedTime;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents" },
+        value = {
+            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+        },
         allowSetters = true
     )
     private Franchise franchise;
@@ -134,6 +153,58 @@ public class FranchiseDocument implements Serializable {
         this.documentPath = documentPath;
     }
 
+    public String getCreateddBy() {
+        return this.createddBy;
+    }
+
+    public FranchiseDocument createddBy(String createddBy) {
+        this.setCreateddBy(createddBy);
+        return this;
+    }
+
+    public void setCreateddBy(String createddBy) {
+        this.createddBy = createddBy;
+    }
+
+    public Instant getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public FranchiseDocument createdTime(Instant createdTime) {
+        this.setCreatedTime(createdTime);
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public FranchiseDocument updatedBy(String updatedBy) {
+        this.setUpdatedBy(updatedBy);
+        return this;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Instant getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public FranchiseDocument updatedTime(Instant updatedTime) {
+        this.setUpdatedTime(updatedTime);
+        return this;
+    }
+
+    public void setUpdatedTime(Instant updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
     public Franchise getFranchise() {
         return this.franchise;
     }
@@ -176,6 +247,10 @@ public class FranchiseDocument implements Serializable {
             ", documentFormat='" + getDocumentFormat() + "'" +
             ", documentSize=" + getDocumentSize() +
             ", documentPath='" + getDocumentPath() + "'" +
+            ", createddBy='" + getCreateddBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
+            ", updatedBy='" + getUpdatedBy() + "'" +
+            ", updatedTime='" + getUpdatedTime() + "'" +
             "}";
     }
 }
