@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035126"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "documentName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "documentType",
+      "fieldType": "DocumentType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "AddressProof,RegistrationProof,CancelledCheque,AdditionalImages,Others"
+    },
+    {
+      "fieldName": "documentFormat",
+      "fieldType": "DocumentFormat",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PdfFormat,JpgFormat,Other"
+    },
+    {
+      "fieldName": "documentSize",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "documentPath",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchiseDocument",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

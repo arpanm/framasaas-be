@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "DocumentFormat": {
+      "null": "",
+      "PdfFormat": "PdfFormat",
+      "JpgFormat": "JpgFormat",
+      "Other": "Other"
+    }
+  }
+}

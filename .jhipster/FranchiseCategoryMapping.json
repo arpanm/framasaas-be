@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035123"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "serviceCategory",
+      "fieldType": "ServiceCategory",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "AC,TV,Refrigerator,WashingMachine,Phone,Tablet,Laptop,Other"
+    }
+  ],
+  "name": "FranchiseCategoryMapping",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

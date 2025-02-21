@@ -1,0 +1,12 @@
+{
+  "framasaasApp": {
+    "DocumentType": {
+      "null": "",
+      "AddressProof": "AddressProof",
+      "RegistrationProof": "RegistrationProof",
+      "CancelledCheque": "CancelledCheque",
+      "AdditionalImages": "AdditionalImages",
+      "Others": "Others"
+    }
+  }
+}

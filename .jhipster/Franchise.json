@@ -1,0 +1,88 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035120"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "franchiseName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "owner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern", "required"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "Long",
+      "fieldValidateRules": ["min", "max", "required"],
+      "fieldValidateRulesMax": "9999999999",
+      "fieldValidateRulesMin": "1000000000"
+    },
+    {
+      "fieldName": "franchiseStatus",
+      "fieldType": "FranchiseStatus",
+      "fieldValues": "PendingApproval,Active,Blocked"
+    },
+    {
+      "fieldName": "gstNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "registrationNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "performanceScore",
+      "fieldType": "Float"
+    }
+  ],
+  "name": "Franchise",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "address",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "franchiseStatusHistory",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchiseStatusHistory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseBrandMapping",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchiseBrandMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseCategoryMapping",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchiseCategoryMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseDocument",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchiseDocument",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
