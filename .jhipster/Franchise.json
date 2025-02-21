@@ -42,6 +42,11 @@
     {
       "fieldName": "performanceScore",
       "fieldType": "Float"
+    },
+    {
+      "fieldName": "performanceTag",
+      "fieldType": "PerformanceTag",
+      "fieldValues": "High,Medium,Low"
     }
   ],
   "name": "Franchise",
@@ -58,6 +63,13 @@
       "otherEntityName": "franchiseStatusHistory",
       "otherEntityRelationshipName": "franchise",
       "relationshipName": "franchiseStatusHistory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchisePerformanceHistory",
+      "otherEntityRelationshipName": "franchise",
+      "relationshipName": "franchisePerformanceHistory",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

@@ -4,6 +4,7 @@ import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.FranchiseBrandMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseCategoryMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
+import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,6 +62,28 @@ class FranchiseTest {
         franchise.setFranchiseStatusHistories(new HashSet<>());
         assertThat(franchise.getFranchiseStatusHistories()).doesNotContain(franchiseStatusHistoryBack);
         assertThat(franchiseStatusHistoryBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void franchisePerformanceHistoryTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        FranchisePerformanceHistory franchisePerformanceHistoryBack = getFranchisePerformanceHistoryRandomSampleGenerator();
+
+        franchise.addFranchisePerformanceHistory(franchisePerformanceHistoryBack);
+        assertThat(franchise.getFranchisePerformanceHistories()).containsOnly(franchisePerformanceHistoryBack);
+        assertThat(franchisePerformanceHistoryBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeFranchisePerformanceHistory(franchisePerformanceHistoryBack);
+        assertThat(franchise.getFranchisePerformanceHistories()).doesNotContain(franchisePerformanceHistoryBack);
+        assertThat(franchisePerformanceHistoryBack.getFranchise()).isNull();
+
+        franchise.franchisePerformanceHistories(new HashSet<>(Set.of(franchisePerformanceHistoryBack)));
+        assertThat(franchise.getFranchisePerformanceHistories()).containsOnly(franchisePerformanceHistoryBack);
+        assertThat(franchisePerformanceHistoryBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setFranchisePerformanceHistories(new HashSet<>());
+        assertThat(franchise.getFranchisePerformanceHistories()).doesNotContain(franchisePerformanceHistoryBack);
+        assertThat(franchisePerformanceHistoryBack.getFranchise()).isNull();
     }
 
     @Test

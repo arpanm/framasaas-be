@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { FranchiseStatus } from 'app/shared/model/enumerations/franchise-status.model';
+import { PerformanceTag } from 'app/shared/model/enumerations/performance-tag.model';
 import { createEntity, getEntity, updateEntity } from './franchise.reducer';
 
 export const FranchiseUpdate = () => {
@@ -24,6 +25,7 @@ export const FranchiseUpdate = () => {
   const updating = useAppSelector(state => state.franchise.updating);
   const updateSuccess = useAppSelector(state => state.franchise.updateSuccess);
   const franchiseStatusValues = Object.keys(FranchiseStatus);
+  const performanceTagValues = Object.keys(PerformanceTag);
 
   const handleClose = () => {
     navigate('/franchise');
@@ -72,6 +74,7 @@ export const FranchiseUpdate = () => {
       ? {}
       : {
           franchiseStatus: 'PendingApproval',
+          performanceTag: 'High',
           ...franchiseEntity,
           address: franchiseEntity?.address?.id,
         };
@@ -179,6 +182,19 @@ export const FranchiseUpdate = () => {
                 data-cy="performanceScore"
                 type="text"
               />
+              <ValidatedField
+                label={translate('framasaasApp.franchise.performanceTag')}
+                id="franchise-performanceTag"
+                name="performanceTag"
+                data-cy="performanceTag"
+                type="select"
+              >
+                {performanceTagValues.map(performanceTag => (
+                  <option value={performanceTag} key={performanceTag}>
+                    {translate(`framasaasApp.PerformanceTag.${performanceTag}`)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 id="franchise-address"
                 name="address"

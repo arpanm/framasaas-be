@@ -5,6 +5,7 @@ import franchiseCategoryMapping from 'app/entities/franchise-category-mapping/fr
 import address from 'app/entities/address/address.reducer';
 import locationMapping from 'app/entities/location-mapping/location-mapping.reducer';
 import franchiseDocument from 'app/entities/franchise-document/franchise-document.reducer';
+import franchisePerformanceHistory from 'app/entities/franchise-performance-history/franchise-performance-history.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -15,6 +16,7 @@ const entitiesReducers = {
   address,
   locationMapping,
   franchiseDocument,
+  franchisePerformanceHistory,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

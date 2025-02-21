@@ -80,6 +80,12 @@ export const FranchiseDetail = () => {
           </dt>
           <dd>{franchiseEntity.performanceScore}</dd>
           <dt>
+            <span id="performanceTag">
+              <Translate contentKey="framasaasApp.franchise.performanceTag">Performance Tag</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseEntity.performanceTag}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.franchise.address">Address</Translate>
           </dt>
           <dd>{franchiseEntity.address ? franchiseEntity.address.id : ''}</dd>

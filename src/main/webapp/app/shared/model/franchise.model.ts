@@ -1,5 +1,6 @@
 import { IAddress } from 'app/shared/model/address.model';
 import { FranchiseStatus } from 'app/shared/model/enumerations/franchise-status.model';
+import { PerformanceTag } from 'app/shared/model/enumerations/performance-tag.model';
 
 export interface IFranchise {
   id?: number;
@@ -11,6 +12,7 @@ export interface IFranchise {
   gstNumber?: string | null;
   registrationNumber?: string | null;
   performanceScore?: number | null;
+  performanceTag?: keyof typeof PerformanceTag | null;
   address?: IAddress | null;
 }
 

@@ -1,0 +1,28 @@
+{
+  "framasaasApp": {
+    "franchisePerformanceHistory": {
+      "home": {
+        "title": "Franchise Performance Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Franchise Performance History",
+        "createOrEditLabel": "Create or edit a Franchise Performance History",
+        "notFound": "No Franchise Performance Histories found"
+      },
+      "created": "A new Franchise Performance History is created with identifier {{ param }}",
+      "updated": "A Franchise Performance History is updated with identifier {{ param }}",
+      "deleted": "A Franchise Performance History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Franchise Performance History {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Performance History"
+      },
+      "id": "ID",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise"
+    }
+  }
+}

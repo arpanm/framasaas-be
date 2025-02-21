@@ -332,6 +332,8 @@ class FranchiseStatusHistoryResourceIT {
         FranchiseStatusHistory partialUpdatedFranchiseStatusHistory = new FranchiseStatusHistory();
         partialUpdatedFranchiseStatusHistory.setId(franchiseStatusHistory.getId());
 
+        partialUpdatedFranchiseStatusHistory.franchiseSatus(UPDATED_FRANCHISE_SATUS);
+
         restFranchiseStatusHistoryMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedFranchiseStatusHistory.getId())

@@ -26,6 +26,7 @@
     <include file="config/liquibase/changelog/20250221035623_added_entity_Address.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035624_added_entity_LocationMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035625_added_entity_FranchiseDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250221040159_added_entity_FranchisePerformanceHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20250221035619_added_entity_constraints_Franchise.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035620_added_entity_constraints_FranchiseStatusHistory.xml" relativeToChangelogFile="false"/>
@@ -33,6 +34,7 @@
     <include file="config/liquibase/changelog/20250221035622_added_entity_constraints_FranchiseCategoryMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035623_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035625_added_entity_constraints_FranchiseDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250221040159_added_entity_constraints_FranchisePerformanceHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

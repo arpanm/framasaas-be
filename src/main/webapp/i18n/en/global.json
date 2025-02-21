@@ -14,7 +14,8 @@
         "franchiseCategoryMapping": "Franchise Category Mapping",
         "address": "Address",
         "locationMapping": "Location Mapping",
-        "franchiseDocument": "Franchise Document"
+        "franchiseDocument": "Franchise Document",
+        "franchisePerformanceHistory": "Franchise Performance History"
       },
       "account": {
         "main": "Account",

@@ -55,7 +55,8 @@ public class FranchiseAsserts {
             .satisfies(a -> assertThat(a.getGstNumber()).as("check gstNumber").isEqualTo(expected.getGstNumber()))
             .satisfies(a -> assertThat(a.getRegistrationNumber()).as("check registrationNumber").isEqualTo(expected.getRegistrationNumber())
             )
-            .satisfies(a -> assertThat(a.getPerformanceScore()).as("check performanceScore").isEqualTo(expected.getPerformanceScore()));
+            .satisfies(a -> assertThat(a.getPerformanceScore()).as("check performanceScore").isEqualTo(expected.getPerformanceScore()))
+            .satisfies(a -> assertThat(a.getPerformanceTag()).as("check performanceTag").isEqualTo(expected.getPerformanceTag()));
     }
 
     /**
