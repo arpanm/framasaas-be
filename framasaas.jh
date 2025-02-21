@@ -1,0 +1,120 @@
+
+entity Franchise {
+	name String required,
+    owner String,
+    email String,
+    contact Long min(1000000000) max(9999999999) required,
+    status Status,
+    gstNumber String,
+    registrationNumber String,
+    performanceScore Float
+}
+
+enum Status {
+	PendingApproval,
+    Active,
+    Blocked
+}
+
+entity FranchiseStatusHistory {
+	status Status required,
+    updatedBy String required,
+    updatedTime LocalTime required
+}
+
+relationship OneToMany {
+	Franchise to FranchiseStatusHistory{franchise}
+}
+
+entity FranchiseBrandMapping {
+	brand Brand required
+}
+
+enum Brand {
+	Samsung,
+    LG,
+    Hitachi,
+    BPL,
+    Kelvinator,
+    Sony,
+    Other
+}
+
+relationship OneToMany {
+	Franchise to FranchiseBrandMapping{franchise}
+}
+
+entity FranchiseCategoryMapping {
+	category Category required
+}
+
+enum Category {
+	AC,
+    TV,
+    Refrigerator,
+    WashingMachine,
+    Phone,
+    Tablet,
+    Laptop,
+  	Other
+}
+
+relationship OneToMany {
+	Franchise to FranchiseCategoryMapping{franchise}
+}
+
+entity Location {
+	address1 String required,
+    address2 String,
+    city String required,
+    area String,
+    district String,
+    pincode Long required,
+    state String,
+    country String
+}
+
+entity LocationMapping {
+	name String required
+}
+
+relationship ManyToOne {
+	Location{location} to LocationMapping
+}
+
+relationship OneToOne {
+	Franchise{address} to Location{franchise}
+}
+
+entity FranchiseDocument {
+	name String required,
+    type DocumentType required,
+    format DocumentFormat required,
+    size Long,
+    path String required
+}
+
+enum DocumentType {
+	AddressProof,
+    RegistrationProof,
+    CancelledCheque,
+    AdditionalImages,
+    Others
+}
+
+enum DocumentFormat {
+	PDF,
+    JPG,
+    Other
+}
+
+relationship OneToMany {
+	Franchise to FranchiseDocument{franchise}
+}
+
+
+// Set pagination options
+paginate all with infinite-scroll
+
+// Set service options to all except few
+service all with serviceImpl
