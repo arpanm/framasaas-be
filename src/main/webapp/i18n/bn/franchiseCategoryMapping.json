@@ -1,0 +1,25 @@
+{
+  "framasaasApp": {
+    "franchiseCategoryMapping": {
+      "home": {
+        "title": "Franchise Category Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Franchise Category Mapping",
+        "createOrEditLabel": "Create or edit a Franchise Category Mapping",
+        "notFound": "No Franchise Category Mappings found"
+      },
+      "created": "A new Franchise Category Mapping is created with identifier {{ param }}",
+      "updated": "A Franchise Category Mapping is updated with identifier {{ param }}",
+      "deleted": "A Franchise Category Mapping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Franchise Category Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Category Mapping"
+      },
+      "id": "ID",
+      "serviceCategory": "Service Category",
+      "franchise": "Franchise"
+    }
+  }
+}

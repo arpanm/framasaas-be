@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035322"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "franchiseSatus",
+      "fieldType": "FranchiseStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PendingApproval,Active,Blocked"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "LocalTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchiseStatusHistory",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

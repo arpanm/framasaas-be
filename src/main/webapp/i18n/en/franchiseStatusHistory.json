@@ -1,0 +1,27 @@
+{
+  "framasaasApp": {
+    "franchiseStatusHistory": {
+      "home": {
+        "title": "Franchise Status Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Franchise Status History",
+        "createOrEditLabel": "Create or edit a Franchise Status History",
+        "notFound": "No Franchise Status Histories found"
+      },
+      "created": "A new Franchise Status History is created with identifier {{ param }}",
+      "updated": "A Franchise Status History is updated with identifier {{ param }}",
+      "deleted": "A Franchise Status History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Franchise Status History {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Status History"
+      },
+      "id": "ID",
+      "franchiseSatus": "Franchise Satus",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise"
+    }
+  }
+}

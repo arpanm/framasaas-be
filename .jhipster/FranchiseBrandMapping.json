@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20250221035323"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "brand",
+      "fieldType": "Brand",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Samsung,LG,Hitachi,BPL,Kelvinator,Sony,Other"
+    }
+  ],
+  "name": "FranchiseBrandMapping",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "otherEntityRelationshipName": "brands",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

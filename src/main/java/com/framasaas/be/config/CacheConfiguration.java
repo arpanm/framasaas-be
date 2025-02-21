@@ -50,6 +50,17 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.User.class.getName());
             createCache(cm, com.framasaas.be.domain.Authority.class.getName());
             createCache(cm, com.framasaas.be.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName());
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".franchiseStatusHistories");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".brands");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".franchiseCategoryMappings");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".franchiseDocuments");
+            createCache(cm, com.framasaas.be.domain.FranchiseStatusHistory.class.getName());
+            createCache(cm, com.framasaas.be.domain.FranchiseBrandMapping.class.getName());
+            createCache(cm, com.framasaas.be.domain.FranchiseCategoryMapping.class.getName());
+            createCache(cm, com.framasaas.be.domain.Address.class.getName());
+            createCache(cm, com.framasaas.be.domain.LocationMapping.class.getName());
+            createCache(cm, com.framasaas.be.domain.FranchiseDocument.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
