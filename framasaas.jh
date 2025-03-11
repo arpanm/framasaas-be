@@ -225,6 +225,8 @@ entity Pincode {
     updatedTime Instant required
 }
 
+
+
 entity FranchiseAllocationRuleSet {
 	name String required,
     sortType FranchiseAllocationRuleSetSortType required,
@@ -255,7 +257,8 @@ enum FranchiseAllocationRuleType {
 	BRANDRULE,
     CATEGORYRULE,
     PINCODERULE,
-    LOCALITYRULE
+    LOCATIONRULE,
+    LANGUAGERULE
 }
 
 enum FranchiseAllocationRuleJoinType {
@@ -278,6 +281,8 @@ relationship OneToMany {
 relationship OneToMany {
 	FranchiseAllocationRule to LocationMapping{franchiseRule}
 }
+
+
 
 relationship OneToMany {
 	FranchiseAllocationRuleSet to Franchise{ruleset}
@@ -524,7 +529,7 @@ enum ModeOfPayment {
     ONLINE
 }
 
-entity ServiceOrderAssignment {
+entity ServiceOrderFranchiseAssignment {
 	serviceOrderAssignmentStatus ServiceOrderAssignmentStatus required,
     nps Long,
 	isActive Boolean,
@@ -553,11 +558,47 @@ enum ServiceOrderAssignmentStatus {
 }
 
 relationship OneToMany {
-	ServiceOrder to ServiceOrderAssignment{serviceOrder}
+	ServiceOrder to ServiceOrderFranchiseAssignment{serviceOrder}
 }
 
 relationship OneToMany {
-	Franchise to ServiceOrderAssignment{franchise}
+	Franchise to ServiceOrderFranchiseAssignment{franchise}
+}
+
+entity ServiceOrderSpare {
+	price Float,
+    tax Float,
+    totalCharge Float,
+    orderedFrom SpareOrderedFrom,
+	spareStatus ServiceOrderSpareStatus,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum ServiceOrderSpareStatus {
+	ADDED,
+    PAYMENTINIT,
+    PAYMENTSUCCESS,
+    PAYMENTFAILED,
+    SPAREORDERED,
+    SPAREDELIVERED,
+    INSTALLED
+}
+
+enum SpareOrderedFrom {
+	ENGINEER,
+    FRANCHISE,
+    MOTHERCOMPANY
+}
+
+relationship OneToMany {
+	ServiceOrder to ServiceOrderSpare{serviceOrder}
+}
+
+relationship OneToMany {
+	Product to ServiceOrderSpare{product}
 }
 
 entity AdditionalAttribute {
@@ -675,7 +716,11 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	ServiceOrderAssignment to AdditionalAttribute{serviceOrderAssignment}
+	ServiceOrderFranchiseAssignment to AdditionalAttribute{serviceOrderFranchiseAssignment}
+}
+
+relationship OneToMany {
+	ServiceOrderSpare to AdditionalAttribute{serviceOrderSpare}
 }
 
 // Set pagination options

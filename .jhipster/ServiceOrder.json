@@ -103,9 +103,16 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
-      "otherEntityName": "serviceOrderAssignment",
+      "otherEntityName": "serviceOrderFranchiseAssignment",
       "otherEntityRelationshipName": "serviceOrder",
-      "relationshipName": "serviceOrderAssignment",
+      "relationshipName": "serviceOrderFranchiseAssignment",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceOrderSpare",
+      "otherEntityRelationshipName": "serviceOrder",
+      "relationshipName": "serviceOrderSpare",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

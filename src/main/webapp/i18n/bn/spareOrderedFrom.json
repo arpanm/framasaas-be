@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "SpareOrderedFrom": {
+      "null": "",
+      "ENGINEER": "ENGINEER",
+      "FRANCHISE": "FRANCHISE",
+      "MOTHERCOMPANY": "MOTHERCOMPANY"
+    }
+  }
+}

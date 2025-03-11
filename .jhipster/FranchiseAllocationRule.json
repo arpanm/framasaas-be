@@ -8,7 +8,7 @@
       "fieldName": "ruleType",
       "fieldType": "FranchiseAllocationRuleType",
       "fieldValidateRules": ["required"],
-      "fieldValues": "BRANDRULE,CATEGORYRULE,PINCODERULE,LOCALITYRULE"
+      "fieldValues": "BRANDRULE,CATEGORYRULE,PINCODERULE,LOCATIONRULE,LANGUAGERULE"
     },
     {
       "fieldName": "joinType",

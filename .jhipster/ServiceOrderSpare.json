@@ -1,0 +1,75 @@
+{
+  "annotations": {
+    "changelogDate": "20250311185028"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "price",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalCharge",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "orderedFrom",
+      "fieldType": "SpareOrderedFrom",
+      "fieldValues": "ENGINEER,FRANCHISE,MOTHERCOMPANY"
+    },
+    {
+      "fieldName": "spareStatus",
+      "fieldType": "ServiceOrderSpareStatus",
+      "fieldValues": "ADDED,PAYMENTINIT,PAYMENTSUCCESS,PAYMENTFAILED,SPAREORDERED,SPAREDELIVERED,INSTALLED"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrderSpare",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "serviceOrderSpare",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceOrder",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

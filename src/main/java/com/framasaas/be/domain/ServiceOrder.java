@@ -104,7 +104,12 @@ public class ServiceOrder implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
-    private Set<ServiceOrderAssignment> serviceOrderAssignments = new HashSet<>();
+    private Set<ServiceOrderFranchiseAssignment> serviceOrderFranchiseAssignments = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "product" }, allowSetters = true)
+    private Set<ServiceOrderSpare> serviceOrderSpares = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -131,6 +136,8 @@ public class ServiceOrder implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -453,34 +460,65 @@ public class ServiceOrder implements Serializable {
         this.updatedTime = updatedTime;
     }
 
-    public Set<ServiceOrderAssignment> getServiceOrderAssignments() {
-        return this.serviceOrderAssignments;
+    public Set<ServiceOrderFranchiseAssignment> getServiceOrderFranchiseAssignments() {
+        return this.serviceOrderFranchiseAssignments;
     }
 
-    public void setServiceOrderAssignments(Set<ServiceOrderAssignment> serviceOrderAssignments) {
-        if (this.serviceOrderAssignments != null) {
-            this.serviceOrderAssignments.forEach(i -> i.setServiceOrder(null));
+    public void setServiceOrderFranchiseAssignments(Set<ServiceOrderFranchiseAssignment> serviceOrderFranchiseAssignments) {
+        if (this.serviceOrderFranchiseAssignments != null) {
+            this.serviceOrderFranchiseAssignments.forEach(i -> i.setServiceOrder(null));
         }
-        if (serviceOrderAssignments != null) {
-            serviceOrderAssignments.forEach(i -> i.setServiceOrder(this));
+        if (serviceOrderFranchiseAssignments != null) {
+            serviceOrderFranchiseAssignments.forEach(i -> i.setServiceOrder(this));
         }
-        this.serviceOrderAssignments = serviceOrderAssignments;
+        this.serviceOrderFranchiseAssignments = serviceOrderFranchiseAssignments;
     }
 
-    public ServiceOrder serviceOrderAssignments(Set<ServiceOrderAssignment> serviceOrderAssignments) {
-        this.setServiceOrderAssignments(serviceOrderAssignments);
+    public ServiceOrder serviceOrderFranchiseAssignments(Set<ServiceOrderFranchiseAssignment> serviceOrderFranchiseAssignments) {
+        this.setServiceOrderFranchiseAssignments(serviceOrderFranchiseAssignments);
         return this;
     }
 
-    public ServiceOrder addServiceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
-        this.serviceOrderAssignments.add(serviceOrderAssignment);
-        serviceOrderAssignment.setServiceOrder(this);
+    public ServiceOrder addServiceOrderFranchiseAssignment(ServiceOrderFranchiseAssignment serviceOrderFranchiseAssignment) {
+        this.serviceOrderFranchiseAssignments.add(serviceOrderFranchiseAssignment);
+        serviceOrderFranchiseAssignment.setServiceOrder(this);
         return this;
     }
 
-    public ServiceOrder removeServiceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
-        this.serviceOrderAssignments.remove(serviceOrderAssignment);
-        serviceOrderAssignment.setServiceOrder(null);
+    public ServiceOrder removeServiceOrderFranchiseAssignment(ServiceOrderFranchiseAssignment serviceOrderFranchiseAssignment) {
+        this.serviceOrderFranchiseAssignments.remove(serviceOrderFranchiseAssignment);
+        serviceOrderFranchiseAssignment.setServiceOrder(null);
+        return this;
+    }
+
+    public Set<ServiceOrderSpare> getServiceOrderSpares() {
+        return this.serviceOrderSpares;
+    }
+
+    public void setServiceOrderSpares(Set<ServiceOrderSpare> serviceOrderSpares) {
+        if (this.serviceOrderSpares != null) {
+            this.serviceOrderSpares.forEach(i -> i.setServiceOrder(null));
+        }
+        if (serviceOrderSpares != null) {
+            serviceOrderSpares.forEach(i -> i.setServiceOrder(this));
+        }
+        this.serviceOrderSpares = serviceOrderSpares;
+    }
+
+    public ServiceOrder serviceOrderSpares(Set<ServiceOrderSpare> serviceOrderSpares) {
+        this.setServiceOrderSpares(serviceOrderSpares);
+        return this;
+    }
+
+    public ServiceOrder addServiceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
+        this.serviceOrderSpares.add(serviceOrderSpare);
+        serviceOrderSpare.setServiceOrder(this);
+        return this;
+    }
+
+    public ServiceOrder removeServiceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
+        this.serviceOrderSpares.remove(serviceOrderSpare);
+        serviceOrderSpare.setServiceOrder(null);
         return this;
     }
 

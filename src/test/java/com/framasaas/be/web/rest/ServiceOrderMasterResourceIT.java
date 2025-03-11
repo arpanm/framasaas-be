@@ -433,11 +433,13 @@ class ServiceOrderMasterResourceIT {
 
         partialUpdatedServiceOrderMaster
             .slaInHours(UPDATED_SLA_IN_HOURS)
-            .tax(UPDATED_TAX)
+            .charge(UPDATED_CHARGE)
             .franchiseCommissionWithinSla(UPDATED_FRANCHISE_COMMISSION_WITHIN_SLA)
-            .franchiseChargeOutsideSlaTax(UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
+            .franchiseChargeWithinSlaTax(UPDATED_FRANCHISE_CHARGE_WITHIN_SLA_TAX)
+            .franchiseCommissionOutsideSla(UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderMasterMockMvc

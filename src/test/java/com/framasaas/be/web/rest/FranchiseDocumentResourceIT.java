@@ -531,11 +531,10 @@ class FranchiseDocumentResourceIT {
 
         partialUpdatedFranchiseDocument
             .documentType(UPDATED_DOCUMENT_TYPE)
-            .isValidated(UPDATED_IS_VALIDATED)
-            .validatedBy(UPDATED_VALIDATED_BY)
-            .validatedTime(UPDATED_VALIDATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .documentFormat(UPDATED_DOCUMENT_FORMAT)
+            .documentSize(UPDATED_DOCUMENT_SIZE)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restFranchiseDocumentMockMvc
             .perform(

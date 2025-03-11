@@ -1,0 +1,7 @@
+export enum SpareOrderedFrom {
+  ENGINEER = 'ENGINEER',
+
+  FRANCHISE = 'FRANCHISE',
+
+  MOTHERCOMPANY = 'MOTHERCOMPANY',
+}

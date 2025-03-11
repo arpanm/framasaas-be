@@ -424,10 +424,7 @@ class CategoryResourceIT {
         partialUpdatedCategory
             .categoryName(UPDATED_CATEGORY_NAME)
             .imagePath(UPDATED_IMAGE_PATH)
-            .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restCategoryMockMvc

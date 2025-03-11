@@ -27,6 +27,8 @@ import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-w
 import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
 import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
 import { getEntities as getServiceOrderPayments } from 'app/entities/service-order-payment/service-order-payment.reducer';
+import { getEntities as getServiceOrderFranchiseAssignments } from 'app/entities/service-order-franchise-assignment/service-order-franchise-assignment.reducer';
+import { getEntities as getServiceOrderSpares } from 'app/entities/service-order-spare/service-order-spare.reducer';
 import { getEntities as getServiceOrderAssignments } from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
@@ -59,6 +61,8 @@ export const AdditionalAttributeUpdate = () => {
   const articleWarrantyDetailsDocuments = useAppSelector(state => state.articleWarrantyDetailsDocument.entities);
   const serviceOrders = useAppSelector(state => state.serviceOrder.entities);
   const serviceOrderPayments = useAppSelector(state => state.serviceOrderPayment.entities);
+  const serviceOrderFranchiseAssignments = useAppSelector(state => state.serviceOrderFranchiseAssignment.entities);
+  const serviceOrderSpares = useAppSelector(state => state.serviceOrderSpare.entities);
   const serviceOrderAssignments = useAppSelector(state => state.serviceOrderAssignment.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
@@ -95,6 +99,8 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getArticleWarrantyDetailsDocuments({}));
     dispatch(getServiceOrders({}));
     dispatch(getServiceOrderPayments({}));
+    dispatch(getServiceOrderFranchiseAssignments({}));
+    dispatch(getServiceOrderSpares({}));
     dispatch(getServiceOrderAssignments({}));
   }, []);
 
@@ -136,6 +142,10 @@ export const AdditionalAttributeUpdate = () => {
       articleWarrantyDocument: articleWarrantyDetailsDocuments.find(it => it.id.toString() === values.articleWarrantyDocument?.toString()),
       serviceOrder: serviceOrders.find(it => it.id.toString() === values.serviceOrder?.toString()),
       serviceOrderPayment: serviceOrderPayments.find(it => it.id.toString() === values.serviceOrderPayment?.toString()),
+      serviceOrderFranchiseAssignment: serviceOrderFranchiseAssignments.find(
+        it => it.id.toString() === values.serviceOrderFranchiseAssignment?.toString(),
+      ),
+      serviceOrderSpare: serviceOrderSpares.find(it => it.id.toString() === values.serviceOrderSpare?.toString()),
       serviceOrderAssignment: serviceOrderAssignments.find(it => it.id.toString() === values.serviceOrderAssignment?.toString()),
     };
 
@@ -177,6 +187,8 @@ export const AdditionalAttributeUpdate = () => {
           articleWarrantyDocument: additionalAttributeEntity?.articleWarrantyDocument?.id,
           serviceOrder: additionalAttributeEntity?.serviceOrder?.id,
           serviceOrderPayment: additionalAttributeEntity?.serviceOrderPayment?.id,
+          serviceOrderFranchiseAssignment: additionalAttributeEntity?.serviceOrderFranchiseAssignment?.id,
+          serviceOrderSpare: additionalAttributeEntity?.serviceOrderSpare?.id,
           serviceOrderAssignment: additionalAttributeEntity?.serviceOrderAssignment?.id,
         };
 
@@ -594,6 +606,38 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {serviceOrderPayments
                   ? serviceOrderPayments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-serviceOrderFranchiseAssignment"
+                name="serviceOrderFranchiseAssignment"
+                data-cy="serviceOrderFranchiseAssignment"
+                label={translate('framasaasApp.additionalAttribute.serviceOrderFranchiseAssignment')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrderFranchiseAssignments
+                  ? serviceOrderFranchiseAssignments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-serviceOrderSpare"
+                name="serviceOrderSpare"
+                data-cy="serviceOrderSpare"
+                label={translate('framasaasApp.additionalAttribute.serviceOrderSpare')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrderSpares
+                  ? serviceOrderSpares.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

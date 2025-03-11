@@ -171,8 +171,14 @@
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityName": "serviceOrderAssignment",
-      "relationshipName": "serviceOrderAssignment",
+      "otherEntityName": "serviceOrderFranchiseAssignment",
+      "relationshipName": "serviceOrderFranchiseAssignment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceOrderSpare",
+      "relationshipName": "serviceOrderSpare",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

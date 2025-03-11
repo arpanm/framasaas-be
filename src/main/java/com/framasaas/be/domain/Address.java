@@ -73,7 +73,7 @@ public class Address implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        value = { "serviceOrderFranchiseAssignments", "serviceOrderSpares", "additionalAttributes", "customer", "article", "address" },
         allowSetters = true
     )
     private Set<ServiceOrder> serviceOrders = new HashSet<>();
@@ -103,6 +103,8 @@ public class Address implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -120,7 +122,7 @@ public class Address implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
-            "serviceOrderAssignments",
+            "serviceOrderFranchiseAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",

@@ -461,10 +461,14 @@ class AddressResourceIT {
 
         partialUpdatedAddress
             .address1(UPDATED_ADDRESS_1)
+            .address2(UPDATED_ADDRESS_2)
+            .city(UPDATED_CITY)
+            .area(UPDATED_AREA)
             .district(UPDATED_DISTRICT)
             .pincode(UPDATED_PINCODE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .state(UPDATED_STATE)
+            .country(UPDATED_COUNTRY)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restAddressMockMvc
             .perform(

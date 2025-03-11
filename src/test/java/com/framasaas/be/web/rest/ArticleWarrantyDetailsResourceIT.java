@@ -408,10 +408,11 @@ class ArticleWarrantyDetailsResourceIT {
         partialUpdatedArticleWarrantyDetails.setId(articleWarrantyDetails.getId());
 
         partialUpdatedArticleWarrantyDetails
+            .warrantyType(UPDATED_WARRANTY_TYPE)
+            .startDate(UPDATED_START_DATE)
             .endDate(UPDATED_END_DATE)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME);
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restArticleWarrantyDetailsMockMvc
             .perform(
