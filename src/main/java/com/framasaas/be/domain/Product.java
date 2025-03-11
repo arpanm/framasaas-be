@@ -43,6 +43,18 @@ public class Product implements Serializable {
     @Column(name = "price", nullable = false)
     private Float price;
 
+    @NotNull
+    @Column(name = "tax", nullable = false)
+    private Float tax;
+
+    @NotNull
+    @Column(name = "franchise_commission", nullable = false)
+    private Float franchiseCommission;
+
+    @NotNull
+    @Column(name = "franchise_tax", nullable = false)
+    private Float franchiseTax;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "product_type")
     private ProductType productType;
@@ -99,6 +111,11 @@ public class Product implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "product", "location" }, allowSetters = true)
+    private Set<Inventory> inventories = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
@@ -128,6 +145,8 @@ public class Product implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -211,6 +230,45 @@ public class Product implements Serializable {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Float getTax() {
+        return this.tax;
+    }
+
+    public Product tax(Float tax) {
+        this.setTax(tax);
+        return this;
+    }
+
+    public void setTax(Float tax) {
+        this.tax = tax;
+    }
+
+    public Float getFranchiseCommission() {
+        return this.franchiseCommission;
+    }
+
+    public Product franchiseCommission(Float franchiseCommission) {
+        this.setFranchiseCommission(franchiseCommission);
+        return this;
+    }
+
+    public void setFranchiseCommission(Float franchiseCommission) {
+        this.franchiseCommission = franchiseCommission;
+    }
+
+    public Float getFranchiseTax() {
+        return this.franchiseTax;
+    }
+
+    public Product franchiseTax(Float franchiseTax) {
+        this.setFranchiseTax(franchiseTax);
+        return this;
+    }
+
+    public void setFranchiseTax(Float franchiseTax) {
+        this.franchiseTax = franchiseTax;
     }
 
     public ProductType getProductType() {
@@ -446,6 +504,37 @@ public class Product implements Serializable {
         return this;
     }
 
+    public Set<Inventory> getInventories() {
+        return this.inventories;
+    }
+
+    public void setInventories(Set<Inventory> inventories) {
+        if (this.inventories != null) {
+            this.inventories.forEach(i -> i.setProduct(null));
+        }
+        if (inventories != null) {
+            inventories.forEach(i -> i.setProduct(this));
+        }
+        this.inventories = inventories;
+    }
+
+    public Product inventories(Set<Inventory> inventories) {
+        this.setInventories(inventories);
+        return this;
+    }
+
+    public Product addInventory(Inventory inventory) {
+        this.inventories.add(inventory);
+        inventory.setProduct(this);
+        return this;
+    }
+
+    public Product removeInventory(Inventory inventory) {
+        this.inventories.remove(inventory);
+        inventory.setProduct(null);
+        return this;
+    }
+
     public Set<AdditionalAttribute> getAdditionalAttributes() {
         return this.additionalAttributes;
     }
@@ -544,6 +633,9 @@ public class Product implements Serializable {
             ", vendorProductId='" + getVendorProductId() + "'" +
             ", description='" + getDescription() + "'" +
             ", price=" + getPrice() +
+            ", tax=" + getTax() +
+            ", franchiseCommission=" + getFranchiseCommission() +
+            ", franchiseTax=" + getFranchiseTax() +
             ", productType='" + getProductType() + "'" +
             ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +

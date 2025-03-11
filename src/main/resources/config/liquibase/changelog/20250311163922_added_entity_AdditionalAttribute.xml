@@ -113,6 +113,12 @@
             <column name="field_agent_skill_rule_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="inventory_location_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="inventory_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="service_order_assignment_id" type="bigint">
                 <constraints nullable="true" />
             </column>

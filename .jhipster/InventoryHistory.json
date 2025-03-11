@@ -1,0 +1,34 @@
+{
+  "annotations": {
+    "changelogDate": "20250311194030"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "inventoryValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "InventoryChangeReason",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "GRIN,RETURNINIT,RETURNAPPROVED,RETURNREJECTED,RETURNDISPATCHED,RETURNRECEIVED,ADJUSTMENTMISSING,ADJUSTMENTDAMAGED,ADJUSTMENTOTHERS,ORDERINIT,ORDERCONFIRMED,ORDERDISPATCHED,ORDERDELIVERED"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "InventoryHistory",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

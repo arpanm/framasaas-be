@@ -34,6 +34,9 @@ import languageMapping from 'app/entities/language-mapping/language-mapping.redu
 import fieldAgentSkillRuleSet from 'app/entities/field-agent-skill-rule-set/field-agent-skill-rule-set.reducer';
 import fieldAgentSkillRule from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import serviceOrderFieldAgentAssignment from 'app/entities/service-order-field-agent-assignment/service-order-field-agent-assignment.reducer';
+import inventoryLocation from 'app/entities/inventory-location/inventory-location.reducer';
+import inventory from 'app/entities/inventory/inventory.reducer';
+import inventoryHistory from 'app/entities/inventory-history/inventory-history.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -73,6 +76,9 @@ const entitiesReducers = {
   fieldAgentSkillRuleSet,
   fieldAgentSkillRule,
   serviceOrderFieldAgentAssignment,
+  inventoryLocation,
+  inventory,
+  inventoryHistory,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

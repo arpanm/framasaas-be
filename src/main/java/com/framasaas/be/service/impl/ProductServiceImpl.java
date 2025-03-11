@@ -57,6 +57,15 @@ public class ProductServiceImpl implements ProductService {
                 if (product.getPrice() != null) {
                     existingProduct.setPrice(product.getPrice());
                 }
+                if (product.getTax() != null) {
+                    existingProduct.setTax(product.getTax());
+                }
+                if (product.getFranchiseCommission() != null) {
+                    existingProduct.setFranchiseCommission(product.getFranchiseCommission());
+                }
+                if (product.getFranchiseTax() != null) {
+                    existingProduct.setFranchiseTax(product.getFranchiseTax());
+                }
                 if (product.getProductType() != null) {
                     existingProduct.setProductType(product.getProductType());
                 }

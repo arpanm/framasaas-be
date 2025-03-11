@@ -57,6 +57,24 @@ export const ProductDetail = () => {
           </dt>
           <dd>{productEntity.price}</dd>
           <dt>
+            <span id="tax">
+              <Translate contentKey="framasaasApp.product.tax">Tax</Translate>
+            </span>
+          </dt>
+          <dd>{productEntity.tax}</dd>
+          <dt>
+            <span id="franchiseCommission">
+              <Translate contentKey="framasaasApp.product.franchiseCommission">Franchise Commission</Translate>
+            </span>
+          </dt>
+          <dd>{productEntity.franchiseCommission}</dd>
+          <dt>
+            <span id="franchiseTax">
+              <Translate contentKey="framasaasApp.product.franchiseTax">Franchise Tax</Translate>
+            </span>
+          </dt>
+          <dd>{productEntity.franchiseTax}</dd>
+          <dt>
             <span id="productType">
               <Translate contentKey="framasaasApp.product.productType">Product Type</Translate>
             </span>

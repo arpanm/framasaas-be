@@ -66,6 +66,7 @@ public class Hsn implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -106,6 +107,8 @@ public class Hsn implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true

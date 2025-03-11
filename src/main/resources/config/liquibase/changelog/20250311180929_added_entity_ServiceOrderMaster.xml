@@ -29,13 +29,13 @@
             <column name="franchise_commission_within_sla" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-            <column name="franchise_charge_within_sla_tax" type="${floatType}">
+            <column name="franchise_tax_within_sla_tax" type="${floatType}">
                 <constraints nullable="true" />
             </column>
             <column name="franchise_commission_outside_sla" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-            <column name="franchise_charge_outside_sla_tax" type="${floatType}">
+            <column name="franchise_tax_outside_sla_tax" type="${floatType}">
                 <constraints nullable="true" />
             </column>
             <column name="is_active" type="boolean">
@@ -84,9 +84,9 @@
             <column name="charge" type="numeric"/>
             <column name="tax" type="numeric"/>
             <column name="franchise_commission_within_sla" type="numeric"/>
-            <column name="franchise_charge_within_sla_tax" type="numeric"/>
+            <column name="franchise_tax_within_sla_tax" type="numeric"/>
             <column name="franchise_commission_outside_sla" type="numeric"/>
-            <column name="franchise_charge_outside_sla_tax" type="numeric"/>
+            <column name="franchise_tax_outside_sla_tax" type="numeric"/>
             <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>

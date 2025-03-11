@@ -29,6 +29,15 @@
             <column name="end_date" type="date">
                 <constraints nullable="true" />
             </column>
+            <column name="sold_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sold_by_user" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sold_date" type="date">
+                <constraints nullable="true" />
+            </column>
             <column name="is_active" type="boolean">
                 <constraints nullable="true" />
             </column>
@@ -78,6 +87,9 @@
             <column name="vendor_warranty_master_id" type="string"/>
             <column name="start_date" type="date"/>
             <column name="end_date" type="date"/>
+            <column name="sold_by" type="string"/>
+            <column name="sold_by_user" type="string"/>
+            <column name="sold_date" type="date"/>
             <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>

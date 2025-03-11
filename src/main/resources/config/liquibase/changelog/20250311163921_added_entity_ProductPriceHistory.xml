@@ -15,7 +15,19 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="price" type="${floatType}">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
+            </column>
+            <column name="tax" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="franchise_commission" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="franchise_tax" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="update_description" type="varchar(255)">
+                <constraints nullable="true" />
             </column>
             <column name="updated_by" type="varchar(255)">
                 <constraints nullable="false" />
@@ -49,6 +61,10 @@
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="price" type="numeric"/>
+            <column name="tax" type="numeric"/>
+            <column name="franchise_commission" type="numeric"/>
+            <column name="franchise_tax" type="numeric"/>
+            <column name="update_description" type="string"/>
             <column name="updated_by" type="string"/>
             <column name="updated_time" type="date"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

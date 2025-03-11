@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import { IArticle } from 'app/shared/model/article.model';
 import { IWarrantyMaster } from 'app/shared/model/warranty-master.model';
 import { WarrantyType } from 'app/shared/model/enumerations/warranty-type.model';
+import { SoldBy } from 'app/shared/model/enumerations/sold-by.model';
 
 export interface IArticleWarrantyDetails {
   id?: number;
@@ -10,6 +11,9 @@ export interface IArticleWarrantyDetails {
   vendorWarrantyMasterId?: string | null;
   startDate?: dayjs.Dayjs | null;
   endDate?: dayjs.Dayjs | null;
+  soldBy?: keyof typeof SoldBy | null;
+  soldByUser?: string | null;
+  soldDate?: dayjs.Dayjs | null;
   isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;

@@ -43,7 +43,10 @@
         "languageMapping": "Language Mapping",
         "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set",
         "fieldAgentSkillRule": "Field Agent Skill Rule",
-        "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment"
+        "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment",
+        "inventoryLocation": "Inventory Location",
+        "inventory": "Inventory",
+        "inventoryHistory": "Inventory History"
       },
       "account": {
         "main": "Account",

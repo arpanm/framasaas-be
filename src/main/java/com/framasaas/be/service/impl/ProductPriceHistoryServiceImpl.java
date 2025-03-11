@@ -48,6 +48,18 @@ public class ProductPriceHistoryServiceImpl implements ProductPriceHistoryServic
                 if (productPriceHistory.getPrice() != null) {
                     existingProductPriceHistory.setPrice(productPriceHistory.getPrice());
                 }
+                if (productPriceHistory.getTax() != null) {
+                    existingProductPriceHistory.setTax(productPriceHistory.getTax());
+                }
+                if (productPriceHistory.getFranchiseCommission() != null) {
+                    existingProductPriceHistory.setFranchiseCommission(productPriceHistory.getFranchiseCommission());
+                }
+                if (productPriceHistory.getFranchiseTax() != null) {
+                    existingProductPriceHistory.setFranchiseTax(productPriceHistory.getFranchiseTax());
+                }
+                if (productPriceHistory.getUpdateDescription() != null) {
+                    existingProductPriceHistory.setUpdateDescription(productPriceHistory.getUpdateDescription());
+                }
                 if (productPriceHistory.getUpdatedBy() != null) {
                     existingProductPriceHistory.setUpdatedBy(productPriceHistory.getUpdatedBy());
                 }

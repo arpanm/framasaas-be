@@ -1,0 +1,27 @@
+{
+  "framasaasApp": {
+    "inventoryHistory": {
+      "home": {
+        "title": "Inventory Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Inventory History",
+        "createOrEditLabel": "Create or edit a Inventory History",
+        "notFound": "No Inventory Histories found"
+      },
+      "created": "A new Inventory History is created with identifier {{ param }}",
+      "updated": "A Inventory History is updated with identifier {{ param }}",
+      "deleted": "A Inventory History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory History {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory History"
+      },
+      "id": "ID",
+      "inventoryValue": "Inventory Value",
+      "reason": "Reason",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time"
+    }
+  }
+}

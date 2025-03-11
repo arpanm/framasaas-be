@@ -60,6 +60,15 @@ public class WarrantyMasterServiceImpl implements WarrantyMasterService {
                 if (warrantyMaster.getPrice() != null) {
                     existingWarrantyMaster.setPrice(warrantyMaster.getPrice());
                 }
+                if (warrantyMaster.getTax() != null) {
+                    existingWarrantyMaster.setTax(warrantyMaster.getTax());
+                }
+                if (warrantyMaster.getFranchiseCommission() != null) {
+                    existingWarrantyMaster.setFranchiseCommission(warrantyMaster.getFranchiseCommission());
+                }
+                if (warrantyMaster.getFranchiseTax() != null) {
+                    existingWarrantyMaster.setFranchiseTax(warrantyMaster.getFranchiseTax());
+                }
                 if (warrantyMaster.getPeriodInMonths() != null) {
                     existingWarrantyMaster.setPeriodInMonths(warrantyMaster.getPeriodInMonths());
                 }

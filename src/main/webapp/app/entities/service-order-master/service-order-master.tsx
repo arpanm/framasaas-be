@@ -158,11 +158,11 @@ export const ServiceOrderMaster = () => {
                     </Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommissionWithinSla')} />
                   </th>
-                  <th className="hand" onClick={sort('franchiseChargeWithinSlaTax')}>
-                    <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseChargeWithinSlaTax">
-                      Franchise Charge Within Sla Tax
+                  <th className="hand" onClick={sort('franchiseTaxWithinSlaTax')}>
+                    <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseTaxWithinSlaTax">
+                      Franchise Tax Within Sla Tax
                     </Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseChargeWithinSlaTax')} />
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseTaxWithinSlaTax')} />
                   </th>
                   <th className="hand" onClick={sort('franchiseCommissionOutsideSla')}>
                     <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseCommissionOutsideSla">
@@ -170,11 +170,11 @@ export const ServiceOrderMaster = () => {
                     </Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommissionOutsideSla')} />
                   </th>
-                  <th className="hand" onClick={sort('franchiseChargeOutsideSlaTax')}>
-                    <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseChargeOutsideSlaTax">
-                      Franchise Charge Outside Sla Tax
+                  <th className="hand" onClick={sort('franchiseTaxOutsideSlaTax')}>
+                    <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseTaxOutsideSlaTax">
+                      Franchise Tax Outside Sla Tax
                     </Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseChargeOutsideSlaTax')} />
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseTaxOutsideSlaTax')} />
                   </th>
                   <th className="hand" onClick={sort('isActive')}>
                     <Translate contentKey="framasaasApp.serviceOrderMaster.isActive">Is Active</Translate>{' '}
@@ -217,9 +217,9 @@ export const ServiceOrderMaster = () => {
                     <td>{serviceOrderMaster.charge}</td>
                     <td>{serviceOrderMaster.tax}</td>
                     <td>{serviceOrderMaster.franchiseCommissionWithinSla}</td>
-                    <td>{serviceOrderMaster.franchiseChargeWithinSlaTax}</td>
+                    <td>{serviceOrderMaster.franchiseTaxWithinSlaTax}</td>
                     <td>{serviceOrderMaster.franchiseCommissionOutsideSla}</td>
-                    <td>{serviceOrderMaster.franchiseChargeOutsideSlaTax}</td>
+                    <td>{serviceOrderMaster.franchiseTaxOutsideSlaTax}</td>
                     <td>{serviceOrderMaster.isActive ? 'true' : 'false'}</td>
                     <td>{serviceOrderMaster.createddBy}</td>
                     <td>

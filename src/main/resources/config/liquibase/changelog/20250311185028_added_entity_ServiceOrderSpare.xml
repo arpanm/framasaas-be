@@ -23,6 +23,12 @@
             <column name="total_charge" type="${floatType}">
                 <constraints nullable="true" />
             </column>
+            <column name="franchise_commision" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="franchise_commision_tax" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
             <column name="ordered_from" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -73,6 +79,8 @@
             <column name="price" type="numeric"/>
             <column name="tax" type="numeric"/>
             <column name="total_charge" type="numeric"/>
+            <column name="franchise_commision" type="numeric"/>
+            <column name="franchise_commision_tax" type="numeric"/>
             <column name="ordered_from" type="string"/>
             <column name="spare_status" type="string"/>
             <column name="createdd_by" type="string"/>

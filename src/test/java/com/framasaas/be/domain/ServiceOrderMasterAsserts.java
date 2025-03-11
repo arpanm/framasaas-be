@@ -57,9 +57,9 @@ public class ServiceOrderMasterAsserts {
                     .isEqualTo(expected.getFranchiseCommissionWithinSla())
             )
             .satisfies(a ->
-                assertThat(a.getFranchiseChargeWithinSlaTax())
-                    .as("check franchiseChargeWithinSlaTax")
-                    .isEqualTo(expected.getFranchiseChargeWithinSlaTax())
+                assertThat(a.getFranchiseTaxWithinSlaTax())
+                    .as("check franchiseTaxWithinSlaTax")
+                    .isEqualTo(expected.getFranchiseTaxWithinSlaTax())
             )
             .satisfies(a ->
                 assertThat(a.getFranchiseCommissionOutsideSla())
@@ -67,9 +67,9 @@ public class ServiceOrderMasterAsserts {
                     .isEqualTo(expected.getFranchiseCommissionOutsideSla())
             )
             .satisfies(a ->
-                assertThat(a.getFranchiseChargeOutsideSlaTax())
-                    .as("check franchiseChargeOutsideSlaTax")
-                    .isEqualTo(expected.getFranchiseChargeOutsideSlaTax())
+                assertThat(a.getFranchiseTaxOutsideSlaTax())
+                    .as("check franchiseTaxOutsideSlaTax")
+                    .isEqualTo(expected.getFranchiseTaxOutsideSlaTax())
             )
             .satisfies(a -> assertThat(a.getIsActive()).as("check isActive").isEqualTo(expected.getIsActive()))
             .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))

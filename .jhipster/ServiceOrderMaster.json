@@ -26,7 +26,7 @@
       "fieldType": "Float"
     },
     {
-      "fieldName": "franchiseChargeWithinSlaTax",
+      "fieldName": "franchiseTaxWithinSlaTax",
       "fieldType": "Float"
     },
     {
@@ -34,7 +34,7 @@
       "fieldType": "Float"
     },
     {
-      "fieldName": "franchiseChargeOutsideSlaTax",
+      "fieldName": "franchiseTaxOutsideSlaTax",
       "fieldType": "Float"
     },
     {

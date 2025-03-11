@@ -267,6 +267,13 @@ export const AdditionalAttribute = () => {
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.inventoryLocation">Inventory Location</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.inventory">Inventory</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
@@ -500,6 +507,22 @@ export const AdditionalAttribute = () => {
                         <Link to={`/field-agent-skill-rule/${additionalAttribute.fieldAgentSkillRule.id}`}>
                           {additionalAttribute.fieldAgentSkillRule.id}
                         </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.inventoryLocation ? (
+                        <Link to={`/inventory-location/${additionalAttribute.inventoryLocation.id}`}>
+                          {additionalAttribute.inventoryLocation.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.inventory ? (
+                        <Link to={`/inventory/${additionalAttribute.inventory.id}`}>{additionalAttribute.inventory.id}</Link>
                       ) : (
                         ''
                       )}

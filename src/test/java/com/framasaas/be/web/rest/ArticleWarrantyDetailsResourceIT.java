@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.ArticleWarrantyDetails;
+import com.framasaas.be.domain.enumeration.SoldBy;
 import com.framasaas.be.domain.enumeration.WarrantyType;
 import com.framasaas.be.repository.ArticleWarrantyDetailsRepository;
 import jakarta.persistence.EntityManager;
@@ -51,6 +52,15 @@ class ArticleWarrantyDetailsResourceIT {
 
     private static final LocalDate DEFAULT_END_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_END_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final SoldBy DEFAULT_SOLD_BY = SoldBy.FRANCHISE;
+    private static final SoldBy UPDATED_SOLD_BY = SoldBy.ENGINEER;
+
+    private static final String DEFAULT_SOLD_BY_USER = "AAAAAAAAAA";
+    private static final String UPDATED_SOLD_BY_USER = "BBBBBBBBBB";
+
+    private static final LocalDate DEFAULT_SOLD_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_SOLD_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
@@ -102,6 +112,9 @@ class ArticleWarrantyDetailsResourceIT {
             .vendorWarrantyMasterId(DEFAULT_VENDOR_WARRANTY_MASTER_ID)
             .startDate(DEFAULT_START_DATE)
             .endDate(DEFAULT_END_DATE)
+            .soldBy(DEFAULT_SOLD_BY)
+            .soldByUser(DEFAULT_SOLD_BY_USER)
+            .soldDate(DEFAULT_SOLD_DATE)
             .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
@@ -122,6 +135,9 @@ class ArticleWarrantyDetailsResourceIT {
             .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
             .startDate(UPDATED_START_DATE)
             .endDate(UPDATED_END_DATE)
+            .soldBy(UPDATED_SOLD_BY)
+            .soldByUser(UPDATED_SOLD_BY_USER)
+            .soldDate(UPDATED_SOLD_DATE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -265,6 +281,9 @@ class ArticleWarrantyDetailsResourceIT {
             .andExpect(jsonPath("$.[*].vendorWarrantyMasterId").value(hasItem(DEFAULT_VENDOR_WARRANTY_MASTER_ID)))
             .andExpect(jsonPath("$.[*].startDate").value(hasItem(DEFAULT_START_DATE.toString())))
             .andExpect(jsonPath("$.[*].endDate").value(hasItem(DEFAULT_END_DATE.toString())))
+            .andExpect(jsonPath("$.[*].soldBy").value(hasItem(DEFAULT_SOLD_BY.toString())))
+            .andExpect(jsonPath("$.[*].soldByUser").value(hasItem(DEFAULT_SOLD_BY_USER)))
+            .andExpect(jsonPath("$.[*].soldDate").value(hasItem(DEFAULT_SOLD_DATE.toString())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
@@ -289,6 +308,9 @@ class ArticleWarrantyDetailsResourceIT {
             .andExpect(jsonPath("$.vendorWarrantyMasterId").value(DEFAULT_VENDOR_WARRANTY_MASTER_ID))
             .andExpect(jsonPath("$.startDate").value(DEFAULT_START_DATE.toString()))
             .andExpect(jsonPath("$.endDate").value(DEFAULT_END_DATE.toString()))
+            .andExpect(jsonPath("$.soldBy").value(DEFAULT_SOLD_BY.toString()))
+            .andExpect(jsonPath("$.soldByUser").value(DEFAULT_SOLD_BY_USER))
+            .andExpect(jsonPath("$.soldDate").value(DEFAULT_SOLD_DATE.toString()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
@@ -323,6 +345,9 @@ class ArticleWarrantyDetailsResourceIT {
             .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
             .startDate(UPDATED_START_DATE)
             .endDate(UPDATED_END_DATE)
+            .soldBy(UPDATED_SOLD_BY)
+            .soldByUser(UPDATED_SOLD_BY_USER)
+            .soldDate(UPDATED_SOLD_DATE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -408,12 +433,14 @@ class ArticleWarrantyDetailsResourceIT {
         partialUpdatedArticleWarrantyDetails.setId(articleWarrantyDetails.getId());
 
         partialUpdatedArticleWarrantyDetails
-            .warrantyType(UPDATED_WARRANTY_TYPE)
             .vendorArticleWarrantyId(UPDATED_VENDOR_ARTICLE_WARRANTY_ID)
+            .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
             .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE)
+            .soldBy(UPDATED_SOLD_BY)
+            .soldDate(UPDATED_SOLD_DATE)
             .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restArticleWarrantyDetailsMockMvc
@@ -451,6 +478,9 @@ class ArticleWarrantyDetailsResourceIT {
             .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
             .startDate(UPDATED_START_DATE)
             .endDate(UPDATED_END_DATE)
+            .soldBy(UPDATED_SOLD_BY)
+            .soldByUser(UPDATED_SOLD_BY_USER)
+            .soldDate(UPDATED_SOLD_DATE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)

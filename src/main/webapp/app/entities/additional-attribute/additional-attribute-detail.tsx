@@ -197,6 +197,14 @@ export const AdditionalAttributeDetail = () => {
           </dt>
           <dd>{additionalAttributeEntity.fieldAgentSkillRule ? additionalAttributeEntity.fieldAgentSkillRule.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.inventoryLocation">Inventory Location</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.inventoryLocation ? additionalAttributeEntity.inventoryLocation.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.inventory">Inventory</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.inventory ? additionalAttributeEntity.inventory.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>
           </dt>
           <dd>{additionalAttributeEntity.serviceOrderAssignment ? additionalAttributeEntity.serviceOrderAssignment.id : ''}</dd>

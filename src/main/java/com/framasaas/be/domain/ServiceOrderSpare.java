@@ -1,8 +1,8 @@
 package com.framasaas.be.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.framasaas.be.domain.enumeration.InventoryLocationType;
 import com.framasaas.be.domain.enumeration.ServiceOrderSpareStatus;
-import com.framasaas.be.domain.enumeration.SpareOrderedFrom;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -36,9 +36,15 @@ public class ServiceOrderSpare implements Serializable {
     @Column(name = "total_charge")
     private Float totalCharge;
 
+    @Column(name = "franchise_commision")
+    private Float franchiseCommision;
+
+    @Column(name = "franchise_commision_tax")
+    private Float franchiseCommisionTax;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "ordered_from")
-    private SpareOrderedFrom orderedFrom;
+    private InventoryLocationType orderedFrom;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "spare_status")
@@ -75,6 +81,7 @@ public class ServiceOrderSpare implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -138,16 +145,42 @@ public class ServiceOrderSpare implements Serializable {
         this.totalCharge = totalCharge;
     }
 
-    public SpareOrderedFrom getOrderedFrom() {
+    public Float getFranchiseCommision() {
+        return this.franchiseCommision;
+    }
+
+    public ServiceOrderSpare franchiseCommision(Float franchiseCommision) {
+        this.setFranchiseCommision(franchiseCommision);
+        return this;
+    }
+
+    public void setFranchiseCommision(Float franchiseCommision) {
+        this.franchiseCommision = franchiseCommision;
+    }
+
+    public Float getFranchiseCommisionTax() {
+        return this.franchiseCommisionTax;
+    }
+
+    public ServiceOrderSpare franchiseCommisionTax(Float franchiseCommisionTax) {
+        this.setFranchiseCommisionTax(franchiseCommisionTax);
+        return this;
+    }
+
+    public void setFranchiseCommisionTax(Float franchiseCommisionTax) {
+        this.franchiseCommisionTax = franchiseCommisionTax;
+    }
+
+    public InventoryLocationType getOrderedFrom() {
         return this.orderedFrom;
     }
 
-    public ServiceOrderSpare orderedFrom(SpareOrderedFrom orderedFrom) {
+    public ServiceOrderSpare orderedFrom(InventoryLocationType orderedFrom) {
         this.setOrderedFrom(orderedFrom);
         return this;
     }
 
-    public void setOrderedFrom(SpareOrderedFrom orderedFrom) {
+    public void setOrderedFrom(InventoryLocationType orderedFrom) {
         this.orderedFrom = orderedFrom;
     }
 
@@ -269,6 +302,8 @@ public class ServiceOrderSpare implements Serializable {
             ", price=" + getPrice() +
             ", tax=" + getTax() +
             ", totalCharge=" + getTotalCharge() +
+            ", franchiseCommision=" + getFranchiseCommision() +
+            ", franchiseCommisionTax=" + getFranchiseCommisionTax() +
             ", orderedFrom='" + getOrderedFrom() + "'" +
             ", spareStatus='" + getSpareStatus() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +

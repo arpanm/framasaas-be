@@ -26,6 +26,15 @@
             <column name="price" type="${floatType}">
                 <constraints nullable="false" />
             </column>
+            <column name="tax" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="franchise_commission" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="franchise_tax" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
             <column name="product_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -80,6 +89,9 @@
             <column name="vendor_product_id" type="string"/>
             <column name="description" type="string"/>
             <column name="price" type="numeric"/>
+            <column name="tax" type="numeric"/>
+            <column name="franchise_commission" type="numeric"/>
+            <column name="franchise_tax" type="numeric"/>
             <column name="product_type" type="string"/>
             <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>

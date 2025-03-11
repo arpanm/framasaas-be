@@ -54,6 +54,11 @@ public class WarrantyMasterAsserts {
             .satisfies(a -> assertThat(a.getWarrantyType()).as("check warrantyType").isEqualTo(expected.getWarrantyType()))
             .satisfies(a -> assertThat(a.getDescription()).as("check description").isEqualTo(expected.getDescription()))
             .satisfies(a -> assertThat(a.getPrice()).as("check price").isEqualTo(expected.getPrice()))
+            .satisfies(a -> assertThat(a.getTax()).as("check tax").isEqualTo(expected.getTax()))
+            .satisfies(a ->
+                assertThat(a.getFranchiseCommission()).as("check franchiseCommission").isEqualTo(expected.getFranchiseCommission())
+            )
+            .satisfies(a -> assertThat(a.getFranchiseTax()).as("check franchiseTax").isEqualTo(expected.getFranchiseTax()))
             .satisfies(a -> assertThat(a.getPeriodInMonths()).as("check periodInMonths").isEqualTo(expected.getPeriodInMonths()))
             .satisfies(a -> assertThat(a.getTaxRate()).as("check taxRate").isEqualTo(expected.getTaxRate()))
             .satisfies(a -> assertThat(a.getIsActive()).as("check isActive").isEqualTo(expected.getIsActive()))

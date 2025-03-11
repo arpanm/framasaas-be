@@ -422,9 +422,8 @@ class CategoryResourceIT {
         partialUpdatedCategory.setId(category.getId());
 
         partialUpdatedCategory
-            .categoryName(UPDATED_CATEGORY_NAME)
-            .imagePath(UPDATED_IMAGE_PATH)
             .vendorCategoryId(UPDATED_VENDOR_CATEGORY_ID)
+            .description(UPDATED_DESCRIPTION)
             .createddBy(UPDATED_CREATEDD_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 

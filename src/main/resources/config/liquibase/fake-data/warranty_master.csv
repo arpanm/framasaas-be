@@ -1,11 +1,11 @@
-id;name;vendor_warranty_master_id;warranty_type;description;price;period_in_months;tax_rate;is_active;createdd_by;created_time;updated_by;updated_time
-1;instead that even;on typewriter;OTHER;alongside;216.56;25722;15477.06;true;apud sorrowful;2025-03-11T15:18:22;gallivant;2025-03-11T10:43:49
-2;upright mmm terribly;over;BRANDFREEWARRANTY;phew;18773.57;28681;17695.4;false;indeed;2025-03-11T05:03:16;after likewise;2025-03-11T00:18:06
-3;accountability recompense nor;banish uh-huh;BRANDFREEWARRANTY;outdo;2281.38;5628;6355.63;false;um highly teammate;2025-03-11T11:18:33;whoever inure filter;2025-03-11T12:06:17
-4;courteous cleverly;though;OTHER;bah instead;18671.58;16388;20815.13;true;satirize kiss silent;2025-03-10T18:24:45;character buzzing draft;2025-03-10T21:24:47
-5;in ugh molasses;if so;OTHER;inquisitively;8858.68;6780;21982.66;true;yahoo anti;2025-03-11T09:08:37;than;2025-03-11T00:16:50
-6;median pfft;in out stake;EXTENDEDPAIDWARRANTY;until pish badly;6907.35;24414;32003.27;true;up;2025-03-10T20:59:41;indeed;2025-03-10T17:25:25
-7;before oh;trustworthy supposing jellyfish;BRANDFREEWARRANTY;lest;26192.44;14265;10449.06;false;tentacle provided what;2025-03-10T20:43:57;maul microblog mostly;2025-03-11T01:59:56
-8;dampen failing;supposing broadly;BRANDFREEWARRANTY;gracefully frightfully properly;19964.01;15825;23632.04;false;every straight;2025-03-11T13:06:45;mid since;2025-03-11T12:03:53
-9;ugh;until;EXTENDEDPAIDWARRANTY;that afore;28081.12;18503;6666.72;true;furthermore;2025-03-11T01:01:51;an lava verify;2025-03-10T20:45:56
-10;signature pushy wetly;scare;OTHER;lamp beneath;13993.41;8314;15859.21;true;furthermore duh;2025-03-11T08:56:41;brr hydrant;2025-03-11T03:16:49
+id;name;vendor_warranty_master_id;warranty_type;description;price;tax;franchise_commission;franchise_tax;period_in_months;tax_rate;is_active;createdd_by;created_time;updated_by;updated_time
+1;instead that even;on typewriter;OTHER;alongside;216.56;25721.24;15477.06;3787.76;12246;2073.61;false;ha;2025-03-11T01:45:29;wherever worst;2025-03-11T06:36:46
+2;heartache always;after punctually minus;OTHER;considering sesame;3886.39;1820.04;28158.52;347.35;6788;9005.15;false;ah splurge the;2025-03-11T02:25:06;oh;2025-03-11T04:50:06
+3;duh;reservation mysteriously ha;OTHER;arrogantly silver surprisingly;30811.14;25814.04;26681.22;18355.14;6931;12849.84;true;filter polished;2025-03-11T07:40:43;cleverly;2025-03-10T17:56:37
+4;ick like a;lovingly monthly;BRANDFREEWARRANTY;regal fortunately;682.45;30884.7;20035.21;18132.69;4598;13843.89;false;atop provided;2025-03-11T13:19:35;a quarterly;2025-03-10T19:46:38
+5;unblinking sneaky;properly gadzooks;BRANDFREEWARRANTY;yahoo anti;21478.4;152.15;8840.75;15438.98;13099;30143.62;true;oof forsaken filter;2025-03-11T07:58:44;psst foolishly curly;2025-03-10T20:19:18
+6;a;courageously finally;EXTENDEDPAIDWARRANTY;egg yuck;13380.98;23342.2;7400.79;26853.19;1224;19721.87;true;oh;2025-03-11T14:31:36;oblong meh;2025-03-11T01:01:09
+7;for;jam-packed scent excepting;BRANDFREEWARRANTY;how woot politely;10436.31;14393.51;16694.28;32682.04;20631;2721.55;false;but;2025-03-11T02:22:28;tooth;2025-03-10T23:02:34
+8;across cripple;ack;BRANDFREEWARRANTY;frightfully;11962.34;32753.98;6186.56;27942.32;26987;3687.76;false;fully sizzle;2025-03-11T04:51:38;whose metallic;2025-03-11T08:49:59
+9;exacerbate;forage sideboard;BRANDFREEWARRANTY;whoever fooey blah;17672.98;7155.6;10402.09;23110.49;9702;2697.58;false;deliquesce meatloaf yum;2025-03-10T22:49:21;inside;2025-03-11T07:43:46
+10;hence till between;reschedule;EXTENDEDPAIDWARRANTY;inside regarding;10532.96;3299.25;4377.23;22149.81;30320;22220.97;false;brr hydrant;2025-03-11T03:16:49;respray waft;2025-03-11T03:12:01

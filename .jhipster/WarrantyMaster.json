@@ -30,6 +30,21 @@
       "fieldValidateRules": ["required"]
     },
     {
+      "fieldName": "tax",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "franchiseCommission",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "franchiseTax",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
       "fieldName": "periodInMonths",
       "fieldType": "Long",
       "fieldValidateRules": ["required"]

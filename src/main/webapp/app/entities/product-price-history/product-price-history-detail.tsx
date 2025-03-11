@@ -39,6 +39,30 @@ export const ProductPriceHistoryDetail = () => {
           </dt>
           <dd>{productPriceHistoryEntity.price}</dd>
           <dt>
+            <span id="tax">
+              <Translate contentKey="framasaasApp.productPriceHistory.tax">Tax</Translate>
+            </span>
+          </dt>
+          <dd>{productPriceHistoryEntity.tax}</dd>
+          <dt>
+            <span id="franchiseCommission">
+              <Translate contentKey="framasaasApp.productPriceHistory.franchiseCommission">Franchise Commission</Translate>
+            </span>
+          </dt>
+          <dd>{productPriceHistoryEntity.franchiseCommission}</dd>
+          <dt>
+            <span id="franchiseTax">
+              <Translate contentKey="framasaasApp.productPriceHistory.franchiseTax">Franchise Tax</Translate>
+            </span>
+          </dt>
+          <dd>{productPriceHistoryEntity.franchiseTax}</dd>
+          <dt>
+            <span id="updateDescription">
+              <Translate contentKey="framasaasApp.productPriceHistory.updateDescription">Update Description</Translate>
+            </span>
+          </dt>
+          <dd>{productPriceHistoryEntity.updateDescription}</dd>
+          <dt>
             <span id="updatedBy">
               <Translate contentKey="framasaasApp.productPriceHistory.updatedBy">Updated By</Translate>
             </span>

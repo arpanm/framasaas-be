@@ -50,6 +50,11 @@ public class ServiceOrderSpareAsserts {
             .satisfies(a -> assertThat(a.getPrice()).as("check price").isEqualTo(expected.getPrice()))
             .satisfies(a -> assertThat(a.getTax()).as("check tax").isEqualTo(expected.getTax()))
             .satisfies(a -> assertThat(a.getTotalCharge()).as("check totalCharge").isEqualTo(expected.getTotalCharge()))
+            .satisfies(a -> assertThat(a.getFranchiseCommision()).as("check franchiseCommision").isEqualTo(expected.getFranchiseCommision())
+            )
+            .satisfies(a ->
+                assertThat(a.getFranchiseCommisionTax()).as("check franchiseCommisionTax").isEqualTo(expected.getFranchiseCommisionTax())
+            )
             .satisfies(a -> assertThat(a.getOrderedFrom()).as("check orderedFrom").isEqualTo(expected.getOrderedFrom()))
             .satisfies(a -> assertThat(a.getSpareStatus()).as("check spareStatus").isEqualTo(expected.getSpareStatus()))
             .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))

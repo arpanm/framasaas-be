@@ -146,6 +146,18 @@ export const Product = () => {
                     <Translate contentKey="framasaasApp.product.price">Price</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('price')} />
                   </th>
+                  <th className="hand" onClick={sort('tax')}>
+                    <Translate contentKey="framasaasApp.product.tax">Tax</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('tax')} />
+                  </th>
+                  <th className="hand" onClick={sort('franchiseCommission')}>
+                    <Translate contentKey="framasaasApp.product.franchiseCommission">Franchise Commission</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommission')} />
+                  </th>
+                  <th className="hand" onClick={sort('franchiseTax')}>
+                    <Translate contentKey="framasaasApp.product.franchiseTax">Franchise Tax</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseTax')} />
+                  </th>
                   <th className="hand" onClick={sort('productType')}>
                     <Translate contentKey="framasaasApp.product.productType">Product Type</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('productType')} />
@@ -194,6 +206,9 @@ export const Product = () => {
                     <td>{product.vendorProductId}</td>
                     <td>{product.description}</td>
                     <td>{product.price}</td>
+                    <td>{product.tax}</td>
+                    <td>{product.franchiseCommission}</td>
+                    <td>{product.franchiseTax}</td>
                     <td>
                       <Translate contentKey={`framasaasApp.ProductType.${product.productType}`} />
                     </td>

@@ -10,8 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.ServiceOrderSpare;
+import com.framasaas.be.domain.enumeration.InventoryLocationType;
 import com.framasaas.be.domain.enumeration.ServiceOrderSpareStatus;
-import com.framasaas.be.domain.enumeration.SpareOrderedFrom;
 import com.framasaas.be.repository.ServiceOrderSpareRepository;
 import jakarta.persistence.EntityManager;
 import java.time.Instant;
@@ -45,8 +45,14 @@ class ServiceOrderSpareResourceIT {
     private static final Float DEFAULT_TOTAL_CHARGE = 1F;
     private static final Float UPDATED_TOTAL_CHARGE = 2F;
 
-    private static final SpareOrderedFrom DEFAULT_ORDERED_FROM = SpareOrderedFrom.ENGINEER;
-    private static final SpareOrderedFrom UPDATED_ORDERED_FROM = SpareOrderedFrom.FRANCHISE;
+    private static final Float DEFAULT_FRANCHISE_COMMISION = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISION = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_COMMISION_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISION_TAX = 2F;
+
+    private static final InventoryLocationType DEFAULT_ORDERED_FROM = InventoryLocationType.ENGINEER;
+    private static final InventoryLocationType UPDATED_ORDERED_FROM = InventoryLocationType.FRANCHISE;
 
     private static final ServiceOrderSpareStatus DEFAULT_SPARE_STATUS = ServiceOrderSpareStatus.ADDED;
     private static final ServiceOrderSpareStatus UPDATED_SPARE_STATUS = ServiceOrderSpareStatus.PAYMENTINIT;
@@ -96,6 +102,8 @@ class ServiceOrderSpareResourceIT {
             .price(DEFAULT_PRICE)
             .tax(DEFAULT_TAX)
             .totalCharge(DEFAULT_TOTAL_CHARGE)
+            .franchiseCommision(DEFAULT_FRANCHISE_COMMISION)
+            .franchiseCommisionTax(DEFAULT_FRANCHISE_COMMISION_TAX)
             .orderedFrom(DEFAULT_ORDERED_FROM)
             .spareStatus(DEFAULT_SPARE_STATUS)
             .createddBy(DEFAULT_CREATEDD_BY)
@@ -115,6 +123,8 @@ class ServiceOrderSpareResourceIT {
             .price(UPDATED_PRICE)
             .tax(UPDATED_TAX)
             .totalCharge(UPDATED_TOTAL_CHARGE)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
+            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .orderedFrom(UPDATED_ORDERED_FROM)
             .spareStatus(UPDATED_SPARE_STATUS)
             .createddBy(UPDATED_CREATEDD_BY)
@@ -254,6 +264,8 @@ class ServiceOrderSpareResourceIT {
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].totalCharge").value(hasItem(DEFAULT_TOTAL_CHARGE.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommision").value(hasItem(DEFAULT_FRANCHISE_COMMISION.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommisionTax").value(hasItem(DEFAULT_FRANCHISE_COMMISION_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].orderedFrom").value(hasItem(DEFAULT_ORDERED_FROM.toString())))
             .andExpect(jsonPath("$.[*].spareStatus").value(hasItem(DEFAULT_SPARE_STATUS.toString())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
@@ -277,6 +289,8 @@ class ServiceOrderSpareResourceIT {
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
             .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
             .andExpect(jsonPath("$.totalCharge").value(DEFAULT_TOTAL_CHARGE.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommision").value(DEFAULT_FRANCHISE_COMMISION.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommisionTax").value(DEFAULT_FRANCHISE_COMMISION_TAX.doubleValue()))
             .andExpect(jsonPath("$.orderedFrom").value(DEFAULT_ORDERED_FROM.toString()))
             .andExpect(jsonPath("$.spareStatus").value(DEFAULT_SPARE_STATUS.toString()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
@@ -308,6 +322,8 @@ class ServiceOrderSpareResourceIT {
             .price(UPDATED_PRICE)
             .tax(UPDATED_TAX)
             .totalCharge(UPDATED_TOTAL_CHARGE)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
+            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .orderedFrom(UPDATED_ORDERED_FROM)
             .spareStatus(UPDATED_SPARE_STATUS)
             .createddBy(UPDATED_CREATEDD_BY)
@@ -393,7 +409,11 @@ class ServiceOrderSpareResourceIT {
         ServiceOrderSpare partialUpdatedServiceOrderSpare = new ServiceOrderSpare();
         partialUpdatedServiceOrderSpare.setId(serviceOrderSpare.getId());
 
-        partialUpdatedServiceOrderSpare.tax(UPDATED_TAX).createddBy(UPDATED_CREATEDD_BY).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedServiceOrderSpare
+            .tax(UPDATED_TAX)
+            .totalCharge(UPDATED_TOTAL_CHARGE)
+            .spareStatus(UPDATED_SPARE_STATUS)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restServiceOrderSpareMockMvc
             .perform(
@@ -428,6 +448,8 @@ class ServiceOrderSpareResourceIT {
             .price(UPDATED_PRICE)
             .tax(UPDATED_TAX)
             .totalCharge(UPDATED_TOTAL_CHARGE)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
+            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .orderedFrom(UPDATED_ORDERED_FROM)
             .spareStatus(UPDATED_SPARE_STATUS)
             .createddBy(UPDATED_CREATEDD_BY)

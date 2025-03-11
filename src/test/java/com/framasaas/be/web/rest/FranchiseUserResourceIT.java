@@ -39,8 +39,8 @@ class FranchiseUserResourceIT {
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "xZ@m'y.,";
-    private static final String UPDATED_EMAIL = ",~mS(m@w.aJJDl";
+    private static final String DEFAULT_EMAIL = "J4R@|Cs\\\"l.|;_K4";
+    private static final String UPDATED_EMAIL = ")@.T/.QH";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -442,10 +442,10 @@ class FranchiseUserResourceIT {
         partialUpdatedFranchiseUser.setId(franchiseUser.getId());
 
         partialUpdatedFranchiseUser
-            .userName(UPDATED_USER_NAME)
-            .userStatus(UPDATED_USER_STATUS)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .email(UPDATED_EMAIL)
+            .contact(UPDATED_CONTACT)
+            .userRole(UPDATED_USER_ROLE)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restFranchiseUserMockMvc
             .perform(

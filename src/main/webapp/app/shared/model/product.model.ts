@@ -10,6 +10,9 @@ export interface IProduct {
   vendorProductId?: string;
   description?: string | null;
   price?: number;
+  tax?: number;
+  franchiseCommission?: number;
+  franchiseTax?: number;
   productType?: keyof typeof ProductType | null;
   isActive?: boolean | null;
   createddBy?: string;

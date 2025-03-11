@@ -49,6 +49,18 @@ public class WarrantyMaster implements Serializable {
     private Float price;
 
     @NotNull
+    @Column(name = "tax", nullable = false)
+    private Float tax;
+
+    @NotNull
+    @Column(name = "franchise_commission", nullable = false)
+    private Float franchiseCommission;
+
+    @NotNull
+    @Column(name = "franchise_tax", nullable = false)
+    private Float franchiseTax;
+
+    @NotNull
     @Column(name = "period_in_months", nullable = false)
     private Long periodInMonths;
 
@@ -119,6 +131,8 @@ public class WarrantyMaster implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -133,6 +147,7 @@ public class WarrantyMaster implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -220,6 +235,45 @@ public class WarrantyMaster implements Serializable {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Float getTax() {
+        return this.tax;
+    }
+
+    public WarrantyMaster tax(Float tax) {
+        this.setTax(tax);
+        return this;
+    }
+
+    public void setTax(Float tax) {
+        this.tax = tax;
+    }
+
+    public Float getFranchiseCommission() {
+        return this.franchiseCommission;
+    }
+
+    public WarrantyMaster franchiseCommission(Float franchiseCommission) {
+        this.setFranchiseCommission(franchiseCommission);
+        return this;
+    }
+
+    public void setFranchiseCommission(Float franchiseCommission) {
+        this.franchiseCommission = franchiseCommission;
+    }
+
+    public Float getFranchiseTax() {
+        return this.franchiseTax;
+    }
+
+    public WarrantyMaster franchiseTax(Float franchiseTax) {
+        this.setFranchiseTax(franchiseTax);
+        return this;
+    }
+
+    public void setFranchiseTax(Float franchiseTax) {
+        this.franchiseTax = franchiseTax;
     }
 
     public Long getPeriodInMonths() {
@@ -448,6 +502,9 @@ public class WarrantyMaster implements Serializable {
             ", warrantyType='" + getWarrantyType() + "'" +
             ", description='" + getDescription() + "'" +
             ", price=" + getPrice() +
+            ", tax=" + getTax() +
+            ", franchiseCommission=" + getFranchiseCommission() +
+            ", franchiseTax=" + getFranchiseTax() +
             ", periodInMonths=" + getPeriodInMonths() +
             ", taxRate=" + getTaxRate() +
             ", isActive='" + getIsActive() + "'" +

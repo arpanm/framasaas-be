@@ -1,0 +1,27 @@
+{
+  "framasaasApp": {
+    "inventoryHistory": {
+      "home": {
+        "title": "InventoryHistories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Inventory History बनाएँ",
+        "createOrEditLabel": "Inventory History बनाएँ या संपादित करें",
+        "notFound": "No Inventory Histories found"
+      },
+      "created": "एक नया Inventory History [identifier: {{ param }}] तैयार है",
+      "updated": "एक Inventory History [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Inventory History [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Inventory History [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Inventory History"
+      },
+      "id": "ID",
+      "inventoryValue": "Inventory Value",
+      "reason": "Reason",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time"
+    }
+  }
+}
