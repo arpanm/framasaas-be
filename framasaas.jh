@@ -1,4 +1,38 @@
 
+entity AdditionalAttribute {
+	attributeName String required,
+    attributeValue String required,
+    attributeType AttributeType,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum AttributeType {
+	ATTRSTRING,
+    ATTRNUMBER,
+    ATTRDECIMAL,
+    ATTRSINGLESELCT,
+    ATTRMULTISELECT,
+    ATTRDATE,
+    ATTRDATETIME,
+    ATTRFILEPATH,
+    ATTRIMAGEPATH
+}
+
+entity AdditionalAttributePossibleValue {
+	possibleValue String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	AdditionalAttribute to AdditionalAttributePossibleValue{attribute}
+}
+
 entity Franchise {
 	franchiseName String required,
     owner String,
@@ -21,6 +55,10 @@ enum FranchiseStatus {
     Blocked
 }
 
+relationship OneToMany {
+	Franchise to AdditionalAttribute{franchise}
+}
+
 entity FranchiseStatusHistory {
 	franchiseSatus FranchiseStatus required,
     updatedBy String required,
@@ -29,6 +67,10 @@ entity FranchiseStatusHistory {
 
 relationship OneToMany {
 	Franchise to FranchiseStatusHistory{franchise}
+}
+
+relationship OneToMany {
+	FranchiseStatusHistory to AdditionalAttribute{franchiseStatus}
 }
 
 enum PerformanceTag {
@@ -49,6 +91,10 @@ entity FranchisePerformanceHistory {
 }
 
 relationship OneToMany {
+	FranchisePerformanceHistory to AdditionalAttribute{franchisePerformance}
+}
+
+relationship OneToMany {
 	Franchise to FranchisePerformanceHistory{franchise}
 }
 
@@ -60,41 +106,56 @@ entity FranchiseBrandMapping {
     updatedTime Instant required
 }
 
-enum Brand {
-	Samsung,
-    LG,
-    Hitachi,
-    BPL,
-    Kelvinator,
-    Sony,
-    Other
-}
-
-relationship OneToMany {
-	Franchise{brands} to FranchiseBrandMapping{franchise}
-}
-
-entity FranchiseCategoryMapping {
-	serviceCategory ServiceCategory required,
+entity Brand {
+	brandName String required,
+    logoPath String,
+    vendorBrandId String required,
+    description String,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
     updatedTime Instant required
 }
 
-enum ServiceCategory {
-	AC,
-    TV,
-    Refrigerator,
-    WashingMachine,
-    Phone,
-    Tablet,
-    Laptop,
-  	Other
+relationship OneToMany {
+	Brand to AdditionalAttribute{brand}
 }
 
 relationship OneToMany {
-	Franchise{categories} to FranchiseCategoryMapping{franchise}
+	Franchise to Brand{franchise}
+}
+
+
+entity Category {
+	categoryName String required,
+    imagePath String,
+    vendorCategoryId String required,
+    description String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	Category to AdditionalAttribute{category}
+}
+
+relationship OneToMany {
+	Franchise to Category{franchise}
+}
+
+
+entity Pincode {
+	pincode String required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	Franchise to Pincode{franchise}
 }
 
 entity Address {
@@ -112,6 +173,10 @@ entity Address {
     updatedTime Instant required
 }
 
+relationship OneToMany {
+	Address to AdditionalAttribute{address}
+}
+
 entity LocationMapping {
 	locationName String required,
     createddBy String required,
@@ -126,6 +191,14 @@ relationship ManyToOne {
 
 relationship OneToOne {
 	Franchise{address} to Address{franchise}
+}
+
+relationship OneToMany {
+	Franchise to LocationMapping{franchise}
+}
+
+relationship OneToMany {
+	LocationMapping to AdditionalAttribute{location}
 }
 
 entity FranchiseDocument {
@@ -155,7 +228,11 @@ enum DocumentFormat {
 }
 
 relationship OneToMany {
-	Franchise{documents} to FranchiseDocument{franchise}
+	Franchise to FranchiseDocument{franchise}
+}
+
+relationship OneToMany {
+	FranchiseDocument to AdditionalAttribute{document}
 }
 
 entity FranchiseUser {
@@ -182,6 +259,10 @@ enum FranchiseUserRole {
     ContactCenterAgent,
     FieldAgent,
     Other
+}
+
+relationship OneToMany {
+	FranchiseUser to AdditionalAttribute{franchiseUser}
 }
 
 entity FranchiseUserStatusHistory {
@@ -231,9 +312,12 @@ enum Language {
 }
 
 relationship OneToMany {
-	Customer to Address{customer}
+	Customer to AdditionalAttribute{customer}
 }
 
+relationship OneToMany {
+	Customer to Address{customer}
+}
 
 
 // Set pagination options
