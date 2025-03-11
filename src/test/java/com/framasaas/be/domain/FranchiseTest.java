@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.FranchiseBrandMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseCategoryMappingTestSamples.*;
@@ -8,6 +9,7 @@ import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
+import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -88,6 +90,94 @@ class FranchiseTest {
     }
 
     @Test
+    void locationMappingTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        LocationMapping locationMappingBack = getLocationMappingRandomSampleGenerator();
+
+        franchise.addLocationMapping(locationMappingBack);
+        assertThat(franchise.getLocationMappings()).containsOnly(locationMappingBack);
+        assertThat(locationMappingBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeLocationMapping(locationMappingBack);
+        assertThat(franchise.getLocationMappings()).doesNotContain(locationMappingBack);
+        assertThat(locationMappingBack.getFranchise()).isNull();
+
+        franchise.locationMappings(new HashSet<>(Set.of(locationMappingBack)));
+        assertThat(franchise.getLocationMappings()).containsOnly(locationMappingBack);
+        assertThat(locationMappingBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setLocationMappings(new HashSet<>());
+        assertThat(franchise.getLocationMappings()).doesNotContain(locationMappingBack);
+        assertThat(locationMappingBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void franchiseDocumentTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
+
+        franchise.addFranchiseDocument(franchiseDocumentBack);
+        assertThat(franchise.getFranchiseDocuments()).containsOnly(franchiseDocumentBack);
+        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeFranchiseDocument(franchiseDocumentBack);
+        assertThat(franchise.getFranchiseDocuments()).doesNotContain(franchiseDocumentBack);
+        assertThat(franchiseDocumentBack.getFranchise()).isNull();
+
+        franchise.franchiseDocuments(new HashSet<>(Set.of(franchiseDocumentBack)));
+        assertThat(franchise.getFranchiseDocuments()).containsOnly(franchiseDocumentBack);
+        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setFranchiseDocuments(new HashSet<>());
+        assertThat(franchise.getFranchiseDocuments()).doesNotContain(franchiseDocumentBack);
+        assertThat(franchiseDocumentBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void franchiseUserTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        FranchiseUser franchiseUserBack = getFranchiseUserRandomSampleGenerator();
+
+        franchise.addFranchiseUser(franchiseUserBack);
+        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeFranchiseUser(franchiseUserBack);
+        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isNull();
+
+        franchise.franchiseUsers(new HashSet<>(Set.of(franchiseUserBack)));
+        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setFranchiseUsers(new HashSet<>());
+        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
+        assertThat(franchiseUserBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        franchise.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchise.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchise.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchise()).isNull();
+
+        franchise.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(franchise.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setAdditionalAttributes(new HashSet<>());
+        assertThat(franchise.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchise()).isNull();
+    }
+
+    @Test
     void brandsTest() {
         Franchise franchise = getFranchiseRandomSampleGenerator();
         FranchiseBrandMapping franchiseBrandMappingBack = getFranchiseBrandMappingRandomSampleGenerator();
@@ -129,49 +219,5 @@ class FranchiseTest {
         franchise.setCategories(new HashSet<>());
         assertThat(franchise.getCategories()).doesNotContain(franchiseCategoryMappingBack);
         assertThat(franchiseCategoryMappingBack.getFranchise()).isNull();
-    }
-
-    @Test
-    void documentsTest() {
-        Franchise franchise = getFranchiseRandomSampleGenerator();
-        FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
-
-        franchise.addDocuments(franchiseDocumentBack);
-        assertThat(franchise.getDocuments()).containsOnly(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.removeDocuments(franchiseDocumentBack);
-        assertThat(franchise.getDocuments()).doesNotContain(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isNull();
-
-        franchise.documents(new HashSet<>(Set.of(franchiseDocumentBack)));
-        assertThat(franchise.getDocuments()).containsOnly(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.setDocuments(new HashSet<>());
-        assertThat(franchise.getDocuments()).doesNotContain(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isNull();
-    }
-
-    @Test
-    void franchiseUserTest() {
-        Franchise franchise = getFranchiseRandomSampleGenerator();
-        FranchiseUser franchiseUserBack = getFranchiseUserRandomSampleGenerator();
-
-        franchise.addFranchiseUser(franchiseUserBack);
-        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
-        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.removeFranchiseUser(franchiseUserBack);
-        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
-        assertThat(franchiseUserBack.getFranchise()).isNull();
-
-        franchise.franchiseUsers(new HashSet<>(Set.of(franchiseUserBack)));
-        assertThat(franchise.getFranchiseUsers()).containsOnly(franchiseUserBack);
-        assertThat(franchiseUserBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.setFranchiseUsers(new HashSet<>());
-        assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
-        assertThat(franchiseUserBack.getFranchise()).isNull();
     }
 }

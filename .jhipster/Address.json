@@ -64,6 +64,13 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "locationMapping",
       "relationshipName": "location",
       "relationshipSide": "left",

@@ -30,6 +30,7 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
       "location": "Location",
       "franchise": "Franchise",
       "customer": "Customer"

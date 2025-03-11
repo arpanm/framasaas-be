@@ -18,7 +18,12 @@
         "franchisePerformanceHistory": "Franchise Performance History",
         "franchiseUser": "Franchise User",
         "franchiseUserStatusHistory": "Franchise User Status History",
-        "customer": "Customer"
+        "customer": "Customer",
+        "product": "Product",
+        "hsn": "Hsn",
+        "productPriceHistory": "Product Price History",
+        "additionalAttribute": "Additional Attribute",
+        "additionalAttributePossibleValue": "Additional Attribute Possible Value"
       },
       "account": {
         "main": "Account",

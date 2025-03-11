@@ -9,6 +9,11 @@ import franchisePerformanceHistory from 'app/entities/franchise-performance-hist
 import franchiseUser from 'app/entities/franchise-user/franchise-user.reducer';
 import franchiseUserStatusHistory from 'app/entities/franchise-user-status-history/franchise-user-status-history.reducer';
 import customer from 'app/entities/customer/customer.reducer';
+import product from 'app/entities/product/product.reducer';
+import hsn from 'app/entities/hsn/hsn.reducer';
+import productPriceHistory from 'app/entities/product-price-history/product-price-history.reducer';
+import additionalAttribute from 'app/entities/additional-attribute/additional-attribute.reducer';
+import additionalAttributePossibleValue from 'app/entities/additional-attribute-possible-value/additional-attribute-possible-value.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -23,6 +28,11 @@ const entitiesReducers = {
   franchiseUser,
   franchiseUserStatusHistory,
   customer,
+  product,
+  hsn,
+  productPriceHistory,
+  additionalAttribute,
+  additionalAttributePossibleValue,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

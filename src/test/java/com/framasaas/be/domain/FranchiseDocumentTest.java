@@ -1,10 +1,13 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 class FranchiseDocumentTest {
@@ -21,6 +24,28 @@ class FranchiseDocumentTest {
 
         franchiseDocument2 = getFranchiseDocumentSample2();
         assertThat(franchiseDocument1).isNotEqualTo(franchiseDocument2);
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FranchiseDocument franchiseDocument = getFranchiseDocumentRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        franchiseDocument.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseDocument.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getDocument()).isEqualTo(franchiseDocument);
+
+        franchiseDocument.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseDocument.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getDocument()).isNull();
+
+        franchiseDocument.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(franchiseDocument.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getDocument()).isEqualTo(franchiseDocument);
+
+        franchiseDocument.setAdditionalAttributes(new HashSet<>());
+        assertThat(franchiseDocument.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getDocument()).isNull();
     }
 
     @Test

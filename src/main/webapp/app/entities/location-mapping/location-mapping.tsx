@@ -151,6 +151,9 @@ export const LocationMapping = () => {
                     <Translate contentKey="framasaasApp.locationMapping.updatedTime">Updated Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.locationMapping.franchise">Franchise</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -174,6 +177,13 @@ export const LocationMapping = () => {
                       {locationMapping.updatedTime ? (
                         <TextFormat type="date" value={locationMapping.updatedTime} format={APP_DATE_FORMAT} />
                       ) : null}
+                    </td>
+                    <td>
+                      {locationMapping.franchise ? (
+                        <Link to={`/franchise/${locationMapping.franchise.id}`}>{locationMapping.franchise.id}</Link>
+                      ) : (
+                        ''
+                      )}
                     </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

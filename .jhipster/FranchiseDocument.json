@@ -55,8 +55,14 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "franchise",
-      "otherEntityRelationshipName": "documents",
       "relationshipName": "franchise",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"

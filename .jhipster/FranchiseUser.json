@@ -64,6 +64,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "franchiseUser",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "franchise",
       "relationshipName": "franchise",
       "relationshipSide": "right",

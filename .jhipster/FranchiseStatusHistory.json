@@ -25,6 +25,13 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "franchiseStatus",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "franchise",
       "relationshipName": "franchise",
       "relationshipSide": "right",

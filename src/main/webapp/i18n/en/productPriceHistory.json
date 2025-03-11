@@ -1,0 +1,28 @@
+{
+  "framasaasApp": {
+    "productPriceHistory": {
+      "home": {
+        "title": "Product Price Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Price History",
+        "createOrEditLabel": "Create or edit a Product Price History",
+        "notFound": "No Product Price Histories found"
+      },
+      "created": "A new Product Price History is created with identifier {{ param }}",
+      "updated": "A Product Price History is updated with identifier {{ param }}",
+      "deleted": "A Product Price History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Price History {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Price History"
+      },
+      "id": "ID",
+      "price": "Price",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
+    }
+  }
+}

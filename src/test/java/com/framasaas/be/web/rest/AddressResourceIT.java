@@ -463,10 +463,9 @@ class AddressResourceIT {
             .address2(UPDATED_ADDRESS_2)
             .city(UPDATED_CITY)
             .district(UPDATED_DISTRICT)
-            .pincode(UPDATED_PINCODE)
             .state(UPDATED_STATE)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restAddressMockMvc
             .perform(
