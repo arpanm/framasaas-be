@@ -163,6 +163,7 @@ entity FranchiseUser {
     email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/) required,
     contact Long min(1000000000) max(9999999999) required,
     userStatus FranchiseUserStatus,
+    userRole FranchiseUserRole,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -173,6 +174,14 @@ enum FranchiseUserStatus {
 	PendingApproval,
     Active,
     Blocked
+}
+
+enum FranchiseUserRole {
+	FranchiseAdmin,
+    FinanceUser,
+    ContactCenterAgent,
+    FieldAgent,
+    Other
 }
 
 entity FranchiseUserStatusHistory {
@@ -188,6 +197,44 @@ relationship OneToMany {
 relationship OneToMany {
 	Franchise to FranchiseUser{franchise}
 }
+
+entity Customer {
+	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+    contact Long min(1000000000) max(9999999999) required,
+    alternameContact Long min(1000000000) max(9999999999),
+    language Language,
+    userStatus UserStatus,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum UserStatus {
+	Premium,
+    Active,
+    Blocked
+}
+
+enum Language {
+	English,
+    Hindi,
+    Bengali,
+    Marathi,
+    Tamil,
+    Telegu,
+    Kanada
+    Malayalam,
+    Panjabi,
+    Bojhpuri,
+    Kashmiri
+}
+
+relationship OneToMany {
+	Customer to Address{customer}
+}
+
+
 
 // Set pagination options
 paginate all with infinite-scroll
