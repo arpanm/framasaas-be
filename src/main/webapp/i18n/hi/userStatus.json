@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "UserStatus": {
+      "null": "",
+      "Premium": "Premium",
+      "Active": "Active",
+      "Blocked": "Blocked"
+    }
+  }
+}

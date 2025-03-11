@@ -16,5 +16,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="location_mapping"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="address"
+                                 constraintName="fk_address__customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"
+                                 />
     </changeSet>
 </databaseChangeLog>

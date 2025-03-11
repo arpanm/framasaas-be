@@ -31,7 +31,8 @@
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
       "location": "Location",
-      "franchise": "Franchise"
+      "franchise": "Franchise",
+      "customer": "Customer"
     }
   }
 }

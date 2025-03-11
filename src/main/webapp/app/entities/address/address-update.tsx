@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getLocationMappings } from 'app/entities/location-mapping/location-mapping.reducer';
+import { getEntities as getCustomers } from 'app/entities/customer/customer.reducer';
 import { createEntity, getEntity, updateEntity } from './address.reducer';
 
 export const AddressUpdate = () => {
@@ -19,6 +20,7 @@ export const AddressUpdate = () => {
   const isNew = id === undefined;
 
   const locationMappings = useAppSelector(state => state.locationMapping.entities);
+  const customers = useAppSelector(state => state.customer.entities);
   const addressEntity = useAppSelector(state => state.address.entity);
   const loading = useAppSelector(state => state.address.loading);
   const updating = useAppSelector(state => state.address.updating);
@@ -34,6 +36,7 @@ export const AddressUpdate = () => {
     }
 
     dispatch(getLocationMappings({}));
+    dispatch(getCustomers({}));
   }, []);
 
   useEffect(() => {
@@ -56,6 +59,7 @@ export const AddressUpdate = () => {
       ...addressEntity,
       ...values,
       location: locationMappings.find(it => it.id.toString() === values.location?.toString()),
+      customer: customers.find(it => it.id.toString() === values.customer?.toString()),
     };
 
     if (isNew) {
@@ -76,6 +80,7 @@ export const AddressUpdate = () => {
           createdTime: convertDateTimeFromServer(addressEntity.createdTime),
           updatedTime: convertDateTimeFromServer(addressEntity.updatedTime),
           location: addressEntity?.location?.id,
+          customer: addressEntity?.customer?.id,
         };
 
   return (
@@ -209,6 +214,22 @@ export const AddressUpdate = () => {
                 <option value="" key="0" />
                 {locationMappings
                   ? locationMappings.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="address-customer"
+                name="customer"
+                data-cy="customer"
+                label={translate('framasaasApp.address.customer')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {customers
+                  ? customers.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

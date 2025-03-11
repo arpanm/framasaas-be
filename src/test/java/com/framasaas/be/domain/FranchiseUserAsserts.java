@@ -51,6 +51,7 @@ public class FranchiseUserAsserts {
             .satisfies(a -> assertThat(a.getEmail()).as("check email").isEqualTo(expected.getEmail()))
             .satisfies(a -> assertThat(a.getContact()).as("check contact").isEqualTo(expected.getContact()))
             .satisfies(a -> assertThat(a.getUserStatus()).as("check userStatus").isEqualTo(expected.getUserStatus()))
+            .satisfies(a -> assertThat(a.getUserRole()).as("check userRole").isEqualTo(expected.getUserRole()))
             .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
             .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
             .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))

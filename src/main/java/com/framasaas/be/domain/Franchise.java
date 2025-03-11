@@ -80,7 +80,7 @@ public class Franchise implements Serializable {
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
 
-    @JsonIgnoreProperties(value = { "location", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "location", "franchise", "customer" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
     private Address address;

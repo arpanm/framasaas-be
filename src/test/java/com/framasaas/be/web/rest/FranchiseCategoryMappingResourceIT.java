@@ -384,9 +384,9 @@ class FranchiseCategoryMappingResourceIT {
         partialUpdatedFranchiseCategoryMapping.setId(franchiseCategoryMapping.getId());
 
         partialUpdatedFranchiseCategoryMapping
+            .serviceCategory(UPDATED_SERVICE_CATEGORY)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseCategoryMappingMockMvc

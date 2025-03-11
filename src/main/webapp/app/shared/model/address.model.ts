@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { ILocationMapping } from 'app/shared/model/location-mapping.model';
+import { ICustomer } from 'app/shared/model/customer.model';
 
 export interface IAddress {
   id?: number;
@@ -16,6 +17,7 @@ export interface IAddress {
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
   location?: ILocationMapping | null;
+  customer?: ICustomer | null;
 }
 
 export const defaultValue: Readonly<IAddress> = {};

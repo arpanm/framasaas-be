@@ -112,6 +112,10 @@ export const AddressDetail = () => {
             <Translate contentKey="framasaasApp.address.location">Location</Translate>
           </dt>
           <dd>{addressEntity.location ? addressEntity.location.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.address.customer">Customer</Translate>
+          </dt>
+          <dd>{addressEntity.customer ? addressEntity.customer.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/address" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

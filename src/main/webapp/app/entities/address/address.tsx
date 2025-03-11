@@ -181,6 +181,9 @@ export const Address = () => {
                   <th>
                     <Translate contentKey="framasaasApp.address.location">Location</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.address.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -205,6 +208,7 @@ export const Address = () => {
                     <td>{address.updatedBy}</td>
                     <td>{address.updatedTime ? <TextFormat type="date" value={address.updatedTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{address.location ? <Link to={`/location-mapping/${address.location.id}`}>{address.location.id}</Link> : ''}</td>
+                    <td>{address.customer ? <Link to={`/customer/${address.customer.id}`}>{address.customer.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/address/${address.id}`} color="info" size="sm" data-cy="entityDetailsButton">

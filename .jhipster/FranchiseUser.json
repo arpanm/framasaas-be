@@ -28,6 +28,11 @@
       "fieldValues": "PendingApproval,Active,Blocked"
     },
     {
+      "fieldName": "userRole",
+      "fieldType": "FranchiseUserRole",
+      "fieldValues": "FranchiseAdmin,FinanceUser,ContactCenterAgent,FieldAgent,Other"
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]

@@ -57,6 +57,12 @@ export const FranchiseUserDetail = () => {
           </dt>
           <dd>{franchiseUserEntity.userStatus}</dd>
           <dt>
+            <span id="userRole">
+              <Translate contentKey="framasaasApp.franchiseUser.userRole">User Role</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseUserEntity.userRole}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.franchiseUser.createddBy">Createdd By</Translate>
             </span>

@@ -57,6 +57,9 @@ public class FranchiseUserServiceImpl implements FranchiseUserService {
                 if (franchiseUser.getUserStatus() != null) {
                     existingFranchiseUser.setUserStatus(franchiseUser.getUserStatus());
                 }
+                if (franchiseUser.getUserRole() != null) {
+                    existingFranchiseUser.setUserRole(franchiseUser.getUserRole());
+                }
                 if (franchiseUser.getCreateddBy() != null) {
                     existingFranchiseUser.setCreateddBy(franchiseUser.getCreateddBy());
                 }

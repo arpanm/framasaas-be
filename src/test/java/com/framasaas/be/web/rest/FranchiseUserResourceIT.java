@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.FranchiseUser;
+import com.framasaas.be.domain.enumeration.FranchiseUserRole;
 import com.framasaas.be.domain.enumeration.FranchiseUserStatus;
 import com.framasaas.be.repository.FranchiseUserRepository;
 import jakarta.persistence.EntityManager;
@@ -38,14 +39,17 @@ class FranchiseUserResourceIT {
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "Mpo\".f@u}Y.gCV";
-    private static final String UPDATED_EMAIL = "[jLHsh@!A.aDw~~";
+    private static final String DEFAULT_EMAIL = "G#l4@[U=o.C+";
+    private static final String UPDATED_EMAIL = "f@IV.Vjqu)#";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
 
     private static final FranchiseUserStatus DEFAULT_USER_STATUS = FranchiseUserStatus.PendingApproval;
     private static final FranchiseUserStatus UPDATED_USER_STATUS = FranchiseUserStatus.Active;
+
+    private static final FranchiseUserRole DEFAULT_USER_ROLE = FranchiseUserRole.FranchiseAdmin;
+    private static final FranchiseUserRole UPDATED_USER_ROLE = FranchiseUserRole.FinanceUser;
 
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
@@ -93,6 +97,7 @@ class FranchiseUserResourceIT {
             .email(DEFAULT_EMAIL)
             .contact(DEFAULT_CONTACT)
             .userStatus(DEFAULT_USER_STATUS)
+            .userRole(DEFAULT_USER_ROLE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -111,6 +116,7 @@ class FranchiseUserResourceIT {
             .email(UPDATED_EMAIL)
             .contact(UPDATED_CONTACT)
             .userStatus(UPDATED_USER_STATUS)
+            .userRole(UPDATED_USER_ROLE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -297,6 +303,7 @@ class FranchiseUserResourceIT {
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].contact").value(hasItem(DEFAULT_CONTACT.intValue())))
             .andExpect(jsonPath("$.[*].userStatus").value(hasItem(DEFAULT_USER_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].userRole").value(hasItem(DEFAULT_USER_ROLE.toString())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -319,6 +326,7 @@ class FranchiseUserResourceIT {
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.contact").value(DEFAULT_CONTACT.intValue()))
             .andExpect(jsonPath("$.userStatus").value(DEFAULT_USER_STATUS.toString()))
+            .andExpect(jsonPath("$.userRole").value(DEFAULT_USER_ROLE.toString()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -349,6 +357,7 @@ class FranchiseUserResourceIT {
             .email(UPDATED_EMAIL)
             .contact(UPDATED_CONTACT)
             .userStatus(UPDATED_USER_STATUS)
+            .userRole(UPDATED_USER_ROLE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -432,7 +441,11 @@ class FranchiseUserResourceIT {
         FranchiseUser partialUpdatedFranchiseUser = new FranchiseUser();
         partialUpdatedFranchiseUser.setId(franchiseUser.getId());
 
-        partialUpdatedFranchiseUser.email(UPDATED_EMAIL).contact(UPDATED_CONTACT).createdTime(UPDATED_CREATED_TIME);
+        partialUpdatedFranchiseUser
+            .email(UPDATED_EMAIL)
+            .contact(UPDATED_CONTACT)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restFranchiseUserMockMvc
             .perform(
@@ -468,6 +481,7 @@ class FranchiseUserResourceIT {
             .email(UPDATED_EMAIL)
             .contact(UPDATED_CONTACT)
             .userStatus(UPDATED_USER_STATUS)
+            .userRole(UPDATED_USER_ROLE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
