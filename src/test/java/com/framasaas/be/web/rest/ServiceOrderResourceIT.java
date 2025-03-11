@@ -500,17 +500,10 @@ class ServiceOrderResourceIT {
         partialUpdatedServiceOrder
             .description(UPDATED_DESCRIPTION)
             .orderType(UPDATED_ORDER_TYPE)
-            .inWarranty(UPDATED_IN_WARRANTY)
             .isFree(UPDATED_IS_FREE)
             .isSpareNeeded(UPDATED_IS_SPARE_NEEDED)
-            .closedTime(UPDATED_CLOSED_TIME)
-            .totalSpareTax(UPDATED_TOTAL_SPARE_TAX)
-            .totalCharges(UPDATED_TOTAL_CHARGES)
-            .totalPaymentDone(UPDATED_TOTAL_PAYMENT_DONE)
-            .customerInvoicePath(UPDATED_CUSTOMER_INVOICE_PATH)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .serviceCharge(UPDATED_SERVICE_CHARGE)
+            .customerInvoicePath(UPDATED_CUSTOMER_INVOICE_PATH);
 
         restServiceOrderMockMvc
             .perform(

@@ -95,6 +95,12 @@
             <column name="service_order_payment_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="service_order_franchise_assignment_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="service_order_spare_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="service_order_assignment_id" type="bigint">
                 <constraints nullable="true" />
             </column>

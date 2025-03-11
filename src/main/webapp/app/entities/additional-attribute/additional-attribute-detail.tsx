@@ -163,6 +163,18 @@ export const AdditionalAttributeDetail = () => {
           </dt>
           <dd>{additionalAttributeEntity.serviceOrderPayment ? additionalAttributeEntity.serviceOrderPayment.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderFranchiseAssignment">
+              Service Order Franchise Assignment
+            </Translate>
+          </dt>
+          <dd>
+            {additionalAttributeEntity.serviceOrderFranchiseAssignment ? additionalAttributeEntity.serviceOrderFranchiseAssignment.id : ''}
+          </dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderSpare">Service Order Spare</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.serviceOrderSpare ? additionalAttributeEntity.serviceOrderSpare.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>
           </dt>
           <dd>{additionalAttributeEntity.serviceOrderAssignment ? additionalAttributeEntity.serviceOrderAssignment.id : ''}</dd>

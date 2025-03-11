@@ -19,6 +19,8 @@ import { IArticleWarrantyDetails } from 'app/shared/model/article-warranty-detai
 import { IArticleWarrantyDetailsDocument } from 'app/shared/model/article-warranty-details-document.model';
 import { IServiceOrder } from 'app/shared/model/service-order.model';
 import { IServiceOrderPayment } from 'app/shared/model/service-order-payment.model';
+import { IServiceOrderFranchiseAssignment } from 'app/shared/model/service-order-franchise-assignment.model';
+import { IServiceOrderSpare } from 'app/shared/model/service-order-spare.model';
 import { IServiceOrderAssignment } from 'app/shared/model/service-order-assignment.model';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 
@@ -51,6 +53,8 @@ export interface IAdditionalAttribute {
   articleWarrantyDocument?: IArticleWarrantyDetailsDocument | null;
   serviceOrder?: IServiceOrder | null;
   serviceOrderPayment?: IServiceOrderPayment | null;
+  serviceOrderFranchiseAssignment?: IServiceOrderFranchiseAssignment | null;
+  serviceOrderSpare?: IServiceOrderSpare | null;
   serviceOrderAssignment?: IServiceOrderAssignment | null;
 }
 

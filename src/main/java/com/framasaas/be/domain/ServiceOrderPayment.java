@@ -96,6 +96,8 @@ public class ServiceOrderPayment implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true

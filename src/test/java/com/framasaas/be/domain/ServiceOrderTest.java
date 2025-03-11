@@ -4,7 +4,8 @@ import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
-import static com.framasaas.be.domain.ServiceOrderAssignmentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderSpareTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,25 +31,47 @@ class ServiceOrderTest {
     }
 
     @Test
-    void serviceOrderAssignmentTest() {
+    void serviceOrderFranchiseAssignmentTest() {
         ServiceOrder serviceOrder = getServiceOrderRandomSampleGenerator();
-        ServiceOrderAssignment serviceOrderAssignmentBack = getServiceOrderAssignmentRandomSampleGenerator();
+        ServiceOrderFranchiseAssignment serviceOrderFranchiseAssignmentBack = getServiceOrderFranchiseAssignmentRandomSampleGenerator();
 
-        serviceOrder.addServiceOrderAssignment(serviceOrderAssignmentBack);
-        assertThat(serviceOrder.getServiceOrderAssignments()).containsOnly(serviceOrderAssignmentBack);
-        assertThat(serviceOrderAssignmentBack.getServiceOrder()).isEqualTo(serviceOrder);
+        serviceOrder.addServiceOrderFranchiseAssignment(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrder.getServiceOrderFranchiseAssignments()).containsOnly(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrderFranchiseAssignmentBack.getServiceOrder()).isEqualTo(serviceOrder);
 
-        serviceOrder.removeServiceOrderAssignment(serviceOrderAssignmentBack);
-        assertThat(serviceOrder.getServiceOrderAssignments()).doesNotContain(serviceOrderAssignmentBack);
-        assertThat(serviceOrderAssignmentBack.getServiceOrder()).isNull();
+        serviceOrder.removeServiceOrderFranchiseAssignment(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrder.getServiceOrderFranchiseAssignments()).doesNotContain(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrderFranchiseAssignmentBack.getServiceOrder()).isNull();
 
-        serviceOrder.serviceOrderAssignments(new HashSet<>(Set.of(serviceOrderAssignmentBack)));
-        assertThat(serviceOrder.getServiceOrderAssignments()).containsOnly(serviceOrderAssignmentBack);
-        assertThat(serviceOrderAssignmentBack.getServiceOrder()).isEqualTo(serviceOrder);
+        serviceOrder.serviceOrderFranchiseAssignments(new HashSet<>(Set.of(serviceOrderFranchiseAssignmentBack)));
+        assertThat(serviceOrder.getServiceOrderFranchiseAssignments()).containsOnly(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrderFranchiseAssignmentBack.getServiceOrder()).isEqualTo(serviceOrder);
 
-        serviceOrder.setServiceOrderAssignments(new HashSet<>());
-        assertThat(serviceOrder.getServiceOrderAssignments()).doesNotContain(serviceOrderAssignmentBack);
-        assertThat(serviceOrderAssignmentBack.getServiceOrder()).isNull();
+        serviceOrder.setServiceOrderFranchiseAssignments(new HashSet<>());
+        assertThat(serviceOrder.getServiceOrderFranchiseAssignments()).doesNotContain(serviceOrderFranchiseAssignmentBack);
+        assertThat(serviceOrderFranchiseAssignmentBack.getServiceOrder()).isNull();
+    }
+
+    @Test
+    void serviceOrderSpareTest() {
+        ServiceOrder serviceOrder = getServiceOrderRandomSampleGenerator();
+        ServiceOrderSpare serviceOrderSpareBack = getServiceOrderSpareRandomSampleGenerator();
+
+        serviceOrder.addServiceOrderSpare(serviceOrderSpareBack);
+        assertThat(serviceOrder.getServiceOrderSpares()).containsOnly(serviceOrderSpareBack);
+        assertThat(serviceOrderSpareBack.getServiceOrder()).isEqualTo(serviceOrder);
+
+        serviceOrder.removeServiceOrderSpare(serviceOrderSpareBack);
+        assertThat(serviceOrder.getServiceOrderSpares()).doesNotContain(serviceOrderSpareBack);
+        assertThat(serviceOrderSpareBack.getServiceOrder()).isNull();
+
+        serviceOrder.serviceOrderSpares(new HashSet<>(Set.of(serviceOrderSpareBack)));
+        assertThat(serviceOrder.getServiceOrderSpares()).containsOnly(serviceOrderSpareBack);
+        assertThat(serviceOrderSpareBack.getServiceOrder()).isEqualTo(serviceOrder);
+
+        serviceOrder.setServiceOrderSpares(new HashSet<>());
+        assertThat(serviceOrder.getServiceOrderSpares()).doesNotContain(serviceOrderSpareBack);
+        assertThat(serviceOrderSpareBack.getServiceOrder()).isNull();
     }
 
     @Test

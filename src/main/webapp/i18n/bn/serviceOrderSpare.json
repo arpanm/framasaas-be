@@ -1,0 +1,35 @@
+{
+  "framasaasApp": {
+    "serviceOrderSpare": {
+      "home": {
+        "title": "Service Order Spares",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service Order Spare",
+        "createOrEditLabel": "Create or edit a Service Order Spare",
+        "notFound": "No Service Order Spares found"
+      },
+      "created": "A new Service Order Spare is created with identifier {{ param }}",
+      "updated": "A Service Order Spare is updated with identifier {{ param }}",
+      "deleted": "A Service Order Spare is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Order Spare {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Spare"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "totalCharge": "Total Charge",
+      "orderedFrom": "Ordered From",
+      "spareStatus": "Spare Status",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "serviceOrder": "Service Order",
+      "product": "Product"
+    }
+  }
+}

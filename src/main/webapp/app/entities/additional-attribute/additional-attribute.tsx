@@ -237,6 +237,16 @@ export const AdditionalAttribute = () => {
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderFranchiseAssignment">
+                      Service Order Franchise Assignment
+                    </Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderSpare">Service Order Spare</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
@@ -415,6 +425,24 @@ export const AdditionalAttribute = () => {
                       {additionalAttribute.serviceOrderPayment ? (
                         <Link to={`/service-order-payment/${additionalAttribute.serviceOrderPayment.id}`}>
                           {additionalAttribute.serviceOrderPayment.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.serviceOrderFranchiseAssignment ? (
+                        <Link to={`/service-order-franchise-assignment/${additionalAttribute.serviceOrderFranchiseAssignment.id}`}>
+                          {additionalAttribute.serviceOrderFranchiseAssignment.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.serviceOrderSpare ? (
+                        <Link to={`/service-order-spare/${additionalAttribute.serviceOrderSpare.id}`}>
+                          {additionalAttribute.serviceOrderSpare.id}
                         </Link>
                       ) : (
                         ''

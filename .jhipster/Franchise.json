@@ -112,9 +112,9 @@
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "serviceOrderAssignment",
+      "otherEntityName": "serviceOrderFranchiseAssignment",
       "otherEntityRelationshipName": "franchise",
-      "relationshipName": "serviceOrderAssignment",
+      "relationshipName": "serviceOrderFranchiseAssignment",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

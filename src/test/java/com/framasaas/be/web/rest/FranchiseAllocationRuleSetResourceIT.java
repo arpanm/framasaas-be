@@ -441,10 +441,9 @@ class FranchiseAllocationRuleSetResourceIT {
 
         partialUpdatedFranchiseAllocationRuleSet
             .name(UPDATED_NAME)
+            .sortType(UPDATED_SORT_TYPE)
             .priority(UPDATED_PRIORITY)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .createddBy(UPDATED_CREATEDD_BY);
 
         restFranchiseAllocationRuleSetMockMvc
             .perform(

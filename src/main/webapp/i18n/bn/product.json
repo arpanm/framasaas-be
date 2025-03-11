@@ -32,6 +32,7 @@
       "warrantyMaster": "Warranty Master",
       "article": "Article",
       "serviceOrderMaster": "Service Order Master",
+      "serviceOrderSpare": "Service Order Spare",
       "additionalAttribute": "Additional Attribute",
       "category": "Category",
       "brand": "Brand",

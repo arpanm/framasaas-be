@@ -7,5 +7,6 @@ public enum FranchiseAllocationRuleType {
     BRANDRULE,
     CATEGORYRULE,
     PINCODERULE,
-    LOCALITYRULE,
+    LOCATIONRULE,
+    LANGUAGERULE,
 }

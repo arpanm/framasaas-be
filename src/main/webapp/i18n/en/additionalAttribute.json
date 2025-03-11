@@ -46,6 +46,8 @@
       "articleWarrantyDocument": "Article Warranty Document",
       "serviceOrder": "Service Order",
       "serviceOrderPayment": "Service Order Payment",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "serviceOrderSpare": "Service Order Spare",
       "serviceOrderAssignment": "Service Order Assignment"
     }
   }

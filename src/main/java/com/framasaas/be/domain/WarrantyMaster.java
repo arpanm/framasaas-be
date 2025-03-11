@@ -113,6 +113,8 @@ public class WarrantyMaster implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -126,6 +128,7 @@ public class WarrantyMaster implements Serializable {
             "warrantyMasters",
             "articles",
             "serviceOrderMasters",
+            "serviceOrderSpares",
             "additionalAttributes",
             "category",
             "brand",

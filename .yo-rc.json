@@ -44,7 +44,9 @@
       "ServiceOrderMaster",
       "ServiceOrder",
       "ServiceOrderPayment",
-      "ServiceOrderAssignment"
+      "ServiceOrderAssignment",
+      "ServiceOrderFranchiseAssignment",
+      "ServiceOrderSpare"
     ],
     "gitCompany": "",
     "iaCTools": ["bicep", "terraform"],
@@ -52,7 +54,7 @@
     "jhipsterVersion": "8.9.0",
     "jwtSecretKey": "MGNkNWZjNTliNGI2OTZmN2QyODZhOTNlNTA2MWUyYTNiNDJjNmFhZDA4ZTcyN2Y2YjkwZTU4NTI5ZDg2OTg1NmRiYTg4MTRkNTUxYzc0MmYxMmM5ODUyMGE2ZWRmNWY1NmM5N2Y3ZDE3Yzk0MDdjYTQ5NzJkOWI3YWYyZWViNmE=",
     "languages": ["en", "bn", "hi"],
-    "lastLiquibaseTimestamp": 1741716572000,
+    "lastLiquibaseTimestamp": 1741719028000,
     "messageBroker": false,
     "nativeLanguage": "en",
     "packageFolder": "com/framasaas/be",

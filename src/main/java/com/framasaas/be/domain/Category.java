@@ -68,6 +68,7 @@ public class Category implements Serializable {
             "warrantyMasters",
             "articles",
             "serviceOrderMasters",
+            "serviceOrderSpares",
             "additionalAttributes",
             "category",
             "brand",
@@ -102,6 +103,8 @@ public class Category implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true

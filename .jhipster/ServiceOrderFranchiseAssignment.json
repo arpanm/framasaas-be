@@ -1,0 +1,111 @@
+{
+  "annotations": {
+    "changelogDate": "20250311185027"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "serviceOrderAssignmentStatus",
+      "fieldType": "ServiceOrderAssignmentStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ASSIGNED,MOVEDBACK,COMPLETED,CANCELED"
+    },
+    {
+      "fieldName": "nps",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "assignedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "movedBackTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "visitTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "spareOrderTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "spareDeliveryTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "completedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "completionOTP",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cancellationOTP",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "franchiseCommision",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseCommisionTax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseInvoicePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrderFranchiseAssignment",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "serviceOrderFranchiseAssignment",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceOrder",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

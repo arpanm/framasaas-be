@@ -72,6 +72,8 @@ public class LocationMapping implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true

@@ -37,7 +37,9 @@
         "serviceOrderMaster": "Service Order Master",
         "serviceOrder": "Service Order",
         "serviceOrderPayment": "Service Order Payment",
-        "serviceOrderAssignment": "Service Order Assignment"
+        "serviceOrderAssignment": "Service Order Assignment",
+        "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+        "serviceOrderSpare": "Service Order Spare"
       },
       "account": {
         "main": "Account",

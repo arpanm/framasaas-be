@@ -98,6 +98,12 @@ public class AdditionalAttributeAsserts {
                 assertThat(a.getServiceOrderPayment()).as("check serviceOrderPayment").isEqualTo(expected.getServiceOrderPayment())
             )
             .satisfies(a ->
+                assertThat(a.getServiceOrderFranchiseAssignment())
+                    .as("check serviceOrderFranchiseAssignment")
+                    .isEqualTo(expected.getServiceOrderFranchiseAssignment())
+            )
+            .satisfies(a -> assertThat(a.getServiceOrderSpare()).as("check serviceOrderSpare").isEqualTo(expected.getServiceOrderSpare()))
+            .satisfies(a ->
                 assertThat(a.getServiceOrderAssignment()).as("check serviceOrderAssignment").isEqualTo(expected.getServiceOrderAssignment())
             );
     }

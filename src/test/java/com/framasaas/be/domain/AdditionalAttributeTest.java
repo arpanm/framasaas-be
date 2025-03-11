@@ -19,7 +19,9 @@ import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderAssignmentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderPaymentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderSpareTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
@@ -306,6 +308,30 @@ class AdditionalAttributeTest {
 
         additionalAttribute.serviceOrderPayment(null);
         assertThat(additionalAttribute.getServiceOrderPayment()).isNull();
+    }
+
+    @Test
+    void serviceOrderFranchiseAssignmentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ServiceOrderFranchiseAssignment serviceOrderFranchiseAssignmentBack = getServiceOrderFranchiseAssignmentRandomSampleGenerator();
+
+        additionalAttribute.setServiceOrderFranchiseAssignment(serviceOrderFranchiseAssignmentBack);
+        assertThat(additionalAttribute.getServiceOrderFranchiseAssignment()).isEqualTo(serviceOrderFranchiseAssignmentBack);
+
+        additionalAttribute.serviceOrderFranchiseAssignment(null);
+        assertThat(additionalAttribute.getServiceOrderFranchiseAssignment()).isNull();
+    }
+
+    @Test
+    void serviceOrderSpareTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ServiceOrderSpare serviceOrderSpareBack = getServiceOrderSpareRandomSampleGenerator();
+
+        additionalAttribute.setServiceOrderSpare(serviceOrderSpareBack);
+        assertThat(additionalAttribute.getServiceOrderSpare()).isEqualTo(serviceOrderSpareBack);
+
+        additionalAttribute.serviceOrderSpare(null);
+        assertThat(additionalAttribute.getServiceOrderSpare()).isNull();
     }
 
     @Test

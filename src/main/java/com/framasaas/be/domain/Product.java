@@ -94,6 +94,11 @@ public class Product implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "product" }, allowSetters = true)
+    private Set<ServiceOrderSpare> serviceOrderSpares = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
@@ -117,6 +122,8 @@ public class Product implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderSpare",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -401,6 +408,37 @@ public class Product implements Serializable {
     public Product removeServiceOrderMaster(ServiceOrderMaster serviceOrderMaster) {
         this.serviceOrderMasters.remove(serviceOrderMaster);
         serviceOrderMaster.setProduct(null);
+        return this;
+    }
+
+    public Set<ServiceOrderSpare> getServiceOrderSpares() {
+        return this.serviceOrderSpares;
+    }
+
+    public void setServiceOrderSpares(Set<ServiceOrderSpare> serviceOrderSpares) {
+        if (this.serviceOrderSpares != null) {
+            this.serviceOrderSpares.forEach(i -> i.setProduct(null));
+        }
+        if (serviceOrderSpares != null) {
+            serviceOrderSpares.forEach(i -> i.setProduct(this));
+        }
+        this.serviceOrderSpares = serviceOrderSpares;
+    }
+
+    public Product serviceOrderSpares(Set<ServiceOrderSpare> serviceOrderSpares) {
+        this.setServiceOrderSpares(serviceOrderSpares);
+        return this;
+    }
+
+    public Product addServiceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
+        this.serviceOrderSpares.add(serviceOrderSpare);
+        serviceOrderSpare.setProduct(this);
+        return this;
+    }
+
+    public Product removeServiceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
+        this.serviceOrderSpares.remove(serviceOrderSpare);
+        serviceOrderSpare.setProduct(null);
         return this;
     }
 

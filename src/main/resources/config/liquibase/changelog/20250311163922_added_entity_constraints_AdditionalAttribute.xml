@@ -150,6 +150,20 @@
                                  referencedTableName="service_order_payment"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="service_order_franchise_assignment_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__service_order_franchise_assignment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order_franchise_assignment"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_order_spare_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__service_order_spare_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order_spare"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="service_order_assignment_id"
                                  baseTableName="additional_attribute"
                                  constraintName="fk_additional_attribute__service_order_assignment_id"

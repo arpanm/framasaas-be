@@ -77,6 +77,7 @@ public class ServiceOrderMaster implements Serializable {
             "warrantyMasters",
             "articles",
             "serviceOrderMasters",
+            "serviceOrderSpares",
             "additionalAttributes",
             "category",
             "brand",

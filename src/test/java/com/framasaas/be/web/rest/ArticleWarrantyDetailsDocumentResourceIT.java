@@ -478,8 +478,10 @@ class ArticleWarrantyDetailsDocumentResourceIT {
 
         partialUpdatedArticleWarrantyDetailsDocument
             .documentPath(UPDATED_DOCUMENT_PATH)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restArticleWarrantyDetailsDocumentMockMvc
             .perform(
