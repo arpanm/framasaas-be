@@ -47,6 +47,9 @@
             <column name="article_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="warranty_master_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="article_warranty_details" columnName="created_time" columnDataType="${datetimeType}"/>

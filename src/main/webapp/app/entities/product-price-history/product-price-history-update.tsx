@@ -54,7 +54,7 @@ export const ProductPriceHistoryUpdate = () => {
     const entity = {
       ...productPriceHistoryEntity,
       ...values,
-      franchise: products.find(it => it.id.toString() === values.franchise?.toString()),
+      product: products.find(it => it.id.toString() === values.product?.toString()),
     };
 
     if (isNew) {
@@ -72,7 +72,7 @@ export const ProductPriceHistoryUpdate = () => {
       : {
           ...productPriceHistoryEntity,
           updatedTime: convertDateTimeFromServer(productPriceHistoryEntity.updatedTime),
-          franchise: productPriceHistoryEntity?.franchise?.id,
+          product: productPriceHistoryEntity?.product?.id,
         };
 
   return (
@@ -133,10 +133,10 @@ export const ProductPriceHistoryUpdate = () => {
                 }}
               />
               <ValidatedField
-                id="product-price-history-franchise"
-                name="franchise"
-                data-cy="franchise"
-                label={translate('framasaasApp.productPriceHistory.franchise')}
+                id="product-price-history-product"
+                name="product"
+                data-cy="product"
+                label={translate('framasaasApp.productPriceHistory.product')}
                 type="select"
               >
                 <option value="" key="0" />

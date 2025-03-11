@@ -80,9 +80,18 @@ public class AdditionalAttributeAsserts {
             .satisfies(a -> assertThat(a.getProduct()).as("check product").isEqualTo(expected.getProduct()))
             .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()))
             .satisfies(a -> assertThat(a.getPriceHistory()).as("check priceHistory").isEqualTo(expected.getPriceHistory()))
-            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
+            .satisfies(a -> assertThat(a.getWarrantyMaster()).as("check warrantyMaster").isEqualTo(expected.getWarrantyMaster()))
             .satisfies(a ->
-                assertThat(a.getArticleWarrantyDetails()).as("check articleWarrantyDetails").isEqualTo(expected.getArticleWarrantyDetails())
+                assertThat(a.getWarrantyMasterPriceHistory())
+                    .as("check warrantyMasterPriceHistory")
+                    .isEqualTo(expected.getWarrantyMasterPriceHistory())
+            )
+            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
+            .satisfies(a -> assertThat(a.getArticleWarranty()).as("check articleWarranty").isEqualTo(expected.getArticleWarranty()))
+            .satisfies(a ->
+                assertThat(a.getArticleWarrantyDocument())
+                    .as("check articleWarrantyDocument")
+                    .isEqualTo(expected.getArticleWarrantyDocument())
             );
     }
 }

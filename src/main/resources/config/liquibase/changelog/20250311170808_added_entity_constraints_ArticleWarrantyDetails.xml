@@ -16,5 +16,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="article"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="warranty_master_id"
+                                 baseTableName="article_warranty_details"
+                                 constraintName="fk_article_warranty_details__warranty_master_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warranty_master"
+                                 />
     </changeSet>
 </databaseChangeLog>

@@ -63,10 +63,18 @@ public class Product implements Serializable {
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "product" }, allowSetters = true)
     private Set<ProductPriceHistory> productPriceHistories = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "product" },
+        allowSetters = true
+    )
+    private Set<WarrantyMaster> warrantyMasters = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -91,8 +99,11 @@ public class Product implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
             "article",
-            "articleWarrantyDetails",
+            "articleWarranty",
+            "articleWarrantyDocument",
         },
         allowSetters = true
     )
@@ -248,10 +259,10 @@ public class Product implements Serializable {
 
     public void setProductPriceHistories(Set<ProductPriceHistory> productPriceHistories) {
         if (this.productPriceHistories != null) {
-            this.productPriceHistories.forEach(i -> i.setFranchise(null));
+            this.productPriceHistories.forEach(i -> i.setProduct(null));
         }
         if (productPriceHistories != null) {
-            productPriceHistories.forEach(i -> i.setFranchise(this));
+            productPriceHistories.forEach(i -> i.setProduct(this));
         }
         this.productPriceHistories = productPriceHistories;
     }
@@ -263,13 +274,44 @@ public class Product implements Serializable {
 
     public Product addProductPriceHistory(ProductPriceHistory productPriceHistory) {
         this.productPriceHistories.add(productPriceHistory);
-        productPriceHistory.setFranchise(this);
+        productPriceHistory.setProduct(this);
         return this;
     }
 
     public Product removeProductPriceHistory(ProductPriceHistory productPriceHistory) {
         this.productPriceHistories.remove(productPriceHistory);
-        productPriceHistory.setFranchise(null);
+        productPriceHistory.setProduct(null);
+        return this;
+    }
+
+    public Set<WarrantyMaster> getWarrantyMasters() {
+        return this.warrantyMasters;
+    }
+
+    public void setWarrantyMasters(Set<WarrantyMaster> warrantyMasters) {
+        if (this.warrantyMasters != null) {
+            this.warrantyMasters.forEach(i -> i.setProduct(null));
+        }
+        if (warrantyMasters != null) {
+            warrantyMasters.forEach(i -> i.setProduct(this));
+        }
+        this.warrantyMasters = warrantyMasters;
+    }
+
+    public Product warrantyMasters(Set<WarrantyMaster> warrantyMasters) {
+        this.setWarrantyMasters(warrantyMasters);
+        return this;
+    }
+
+    public Product addWarrantyMaster(WarrantyMaster warrantyMaster) {
+        this.warrantyMasters.add(warrantyMaster);
+        warrantyMaster.setProduct(this);
+        return this;
+    }
+
+    public Product removeWarrantyMaster(WarrantyMaster warrantyMaster) {
+        this.warrantyMasters.remove(warrantyMaster);
+        warrantyMaster.setProduct(null);
         return this;
     }
 

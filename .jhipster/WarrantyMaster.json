@@ -1,0 +1,96 @@
+{
+  "annotations": {
+    "changelogDate": "20250311172444"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "vendorWarrantyMasterId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "warrantyType",
+      "fieldType": "WarrantyType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "BRANDFREEWARRANTY,EXTENDEDPAIDWARRANTY,OTHER"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "periodInMonths",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "taxRate",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "WarrantyMaster",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "warrantyMasterPriceHistory",
+      "otherEntityRelationshipName": "warrantyMaster",
+      "relationshipName": "warrantyMasterPriceHistory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "articleWarrantyDetails",
+      "otherEntityRelationshipName": "warrantyMaster",
+      "relationshipName": "articleWarrantyDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "warrantyMaster",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

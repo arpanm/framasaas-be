@@ -1,0 +1,42 @@
+{
+  "annotations": {
+    "changelogDate": "20250311172445"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "WarrantyMasterPriceHistory",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "warrantyMasterPriceHistory",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "warrantyMaster",
+      "relationshipName": "warrantyMaster",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

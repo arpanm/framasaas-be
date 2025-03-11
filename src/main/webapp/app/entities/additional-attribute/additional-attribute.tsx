@@ -208,10 +208,24 @@ export const AdditionalAttribute = () => {
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.warrantyMaster">Warranty Master</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.warrantyMasterPriceHistory">
+                      Warranty Master Price History
+                    </Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.article">Article</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDetails">Article Warranty Details</Translate>{' '}
+                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarranty">Article Warranty</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
@@ -336,6 +350,24 @@ export const AdditionalAttribute = () => {
                       )}
                     </td>
                     <td>
+                      {additionalAttribute.warrantyMaster ? (
+                        <Link to={`/warranty-master/${additionalAttribute.warrantyMaster.id}`}>
+                          {additionalAttribute.warrantyMaster.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.warrantyMasterPriceHistory ? (
+                        <Link to={`/warranty-master-price-history/${additionalAttribute.warrantyMasterPriceHistory.id}`}>
+                          {additionalAttribute.warrantyMasterPriceHistory.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
                       {additionalAttribute.article ? (
                         <Link to={`/article/${additionalAttribute.article.id}`}>{additionalAttribute.article.id}</Link>
                       ) : (
@@ -343,9 +375,18 @@ export const AdditionalAttribute = () => {
                       )}
                     </td>
                     <td>
-                      {additionalAttribute.articleWarrantyDetails ? (
-                        <Link to={`/article-warranty-details/${additionalAttribute.articleWarrantyDetails.id}`}>
-                          {additionalAttribute.articleWarrantyDetails.id}
+                      {additionalAttribute.articleWarranty ? (
+                        <Link to={`/article-warranty-details/${additionalAttribute.articleWarranty.id}`}>
+                          {additionalAttribute.articleWarranty.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.articleWarrantyDocument ? (
+                        <Link to={`/article-warranty-details-document/${additionalAttribute.articleWarrantyDocument.id}`}>
+                          {additionalAttribute.articleWarrantyDocument.id}
                         </Link>
                       ) : (
                         ''

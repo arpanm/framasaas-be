@@ -83,6 +83,7 @@ public class ArticleWarrantyDetailsAsserts {
     ) {
         assertThat(actual)
             .as("Verify ArticleWarrantyDetails relationships")
-            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()));
+            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
+            .satisfies(a -> assertThat(a.getWarrantyMaster()).as("check warrantyMaster").isEqualTo(expected.getWarrantyMaster()));
     }
 }

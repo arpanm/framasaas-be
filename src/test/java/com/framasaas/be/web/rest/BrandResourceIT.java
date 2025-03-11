@@ -411,7 +411,7 @@ class BrandResourceIT {
         Brand partialUpdatedBrand = new Brand();
         partialUpdatedBrand.setId(brand.getId());
 
-        partialUpdatedBrand.logoPath(UPDATED_LOGO_PATH).createddBy(UPDATED_CREATEDD_BY).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedBrand.logoPath(UPDATED_LOGO_PATH).createdTime(UPDATED_CREATED_TIME);
 
         restBrandMockMvc
             .perform(

@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
+import { getEntities as getWarrantyMasters } from 'app/entities/warranty-master/warranty-master.reducer';
 import { WarrantyType } from 'app/shared/model/enumerations/warranty-type.model';
 import { createEntity, getEntity, updateEntity } from './article-warranty-details.reducer';
 
@@ -20,6 +21,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
   const isNew = id === undefined;
 
   const articles = useAppSelector(state => state.article.entities);
+  const warrantyMasters = useAppSelector(state => state.warrantyMaster.entities);
   const articleWarrantyDetailsEntity = useAppSelector(state => state.articleWarrantyDetails.entity);
   const loading = useAppSelector(state => state.articleWarrantyDetails.loading);
   const updating = useAppSelector(state => state.articleWarrantyDetails.updating);
@@ -36,6 +38,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
     }
 
     dispatch(getArticles({}));
+    dispatch(getWarrantyMasters({}));
   }, []);
 
   useEffect(() => {
@@ -55,6 +58,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
       ...articleWarrantyDetailsEntity,
       ...values,
       article: articles.find(it => it.id.toString() === values.article?.toString()),
+      warrantyMaster: warrantyMasters.find(it => it.id.toString() === values.warrantyMaster?.toString()),
     };
 
     if (isNew) {
@@ -76,6 +80,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
           createdTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.createdTime),
           updatedTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.updatedTime),
           article: articleWarrantyDetailsEntity?.article?.id,
+          warrantyMaster: articleWarrantyDetailsEntity?.warrantyMaster?.id,
         };
 
   return (
@@ -206,6 +211,22 @@ export const ArticleWarrantyDetailsUpdate = () => {
                 <option value="" key="0" />
                 {articles
                   ? articles.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="article-warranty-details-warrantyMaster"
+                name="warrantyMaster"
+                data-cy="warrantyMaster"
+                label={translate('framasaasApp.articleWarrantyDetails.warrantyMaster')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {warrantyMasters
+                  ? warrantyMasters.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

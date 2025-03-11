@@ -39,8 +39,11 @@
       "product": "Product",
       "hsn": "Hsn",
       "priceHistory": "Price History",
+      "warrantyMaster": "Warranty Master",
+      "warrantyMasterPriceHistory": "Warranty Master Price History",
       "article": "Article",
-      "articleWarrantyDetails": "Article Warranty Details"
+      "articleWarranty": "Article Warranty",
+      "articleWarrantyDocument": "Article Warranty Document"
     }
   }
 }

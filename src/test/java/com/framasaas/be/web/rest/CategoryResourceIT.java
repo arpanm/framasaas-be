@@ -413,6 +413,12 @@ class CategoryResourceIT {
         Category partialUpdatedCategory = new Category();
         partialUpdatedCategory.setId(category.getId());
 
+        partialUpdatedCategory
+            .categoryName(UPDATED_CATEGORY_NAME)
+            .vendorCategoryId(UPDATED_VENDOR_CATEGORY_ID)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
+
         restCategoryMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedCategory.getId())

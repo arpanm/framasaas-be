@@ -54,8 +54,15 @@
   "relationships": [
     {
       "otherEntityName": "productPriceHistory",
-      "otherEntityRelationshipName": "franchise",
+      "otherEntityRelationshipName": "product",
       "relationshipName": "productPriceHistory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "warrantyMaster",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "warrantyMaster",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

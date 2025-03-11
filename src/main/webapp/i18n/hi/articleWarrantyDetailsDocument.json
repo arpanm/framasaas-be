@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "articleWarrantyDetailsDocument": {
+      "home": {
+        "title": "ArticleWarrantyDetailsDocuments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Article Warranty Details Document बनाएँ",
+        "createOrEditLabel": "Article Warranty Details Document बनाएँ या संपादित करें",
+        "notFound": "No Article Warranty Details Documents found"
+      },
+      "created": "एक नया Article Warranty Details Document [identifier: {{ param }}] तैयार है",
+      "updated": "एक Article Warranty Details Document [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Article Warranty Details Document [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Article Warranty Details Document [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Article Warranty Details Document"
+      },
+      "id": "ID",
+      "documentPath": "Document Path",
+      "isValid": "Is Valid",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "articleWarranty": "Article Warranty"
+    }
+  }
+}

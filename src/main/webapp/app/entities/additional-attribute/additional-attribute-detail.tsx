@@ -135,13 +135,25 @@ export const AdditionalAttributeDetail = () => {
           </dt>
           <dd>{additionalAttributeEntity.priceHistory ? additionalAttributeEntity.priceHistory.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.warrantyMaster">Warranty Master</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.warrantyMaster ? additionalAttributeEntity.warrantyMaster.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.warrantyMasterPriceHistory">Warranty Master Price History</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.warrantyMasterPriceHistory ? additionalAttributeEntity.warrantyMasterPriceHistory.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.article">Article</Translate>
           </dt>
           <dd>{additionalAttributeEntity.article ? additionalAttributeEntity.article.id : ''}</dd>
           <dt>
-            <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDetails">Article Warranty Details</Translate>
+            <Translate contentKey="framasaasApp.additionalAttribute.articleWarranty">Article Warranty</Translate>
           </dt>
-          <dd>{additionalAttributeEntity.articleWarrantyDetails ? additionalAttributeEntity.articleWarrantyDetails.id : ''}</dd>
+          <dd>{additionalAttributeEntity.articleWarranty ? additionalAttributeEntity.articleWarranty.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.articleWarrantyDocument ? additionalAttributeEntity.articleWarrantyDocument.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/additional-attribute" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

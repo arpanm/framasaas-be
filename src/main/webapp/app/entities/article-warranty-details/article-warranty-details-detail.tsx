@@ -112,6 +112,10 @@ export const ArticleWarrantyDetailsDetail = () => {
             <Translate contentKey="framasaasApp.articleWarrantyDetails.article">Article</Translate>
           </dt>
           <dd>{articleWarrantyDetailsEntity.article ? articleWarrantyDetailsEntity.article.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.articleWarrantyDetails.warrantyMaster">Warranty Master</Translate>
+          </dt>
+          <dd>{articleWarrantyDetailsEntity.warrantyMaster ? articleWarrantyDetailsEntity.warrantyMaster.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/article-warranty-details" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

@@ -101,6 +101,20 @@
                                  referencedTableName="product_price_history"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="warranty_master_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__warranty_master_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warranty_master"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="warranty_master_price_history_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__warranty_master_price_history_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warranty_master_price_history"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="article_id"
                                  baseTableName="additional_attribute"
                                  constraintName="fk_additional_attribute__article_id"
@@ -108,11 +122,18 @@
                                  referencedTableName="article"
                                  />
 
-        <addForeignKeyConstraint baseColumnNames="article_warranty_details_id"
+        <addForeignKeyConstraint baseColumnNames="article_warranty_id"
                                  baseTableName="additional_attribute"
-                                 constraintName="fk_additional_attribute__article_warranty_details_id"
+                                 constraintName="fk_additional_attribute__article_warranty_id"
                                  referencedColumnNames="id"
                                  referencedTableName="article_warranty_details"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="article_warranty_document_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__article_warranty_document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article_warranty_details_document"
                                  />
     </changeSet>
 </databaseChangeLog>

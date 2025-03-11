@@ -57,8 +57,11 @@ public class ProductPriceHistory implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
             "article",
-            "articleWarrantyDetails",
+            "articleWarranty",
+            "articleWarrantyDocument",
         },
         allowSetters = true
     )
@@ -66,10 +69,10 @@ public class ProductPriceHistory implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
         allowSetters = true
     )
-    private Product franchise;
+    private Product product;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -156,16 +159,16 @@ public class ProductPriceHistory implements Serializable {
         return this;
     }
 
-    public Product getFranchise() {
-        return this.franchise;
+    public Product getProduct() {
+        return this.product;
     }
 
-    public void setFranchise(Product product) {
-        this.franchise = product;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public ProductPriceHistory franchise(Product product) {
-        this.setFranchise(product);
+    public ProductPriceHistory product(Product product) {
+        this.setProduct(product);
         return this;
     }
 

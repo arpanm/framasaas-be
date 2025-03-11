@@ -129,6 +129,18 @@
       "relationshipType": "many-to-one"
     },
     {
+      "otherEntityName": "warrantyMaster",
+      "relationshipName": "warrantyMaster",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "warrantyMasterPriceHistory",
+      "relationshipName": "warrantyMasterPriceHistory",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
       "otherEntityName": "article",
       "relationshipName": "article",
       "relationshipSide": "right",
@@ -136,7 +148,13 @@
     },
     {
       "otherEntityName": "articleWarrantyDetails",
-      "relationshipName": "articleWarrantyDetails",
+      "relationshipName": "articleWarranty",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "articleWarrantyDetailsDocument",
+      "relationshipName": "articleWarrantyDocument",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

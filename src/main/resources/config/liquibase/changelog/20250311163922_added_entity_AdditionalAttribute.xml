@@ -74,10 +74,19 @@
             <column name="price_history_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="warranty_master_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="warranty_master_price_history_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="article_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="article_warranty_details_id" type="bigint">
+            <column name="article_warranty_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="article_warranty_document_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

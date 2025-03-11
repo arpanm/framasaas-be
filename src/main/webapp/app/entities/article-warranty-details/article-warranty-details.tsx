@@ -181,6 +181,10 @@ export const ArticleWarrantyDetails = () => {
                   <th>
                     <Translate contentKey="framasaasApp.articleWarrantyDetails.article">Article</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetails.warrantyMaster">Warranty Master</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -223,6 +227,15 @@ export const ArticleWarrantyDetails = () => {
                     <td>
                       {articleWarrantyDetails.article ? (
                         <Link to={`/article/${articleWarrantyDetails.article.id}`}>{articleWarrantyDetails.article.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {articleWarrantyDetails.warrantyMaster ? (
+                        <Link to={`/warranty-master/${articleWarrantyDetails.warrantyMaster.id}`}>
+                          {articleWarrantyDetails.warrantyMaster.id}
+                        </Link>
                       ) : (
                         ''
                       )}

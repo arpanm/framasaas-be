@@ -30,7 +30,10 @@
         "franchiseAllocationRuleSet": "Franchise Allocation Rule Set",
         "franchiseAllocationRule": "Franchise Allocation Rule",
         "article": "Article",
-        "articleWarrantyDetails": "Article Warranty Details"
+        "articleWarrantyDetails": "Article Warranty Details",
+        "warrantyMaster": "Warranty Master",
+        "warrantyMasterPriceHistory": "Warranty Master Price History",
+        "articleWarrantyDetailsDocument": "Article Warranty Details Document"
       },
       "account": {
         "main": "खाता",

@@ -326,9 +326,36 @@ entity ProductPriceHistory {
 }
 
 relationship OneToMany {
-	Product to ProductPriceHistory{franchise}
+	Product to ProductPriceHistory{product}
 }
 
+entity WarrantyMaster {
+	name String required,
+    vendorWarrantyMasterId String required,
+    warrantyType WarrantyType required,
+    description String,
+    price Float required,
+    periodInMonths Long required,
+    taxRate Float required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	Product to WarrantyMaster{product}
+}
+
+entity WarrantyMasterPriceHistory {
+	price Float required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	WarrantyMaster to WarrantyMasterPriceHistory{warrantyMaster}
+}
 
 entity Article {
 	serialNo String,
@@ -368,6 +395,23 @@ enum WarrantyType {
 
 relationship OneToMany {
 	Article to ArticleWarrantyDetails{article}
+}
+
+relationship OneToMany {
+	WarrantyMaster to ArticleWarrantyDetails{warrantyMaster}
+}
+
+entity ArticleWarrantyDetailsDocument {
+	documentPath String required,
+    isValid Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	ArticleWarrantyDetails to ArticleWarrantyDetailsDocument{articleWarranty}
 }
 
 entity AdditionalAttribute {
@@ -457,11 +501,23 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
+	WarrantyMaster to AdditionalAttribute{warrantyMaster}
+}
+
+relationship OneToMany {
+	WarrantyMasterPriceHistory to AdditionalAttribute{warrantyMasterPriceHistory}
+}
+
+relationship OneToMany {
 	Article to AdditionalAttribute{article}
 }
 
 relationship OneToMany {
-	ArticleWarrantyDetails to AdditionalAttribute{articleWarrantyDetails}
+	ArticleWarrantyDetails to AdditionalAttribute{articleWarranty}
+}
+
+relationship OneToMany {
+	ArticleWarrantyDetailsDocument to AdditionalAttribute{articleWarrantyDocument}
 }
 
 // Set pagination options

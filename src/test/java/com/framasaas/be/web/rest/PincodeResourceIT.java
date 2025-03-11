@@ -371,7 +371,7 @@ class PincodeResourceIT {
         Pincode partialUpdatedPincode = new Pincode();
         partialUpdatedPincode.setId(pincode.getId());
 
-        partialUpdatedPincode.pincode(UPDATED_PINCODE).createdTime(UPDATED_CREATED_TIME).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedPincode.pincode(UPDATED_PINCODE).updatedTime(UPDATED_UPDATED_TIME);
 
         restPincodeMockMvc
             .perform(

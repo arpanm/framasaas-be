@@ -49,14 +49,14 @@ class ProductPriceHistoryTest {
     }
 
     @Test
-    void franchiseTest() {
+    void productTest() {
         ProductPriceHistory productPriceHistory = getProductPriceHistoryRandomSampleGenerator();
         Product productBack = getProductRandomSampleGenerator();
 
-        productPriceHistory.setFranchise(productBack);
-        assertThat(productPriceHistory.getFranchise()).isEqualTo(productBack);
+        productPriceHistory.setProduct(productBack);
+        assertThat(productPriceHistory.getProduct()).isEqualTo(productBack);
 
-        productPriceHistory.franchise(null);
-        assertThat(productPriceHistory.getFranchise()).isNull();
+        productPriceHistory.product(null);
+        assertThat(productPriceHistory.getProduct()).isNull();
     }
 }

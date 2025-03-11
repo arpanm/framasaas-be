@@ -21,6 +21,9 @@ import franchiseAllocationRuleSet from 'app/entities/franchise-allocation-rule-s
 import franchiseAllocationRule from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 import article from 'app/entities/article/article.reducer';
 import articleWarrantyDetails from 'app/entities/article-warranty-details/article-warranty-details.reducer';
+import warrantyMaster from 'app/entities/warranty-master/warranty-master.reducer';
+import warrantyMasterPriceHistory from 'app/entities/warranty-master-price-history/warranty-master-price-history.reducer';
+import articleWarrantyDetailsDocument from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -47,6 +50,9 @@ const entitiesReducers = {
   franchiseAllocationRule,
   article,
   articleWarrantyDetails,
+  warrantyMaster,
+  warrantyMasterPriceHistory,
+  articleWarrantyDetailsDocument,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 
