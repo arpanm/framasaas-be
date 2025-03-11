@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { IFranchise } from 'app/shared/model/franchise.model';
+import { IFieldAgentSkillRuleSet } from 'app/shared/model/field-agent-skill-rule-set.model';
 import { FranchiseUserStatus } from 'app/shared/model/enumerations/franchise-user-status.model';
 import { FranchiseUserRole } from 'app/shared/model/enumerations/franchise-user-role.model';
 
@@ -15,6 +16,7 @@ export interface IFranchiseUser {
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
   franchise?: IFranchise | null;
+  skillRuleSet?: IFieldAgentSkillRuleSet | null;
 }
 
 export const defaultValue: Readonly<IFranchiseUser> = {};

@@ -29,7 +29,8 @@
       "updatedTime": "Updated Time",
       "franchiseUserStatusHistory": "Franchise User Status History",
       "additionalAttribute": "Additional Attribute",
-      "franchise": "Franchise"
+      "franchise": "Franchise",
+      "skillRuleSet": "Skill Rule Set"
     }
   }
 }

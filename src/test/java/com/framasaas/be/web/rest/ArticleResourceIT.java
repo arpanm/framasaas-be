@@ -366,7 +366,7 @@ class ArticleResourceIT {
         partialUpdatedArticle
             .serialNo(UPDATED_SERIAL_NO)
             .vendorArticleId(UPDATED_VENDOR_ARTICLE_ID)
-            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY);
 
         restArticleMockMvc

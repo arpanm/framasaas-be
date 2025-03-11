@@ -16,5 +16,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="franchise"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="skill_rule_set_id"
+                                 baseTableName="franchise_user"
+                                 constraintName="fk_franchise_user__skill_rule_set_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field_agent_skill_rule_set"
+                                 />
     </changeSet>
 </databaseChangeLog>

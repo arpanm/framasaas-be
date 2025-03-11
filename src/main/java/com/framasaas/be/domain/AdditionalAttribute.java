@@ -88,11 +88,11 @@ public class AdditionalAttribute implements Serializable {
     private FranchisePerformanceHistory franchisePerformance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -100,11 +100,14 @@ public class AdditionalAttribute implements Serializable {
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private LocationMapping location;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise", "skillRuleSet" },
+        allowSetters = true
+    )
     private FranchiseUser franchiseUser;
 
     @ManyToOne(fetch = FetchType.LAZY)

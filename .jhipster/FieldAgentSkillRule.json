@@ -1,0 +1,85 @@
+{
+  "annotations": {
+    "changelogDate": "20250311185722"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "skillType",
+      "fieldType": "FieldAgentSkillRuleType",
+      "fieldValues": "BRANDSKILL,CATEGORYSKILL,PINCODESKILL,LOCATIONSKILL,LANGUAGESKILL"
+    },
+    {
+      "fieldName": "joinType",
+      "fieldType": "FieldAgentSkillRuleJoinType",
+      "fieldValues": "ANDJOIN,ORJOIN"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FieldAgentSkillRule",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "brand",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "brand",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "category",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pincode",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "pincode",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "locationMapping",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "locationMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "languageMapping",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "languageMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fieldAgentSkillRuleSet",
+      "relationshipName": "fieldAgentSkillRuleSet",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

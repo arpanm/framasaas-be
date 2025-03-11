@@ -410,9 +410,8 @@ class FranchiseAllocationRuleResourceIT {
 
         partialUpdatedFranchiseAllocationRule
             .ruleType(UPDATED_RULE_TYPE)
-            .joinType(UPDATED_JOIN_TYPE)
             .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY)
+            .createdTime(UPDATED_CREATED_TIME)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseAllocationRuleMockMvc

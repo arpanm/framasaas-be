@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
+import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './brand.reducer';
 
 export const BrandUpdate = () => {
@@ -19,6 +20,7 @@ export const BrandUpdate = () => {
   const isNew = id === undefined;
 
   const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
+  const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
   const brandEntity = useAppSelector(state => state.brand.entity);
   const loading = useAppSelector(state => state.brand.loading);
   const updating = useAppSelector(state => state.brand.updating);
@@ -34,6 +36,7 @@ export const BrandUpdate = () => {
     }
 
     dispatch(getFranchiseAllocationRules({}));
+    dispatch(getFieldAgentSkillRules({}));
   }, []);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ export const BrandUpdate = () => {
       ...brandEntity,
       ...values,
       franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
+      fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
     };
 
     if (isNew) {
@@ -73,6 +77,7 @@ export const BrandUpdate = () => {
           createdTime: convertDateTimeFromServer(brandEntity.createdTime),
           updatedTime: convertDateTimeFromServer(brandEntity.updatedTime),
           franchiseRule: brandEntity?.franchiseRule?.id,
+          fieldAgentSkillRule: brandEntity?.fieldAgentSkillRule?.id,
         };
 
   return (
@@ -194,6 +199,22 @@ export const BrandUpdate = () => {
                 <option value="" key="0" />
                 {franchiseAllocationRules
                   ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="brand-fieldAgentSkillRule"
+                name="fieldAgentSkillRule"
+                data-cy="fieldAgentSkillRule"
+                label={translate('framasaasApp.brand.fieldAgentSkillRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRules
+                  ? fieldAgentSkillRules.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

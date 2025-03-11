@@ -90,6 +90,10 @@ export const BrandDetail = () => {
             <Translate contentKey="framasaasApp.brand.franchiseRule">Franchise Rule</Translate>
           </dt>
           <dd>{brandEntity.franchiseRule ? brandEntity.franchiseRule.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.brand.fieldAgentSkillRule">Field Agent Skill Rule</Translate>
+          </dt>
+          <dd>{brandEntity.fieldAgentSkillRule ? brandEntity.fieldAgentSkillRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/brand" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

@@ -115,6 +115,13 @@ public class Category implements Serializable {
     @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings" }, allowSetters = true)
     private FranchiseAllocationRule franchiseRule;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "fieldAgentSkillRuleSet" },
+        allowSetters = true
+    )
+    private FieldAgentSkillRule fieldAgentSkillRule;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -319,6 +326,19 @@ public class Category implements Serializable {
 
     public Category franchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
         this.setFranchiseRule(franchiseAllocationRule);
+        return this;
+    }
+
+    public FieldAgentSkillRule getFieldAgentSkillRule() {
+        return this.fieldAgentSkillRule;
+    }
+
+    public void setFieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.fieldAgentSkillRule = fieldAgentSkillRule;
+    }
+
+    public Category fieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.setFieldAgentSkillRule(fieldAgentSkillRule);
         return this;
     }
 

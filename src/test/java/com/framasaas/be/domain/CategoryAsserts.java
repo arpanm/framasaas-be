@@ -67,6 +67,9 @@ public class CategoryAsserts {
     public static void assertCategoryUpdatableRelationshipsEquals(Category expected, Category actual) {
         assertThat(actual)
             .as("Verify Category relationships")
-            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()))
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            );
     }
 }

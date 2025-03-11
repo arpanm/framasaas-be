@@ -74,6 +74,10 @@ export const LanguageMappingDetail = () => {
             <Translate contentKey="framasaasApp.languageMapping.franchiseRule">Franchise Rule</Translate>
           </dt>
           <dd>{languageMappingEntity.franchiseRule ? languageMappingEntity.franchiseRule.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.languageMapping.fieldAgentSkillRule">Field Agent Skill Rule</Translate>
+          </dt>
+          <dd>{languageMappingEntity.fieldAgentSkillRule ? languageMappingEntity.fieldAgentSkillRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/language-mapping" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

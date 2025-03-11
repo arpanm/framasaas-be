@@ -376,12 +376,7 @@ class LanguageMappingResourceIT {
         LanguageMapping partialUpdatedLanguageMapping = new LanguageMapping();
         partialUpdatedLanguageMapping.setId(languageMapping.getId());
 
-        partialUpdatedLanguageMapping
-            .lang(UPDATED_LANG)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedLanguageMapping.lang(UPDATED_LANG).createddBy(UPDATED_CREATEDD_BY);
 
         restLanguageMappingMockMvc
             .perform(

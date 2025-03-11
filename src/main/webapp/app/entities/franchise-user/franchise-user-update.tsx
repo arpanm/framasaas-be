@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
+import { getEntities as getFieldAgentSkillRuleSets } from 'app/entities/field-agent-skill-rule-set/field-agent-skill-rule-set.reducer';
 import { FranchiseUserStatus } from 'app/shared/model/enumerations/franchise-user-status.model';
 import { FranchiseUserRole } from 'app/shared/model/enumerations/franchise-user-role.model';
 import { createEntity, getEntity, updateEntity } from './franchise-user.reducer';
@@ -21,6 +22,7 @@ export const FranchiseUserUpdate = () => {
   const isNew = id === undefined;
 
   const franchises = useAppSelector(state => state.franchise.entities);
+  const fieldAgentSkillRuleSets = useAppSelector(state => state.fieldAgentSkillRuleSet.entities);
   const franchiseUserEntity = useAppSelector(state => state.franchiseUser.entity);
   const loading = useAppSelector(state => state.franchiseUser.loading);
   const updating = useAppSelector(state => state.franchiseUser.updating);
@@ -38,6 +40,7 @@ export const FranchiseUserUpdate = () => {
     }
 
     dispatch(getFranchises({}));
+    dispatch(getFieldAgentSkillRuleSets({}));
   }, []);
 
   useEffect(() => {
@@ -60,6 +63,7 @@ export const FranchiseUserUpdate = () => {
       ...franchiseUserEntity,
       ...values,
       franchise: franchises.find(it => it.id.toString() === values.franchise?.toString()),
+      skillRuleSet: fieldAgentSkillRuleSets.find(it => it.id.toString() === values.skillRuleSet?.toString()),
     };
 
     if (isNew) {
@@ -82,6 +86,7 @@ export const FranchiseUserUpdate = () => {
           createdTime: convertDateTimeFromServer(franchiseUserEntity.createdTime),
           updatedTime: convertDateTimeFromServer(franchiseUserEntity.updatedTime),
           franchise: franchiseUserEntity?.franchise?.id,
+          skillRuleSet: franchiseUserEntity?.skillRuleSet?.id,
         };
 
   return (
@@ -224,6 +229,22 @@ export const FranchiseUserUpdate = () => {
                 <option value="" key="0" />
                 {franchises
                   ? franchises.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="franchise-user-skillRuleSet"
+                name="skillRuleSet"
+                data-cy="skillRuleSet"
+                label={translate('framasaasApp.franchiseUser.skillRuleSet')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRuleSets
+                  ? fieldAgentSkillRuleSets.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

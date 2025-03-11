@@ -170,6 +170,10 @@ export const FranchiseUser = () => {
                   <th>
                     <Translate contentKey="framasaasApp.franchiseUser.franchise">Franchise</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.franchiseUser.skillRuleSet">Skill Rule Set</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -205,6 +209,13 @@ export const FranchiseUser = () => {
                     <td>
                       {franchiseUser.franchise ? (
                         <Link to={`/franchise/${franchiseUser.franchise.id}`}>{franchiseUser.franchise.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {franchiseUser.skillRuleSet ? (
+                        <Link to={`/field-agent-skill-rule-set/${franchiseUser.skillRuleSet.id}`}>{franchiseUser.skillRuleSet.id}</Link>
                       ) : (
                         ''
                       )}

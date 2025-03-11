@@ -1,0 +1,35 @@
+{
+  "framasaasApp": {
+    "fieldAgentSkillRule": {
+      "home": {
+        "title": "Field Agent Skill Rules",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Field Agent Skill Rule",
+        "createOrEditLabel": "Create or edit a Field Agent Skill Rule",
+        "notFound": "No Field Agent Skill Rules found"
+      },
+      "created": "A new Field Agent Skill Rule is created with identifier {{ param }}",
+      "updated": "A Field Agent Skill Rule is updated with identifier {{ param }}",
+      "deleted": "A Field Agent Skill Rule is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Field Agent Skill Rule {{ id }}?"
+      },
+      "detail": {
+        "title": "Field Agent Skill Rule"
+      },
+      "id": "ID",
+      "skillType": "Skill Type",
+      "joinType": "Join Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "brand": "Brand",
+      "category": "Category",
+      "pincode": "Pincode",
+      "locationMapping": "Location Mapping",
+      "languageMapping": "Language Mapping",
+      "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set"
+    }
+  }
+}

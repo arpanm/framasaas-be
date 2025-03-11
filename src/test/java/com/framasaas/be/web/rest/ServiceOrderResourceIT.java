@@ -500,13 +500,11 @@ class ServiceOrderResourceIT {
         partialUpdatedServiceOrder
             .description(UPDATED_DESCRIPTION)
             .orderStatus(UPDATED_ORDER_STATUS)
-            .inWarranty(UPDATED_IN_WARRANTY)
-            .tax(UPDATED_TAX)
-            .totalPaymentDone(UPDATED_TOTAL_PAYMENT_DONE)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .isSpareNeeded(UPDATED_IS_SPARE_NEEDED)
+            .totalCharges(UPDATED_TOTAL_CHARGES)
+            .nps(UPDATED_NPS)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restServiceOrderMockMvc
             .perform(

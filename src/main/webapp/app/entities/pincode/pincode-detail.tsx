@@ -70,6 +70,10 @@ export const PincodeDetail = () => {
             <Translate contentKey="framasaasApp.pincode.franchiseRule">Franchise Rule</Translate>
           </dt>
           <dd>{pincodeEntity.franchiseRule ? pincodeEntity.franchiseRule.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.pincode.fieldAgentSkillRule">Field Agent Skill Rule</Translate>
+          </dt>
+          <dd>{pincodeEntity.fieldAgentSkillRule ? pincodeEntity.fieldAgentSkillRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/pincode" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

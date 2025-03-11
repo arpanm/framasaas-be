@@ -63,6 +63,9 @@ public class PincodeAsserts {
     public static void assertPincodeUpdatableRelationshipsEquals(Pincode expected, Pincode actual) {
         assertThat(actual)
             .as("Verify Pincode relationships")
-            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()))
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            );
     }
 }

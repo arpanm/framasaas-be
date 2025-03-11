@@ -153,6 +153,10 @@ export const Pincode = () => {
                   <th>
                     <Translate contentKey="framasaasApp.pincode.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.pincode.fieldAgentSkillRule">Field Agent Skill Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -172,6 +176,13 @@ export const Pincode = () => {
                     <td>
                       {pincode.franchiseRule ? (
                         <Link to={`/franchise-allocation-rule/${pincode.franchiseRule.id}`}>{pincode.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {pincode.fieldAgentSkillRule ? (
+                        <Link to={`/field-agent-skill-rule/${pincode.fieldAgentSkillRule.id}`}>{pincode.fieldAgentSkillRule.id}</Link>
                       ) : (
                         ''
                       )}

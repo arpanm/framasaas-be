@@ -67,6 +67,9 @@ public class BrandAsserts {
     public static void assertBrandUpdatableRelationshipsEquals(Brand expected, Brand actual) {
         assertThat(actual)
             .as("Verify Brand relationships")
-            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()))
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            );
     }
 }

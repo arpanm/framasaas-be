@@ -386,9 +386,9 @@ class FranchisePerformanceHistoryResourceIT {
         partialUpdatedFranchisePerformanceHistory.setId(franchisePerformanceHistory.getId());
 
         partialUpdatedFranchisePerformanceHistory
-            .performanceTag(UPDATED_PERFORMANCE_TAG)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME);
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY);
 
         restFranchisePerformanceHistoryMockMvc
             .perform(

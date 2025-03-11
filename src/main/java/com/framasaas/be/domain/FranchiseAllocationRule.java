@@ -57,27 +57,27 @@ public class FranchiseAllocationRule implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<Brand> brands = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<Category> categories = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<Pincode> pincodes = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<LocationMapping> locationMappings = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "franchiseRule" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<LanguageMapping> languageMappings = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

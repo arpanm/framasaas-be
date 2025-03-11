@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
+import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './location-mapping.reducer';
 
 export const LocationMappingUpdate = () => {
@@ -19,6 +20,7 @@ export const LocationMappingUpdate = () => {
   const isNew = id === undefined;
 
   const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
+  const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
   const locationMappingEntity = useAppSelector(state => state.locationMapping.entity);
   const loading = useAppSelector(state => state.locationMapping.loading);
   const updating = useAppSelector(state => state.locationMapping.updating);
@@ -34,6 +36,7 @@ export const LocationMappingUpdate = () => {
     }
 
     dispatch(getFranchiseAllocationRules({}));
+    dispatch(getFieldAgentSkillRules({}));
   }, []);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ export const LocationMappingUpdate = () => {
       ...locationMappingEntity,
       ...values,
       franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
+      fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
     };
 
     if (isNew) {
@@ -73,6 +77,7 @@ export const LocationMappingUpdate = () => {
           createdTime: convertDateTimeFromServer(locationMappingEntity.createdTime),
           updatedTime: convertDateTimeFromServer(locationMappingEntity.updatedTime),
           franchiseRule: locationMappingEntity?.franchiseRule?.id,
+          fieldAgentSkillRule: locationMappingEntity?.fieldAgentSkillRule?.id,
         };
 
   return (
@@ -162,6 +167,22 @@ export const LocationMappingUpdate = () => {
                 <option value="" key="0" />
                 {franchiseAllocationRules
                   ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="location-mapping-fieldAgentSkillRule"
+                name="fieldAgentSkillRule"
+                data-cy="fieldAgentSkillRule"
+                label={translate('framasaasApp.locationMapping.fieldAgentSkillRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRules
+                  ? fieldAgentSkillRules.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

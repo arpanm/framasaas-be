@@ -155,6 +155,10 @@ export const LocationMapping = () => {
                     <Translate contentKey="framasaasApp.locationMapping.franchiseRule">Franchise Rule</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.locationMapping.fieldAgentSkillRule">Field Agent Skill Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -183,6 +187,15 @@ export const LocationMapping = () => {
                       {locationMapping.franchiseRule ? (
                         <Link to={`/franchise-allocation-rule/${locationMapping.franchiseRule.id}`}>
                           {locationMapping.franchiseRule.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {locationMapping.fieldAgentSkillRule ? (
+                        <Link to={`/field-agent-skill-rule/${locationMapping.fieldAgentSkillRule.id}`}>
+                          {locationMapping.fieldAgentSkillRule.id}
                         </Link>
                       ) : (
                         ''

@@ -476,7 +476,10 @@ class ArticleWarrantyDetailsDocumentResourceIT {
         ArticleWarrantyDetailsDocument partialUpdatedArticleWarrantyDetailsDocument = new ArticleWarrantyDetailsDocument();
         partialUpdatedArticleWarrantyDetailsDocument.setId(articleWarrantyDetailsDocument.getId());
 
-        partialUpdatedArticleWarrantyDetailsDocument.createddBy(UPDATED_CREATEDD_BY);
+        partialUpdatedArticleWarrantyDetailsDocument
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restArticleWarrantyDetailsDocumentMockMvc
             .perform(

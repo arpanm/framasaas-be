@@ -2,6 +2,7 @@ package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
+import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -81,5 +82,17 @@ class BrandTest {
 
         brand.franchiseRule(null);
         assertThat(brand.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleTest() {
+        Brand brand = getBrandRandomSampleGenerator();
+        FieldAgentSkillRule fieldAgentSkillRuleBack = getFieldAgentSkillRuleRandomSampleGenerator();
+
+        brand.setFieldAgentSkillRule(fieldAgentSkillRuleBack);
+        assertThat(brand.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRuleBack);
+
+        brand.fieldAgentSkillRule(null);
+        assertThat(brand.getFieldAgentSkillRule()).isNull();
     }
 }

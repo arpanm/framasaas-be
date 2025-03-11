@@ -38,6 +38,12 @@
       "relationshipName": "franchiseRule",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "fieldAgentSkillRule",
+      "relationshipName": "fieldAgentSkillRule",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",
