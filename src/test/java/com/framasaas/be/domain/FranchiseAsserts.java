@@ -57,6 +57,9 @@ public class FranchiseAsserts {
             )
             .satisfies(a -> assertThat(a.getPerformanceScore()).as("check performanceScore").isEqualTo(expected.getPerformanceScore()))
             .satisfies(a -> assertThat(a.getPerformanceTag()).as("check performanceTag").isEqualTo(expected.getPerformanceTag()))
+            .satisfies(a ->
+                assertThat(a.getDailyMaxServiceLimit()).as("check dailyMaxServiceLimit").isEqualTo(expected.getDailyMaxServiceLimit())
+            )
             .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
             .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
             .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
@@ -72,6 +75,7 @@ public class FranchiseAsserts {
     public static void assertFranchiseUpdatableRelationshipsEquals(Franchise expected, Franchise actual) {
         assertThat(actual)
             .as("Verify Franchise relationships")
-            .satisfies(a -> assertThat(a.getAddress()).as("check address").isEqualTo(expected.getAddress()));
+            .satisfies(a -> assertThat(a.getAddress()).as("check address").isEqualTo(expected.getAddress()))
+            .satisfies(a -> assertThat(a.getRuleset()).as("check ruleset").isEqualTo(expected.getRuleset()));
     }
 }

@@ -27,6 +27,7 @@
       "registrationNumber": "Registration Number",
       "performanceScore": "Performance Score",
       "performanceTag": "Performance Tag",
+      "dailyMaxServiceLimit": "Daily Max Service Limit",
       "createddBy": "Createdd By",
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
@@ -34,10 +35,10 @@
       "address": "Address",
       "franchiseStatusHistory": "Franchise Status History",
       "franchisePerformanceHistory": "Franchise Performance History",
-      "locationMapping": "Location Mapping",
       "franchiseDocument": "Franchise Document",
       "franchiseUser": "Franchise User",
       "additionalAttribute": "Additional Attribute",
+      "ruleset": "Ruleset",
       "brands": "Brands",
       "categories": "Categories"
     }

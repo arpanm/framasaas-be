@@ -67,10 +67,10 @@ public class AdditionalAttribute implements Serializable {
             "address",
             "franchiseStatusHistories",
             "franchisePerformanceHistories",
-            "locationMappings",
             "franchiseDocuments",
             "franchiseUsers",
             "additionalAttributes",
+            "ruleset",
             "brands",
             "categories",
         },
@@ -87,11 +87,11 @@ public class AdditionalAttribute implements Serializable {
     private FranchisePerformanceHistory franchisePerformance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -99,7 +99,7 @@ public class AdditionalAttribute implements Serializable {
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private LocationMapping location;
 
     @ManyToOne(fetch = FetchType.LAZY)

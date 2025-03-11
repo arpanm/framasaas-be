@@ -18,6 +18,7 @@ public class FranchiseTestSamples {
             .contact(1L)
             .gstNumber("gstNumber1")
             .registrationNumber("registrationNumber1")
+            .dailyMaxServiceLimit(1L)
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
     }
@@ -31,6 +32,7 @@ public class FranchiseTestSamples {
             .contact(2L)
             .gstNumber("gstNumber2")
             .registrationNumber("registrationNumber2")
+            .dailyMaxServiceLimit(2L)
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
     }
@@ -44,6 +46,7 @@ public class FranchiseTestSamples {
             .contact(longCount.incrementAndGet())
             .gstNumber(UUID.randomUUID().toString())
             .registrationNumber(UUID.randomUUID().toString())
+            .dailyMaxServiceLimit(longCount.incrementAndGet())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());
     }

@@ -1,0 +1,9 @@
+export enum FranchiseAllocationRuleType {
+  BRANDRULE = 'BRANDRULE',
+
+  CATEGORYRULE = 'CATEGORYRULE',
+
+  PINCODERULE = 'PINCODERULE',
+
+  LOCALITYRULE = 'LOCALITYRULE',
+}

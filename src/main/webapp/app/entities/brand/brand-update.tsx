@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './brand.reducer';
 
 export const BrandUpdate = () => {
@@ -17,6 +18,7 @@ export const BrandUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
   const brandEntity = useAppSelector(state => state.brand.entity);
   const loading = useAppSelector(state => state.brand.loading);
   const updating = useAppSelector(state => state.brand.updating);
@@ -30,6 +32,8 @@ export const BrandUpdate = () => {
     if (!isNew) {
       dispatch(getEntity(id));
     }
+
+    dispatch(getFranchiseAllocationRules({}));
   }, []);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export const BrandUpdate = () => {
     const entity = {
       ...brandEntity,
       ...values,
+      franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
     };
 
     if (isNew) {
@@ -67,6 +72,7 @@ export const BrandUpdate = () => {
           ...brandEntity,
           createdTime: convertDateTimeFromServer(brandEntity.createdTime),
           updatedTime: convertDateTimeFromServer(brandEntity.updatedTime),
+          franchiseRule: brandEntity?.franchiseRule?.id,
         };
 
   return (
@@ -170,6 +176,22 @@ export const BrandUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                id="brand-franchiseRule"
+                name="franchiseRule"
+                data-cy="franchiseRule"
+                label={translate('framasaasApp.brand.franchiseRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRules
+                  ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/brand" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

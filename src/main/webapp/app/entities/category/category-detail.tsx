@@ -84,6 +84,10 @@ export const CategoryDetail = () => {
           <dd>
             {categoryEntity.updatedTime ? <TextFormat value={categoryEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
           </dd>
+          <dt>
+            <Translate contentKey="framasaasApp.category.franchiseRule">Franchise Rule</Translate>
+          </dt>
+          <dd>{categoryEntity.franchiseRule ? categoryEntity.franchiseRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/category" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

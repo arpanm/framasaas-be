@@ -10,11 +10,11 @@
     -->
     <changeSet id="20250221035624-2" author="jhipster">
 
-        <addForeignKeyConstraint baseColumnNames="franchise_id"
+        <addForeignKeyConstraint baseColumnNames="franchise_rule_id"
                                  baseTableName="location_mapping"
-                                 constraintName="fk_location_mapping__franchise_id"
+                                 constraintName="fk_location_mapping__franchise_rule_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="franchise"
+                                 referencedTableName="franchise_allocation_rule"
                                  />
     </changeSet>
 </databaseChangeLog>

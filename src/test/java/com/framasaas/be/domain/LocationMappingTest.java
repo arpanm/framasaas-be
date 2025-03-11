@@ -1,7 +1,7 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
-import static com.framasaas.be.domain.FranchiseTestSamples.*;
+import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -49,14 +49,14 @@ class LocationMappingTest {
     }
 
     @Test
-    void franchiseTest() {
+    void franchiseRuleTest() {
         LocationMapping locationMapping = getLocationMappingRandomSampleGenerator();
-        Franchise franchiseBack = getFranchiseRandomSampleGenerator();
+        FranchiseAllocationRule franchiseAllocationRuleBack = getFranchiseAllocationRuleRandomSampleGenerator();
 
-        locationMapping.setFranchise(franchiseBack);
-        assertThat(locationMapping.getFranchise()).isEqualTo(franchiseBack);
+        locationMapping.setFranchiseRule(franchiseAllocationRuleBack);
+        assertThat(locationMapping.getFranchiseRule()).isEqualTo(franchiseAllocationRuleBack);
 
-        locationMapping.franchise(null);
-        assertThat(locationMapping.getFranchise()).isNull();
+        locationMapping.franchiseRule(null);
+        assertThat(locationMapping.getFranchiseRule()).isNull();
     }
 }

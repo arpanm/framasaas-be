@@ -17,6 +17,8 @@ import additionalAttributePossibleValue from 'app/entities/additional-attribute-
 import brand from 'app/entities/brand/brand.reducer';
 import category from 'app/entities/category/category.reducer';
 import pincode from 'app/entities/pincode/pincode.reducer';
+import franchiseAllocationRuleSet from 'app/entities/franchise-allocation-rule-set/franchise-allocation-rule-set.reducer';
+import franchiseAllocationRule from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -39,6 +41,8 @@ const entitiesReducers = {
   brand,
   category,
   pincode,
+  franchiseAllocationRuleSet,
+  franchiseAllocationRule,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

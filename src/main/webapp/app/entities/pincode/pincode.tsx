@@ -150,6 +150,9 @@ export const Pincode = () => {
                     <Translate contentKey="framasaasApp.pincode.updatedTime">Updated Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.pincode.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -166,6 +169,13 @@ export const Pincode = () => {
                     <td>{pincode.createdTime ? <TextFormat type="date" value={pincode.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{pincode.updatedBy}</td>
                     <td>{pincode.updatedTime ? <TextFormat type="date" value={pincode.updatedTime} format={APP_DATE_FORMAT} /> : null}</td>
+                    <td>
+                      {pincode.franchiseRule ? (
+                        <Link to={`/franchise-allocation-rule/${pincode.franchiseRule.id}`}>{pincode.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/pincode/${pincode.id}`} color="info" size="sm" data-cy="entityDetailsButton">

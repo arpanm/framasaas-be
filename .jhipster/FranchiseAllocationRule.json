@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "changelogDate": "20250311165900"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "ruleType",
+      "fieldType": "FranchiseAllocationRuleType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "BRANDRULE,CATEGORYRULE,PINCODERULE,LOCALITYRULE"
+    },
+    {
+      "fieldName": "joinType",
+      "fieldType": "FranchiseAllocationRuleJoinType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ANDJOIN,ORJOIN"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FranchiseAllocationRule",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "brand",
+      "otherEntityRelationshipName": "franchiseRule",
+      "relationshipName": "brand",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "franchiseRule",
+      "relationshipName": "category",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pincode",
+      "otherEntityRelationshipName": "franchiseRule",
+      "relationshipName": "pincode",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "locationMapping",
+      "otherEntityRelationshipName": "franchiseRule",
+      "relationshipName": "locationMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,118 @@
+package com.framasaas.be.domain;
+
+import static com.framasaas.be.domain.BrandTestSamples.*;
+import static com.framasaas.be.domain.CategoryTestSamples.*;
+import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
+import static com.framasaas.be.domain.LocationMappingTestSamples.*;
+import static com.framasaas.be.domain.PincodeTestSamples.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.framasaas.be.web.rest.TestUtil;
+import java.util.HashSet;
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+
+class FranchiseAllocationRuleTest {
+
+    @Test
+    void equalsVerifier() throws Exception {
+        TestUtil.equalsVerifier(FranchiseAllocationRule.class);
+        FranchiseAllocationRule franchiseAllocationRule1 = getFranchiseAllocationRuleSample1();
+        FranchiseAllocationRule franchiseAllocationRule2 = new FranchiseAllocationRule();
+        assertThat(franchiseAllocationRule1).isNotEqualTo(franchiseAllocationRule2);
+
+        franchiseAllocationRule2.setId(franchiseAllocationRule1.getId());
+        assertThat(franchiseAllocationRule1).isEqualTo(franchiseAllocationRule2);
+
+        franchiseAllocationRule2 = getFranchiseAllocationRuleSample2();
+        assertThat(franchiseAllocationRule1).isNotEqualTo(franchiseAllocationRule2);
+    }
+
+    @Test
+    void brandTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        Brand brandBack = getBrandRandomSampleGenerator();
+
+        franchiseAllocationRule.addBrand(brandBack);
+        assertThat(franchiseAllocationRule.getBrands()).containsOnly(brandBack);
+        assertThat(brandBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removeBrand(brandBack);
+        assertThat(franchiseAllocationRule.getBrands()).doesNotContain(brandBack);
+        assertThat(brandBack.getFranchiseRule()).isNull();
+
+        franchiseAllocationRule.brands(new HashSet<>(Set.of(brandBack)));
+        assertThat(franchiseAllocationRule.getBrands()).containsOnly(brandBack);
+        assertThat(brandBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setBrands(new HashSet<>());
+        assertThat(franchiseAllocationRule.getBrands()).doesNotContain(brandBack);
+        assertThat(brandBack.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void categoryTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        Category categoryBack = getCategoryRandomSampleGenerator();
+
+        franchiseAllocationRule.addCategory(categoryBack);
+        assertThat(franchiseAllocationRule.getCategories()).containsOnly(categoryBack);
+        assertThat(categoryBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removeCategory(categoryBack);
+        assertThat(franchiseAllocationRule.getCategories()).doesNotContain(categoryBack);
+        assertThat(categoryBack.getFranchiseRule()).isNull();
+
+        franchiseAllocationRule.categories(new HashSet<>(Set.of(categoryBack)));
+        assertThat(franchiseAllocationRule.getCategories()).containsOnly(categoryBack);
+        assertThat(categoryBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setCategories(new HashSet<>());
+        assertThat(franchiseAllocationRule.getCategories()).doesNotContain(categoryBack);
+        assertThat(categoryBack.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void pincodeTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        Pincode pincodeBack = getPincodeRandomSampleGenerator();
+
+        franchiseAllocationRule.addPincode(pincodeBack);
+        assertThat(franchiseAllocationRule.getPincodes()).containsOnly(pincodeBack);
+        assertThat(pincodeBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removePincode(pincodeBack);
+        assertThat(franchiseAllocationRule.getPincodes()).doesNotContain(pincodeBack);
+        assertThat(pincodeBack.getFranchiseRule()).isNull();
+
+        franchiseAllocationRule.pincodes(new HashSet<>(Set.of(pincodeBack)));
+        assertThat(franchiseAllocationRule.getPincodes()).containsOnly(pincodeBack);
+        assertThat(pincodeBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setPincodes(new HashSet<>());
+        assertThat(franchiseAllocationRule.getPincodes()).doesNotContain(pincodeBack);
+        assertThat(pincodeBack.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void locationMappingTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        LocationMapping locationMappingBack = getLocationMappingRandomSampleGenerator();
+
+        franchiseAllocationRule.addLocationMapping(locationMappingBack);
+        assertThat(franchiseAllocationRule.getLocationMappings()).containsOnly(locationMappingBack);
+        assertThat(locationMappingBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removeLocationMapping(locationMappingBack);
+        assertThat(franchiseAllocationRule.getLocationMappings()).doesNotContain(locationMappingBack);
+        assertThat(locationMappingBack.getFranchiseRule()).isNull();
+
+        franchiseAllocationRule.locationMappings(new HashSet<>(Set.of(locationMappingBack)));
+        assertThat(franchiseAllocationRule.getLocationMappings()).containsOnly(locationMappingBack);
+        assertThat(locationMappingBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setLocationMappings(new HashSet<>());
+        assertThat(franchiseAllocationRule.getLocationMappings()).doesNotContain(locationMappingBack);
+        assertThat(locationMappingBack.getFranchiseRule()).isNull();
+    }
+}

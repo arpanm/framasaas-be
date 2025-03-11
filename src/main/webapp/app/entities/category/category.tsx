@@ -162,6 +162,9 @@ export const Category = () => {
                     <Translate contentKey="framasaasApp.category.updatedTime">Updated Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.category.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -184,6 +187,13 @@ export const Category = () => {
                     <td>{category.updatedBy}</td>
                     <td>
                       {category.updatedTime ? <TextFormat type="date" value={category.updatedTime} format={APP_DATE_FORMAT} /> : null}
+                    </td>
+                    <td>
+                      {category.franchiseRule ? (
+                        <Link to={`/franchise-allocation-rule/${category.franchiseRule.id}`}>{category.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
                     </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

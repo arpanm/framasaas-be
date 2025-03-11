@@ -39,8 +39,8 @@ class FranchiseUserResourceIT {
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "At(?@1TWz.el";
-    private static final String UPDATED_EMAIL = "O`5QK@#+p.0n'";
+    private static final String DEFAULT_EMAIL = "$SBzJ@3.T";
+    private static final String UPDATED_EMAIL = "e@4,#..[h";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -442,8 +442,10 @@ class FranchiseUserResourceIT {
         partialUpdatedFranchiseUser.setId(franchiseUser.getId());
 
         partialUpdatedFranchiseUser
-            .contact(UPDATED_CONTACT)
-            .userRole(UPDATED_USER_ROLE)
+            .email(UPDATED_EMAIL)
+            .userStatus(UPDATED_USER_STATUS)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 

@@ -41,8 +41,8 @@
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "franchise",
-      "relationshipName": "franchise",
+      "otherEntityName": "franchiseAllocationRule",
+      "relationshipName": "franchiseRule",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

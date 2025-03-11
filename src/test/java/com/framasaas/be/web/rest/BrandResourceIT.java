@@ -413,11 +413,10 @@ class BrandResourceIT {
 
         partialUpdatedBrand
             .brandName(UPDATED_BRAND_NAME)
+            .logoPath(UPDATED_LOGO_PATH)
             .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
-            .description(UPDATED_DESCRIPTION)
-            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restBrandMockMvc
             .perform(

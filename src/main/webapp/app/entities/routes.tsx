@@ -21,6 +21,8 @@ import AdditionalAttributePossibleValue from './additional-attribute-possible-va
 import Brand from './brand';
 import Category from './category';
 import Pincode from './pincode';
+import FranchiseAllocationRuleSet from './franchise-allocation-rule-set';
+import FranchiseAllocationRule from './franchise-allocation-rule';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -47,6 +49,8 @@ export default () => {
         <Route path="brand/*" element={<Brand />} />
         <Route path="category/*" element={<Category />} />
         <Route path="pincode/*" element={<Pincode />} />
+        <Route path="franchise-allocation-rule-set/*" element={<FranchiseAllocationRuleSet />} />
+        <Route path="franchise-allocation-rule/*" element={<FranchiseAllocationRule />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

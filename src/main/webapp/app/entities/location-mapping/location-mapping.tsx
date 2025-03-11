@@ -152,7 +152,8 @@ export const LocationMapping = () => {
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
                   <th>
-                    <Translate contentKey="framasaasApp.locationMapping.franchise">Franchise</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="framasaasApp.locationMapping.franchiseRule">Franchise Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -179,8 +180,10 @@ export const LocationMapping = () => {
                       ) : null}
                     </td>
                     <td>
-                      {locationMapping.franchise ? (
-                        <Link to={`/franchise/${locationMapping.franchise.id}`}>{locationMapping.franchise.id}</Link>
+                      {locationMapping.franchiseRule ? (
+                        <Link to={`/franchise-allocation-rule/${locationMapping.franchiseRule.id}`}>
+                          {locationMapping.franchiseRule.id}
+                        </Link>
                       ) : (
                         ''
                       )}

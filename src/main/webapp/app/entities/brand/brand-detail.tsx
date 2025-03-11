@@ -80,6 +80,10 @@ export const BrandDetail = () => {
             </span>
           </dt>
           <dd>{brandEntity.updatedTime ? <TextFormat value={brandEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.brand.franchiseRule">Franchise Rule</Translate>
+          </dt>
+          <dd>{brandEntity.franchiseRule ? brandEntity.franchiseRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/brand" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

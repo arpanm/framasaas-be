@@ -9,6 +9,7 @@ entity Franchise {
     registrationNumber String,
     performanceScore Float,
     performanceTag PerformanceTag,
+    dailyMaxServiceLimit Long,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -81,10 +82,6 @@ relationship ManyToOne {
 
 relationship OneToOne {
 	Franchise{address} to Address{franchise}
-}
-
-relationship OneToMany {
-	Franchise to LocationMapping{franchise}
 }
 
 entity FranchiseDocument {
@@ -221,6 +218,64 @@ entity Pincode {
     createdTime Instant required,
     updatedBy String required,
     updatedTime Instant required
+}
+
+entity FranchiseAllocationRuleSet {
+	name String required,
+    sortType FranchiseAllocationRuleSetSortType required,
+    priority Long,
+    isActive Boolean required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+    
+}
+
+enum FranchiseAllocationRuleSetSortType {
+	NPS,
+    ROUNDROBIN
+}
+
+entity FranchiseAllocationRule {
+	ruleType FranchiseAllocationRuleType required,
+    joinType FranchiseAllocationRuleJoinType required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum FranchiseAllocationRuleType {
+	BRANDRULE,
+    CATEGORYRULE,
+    PINCODERULE,
+    LOCALITYRULE
+}
+
+enum FranchiseAllocationRuleJoinType {
+	ANDJOIN,
+    ORJOIN
+}
+
+relationship OneToMany {
+	FranchiseAllocationRule to Brand{franchiseRule}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRule to Category{franchiseRule}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRule to Pincode{franchiseRule}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRule to LocationMapping{franchiseRule}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRuleSet to Franchise{ruleset}
 }
 
 entity Product {

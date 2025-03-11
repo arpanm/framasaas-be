@@ -71,21 +71,8 @@ public class LocationMapping implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(
-        value = {
-            "address",
-            "franchiseStatusHistories",
-            "franchisePerformanceHistories",
-            "locationMappings",
-            "franchiseDocuments",
-            "franchiseUsers",
-            "additionalAttributes",
-            "brands",
-            "categories",
-        },
-        allowSetters = true
-    )
-    private Franchise franchise;
+    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings" }, allowSetters = true)
+    private FranchiseAllocationRule franchiseRule;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -198,16 +185,16 @@ public class LocationMapping implements Serializable {
         return this;
     }
 
-    public Franchise getFranchise() {
-        return this.franchise;
+    public FranchiseAllocationRule getFranchiseRule() {
+        return this.franchiseRule;
     }
 
-    public void setFranchise(Franchise franchise) {
-        this.franchise = franchise;
+    public void setFranchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.franchiseRule = franchiseAllocationRule;
     }
 
-    public LocationMapping franchise(Franchise franchise) {
-        this.setFranchise(franchise);
+    public LocationMapping franchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.setFranchiseRule(franchiseAllocationRule);
         return this;
     }
 

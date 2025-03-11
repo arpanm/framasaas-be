@@ -333,7 +333,7 @@ class FranchiseStatusHistoryResourceIT {
         FranchiseStatusHistory partialUpdatedFranchiseStatusHistory = new FranchiseStatusHistory();
         partialUpdatedFranchiseStatusHistory.setId(franchiseStatusHistory.getId());
 
-        partialUpdatedFranchiseStatusHistory.updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedFranchiseStatusHistory.franchiseSatus(UPDATED_FRANCHISE_SATUS);
 
         restFranchiseStatusHistoryMockMvc
             .perform(

@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -43,6 +44,10 @@ public class Pincode implements Serializable {
     @NotNull
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings" }, allowSetters = true)
+    private FranchiseAllocationRule franchiseRule;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -122,6 +127,19 @@ public class Pincode implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public FranchiseAllocationRule getFranchiseRule() {
+        return this.franchiseRule;
+    }
+
+    public void setFranchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.franchiseRule = franchiseAllocationRule;
+    }
+
+    public Pincode franchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.setFranchiseRule(franchiseAllocationRule);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

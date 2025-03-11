@@ -401,6 +401,13 @@ class HsnResourceIT {
         Hsn partialUpdatedHsn = new Hsn();
         partialUpdatedHsn.setId(hsn.getId());
 
+        partialUpdatedHsn
+            .hsnCD(UPDATED_HSN_CD)
+            .description(UPDATED_DESCRIPTION)
+            .taxRate(UPDATED_TAX_RATE)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
+
         restHsnMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedHsn.getId())
