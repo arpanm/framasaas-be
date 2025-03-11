@@ -40,6 +40,7 @@
     <include file="config/liquibase/changelog/20250221040159_added_entity_constraints_FranchisePerformanceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221042837_added_entity_constraints_FranchiseUser.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221042838_added_entity_constraints_FranchiseUserStatusHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250221035624_added_entity_constraints_LocationMapping.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -98,22 +98,27 @@ public class Franchise implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
+    private Set<LocationMapping> locationMappings = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
+    private Set<FranchiseDocument> franchiseDocuments = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "franchise" }, allowSetters = true)
+    private Set<FranchiseUser> franchiseUsers = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
     private Set<FranchiseBrandMapping> brands = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
     private Set<FranchiseCategoryMapping> categories = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
-    private Set<FranchiseDocument> documents = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "franchise" }, allowSetters = true)
-    private Set<FranchiseUser> franchiseUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -374,6 +379,99 @@ public class Franchise implements Serializable {
         return this;
     }
 
+    public Set<LocationMapping> getLocationMappings() {
+        return this.locationMappings;
+    }
+
+    public void setLocationMappings(Set<LocationMapping> locationMappings) {
+        if (this.locationMappings != null) {
+            this.locationMappings.forEach(i -> i.setFranchise(null));
+        }
+        if (locationMappings != null) {
+            locationMappings.forEach(i -> i.setFranchise(this));
+        }
+        this.locationMappings = locationMappings;
+    }
+
+    public Franchise locationMappings(Set<LocationMapping> locationMappings) {
+        this.setLocationMappings(locationMappings);
+        return this;
+    }
+
+    public Franchise addLocationMapping(LocationMapping locationMapping) {
+        this.locationMappings.add(locationMapping);
+        locationMapping.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeLocationMapping(LocationMapping locationMapping) {
+        this.locationMappings.remove(locationMapping);
+        locationMapping.setFranchise(null);
+        return this;
+    }
+
+    public Set<FranchiseDocument> getFranchiseDocuments() {
+        return this.franchiseDocuments;
+    }
+
+    public void setFranchiseDocuments(Set<FranchiseDocument> franchiseDocuments) {
+        if (this.franchiseDocuments != null) {
+            this.franchiseDocuments.forEach(i -> i.setFranchise(null));
+        }
+        if (franchiseDocuments != null) {
+            franchiseDocuments.forEach(i -> i.setFranchise(this));
+        }
+        this.franchiseDocuments = franchiseDocuments;
+    }
+
+    public Franchise franchiseDocuments(Set<FranchiseDocument> franchiseDocuments) {
+        this.setFranchiseDocuments(franchiseDocuments);
+        return this;
+    }
+
+    public Franchise addFranchiseDocument(FranchiseDocument franchiseDocument) {
+        this.franchiseDocuments.add(franchiseDocument);
+        franchiseDocument.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeFranchiseDocument(FranchiseDocument franchiseDocument) {
+        this.franchiseDocuments.remove(franchiseDocument);
+        franchiseDocument.setFranchise(null);
+        return this;
+    }
+
+    public Set<FranchiseUser> getFranchiseUsers() {
+        return this.franchiseUsers;
+    }
+
+    public void setFranchiseUsers(Set<FranchiseUser> franchiseUsers) {
+        if (this.franchiseUsers != null) {
+            this.franchiseUsers.forEach(i -> i.setFranchise(null));
+        }
+        if (franchiseUsers != null) {
+            franchiseUsers.forEach(i -> i.setFranchise(this));
+        }
+        this.franchiseUsers = franchiseUsers;
+    }
+
+    public Franchise franchiseUsers(Set<FranchiseUser> franchiseUsers) {
+        this.setFranchiseUsers(franchiseUsers);
+        return this;
+    }
+
+    public Franchise addFranchiseUser(FranchiseUser franchiseUser) {
+        this.franchiseUsers.add(franchiseUser);
+        franchiseUser.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeFranchiseUser(FranchiseUser franchiseUser) {
+        this.franchiseUsers.remove(franchiseUser);
+        franchiseUser.setFranchise(null);
+        return this;
+    }
+
     public Set<FranchiseBrandMapping> getBrands() {
         return this.brands;
     }
@@ -433,68 +531,6 @@ public class Franchise implements Serializable {
     public Franchise removeCategories(FranchiseCategoryMapping franchiseCategoryMapping) {
         this.categories.remove(franchiseCategoryMapping);
         franchiseCategoryMapping.setFranchise(null);
-        return this;
-    }
-
-    public Set<FranchiseDocument> getDocuments() {
-        return this.documents;
-    }
-
-    public void setDocuments(Set<FranchiseDocument> franchiseDocuments) {
-        if (this.documents != null) {
-            this.documents.forEach(i -> i.setFranchise(null));
-        }
-        if (franchiseDocuments != null) {
-            franchiseDocuments.forEach(i -> i.setFranchise(this));
-        }
-        this.documents = franchiseDocuments;
-    }
-
-    public Franchise documents(Set<FranchiseDocument> franchiseDocuments) {
-        this.setDocuments(franchiseDocuments);
-        return this;
-    }
-
-    public Franchise addDocuments(FranchiseDocument franchiseDocument) {
-        this.documents.add(franchiseDocument);
-        franchiseDocument.setFranchise(this);
-        return this;
-    }
-
-    public Franchise removeDocuments(FranchiseDocument franchiseDocument) {
-        this.documents.remove(franchiseDocument);
-        franchiseDocument.setFranchise(null);
-        return this;
-    }
-
-    public Set<FranchiseUser> getFranchiseUsers() {
-        return this.franchiseUsers;
-    }
-
-    public void setFranchiseUsers(Set<FranchiseUser> franchiseUsers) {
-        if (this.franchiseUsers != null) {
-            this.franchiseUsers.forEach(i -> i.setFranchise(null));
-        }
-        if (franchiseUsers != null) {
-            franchiseUsers.forEach(i -> i.setFranchise(this));
-        }
-        this.franchiseUsers = franchiseUsers;
-    }
-
-    public Franchise franchiseUsers(Set<FranchiseUser> franchiseUsers) {
-        this.setFranchiseUsers(franchiseUsers);
-        return this;
-    }
-
-    public Franchise addFranchiseUser(FranchiseUser franchiseUser) {
-        this.franchiseUsers.add(franchiseUser);
-        franchiseUser.setFranchise(this);
-        return this;
-    }
-
-    public Franchise removeFranchiseUser(FranchiseUser franchiseUser) {
-        this.franchiseUsers.remove(franchiseUser);
-        franchiseUser.setFranchise(null);
         return this;
     }
 
