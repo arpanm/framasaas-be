@@ -39,7 +39,8 @@
         "serviceOrderPayment": "Service Order Payment",
         "serviceOrderAssignment": "Service Order Assignment",
         "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
-        "serviceOrderSpare": "Service Order Spare"
+        "serviceOrderSpare": "Service Order Spare",
+        "languageMapping": "Language Mapping"
       },
       "account": {
         "main": "Account",

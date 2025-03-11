@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "languageMapping": {
+      "home": {
+        "title": "LanguageMappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Language Mapping बनाएँ",
+        "createOrEditLabel": "Language Mapping बनाएँ या संपादित करें",
+        "notFound": "No Language Mappings found"
+      },
+      "created": "एक नया Language Mapping [identifier: {{ param }}] तैयार है",
+      "updated": "एक Language Mapping [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Language Mapping [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Language Mapping [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Language Mapping"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseRule": "Franchise Rule"
+    }
+  }
+}

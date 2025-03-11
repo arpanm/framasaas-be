@@ -363,7 +363,11 @@ class ArticleResourceIT {
         Article partialUpdatedArticle = new Article();
         partialUpdatedArticle.setId(article.getId());
 
-        partialUpdatedArticle.vendorArticleId(UPDATED_VENDOR_ARTICLE_ID);
+        partialUpdatedArticle
+            .serialNo(UPDATED_SERIAL_NO)
+            .vendorArticleId(UPDATED_VENDOR_ARTICLE_ID)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restArticleMockMvc
             .perform(

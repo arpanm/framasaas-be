@@ -445,10 +445,13 @@ class ProductResourceIT {
         partialUpdatedProduct.setId(product.getId());
 
         partialUpdatedProduct
+            .productName(UPDATED_PRODUCT_NAME)
             .description(UPDATED_DESCRIPTION)
+            .price(UPDATED_PRICE)
             .productType(UPDATED_PRODUCT_TYPE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restProductMockMvc
             .perform(

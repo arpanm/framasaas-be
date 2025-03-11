@@ -420,12 +420,10 @@ class BrandResourceIT {
         partialUpdatedBrand.setId(brand.getId());
 
         partialUpdatedBrand
-            .brandName(UPDATED_BRAND_NAME)
-            .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
+            .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restBrandMockMvc
             .perform(

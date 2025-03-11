@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20250311185417"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "English,Hindi,Bengali,Marathi,Tamil,Telegu,Kanada,Malayalam,Panjabi,Bojhpuri,Kashmiri"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "LanguageMapping",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "franchiseAllocationRule",
+      "relationshipName": "franchiseRule",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

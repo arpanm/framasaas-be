@@ -112,7 +112,7 @@ public class Brand implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings" }, allowSetters = true)
     private FranchiseAllocationRule franchiseRule;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

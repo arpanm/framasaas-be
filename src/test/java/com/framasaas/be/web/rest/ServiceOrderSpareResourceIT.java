@@ -394,10 +394,12 @@ class ServiceOrderSpareResourceIT {
         partialUpdatedServiceOrderSpare.setId(serviceOrderSpare.getId());
 
         partialUpdatedServiceOrderSpare
+            .price(UPDATED_PRICE)
+            .totalCharge(UPDATED_TOTAL_CHARGE)
             .orderedFrom(UPDATED_ORDERED_FROM)
-            .spareStatus(UPDATED_SPARE_STATUS)
+            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderSpareMockMvc
             .perform(

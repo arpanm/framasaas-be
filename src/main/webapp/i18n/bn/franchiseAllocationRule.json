@@ -27,7 +27,8 @@
       "brand": "Brand",
       "category": "Category",
       "pincode": "Pincode",
-      "locationMapping": "Location Mapping"
+      "locationMapping": "Location Mapping",
+      "languageMapping": "Language Mapping"
     }
   }
 }
