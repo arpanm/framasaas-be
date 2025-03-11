@@ -124,6 +124,10 @@ public class FranchiseUser implements Serializable {
     )
     private Franchise franchise;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers" }, allowSetters = true)
+    private FieldAgentSkillRuleSet skillRuleSet;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -328,6 +332,19 @@ public class FranchiseUser implements Serializable {
 
     public FranchiseUser franchise(Franchise franchise) {
         this.setFranchise(franchise);
+        return this;
+    }
+
+    public FieldAgentSkillRuleSet getSkillRuleSet() {
+        return this.skillRuleSet;
+    }
+
+    public void setSkillRuleSet(FieldAgentSkillRuleSet fieldAgentSkillRuleSet) {
+        this.skillRuleSet = fieldAgentSkillRuleSet;
+    }
+
+    public FranchiseUser skillRuleSet(FieldAgentSkillRuleSet fieldAgentSkillRuleSet) {
+        this.setSkillRuleSet(fieldAgentSkillRuleSet);
         return this;
     }
 

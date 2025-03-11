@@ -49,6 +49,13 @@ public class Pincode implements Serializable {
     @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings" }, allowSetters = true)
     private FranchiseAllocationRule franchiseRule;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "fieldAgentSkillRuleSet" },
+        allowSetters = true
+    )
+    private FieldAgentSkillRule fieldAgentSkillRule;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -139,6 +146,19 @@ public class Pincode implements Serializable {
 
     public Pincode franchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
         this.setFranchiseRule(franchiseAllocationRule);
+        return this;
+    }
+
+    public FieldAgentSkillRule getFieldAgentSkillRule() {
+        return this.fieldAgentSkillRule;
+    }
+
+    public void setFieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.fieldAgentSkillRule = fieldAgentSkillRule;
+    }
+
+    public Pincode fieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.setFieldAgentSkillRule(fieldAgentSkillRule);
         return this;
     }
 

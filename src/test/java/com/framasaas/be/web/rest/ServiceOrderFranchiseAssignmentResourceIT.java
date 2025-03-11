@@ -504,11 +504,14 @@ class ServiceOrderFranchiseAssignmentResourceIT {
         partialUpdatedServiceOrderFranchiseAssignment.setId(serviceOrderFranchiseAssignment.getId());
 
         partialUpdatedServiceOrderFranchiseAssignment
-            .nps(UPDATED_NPS)
-            .isActive(UPDATED_IS_ACTIVE)
-            .movedBackTime(UPDATED_MOVED_BACK_TIME)
+            .serviceOrderAssignmentStatus(UPDATED_SERVICE_ORDER_ASSIGNMENT_STATUS)
+            .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
+            .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
             .cancellationOTP(UPDATED_CANCELLATION_OTP)
+            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
+            .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
+            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedTime(UPDATED_UPDATED_TIME);
 

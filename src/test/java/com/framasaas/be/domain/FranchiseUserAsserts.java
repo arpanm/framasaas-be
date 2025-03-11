@@ -67,6 +67,7 @@ public class FranchiseUserAsserts {
     public static void assertFranchiseUserUpdatableRelationshipsEquals(FranchiseUser expected, FranchiseUser actual) {
         assertThat(actual)
             .as("Verify FranchiseUser relationships")
-            .satisfies(a -> assertThat(a.getFranchise()).as("check franchise").isEqualTo(expected.getFranchise()));
+            .satisfies(a -> assertThat(a.getFranchise()).as("check franchise").isEqualTo(expected.getFranchise()))
+            .satisfies(a -> assertThat(a.getSkillRuleSet()).as("check skillRuleSet").isEqualTo(expected.getSkillRuleSet()));
     }
 }

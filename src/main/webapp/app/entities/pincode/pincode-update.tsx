@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
+import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './pincode.reducer';
 
 export const PincodeUpdate = () => {
@@ -19,6 +20,7 @@ export const PincodeUpdate = () => {
   const isNew = id === undefined;
 
   const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
+  const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
   const pincodeEntity = useAppSelector(state => state.pincode.entity);
   const loading = useAppSelector(state => state.pincode.loading);
   const updating = useAppSelector(state => state.pincode.updating);
@@ -34,6 +36,7 @@ export const PincodeUpdate = () => {
     }
 
     dispatch(getFranchiseAllocationRules({}));
+    dispatch(getFieldAgentSkillRules({}));
   }, []);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ export const PincodeUpdate = () => {
       ...pincodeEntity,
       ...values,
       franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
+      fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
     };
 
     if (isNew) {
@@ -73,6 +77,7 @@ export const PincodeUpdate = () => {
           createdTime: convertDateTimeFromServer(pincodeEntity.createdTime),
           updatedTime: convertDateTimeFromServer(pincodeEntity.updatedTime),
           franchiseRule: pincodeEntity?.franchiseRule?.id,
+          fieldAgentSkillRule: pincodeEntity?.fieldAgentSkillRule?.id,
         };
 
   return (
@@ -162,6 +167,22 @@ export const PincodeUpdate = () => {
                 <option value="" key="0" />
                 {franchiseAllocationRules
                   ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="pincode-fieldAgentSkillRule"
+                name="fieldAgentSkillRule"
+                data-cy="fieldAgentSkillRule"
+                label={translate('framasaasApp.pincode.fieldAgentSkillRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRules
+                  ? fieldAgentSkillRules.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -1,6 +1,7 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
+import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -58,5 +59,17 @@ class LocationMappingTest {
 
         locationMapping.franchiseRule(null);
         assertThat(locationMapping.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleTest() {
+        LocationMapping locationMapping = getLocationMappingRandomSampleGenerator();
+        FieldAgentSkillRule fieldAgentSkillRuleBack = getFieldAgentSkillRuleRandomSampleGenerator();
+
+        locationMapping.setFieldAgentSkillRule(fieldAgentSkillRuleBack);
+        assertThat(locationMapping.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRuleBack);
+
+        locationMapping.fieldAgentSkillRule(null);
+        assertThat(locationMapping.getFieldAgentSkillRule()).isNull();
     }
 }

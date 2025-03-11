@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.PincodeTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,5 +34,17 @@ class PincodeTest {
 
         pincode.franchiseRule(null);
         assertThat(pincode.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleTest() {
+        Pincode pincode = getPincodeRandomSampleGenerator();
+        FieldAgentSkillRule fieldAgentSkillRuleBack = getFieldAgentSkillRuleRandomSampleGenerator();
+
+        pincode.setFieldAgentSkillRule(fieldAgentSkillRuleBack);
+        assertThat(pincode.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRuleBack);
+
+        pincode.fieldAgentSkillRule(null);
+        assertThat(pincode.getFieldAgentSkillRule()).isNull();
     }
 }

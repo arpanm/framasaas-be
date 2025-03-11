@@ -1,0 +1,53 @@
+{
+  "annotations": {
+    "changelogDate": "20250311185721"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "sortType",
+      "fieldType": "FieldAgentSkillRuleSetSortType",
+      "fieldValues": "NPS,ROUNDROBIN,PROXIMITY,EXPERIENCELEVEL"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FieldAgentSkillRuleSet",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "fieldAgentSkillRule",
+      "otherEntityRelationshipName": "fieldAgentSkillRuleSet",
+      "relationshipName": "fieldAgentSkillRule",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseUser",
+      "otherEntityRelationshipName": "skillRuleSet",
+      "relationshipName": "franchiseUser",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

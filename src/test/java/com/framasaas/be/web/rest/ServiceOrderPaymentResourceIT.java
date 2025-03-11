@@ -420,7 +420,10 @@ class ServiceOrderPaymentResourceIT {
         ServiceOrderPayment partialUpdatedServiceOrderPayment = new ServiceOrderPayment();
         partialUpdatedServiceOrderPayment.setId(serviceOrderPayment.getId());
 
-        partialUpdatedServiceOrderPayment.mop(UPDATED_MOP).isActive(UPDATED_IS_ACTIVE).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedServiceOrderPayment
+            .paymentStatus(UPDATED_PAYMENT_STATUS)
+            .isActive(UPDATED_IS_ACTIVE)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderPaymentMockMvc
             .perform(

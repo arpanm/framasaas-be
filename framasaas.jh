@@ -226,6 +226,13 @@ entity Pincode {
 }
 
 
+entity LanguageMapping {
+    lang Language required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
 
 entity FranchiseAllocationRuleSet {
 	name String required,
@@ -282,8 +289,32 @@ relationship OneToMany {
 	FranchiseAllocationRule to LocationMapping{franchiseRule}
 }
 
-entity LanguageMapping {
-    lang Language required,
+relationship OneToMany {
+    FranchiseAllocationRule to LanguageMapping{franchiseRule}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRuleSet to Franchise{ruleset}
+}
+
+entity FieldAgentSkillRuleSet {
+    sortType FieldAgentSkillRuleSetSortType
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum FieldAgentSkillRuleSetSortType {
+    NPS,
+    ROUNDROBIN,
+    PROXIMITY,
+    EXPERIENCELEVEL
+}
+
+entity FieldAgentSkillRule {
+    skillType FieldAgentSkillRuleType,
+    joinType FieldAgentSkillRuleJoinType,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -291,11 +322,44 @@ entity LanguageMapping {
 }
 
 relationship OneToMany {
-    FranchiseAllocationRule to LanguageMapping{franchiseRule}
+    FieldAgentSkillRuleSet to FieldAgentSkillRule{fieldAgentSkillRuleSet}
+}
+
+enum FieldAgentSkillRuleType {
+    BRANDSKILL,
+    CATEGORYSKILL,
+    PINCODESKILL,
+    LOCATIONSKILL,
+    LANGUAGESKILL
+}
+
+enum FieldAgentSkillRuleJoinType {
+    ANDJOIN,
+    ORJOIN
 }
 
 relationship OneToMany {
-	FranchiseAllocationRuleSet to Franchise{ruleset}
+    FieldAgentSkillRule to Brand{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+    FieldAgentSkillRule to Category{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+    FieldAgentSkillRule to Pincode{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+    FieldAgentSkillRule to LocationMapping{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+    FieldAgentSkillRule to LanguageMapping{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+    FieldAgentSkillRuleSet to FranchiseUser{skillRuleSet}
 }
 
 entity Product {

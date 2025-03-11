@@ -35,6 +35,8 @@ import ServiceOrderAssignment from './service-order-assignment';
 import ServiceOrderFranchiseAssignment from './service-order-franchise-assignment';
 import ServiceOrderSpare from './service-order-spare';
 import LanguageMapping from './language-mapping';
+import FieldAgentSkillRuleSet from './field-agent-skill-rule-set';
+import FieldAgentSkillRule from './field-agent-skill-rule';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -75,6 +77,8 @@ export default () => {
         <Route path="service-order-franchise-assignment/*" element={<ServiceOrderFranchiseAssignment />} />
         <Route path="service-order-spare/*" element={<ServiceOrderSpare />} />
         <Route path="language-mapping/*" element={<LanguageMapping />} />
+        <Route path="field-agent-skill-rule-set/*" element={<FieldAgentSkillRuleSet />} />
+        <Route path="field-agent-skill-rule/*" element={<FieldAgentSkillRule />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

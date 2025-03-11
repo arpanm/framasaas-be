@@ -63,6 +63,9 @@ public class LanguageMappingAsserts {
     public static void assertLanguageMappingUpdatableRelationshipsEquals(LanguageMapping expected, LanguageMapping actual) {
         assertThat(actual)
             .as("Verify LanguageMapping relationships")
-            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()))
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            );
     }
 }

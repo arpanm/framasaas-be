@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.LanguageMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,5 +34,17 @@ class LanguageMappingTest {
 
         languageMapping.franchiseRule(null);
         assertThat(languageMapping.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleTest() {
+        LanguageMapping languageMapping = getLanguageMappingRandomSampleGenerator();
+        FieldAgentSkillRule fieldAgentSkillRuleBack = getFieldAgentSkillRuleRandomSampleGenerator();
+
+        languageMapping.setFieldAgentSkillRule(fieldAgentSkillRuleBack);
+        assertThat(languageMapping.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRuleBack);
+
+        languageMapping.fieldAgentSkillRule(null);
+        assertThat(languageMapping.getFieldAgentSkillRule()).isNull();
     }
 }

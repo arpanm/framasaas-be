@@ -105,7 +105,10 @@ public class Franchise implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise", "skillRuleSet" },
+        allowSetters = true
+    )
     private Set<FranchiseUser> franchiseUsers = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")

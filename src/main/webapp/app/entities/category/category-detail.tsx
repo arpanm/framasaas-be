@@ -94,6 +94,10 @@ export const CategoryDetail = () => {
             <Translate contentKey="framasaasApp.category.franchiseRule">Franchise Rule</Translate>
           </dt>
           <dd>{categoryEntity.franchiseRule ? categoryEntity.franchiseRule.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.category.fieldAgentSkillRule">Field Agent Skill Rule</Translate>
+          </dt>
+          <dd>{categoryEntity.fieldAgentSkillRule ? categoryEntity.fieldAgentSkillRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/category" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

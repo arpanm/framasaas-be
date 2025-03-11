@@ -23,7 +23,8 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
-      "franchiseRule": "Franchise Rule"
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
     }
   }
 }

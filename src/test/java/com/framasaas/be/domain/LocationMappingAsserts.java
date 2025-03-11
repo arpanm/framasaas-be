@@ -63,6 +63,9 @@ public class LocationMappingAsserts {
     public static void assertLocationMappingUpdatableRelationshipsEquals(LocationMapping expected, LocationMapping actual) {
         assertThat(actual)
             .as("Verify LocationMapping relationships")
-            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()))
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            );
     }
 }

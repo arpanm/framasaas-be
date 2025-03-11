@@ -169,6 +169,10 @@ export const Brand = () => {
                   <th>
                     <Translate contentKey="framasaasApp.brand.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.brand.fieldAgentSkillRule">Field Agent Skill Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -192,6 +196,13 @@ export const Brand = () => {
                     <td>
                       {brand.franchiseRule ? (
                         <Link to={`/franchise-allocation-rule/${brand.franchiseRule.id}`}>{brand.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {brand.fieldAgentSkillRule ? (
+                        <Link to={`/field-agent-skill-rule/${brand.fieldAgentSkillRule.id}`}>{brand.fieldAgentSkillRule.id}</Link>
                       ) : (
                         ''
                       )}

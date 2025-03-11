@@ -44,6 +44,9 @@
             <column name="franchise_rule_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="field_agent_skill_rule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="category" columnName="created_time" columnDataType="${datetimeType}"/>

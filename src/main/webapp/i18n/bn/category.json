@@ -29,7 +29,8 @@
       "updatedTime": "Updated Time",
       "product": "Product",
       "additionalAttribute": "Additional Attribute",
-      "franchiseRule": "Franchise Rule"
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
     }
   }
 }

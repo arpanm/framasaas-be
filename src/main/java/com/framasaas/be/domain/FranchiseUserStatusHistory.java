@@ -40,7 +40,10 @@ public class FranchiseUserStatusHistory implements Serializable {
     private Instant updatedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "franchiseUserStatusHistories", "additionalAttributes", "franchise", "skillRuleSet" },
+        allowSetters = true
+    )
     private FranchiseUser franchiseUser;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

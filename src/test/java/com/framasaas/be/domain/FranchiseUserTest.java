@@ -1,6 +1,7 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
+import static com.framasaas.be.domain.FieldAgentSkillRuleSetTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
@@ -81,5 +82,17 @@ class FranchiseUserTest {
 
         franchiseUser.franchise(null);
         assertThat(franchiseUser.getFranchise()).isNull();
+    }
+
+    @Test
+    void skillRuleSetTest() {
+        FranchiseUser franchiseUser = getFranchiseUserRandomSampleGenerator();
+        FieldAgentSkillRuleSet fieldAgentSkillRuleSetBack = getFieldAgentSkillRuleSetRandomSampleGenerator();
+
+        franchiseUser.setSkillRuleSet(fieldAgentSkillRuleSetBack);
+        assertThat(franchiseUser.getSkillRuleSet()).isEqualTo(fieldAgentSkillRuleSetBack);
+
+        franchiseUser.skillRuleSet(null);
+        assertThat(franchiseUser.getSkillRuleSet()).isNull();
     }
 }

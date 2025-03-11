@@ -169,6 +169,10 @@ export const Category = () => {
                   <th>
                     <Translate contentKey="framasaasApp.category.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.category.fieldAgentSkillRule">Field Agent Skill Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -196,6 +200,13 @@ export const Category = () => {
                     <td>
                       {category.franchiseRule ? (
                         <Link to={`/franchise-allocation-rule/${category.franchiseRule.id}`}>{category.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {category.fieldAgentSkillRule ? (
+                        <Link to={`/field-agent-skill-rule/${category.fieldAgentSkillRule.id}`}>{category.fieldAgentSkillRule.id}</Link>
                       ) : (
                         ''
                       )}

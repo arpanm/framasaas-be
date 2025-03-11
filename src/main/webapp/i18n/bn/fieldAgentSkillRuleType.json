@@ -1,0 +1,12 @@
+{
+  "framasaasApp": {
+    "FieldAgentSkillRuleType": {
+      "null": "",
+      "BRANDSKILL": "BRANDSKILL",
+      "CATEGORYSKILL": "CATEGORYSKILL",
+      "PINCODESKILL": "PINCODESKILL",
+      "LOCATIONSKILL": "LOCATIONSKILL",
+      "LANGUAGESKILL": "LANGUAGESKILL"
+    }
+  }
+}
