@@ -1,0 +1,28 @@
+{
+  "framasaasApp": {
+    "pincode": {
+      "home": {
+        "title": "Pincodes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Pincode बनाएँ",
+        "createOrEditLabel": "Pincode बनाएँ या संपादित करें",
+        "notFound": "No Pincodes found"
+      },
+      "created": "एक नया Pincode [identifier: {{ param }}] तैयार है",
+      "updated": "एक Pincode [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Pincode [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Pincode [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Pincode"
+      },
+      "id": "ID",
+      "pincode": "Pincode",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time"
+    }
+  }
+}

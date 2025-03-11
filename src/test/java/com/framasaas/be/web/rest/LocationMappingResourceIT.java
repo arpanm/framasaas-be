@@ -375,7 +375,7 @@ class LocationMappingResourceIT {
         LocationMapping partialUpdatedLocationMapping = new LocationMapping();
         partialUpdatedLocationMapping.setId(locationMapping.getId());
 
-        partialUpdatedLocationMapping.createddBy(UPDATED_CREATEDD_BY).createdTime(UPDATED_CREATED_TIME).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedLocationMapping.createddBy(UPDATED_CREATEDD_BY);
 
         restLocationMappingMockMvc
             .perform(

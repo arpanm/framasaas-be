@@ -18,6 +18,9 @@ import Hsn from './hsn';
 import ProductPriceHistory from './product-price-history';
 import AdditionalAttribute from './additional-attribute';
 import AdditionalAttributePossibleValue from './additional-attribute-possible-value';
+import Brand from './brand';
+import Category from './category';
+import Pincode from './pincode';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -41,6 +44,9 @@ export default () => {
         <Route path="product-price-history/*" element={<ProductPriceHistory />} />
         <Route path="additional-attribute/*" element={<AdditionalAttribute />} />
         <Route path="additional-attribute-possible-value/*" element={<AdditionalAttributePossibleValue />} />
+        <Route path="brand/*" element={<Brand />} />
+        <Route path="category/*" element={<Category />} />
+        <Route path="pincode/*" element={<Pincode />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>
