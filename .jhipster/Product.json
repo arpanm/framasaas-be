@@ -67,6 +67,18 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "category",
+      "relationshipName": "category",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "brand",
+      "relationshipName": "brand",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
       "otherEntityName": "hsn",
       "relationshipName": "hsn",
       "relationshipSide": "right",

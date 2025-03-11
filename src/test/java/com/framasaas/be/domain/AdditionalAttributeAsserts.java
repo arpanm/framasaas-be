@@ -70,6 +70,8 @@ public class AdditionalAttributeAsserts {
             .satisfies(a ->
                 assertThat(a.getFranchisePerformance()).as("check franchisePerformance").isEqualTo(expected.getFranchisePerformance())
             )
+            .satisfies(a -> assertThat(a.getBrand()).as("check brand").isEqualTo(expected.getBrand()))
+            .satisfies(a -> assertThat(a.getCategory()).as("check category").isEqualTo(expected.getCategory()))
             .satisfies(a -> assertThat(a.getAddress()).as("check address").isEqualTo(expected.getAddress()))
             .satisfies(a -> assertThat(a.getLocation()).as("check location").isEqualTo(expected.getLocation()))
             .satisfies(a -> assertThat(a.getFranchiseUser()).as("check franchiseUser").isEqualTo(expected.getFranchiseUser()))

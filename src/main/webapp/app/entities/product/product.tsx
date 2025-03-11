@@ -167,6 +167,12 @@ export const Product = () => {
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.product.category">Category</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.product.brand">Brand</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.product.hsn">Hsn</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
@@ -191,6 +197,8 @@ export const Product = () => {
                     <td>{product.createdTime ? <TextFormat type="date" value={product.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{product.updatedBy}</td>
                     <td>{product.updatedTime ? <TextFormat type="date" value={product.updatedTime} format={APP_DATE_FORMAT} /> : null}</td>
+                    <td>{product.category ? <Link to={`/category/${product.category.id}`}>{product.category.id}</Link> : ''}</td>
+                    <td>{product.brand ? <Link to={`/brand/${product.brand.id}`}>{product.brand.id}</Link> : ''}</td>
                     <td>{product.hsn ? <Link to={`/hsn/${product.hsn.id}`}>{product.hsn.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

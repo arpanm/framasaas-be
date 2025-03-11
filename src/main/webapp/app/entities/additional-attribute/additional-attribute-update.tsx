@@ -10,6 +10,8 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
 import { getEntities as getFranchiseStatusHistories } from 'app/entities/franchise-status-history/franchise-status-history.reducer';
 import { getEntities as getFranchisePerformanceHistories } from 'app/entities/franchise-performance-history/franchise-performance-history.reducer';
+import { getEntities as getBrands } from 'app/entities/brand/brand.reducer';
+import { getEntities as getCategories } from 'app/entities/category/category.reducer';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { getEntities as getLocationMappings } from 'app/entities/location-mapping/location-mapping.reducer';
 import { getEntities as getFranchiseUsers } from 'app/entities/franchise-user/franchise-user.reducer';
@@ -32,6 +34,8 @@ export const AdditionalAttributeUpdate = () => {
   const franchises = useAppSelector(state => state.franchise.entities);
   const franchiseStatusHistories = useAppSelector(state => state.franchiseStatusHistory.entities);
   const franchisePerformanceHistories = useAppSelector(state => state.franchisePerformanceHistory.entities);
+  const brands = useAppSelector(state => state.brand.entities);
+  const categories = useAppSelector(state => state.category.entities);
   const addresses = useAppSelector(state => state.address.entities);
   const locationMappings = useAppSelector(state => state.locationMapping.entities);
   const franchiseUsers = useAppSelector(state => state.franchiseUser.entities);
@@ -58,6 +62,8 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getFranchises({}));
     dispatch(getFranchiseStatusHistories({}));
     dispatch(getFranchisePerformanceHistories({}));
+    dispatch(getBrands({}));
+    dispatch(getCategories({}));
     dispatch(getAddresses({}));
     dispatch(getLocationMappings({}));
     dispatch(getFranchiseUsers({}));
@@ -87,6 +93,8 @@ export const AdditionalAttributeUpdate = () => {
       franchise: franchises.find(it => it.id.toString() === values.franchise?.toString()),
       franchiseStatus: franchiseStatusHistories.find(it => it.id.toString() === values.franchiseStatus?.toString()),
       franchisePerformance: franchisePerformanceHistories.find(it => it.id.toString() === values.franchisePerformance?.toString()),
+      brand: brands.find(it => it.id.toString() === values.brand?.toString()),
+      category: categories.find(it => it.id.toString() === values.category?.toString()),
       address: addresses.find(it => it.id.toString() === values.address?.toString()),
       location: locationMappings.find(it => it.id.toString() === values.location?.toString()),
       franchiseUser: franchiseUsers.find(it => it.id.toString() === values.franchiseUser?.toString()),
@@ -118,6 +126,8 @@ export const AdditionalAttributeUpdate = () => {
           franchise: additionalAttributeEntity?.franchise?.id,
           franchiseStatus: additionalAttributeEntity?.franchiseStatus?.id,
           franchisePerformance: additionalAttributeEntity?.franchisePerformance?.id,
+          brand: additionalAttributeEntity?.brand?.id,
+          category: additionalAttributeEntity?.category?.id,
           address: additionalAttributeEntity?.address?.id,
           location: additionalAttributeEntity?.location?.id,
           franchiseUser: additionalAttributeEntity?.franchiseUser?.id,
@@ -270,6 +280,38 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {franchisePerformanceHistories
                   ? franchisePerformanceHistories.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-brand"
+                name="brand"
+                data-cy="brand"
+                label={translate('framasaasApp.additionalAttribute.brand')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {brands
+                  ? brands.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-category"
+                name="category"
+                data-cy="category"
+                label={translate('framasaasApp.additionalAttribute.category')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {categories
+                  ? categories.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getCategories } from 'app/entities/category/category.reducer';
+import { getEntities as getBrands } from 'app/entities/brand/brand.reducer';
 import { getEntities as getHsns } from 'app/entities/hsn/hsn.reducer';
 import { ProductType } from 'app/shared/model/enumerations/product-type.model';
 import { createEntity, getEntity, updateEntity } from './product.reducer';
@@ -19,6 +21,8 @@ export const ProductUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const categories = useAppSelector(state => state.category.entities);
+  const brands = useAppSelector(state => state.brand.entities);
   const hsns = useAppSelector(state => state.hsn.entities);
   const productEntity = useAppSelector(state => state.product.entity);
   const loading = useAppSelector(state => state.product.loading);
@@ -35,6 +39,8 @@ export const ProductUpdate = () => {
       dispatch(getEntity(id));
     }
 
+    dispatch(getCategories({}));
+    dispatch(getBrands({}));
     dispatch(getHsns({}));
   }, []);
 
@@ -57,6 +63,8 @@ export const ProductUpdate = () => {
     const entity = {
       ...productEntity,
       ...values,
+      category: categories.find(it => it.id.toString() === values.category?.toString()),
+      brand: brands.find(it => it.id.toString() === values.brand?.toString()),
       hsn: hsns.find(it => it.id.toString() === values.hsn?.toString()),
     };
 
@@ -78,6 +86,8 @@ export const ProductUpdate = () => {
           ...productEntity,
           createdTime: convertDateTimeFromServer(productEntity.createdTime),
           updatedTime: convertDateTimeFromServer(productEntity.updatedTime),
+          category: productEntity?.category?.id,
+          brand: productEntity?.brand?.id,
           hsn: productEntity?.hsn?.id,
         };
 
@@ -199,6 +209,32 @@ export const ProductUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                id="product-category"
+                name="category"
+                data-cy="category"
+                label={translate('framasaasApp.product.category')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {categories
+                  ? categories.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField id="product-brand" name="brand" data-cy="brand" label={translate('framasaasApp.product.brand')} type="select">
+                <option value="" key="0" />
+                {brands
+                  ? brands.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <ValidatedField id="product-hsn" name="hsn" data-cy="hsn" label={translate('framasaasApp.product.hsn')} type="select">
                 <option value="" key="0" />
                 {hsns

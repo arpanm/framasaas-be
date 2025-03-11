@@ -29,6 +29,8 @@
       "updatedTime": "Updated Time",
       "productPriceHistory": "Product Price History",
       "additionalAttribute": "Additional Attribute",
+      "category": "Category",
+      "brand": "Brand",
       "hsn": "Hsn"
     }
   }

@@ -76,6 +76,8 @@ public class Product implements Serializable {
             "franchise",
             "franchiseStatus",
             "franchisePerformance",
+            "brand",
+            "category",
             "address",
             "location",
             "franchiseUser",
@@ -88,6 +90,14 @@ public class Product implements Serializable {
         allowSetters = true
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
@@ -284,6 +294,32 @@ public class Product implements Serializable {
     public Product removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.remove(additionalAttribute);
         additionalAttribute.setProduct(null);
+        return this;
+    }
+
+    public Category getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Product category(Category category) {
+        this.setCategory(category);
+        return this;
+    }
+
+    public Brand getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public Product brand(Brand brand) {
+        this.setBrand(brand);
         return this;
     }
 

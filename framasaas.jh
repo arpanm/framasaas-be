@@ -193,6 +193,36 @@ relationship OneToMany {
 	Customer to Address{customer}
 }
 
+entity Brand {
+	brandName String required,
+    logoPath String,
+    vendorBrandId String required,
+    description String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+entity Category {
+	categoryName String required,
+    imagePath String,
+    vendorCategoryId String required,
+    description String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+entity Pincode {
+	pincode String required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
 entity Product {
 	productName String required,
     vendorProductId String required,
@@ -210,6 +240,14 @@ enum ProductType {
     SPARE,
     ACCESSORIES,
     OTHER
+}
+
+relationship OneToMany {
+	Category to Product{category}
+}
+
+relationship OneToMany {
+	Brand to Product{brand}
 }
 
 entity Hsn {
@@ -282,7 +320,13 @@ relationship OneToMany {
 	FranchisePerformanceHistory to AdditionalAttribute{franchisePerformance}
 }
 
+relationship OneToMany {
+	Brand to AdditionalAttribute{brand}
+}
 
+relationship OneToMany {
+	Category to AdditionalAttribute{category}
+}
 
 relationship OneToMany {
 	Address to AdditionalAttribute{address}

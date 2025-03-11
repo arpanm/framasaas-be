@@ -67,6 +67,8 @@ public class ProductAsserts {
     public static void assertProductUpdatableRelationshipsEquals(Product expected, Product actual) {
         assertThat(actual)
             .as("Verify Product relationships")
+            .satisfies(a -> assertThat(a.getCategory()).as("check category").isEqualTo(expected.getCategory()))
+            .satisfies(a -> assertThat(a.getBrand()).as("check brand").isEqualTo(expected.getBrand()))
             .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()));
     }
 }
