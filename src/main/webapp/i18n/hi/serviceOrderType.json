@@ -1,0 +1,12 @@
+{
+  "framasaasApp": {
+    "ServiceOrderType": {
+      "null": "",
+      "REPAIR": "REPAIR",
+      "PERIODICMAINTENANCE": "PERIODICMAINTENANCE",
+      "INSTALLATION": "INSTALLATION",
+      "UNINSTALLATION": "UNINSTALLATION",
+      "RETURNVERIFICATION": "RETURNVERIFICATION"
+    }
+  }
+}

@@ -75,6 +75,12 @@ export const WarrantyMasterDetail = () => {
           </dt>
           <dd>{warrantyMasterEntity.taxRate}</dd>
           <dt>
+            <span id="isActive">
+              <Translate contentKey="framasaasApp.warrantyMaster.isActive">Is Active</Translate>
+            </span>
+          </dt>
+          <dd>{warrantyMasterEntity.isActive ? 'true' : 'false'}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.warrantyMaster.createddBy">Createdd By</Translate>
             </span>

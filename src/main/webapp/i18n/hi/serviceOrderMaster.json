@@ -1,0 +1,37 @@
+{
+  "framasaasApp": {
+    "serviceOrderMaster": {
+      "home": {
+        "title": "ServiceOrderMasters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Service Order Master बनाएँ",
+        "createOrEditLabel": "Service Order Master बनाएँ या संपादित करें",
+        "notFound": "No Service Order Masters found"
+      },
+      "created": "एक नया Service Order Master [identifier: {{ param }}] तैयार है",
+      "updated": "एक Service Order Master [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Service Order Master [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Service Order Master [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Service Order Master"
+      },
+      "id": "ID",
+      "serviceOrderType": "Service Order Type",
+      "slaInHours": "Sla In Hours",
+      "charge": "Charge",
+      "tax": "Tax",
+      "franchiseCommissionWithinSla": "Franchise Commission Within Sla",
+      "franchiseChargeWithinSlaTax": "Franchise Charge Within Sla Tax",
+      "franchiseCommissionOutsideSla": "Franchise Commission Outside Sla",
+      "franchiseChargeOutsideSlaTax": "Franchise Charge Outside Sla Tax",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "product": "Product"
+    }
+  }
+}

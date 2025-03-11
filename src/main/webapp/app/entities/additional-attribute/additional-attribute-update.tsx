@@ -25,6 +25,9 @@ import { getEntities as getWarrantyMasterPriceHistories } from 'app/entities/war
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-warranty-details/article-warranty-details.reducer';
 import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
+import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
+import { getEntities as getServiceOrderPayments } from 'app/entities/service-order-payment/service-order-payment.reducer';
+import { getEntities as getServiceOrderAssignments } from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
 
@@ -54,6 +57,9 @@ export const AdditionalAttributeUpdate = () => {
   const articles = useAppSelector(state => state.article.entities);
   const articleWarrantyDetails = useAppSelector(state => state.articleWarrantyDetails.entities);
   const articleWarrantyDetailsDocuments = useAppSelector(state => state.articleWarrantyDetailsDocument.entities);
+  const serviceOrders = useAppSelector(state => state.serviceOrder.entities);
+  const serviceOrderPayments = useAppSelector(state => state.serviceOrderPayment.entities);
+  const serviceOrderAssignments = useAppSelector(state => state.serviceOrderAssignment.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
   const updating = useAppSelector(state => state.additionalAttribute.updating);
@@ -87,6 +93,9 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getArticles({}));
     dispatch(getArticleWarrantyDetails({}));
     dispatch(getArticleWarrantyDetailsDocuments({}));
+    dispatch(getServiceOrders({}));
+    dispatch(getServiceOrderPayments({}));
+    dispatch(getServiceOrderAssignments({}));
   }, []);
 
   useEffect(() => {
@@ -125,6 +134,9 @@ export const AdditionalAttributeUpdate = () => {
       article: articles.find(it => it.id.toString() === values.article?.toString()),
       articleWarranty: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarranty?.toString()),
       articleWarrantyDocument: articleWarrantyDetailsDocuments.find(it => it.id.toString() === values.articleWarrantyDocument?.toString()),
+      serviceOrder: serviceOrders.find(it => it.id.toString() === values.serviceOrder?.toString()),
+      serviceOrderPayment: serviceOrderPayments.find(it => it.id.toString() === values.serviceOrderPayment?.toString()),
+      serviceOrderAssignment: serviceOrderAssignments.find(it => it.id.toString() === values.serviceOrderAssignment?.toString()),
     };
 
     if (isNew) {
@@ -163,6 +175,9 @@ export const AdditionalAttributeUpdate = () => {
           article: additionalAttributeEntity?.article?.id,
           articleWarranty: additionalAttributeEntity?.articleWarranty?.id,
           articleWarrantyDocument: additionalAttributeEntity?.articleWarrantyDocument?.id,
+          serviceOrder: additionalAttributeEntity?.serviceOrder?.id,
+          serviceOrderPayment: additionalAttributeEntity?.serviceOrderPayment?.id,
+          serviceOrderAssignment: additionalAttributeEntity?.serviceOrderAssignment?.id,
         };
 
   return (
@@ -547,6 +562,54 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {articleWarrantyDetailsDocuments
                   ? articleWarrantyDetailsDocuments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-serviceOrder"
+                name="serviceOrder"
+                data-cy="serviceOrder"
+                label={translate('framasaasApp.additionalAttribute.serviceOrder')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrders
+                  ? serviceOrders.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-serviceOrderPayment"
+                name="serviceOrderPayment"
+                data-cy="serviceOrderPayment"
+                label={translate('framasaasApp.additionalAttribute.serviceOrderPayment')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrderPayments
+                  ? serviceOrderPayments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-serviceOrderAssignment"
+                name="serviceOrderAssignment"
+                data-cy="serviceOrderAssignment"
+                label={translate('framasaasApp.additionalAttribute.serviceOrderAssignment')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrderAssignments
+                  ? serviceOrderAssignments.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

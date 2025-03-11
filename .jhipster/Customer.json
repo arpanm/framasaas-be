@@ -73,6 +73,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "serviceOrder",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
       "otherEntityRelationshipName": "customer",
       "relationshipName": "additionalAttribute",

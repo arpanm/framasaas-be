@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity ServiceOrderAssignment.
+    -->
+    <changeSet id="20250311180932-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="service_order_id"
+                                 baseTableName="service_order_assignment"
+                                 constraintName="fk_service_order_assignment__service_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_id"
+                                 baseTableName="service_order_assignment"
+                                 constraintName="fk_service_order_assignment__franchise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise"
+                                 />
+    </changeSet>
+</databaseChangeLog>

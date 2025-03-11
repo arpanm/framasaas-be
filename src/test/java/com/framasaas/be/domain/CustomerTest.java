@@ -4,6 +4,7 @@ import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -69,6 +70,28 @@ class CustomerTest {
         customer.setArticles(new HashSet<>());
         assertThat(customer.getArticles()).doesNotContain(articleBack);
         assertThat(articleBack.getCustomer()).isNull();
+    }
+
+    @Test
+    void serviceOrderTest() {
+        Customer customer = getCustomerRandomSampleGenerator();
+        ServiceOrder serviceOrderBack = getServiceOrderRandomSampleGenerator();
+
+        customer.addServiceOrder(serviceOrderBack);
+        assertThat(customer.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getCustomer()).isEqualTo(customer);
+
+        customer.removeServiceOrder(serviceOrderBack);
+        assertThat(customer.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getCustomer()).isNull();
+
+        customer.serviceOrders(new HashSet<>(Set.of(serviceOrderBack)));
+        assertThat(customer.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getCustomer()).isEqualTo(customer);
+
+        customer.setServiceOrders(new HashSet<>());
+        assertThat(customer.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getCustomer()).isNull();
     }
 
     @Test

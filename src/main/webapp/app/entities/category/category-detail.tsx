@@ -57,6 +57,12 @@ export const CategoryDetail = () => {
           </dt>
           <dd>{categoryEntity.description}</dd>
           <dt>
+            <span id="isActive">
+              <Translate contentKey="framasaasApp.category.isActive">Is Active</Translate>
+            </span>
+          </dt>
+          <dd>{categoryEntity.isActive ? 'true' : 'false'}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.category.createddBy">Createdd By</Translate>
             </span>

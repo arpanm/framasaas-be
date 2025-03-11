@@ -7,6 +7,7 @@ export interface ICategory {
   imagePath?: string | null;
   vendorCategoryId?: string;
   description?: string | null;
+  isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -14,4 +15,6 @@ export interface ICategory {
   franchiseRule?: IFranchiseAllocationRule | null;
 }
 
-export const defaultValue: Readonly<ICategory> = {};
+export const defaultValue: Readonly<ICategory> = {
+  isActive: false,
+};

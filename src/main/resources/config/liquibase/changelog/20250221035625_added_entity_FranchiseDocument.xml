@@ -29,6 +29,15 @@
             <column name="document_path" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
+            <column name="is_validated" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="validated_by" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="validated_time" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
             <column name="createdd_by" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -46,6 +55,7 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="franchise_document" columnName="validated_time" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="franchise_document" columnName="created_time" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="franchise_document" columnName="updated_time" columnDataType="${datetimeType}"/>
     </changeSet>
@@ -72,6 +82,9 @@
             <column name="document_format" type="string"/>
             <column name="document_size" type="numeric"/>
             <column name="document_path" type="string"/>
+            <column name="is_validated" type="boolean"/>
+            <column name="validated_by" type="string"/>
+            <column name="validated_time" type="date"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
             <column name="updated_by" type="string"/>

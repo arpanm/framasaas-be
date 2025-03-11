@@ -142,9 +142,17 @@ export const ArticleWarrantyDetailsDocument = () => {
                     <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.documentPath">Document Path</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('documentPath')} />
                   </th>
-                  <th className="hand" onClick={sort('isValid')}>
-                    <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.isValid">Is Valid</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('isValid')} />
+                  <th className="hand" onClick={sort('isValidated')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.isValidated">Is Validated</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isValidated')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedBy')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.validatedBy">Validated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedTime')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.validatedTime">Validated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedTime')} />
                   </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.createddBy">Createdd By</Translate>{' '}
@@ -183,7 +191,13 @@ export const ArticleWarrantyDetailsDocument = () => {
                       </Button>
                     </td>
                     <td>{articleWarrantyDetailsDocument.documentPath}</td>
-                    <td>{articleWarrantyDetailsDocument.isValid ? 'true' : 'false'}</td>
+                    <td>{articleWarrantyDetailsDocument.isValidated ? 'true' : 'false'}</td>
+                    <td>{articleWarrantyDetailsDocument.validatedBy}</td>
+                    <td>
+                      {articleWarrantyDetailsDocument.validatedTime ? (
+                        <TextFormat type="date" value={articleWarrantyDetailsDocument.validatedTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
                     <td>{articleWarrantyDetailsDocument.createddBy}</td>
                     <td>
                       {articleWarrantyDetailsDocument.createdTime ? (

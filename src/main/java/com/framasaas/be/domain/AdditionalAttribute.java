@@ -69,6 +69,7 @@ public class AdditionalAttribute implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
+            "serviceOrderAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",
@@ -95,7 +96,7 @@ public class AdditionalAttribute implements Serializable {
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "serviceOrders", "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -107,7 +108,7 @@ public class AdditionalAttribute implements Serializable {
     private FranchiseUser franchiseUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "addresses", "articles", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "addresses", "articles", "serviceOrders", "additionalAttributes" }, allowSetters = true)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -116,7 +117,16 @@ public class AdditionalAttribute implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Product product;
@@ -141,7 +151,10 @@ public class AdditionalAttribute implements Serializable {
     private WarrantyMasterPriceHistory warrantyMasterPriceHistory;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        allowSetters = true
+    )
     private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -154,6 +167,21 @@ public class AdditionalAttribute implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
     private ArticleWarrantyDetailsDocument articleWarrantyDocument;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        allowSetters = true
+    )
+    private ServiceOrder serviceOrder;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes" }, allowSetters = true)
+    private ServiceOrderPayment serviceOrderPayment;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
+    private ServiceOrderAssignment serviceOrderAssignment;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -523,6 +551,45 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute articleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
         this.setArticleWarrantyDocument(articleWarrantyDetailsDocument);
+        return this;
+    }
+
+    public ServiceOrder getServiceOrder() {
+        return this.serviceOrder;
+    }
+
+    public void setServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrder = serviceOrder;
+    }
+
+    public AdditionalAttribute serviceOrder(ServiceOrder serviceOrder) {
+        this.setServiceOrder(serviceOrder);
+        return this;
+    }
+
+    public ServiceOrderPayment getServiceOrderPayment() {
+        return this.serviceOrderPayment;
+    }
+
+    public void setServiceOrderPayment(ServiceOrderPayment serviceOrderPayment) {
+        this.serviceOrderPayment = serviceOrderPayment;
+    }
+
+    public AdditionalAttribute serviceOrderPayment(ServiceOrderPayment serviceOrderPayment) {
+        this.setServiceOrderPayment(serviceOrderPayment);
+        return this;
+    }
+
+    public ServiceOrderAssignment getServiceOrderAssignment() {
+        return this.serviceOrderAssignment;
+    }
+
+    public void setServiceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
+        this.serviceOrderAssignment = serviceOrderAssignment;
+    }
+
+    public AdditionalAttribute serviceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
+        this.setServiceOrderAssignment(serviceOrderAssignment);
         return this;
     }
 

@@ -83,7 +83,7 @@ public class Franchise implements Serializable {
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
 
-    @JsonIgnoreProperties(value = { "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "serviceOrders", "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
     private Address address;
@@ -110,6 +110,11 @@ public class Franchise implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
+    private Set<ServiceOrderAssignment> serviceOrderAssignments = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
@@ -131,6 +136,9 @@ public class Franchise implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -481,6 +489,37 @@ public class Franchise implements Serializable {
     public Franchise removeFranchiseUser(FranchiseUser franchiseUser) {
         this.franchiseUsers.remove(franchiseUser);
         franchiseUser.setFranchise(null);
+        return this;
+    }
+
+    public Set<ServiceOrderAssignment> getServiceOrderAssignments() {
+        return this.serviceOrderAssignments;
+    }
+
+    public void setServiceOrderAssignments(Set<ServiceOrderAssignment> serviceOrderAssignments) {
+        if (this.serviceOrderAssignments != null) {
+            this.serviceOrderAssignments.forEach(i -> i.setFranchise(null));
+        }
+        if (serviceOrderAssignments != null) {
+            serviceOrderAssignments.forEach(i -> i.setFranchise(this));
+        }
+        this.serviceOrderAssignments = serviceOrderAssignments;
+    }
+
+    public Franchise serviceOrderAssignments(Set<ServiceOrderAssignment> serviceOrderAssignments) {
+        this.setServiceOrderAssignments(serviceOrderAssignments);
+        return this;
+    }
+
+    public Franchise addServiceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
+        this.serviceOrderAssignments.add(serviceOrderAssignment);
+        serviceOrderAssignment.setFranchise(this);
+        return this;
+    }
+
+    public Franchise removeServiceOrderAssignment(ServiceOrderAssignment serviceOrderAssignment) {
+        this.serviceOrderAssignments.remove(serviceOrderAssignment);
+        serviceOrderAssignment.setFranchise(null);
         return this;
     }
 

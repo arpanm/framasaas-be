@@ -92,13 +92,19 @@ public class ArticleWarrantyDetails implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        allowSetters = true
+    )
     private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY)

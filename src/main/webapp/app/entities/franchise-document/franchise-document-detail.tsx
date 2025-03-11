@@ -63,6 +63,28 @@ export const FranchiseDocumentDetail = () => {
           </dt>
           <dd>{franchiseDocumentEntity.documentPath}</dd>
           <dt>
+            <span id="isValidated">
+              <Translate contentKey="framasaasApp.franchiseDocument.isValidated">Is Validated</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseDocumentEntity.isValidated ? 'true' : 'false'}</dd>
+          <dt>
+            <span id="validatedBy">
+              <Translate contentKey="framasaasApp.franchiseDocument.validatedBy">Validated By</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseDocumentEntity.validatedBy}</dd>
+          <dt>
+            <span id="validatedTime">
+              <Translate contentKey="framasaasApp.franchiseDocument.validatedTime">Validated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {franchiseDocumentEntity.validatedTime ? (
+              <TextFormat value={franchiseDocumentEntity.validatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.franchiseDocument.createddBy">Createdd By</Translate>
             </span>

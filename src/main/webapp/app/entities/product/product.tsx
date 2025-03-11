@@ -150,6 +150,10 @@ export const Product = () => {
                     <Translate contentKey="framasaasApp.product.productType">Product Type</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('productType')} />
                   </th>
+                  <th className="hand" onClick={sort('isActive')}>
+                    <Translate contentKey="framasaasApp.product.isActive">Is Active</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isActive')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.product.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -193,6 +197,7 @@ export const Product = () => {
                     <td>
                       <Translate contentKey={`framasaasApp.ProductType.${product.productType}`} />
                     </td>
+                    <td>{product.isActive ? 'true' : 'false'}</td>
                     <td>{product.createddBy}</td>
                     <td>{product.createdTime ? <TextFormat type="date" value={product.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{product.updatedBy}</td>

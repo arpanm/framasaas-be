@@ -38,6 +38,9 @@ public class Hsn implements Serializable {
     @Column(name = "tax_rate", nullable = false)
     private Float taxRate;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
@@ -57,7 +60,16 @@ public class Hsn implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hsn")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Set<Product> products = new HashSet<>();
@@ -85,6 +97,9 @@ public class Hsn implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -142,6 +157,19 @@ public class Hsn implements Serializable {
 
     public void setTaxRate(Float taxRate) {
         this.taxRate = taxRate;
+    }
+
+    public Boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public Hsn isActive(Boolean isActive) {
+        this.setIsActive(isActive);
+        return this;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public String getCreateddBy() {
@@ -285,6 +313,7 @@ public class Hsn implements Serializable {
             ", hsnCD='" + getHsnCD() + "'" +
             ", description='" + getDescription() + "'" +
             ", taxRate=" + getTaxRate() +
+            ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

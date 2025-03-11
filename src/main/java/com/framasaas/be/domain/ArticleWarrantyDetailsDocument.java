@@ -31,8 +31,17 @@ public class ArticleWarrantyDetailsDocument implements Serializable {
     @Column(name = "document_path", nullable = false)
     private String documentPath;
 
-    @Column(name = "is_valid")
-    private Boolean isValid;
+    @NotNull
+    @Column(name = "is_validated", nullable = false)
+    private Boolean isValidated;
+
+    @NotNull
+    @Column(name = "validated_by", nullable = false)
+    private String validatedBy;
+
+    @NotNull
+    @Column(name = "validated_time", nullable = false)
+    private Instant validatedTime;
 
     @NotNull
     @Column(name = "createdd_by", nullable = false)
@@ -73,6 +82,9 @@ public class ArticleWarrantyDetailsDocument implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -113,17 +125,43 @@ public class ArticleWarrantyDetailsDocument implements Serializable {
         this.documentPath = documentPath;
     }
 
-    public Boolean getIsValid() {
-        return this.isValid;
+    public Boolean getIsValidated() {
+        return this.isValidated;
     }
 
-    public ArticleWarrantyDetailsDocument isValid(Boolean isValid) {
-        this.setIsValid(isValid);
+    public ArticleWarrantyDetailsDocument isValidated(Boolean isValidated) {
+        this.setIsValidated(isValidated);
         return this;
     }
 
-    public void setIsValid(Boolean isValid) {
-        this.isValid = isValid;
+    public void setIsValidated(Boolean isValidated) {
+        this.isValidated = isValidated;
+    }
+
+    public String getValidatedBy() {
+        return this.validatedBy;
+    }
+
+    public ArticleWarrantyDetailsDocument validatedBy(String validatedBy) {
+        this.setValidatedBy(validatedBy);
+        return this;
+    }
+
+    public void setValidatedBy(String validatedBy) {
+        this.validatedBy = validatedBy;
+    }
+
+    public Instant getValidatedTime() {
+        return this.validatedTime;
+    }
+
+    public ArticleWarrantyDetailsDocument validatedTime(Instant validatedTime) {
+        this.setValidatedTime(validatedTime);
+        return this;
+    }
+
+    public void setValidatedTime(Instant validatedTime) {
+        this.validatedTime = validatedTime;
     }
 
     public String getCreateddBy() {
@@ -247,7 +285,9 @@ public class ArticleWarrantyDetailsDocument implements Serializable {
         return "ArticleWarrantyDetailsDocument{" +
             "id=" + getId() +
             ", documentPath='" + getDocumentPath() + "'" +
-            ", isValid='" + getIsValid() + "'" +
+            ", isValidated='" + getIsValidated() + "'" +
+            ", validatedBy='" + getValidatedBy() + "'" +
+            ", validatedTime='" + getValidatedTime() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

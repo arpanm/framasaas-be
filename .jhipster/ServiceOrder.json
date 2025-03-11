@@ -1,0 +1,140 @@
+{
+  "annotations": {
+    "changelogDate": "20250311180930"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderType",
+      "fieldType": "ServiceOrderType",
+      "fieldValues": "REPAIR,PERIODICMAINTENANCE,INSTALLATION,UNINSTALLATION,RETURNVERIFICATION"
+    },
+    {
+      "fieldName": "orderStatus",
+      "fieldType": "ServiceOrderStatus",
+      "fieldValues": "CREATED,ASSIGNED,INPROGRESS,WAITINGFORSPARE,COMPLETED,CANCELED"
+    },
+    {
+      "fieldName": "inWarranty",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isFree",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isSpareNeeded",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "confirmedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "closedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "serviceCharge",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalSpareCharges",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalSpareTax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalCharges",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalPaymentDone",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "customerInvoicePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nps",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrder",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "serviceOrderAssignment",
+      "otherEntityRelationshipName": "serviceOrder",
+      "relationshipName": "serviceOrderAssignment",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "serviceOrder",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "customer",
+      "relationshipName": "customer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "article",
+      "relationshipName": "article",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "address",
+      "relationshipName": "address",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

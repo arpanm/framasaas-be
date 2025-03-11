@@ -66,6 +66,9 @@ public class AdditionalAttributePossibleValue implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )

@@ -44,6 +44,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "serviceOrder",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
       "otherEntityRelationshipName": "article",
       "relationshipName": "additionalAttribute",

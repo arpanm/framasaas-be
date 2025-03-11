@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "serviceOrderPayment": {
+      "home": {
+        "title": "Service Order Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service Order Payment",
+        "createOrEditLabel": "Create or edit a Service Order Payment",
+        "notFound": "No Service Order Payments found"
+      },
+      "created": "A new Service Order Payment is created with identifier {{ param }}",
+      "updated": "A Service Order Payment is updated with identifier {{ param }}",
+      "deleted": "A Service Order Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Order Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Payment"
+      },
+      "id": "ID",
+      "paymentLink": "Payment Link",
+      "paymentStatus": "Payment Status",
+      "mop": "Mop",
+      "pgTxnId": "Pg Txn Id",
+      "pgTxnResponse": "Pg Txn Response",
+      "pgTxnResponseTime": "Pg Txn Response Time",
+      "paymentInitiatedBy": "Payment Initiated By",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

@@ -15,6 +15,7 @@ public class FranchiseDocumentTestSamples {
             .documentName("documentName1")
             .documentSize(1L)
             .documentPath("documentPath1")
+            .validatedBy("validatedBy1")
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
     }
@@ -25,6 +26,7 @@ public class FranchiseDocumentTestSamples {
             .documentName("documentName2")
             .documentSize(2L)
             .documentPath("documentPath2")
+            .validatedBy("validatedBy2")
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
     }
@@ -35,6 +37,7 @@ public class FranchiseDocumentTestSamples {
             .documentName(UUID.randomUUID().toString())
             .documentSize(longCount.incrementAndGet())
             .documentPath(UUID.randomUUID().toString())
+            .validatedBy(UUID.randomUUID().toString())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());
     }

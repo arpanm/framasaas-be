@@ -48,8 +48,14 @@ public class ArticleWarrantyDetailsDocumentServiceImpl implements ArticleWarrant
                 if (articleWarrantyDetailsDocument.getDocumentPath() != null) {
                     existingArticleWarrantyDetailsDocument.setDocumentPath(articleWarrantyDetailsDocument.getDocumentPath());
                 }
-                if (articleWarrantyDetailsDocument.getIsValid() != null) {
-                    existingArticleWarrantyDetailsDocument.setIsValid(articleWarrantyDetailsDocument.getIsValid());
+                if (articleWarrantyDetailsDocument.getIsValidated() != null) {
+                    existingArticleWarrantyDetailsDocument.setIsValidated(articleWarrantyDetailsDocument.getIsValidated());
+                }
+                if (articleWarrantyDetailsDocument.getValidatedBy() != null) {
+                    existingArticleWarrantyDetailsDocument.setValidatedBy(articleWarrantyDetailsDocument.getValidatedBy());
+                }
+                if (articleWarrantyDetailsDocument.getValidatedTime() != null) {
+                    existingArticleWarrantyDetailsDocument.setValidatedTime(articleWarrantyDetailsDocument.getValidatedTime());
                 }
                 if (articleWarrantyDetailsDocument.getCreateddBy() != null) {
                     existingArticleWarrantyDetailsDocument.setCreateddBy(articleWarrantyDetailsDocument.getCreateddBy());

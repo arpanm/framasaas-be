@@ -1,0 +1,75 @@
+{
+  "annotations": {
+    "changelogDate": "20250311180931"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "paymentLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "INITIATED,SUCCESS,FAILURE"
+    },
+    {
+      "fieldName": "mop",
+      "fieldType": "ModeOfPayment",
+      "fieldValues": "CASH,ONLINE"
+    },
+    {
+      "fieldName": "pgTxnId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pgTxnResponse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pgTxnResponseTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentInitiatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrderPayment",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "serviceOrderPayment",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

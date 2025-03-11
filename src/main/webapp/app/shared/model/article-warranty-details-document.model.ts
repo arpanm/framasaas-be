@@ -4,7 +4,9 @@ import { IArticleWarrantyDetails } from 'app/shared/model/article-warranty-detai
 export interface IArticleWarrantyDetailsDocument {
   id?: number;
   documentPath?: string;
-  isValid?: boolean | null;
+  isValidated?: boolean;
+  validatedBy?: string;
+  validatedTime?: dayjs.Dayjs;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -13,5 +15,5 @@ export interface IArticleWarrantyDetailsDocument {
 }
 
 export const defaultValue: Readonly<IArticleWarrantyDetailsDocument> = {
-  isValid: false,
+  isValidated: false,
 };

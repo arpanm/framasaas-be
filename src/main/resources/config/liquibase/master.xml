@@ -45,6 +45,10 @@
     <include file="config/liquibase/changelog/20250311172444_added_entity_WarrantyMaster.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311172445_added_entity_WarrantyMasterPriceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311172446_added_entity_ArticleWarrantyDetailsDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180929_added_entity_ServiceOrderMaster.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180930_added_entity_ServiceOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180931_added_entity_ServiceOrderPayment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180932_added_entity_ServiceOrderAssignment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20250221035619_added_entity_constraints_Franchise.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035620_added_entity_constraints_FranchiseStatusHistory.xml" relativeToChangelogFile="false"/>
@@ -68,6 +72,9 @@
     <include file="config/liquibase/changelog/20250311172444_added_entity_constraints_WarrantyMaster.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311172445_added_entity_constraints_WarrantyMasterPriceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311172446_added_entity_constraints_ArticleWarrantyDetailsDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180929_added_entity_constraints_ServiceOrderMaster.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180930_added_entity_constraints_ServiceOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311180932_added_entity_constraints_ServiceOrderAssignment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

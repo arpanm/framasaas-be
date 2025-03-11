@@ -22,6 +22,7 @@
       "imagePath": "Image Path",
       "vendorCategoryId": "Vendor Category Id",
       "description": "Description",
+      "isActive": "Is Active",
       "createddBy": "Createdd By",
       "createdTime": "Created Time",
       "updatedBy": "Updated By",

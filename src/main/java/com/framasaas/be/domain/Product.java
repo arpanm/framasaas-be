@@ -47,6 +47,9 @@ public class Product implements Serializable {
     @Column(name = "product_type")
     private ProductType productType;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
@@ -78,8 +81,16 @@ public class Product implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        allowSetters = true
+    )
     private Set<Article> articles = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "product" }, allowSetters = true)
+    private Set<ServiceOrderMaster> serviceOrderMasters = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -104,6 +115,9 @@ public class Product implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -199,6 +213,19 @@ public class Product implements Serializable {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    public Boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public Product isActive(Boolean isActive) {
+        this.setIsActive(isActive);
+        return this;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public String getCreateddBy() {
@@ -346,6 +373,37 @@ public class Product implements Serializable {
         return this;
     }
 
+    public Set<ServiceOrderMaster> getServiceOrderMasters() {
+        return this.serviceOrderMasters;
+    }
+
+    public void setServiceOrderMasters(Set<ServiceOrderMaster> serviceOrderMasters) {
+        if (this.serviceOrderMasters != null) {
+            this.serviceOrderMasters.forEach(i -> i.setProduct(null));
+        }
+        if (serviceOrderMasters != null) {
+            serviceOrderMasters.forEach(i -> i.setProduct(this));
+        }
+        this.serviceOrderMasters = serviceOrderMasters;
+    }
+
+    public Product serviceOrderMasters(Set<ServiceOrderMaster> serviceOrderMasters) {
+        this.setServiceOrderMasters(serviceOrderMasters);
+        return this;
+    }
+
+    public Product addServiceOrderMaster(ServiceOrderMaster serviceOrderMaster) {
+        this.serviceOrderMasters.add(serviceOrderMaster);
+        serviceOrderMaster.setProduct(this);
+        return this;
+    }
+
+    public Product removeServiceOrderMaster(ServiceOrderMaster serviceOrderMaster) {
+        this.serviceOrderMasters.remove(serviceOrderMaster);
+        serviceOrderMaster.setProduct(null);
+        return this;
+    }
+
     public Set<AdditionalAttribute> getAdditionalAttributes() {
         return this.additionalAttributes;
     }
@@ -445,6 +503,7 @@ public class Product implements Serializable {
             ", description='" + getDescription() + "'" +
             ", price=" + getPrice() +
             ", productType='" + getProductType() + "'" +
+            ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

@@ -60,6 +60,14 @@ public class Article implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "article")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
+        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        allowSetters = true
+    )
+    private Set<ServiceOrder> serviceOrders = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
             "franchise",
@@ -80,6 +88,9 @@ public class Article implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -87,13 +98,22 @@ public class Article implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "addresses", "articles", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "addresses", "articles", "serviceOrders", "additionalAttributes" }, allowSetters = true)
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -217,6 +237,37 @@ public class Article implements Serializable {
     public Article removeArticleWarrantyDetails(ArticleWarrantyDetails articleWarrantyDetails) {
         this.articleWarrantyDetails.remove(articleWarrantyDetails);
         articleWarrantyDetails.setArticle(null);
+        return this;
+    }
+
+    public Set<ServiceOrder> getServiceOrders() {
+        return this.serviceOrders;
+    }
+
+    public void setServiceOrders(Set<ServiceOrder> serviceOrders) {
+        if (this.serviceOrders != null) {
+            this.serviceOrders.forEach(i -> i.setArticle(null));
+        }
+        if (serviceOrders != null) {
+            serviceOrders.forEach(i -> i.setArticle(this));
+        }
+        this.serviceOrders = serviceOrders;
+    }
+
+    public Article serviceOrders(Set<ServiceOrder> serviceOrders) {
+        this.setServiceOrders(serviceOrders);
+        return this;
+    }
+
+    public Article addServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.add(serviceOrder);
+        serviceOrder.setArticle(this);
+        return this;
+    }
+
+    public Article removeServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.remove(serviceOrder);
+        serviceOrder.setArticle(null);
         return this;
     }
 

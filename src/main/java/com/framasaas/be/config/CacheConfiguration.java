@@ -121,6 +121,19 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.WarrantyMasterPriceHistory.class.getName() + ".additionalAttributes");
             createCache(cm, com.framasaas.be.domain.ArticleWarrantyDetailsDocument.class.getName());
             createCache(cm, com.framasaas.be.domain.ArticleWarrantyDetailsDocument.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".serviceOrderAssignments");
+            createCache(cm, com.framasaas.be.domain.Address.class.getName() + ".serviceOrders");
+            createCache(cm, com.framasaas.be.domain.Customer.class.getName() + ".serviceOrders");
+            createCache(cm, com.framasaas.be.domain.Product.class.getName() + ".serviceOrderMasters");
+            createCache(cm, com.framasaas.be.domain.Article.class.getName() + ".serviceOrders");
+            createCache(cm, com.framasaas.be.domain.ServiceOrderMaster.class.getName());
+            createCache(cm, com.framasaas.be.domain.ServiceOrder.class.getName());
+            createCache(cm, com.framasaas.be.domain.ServiceOrder.class.getName() + ".serviceOrderAssignments");
+            createCache(cm, com.framasaas.be.domain.ServiceOrder.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.ServiceOrderPayment.class.getName());
+            createCache(cm, com.framasaas.be.domain.ServiceOrderPayment.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.ServiceOrderAssignment.class.getName());
+            createCache(cm, com.framasaas.be.domain.ServiceOrderAssignment.class.getName() + ".additionalAttributes");
             // jhipster-needle-ehcache-add-entry
         };
     }

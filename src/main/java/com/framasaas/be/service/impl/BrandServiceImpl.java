@@ -57,6 +57,9 @@ public class BrandServiceImpl implements BrandService {
                 if (brand.getDescription() != null) {
                     existingBrand.setDescription(brand.getDescription());
                 }
+                if (brand.getIsActive() != null) {
+                    existingBrand.setIsActive(brand.getIsActive());
+                }
                 if (brand.getCreateddBy() != null) {
                     existingBrand.setCreateddBy(brand.getCreateddBy());
                 }

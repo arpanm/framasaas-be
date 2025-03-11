@@ -154,6 +154,18 @@ export const AdditionalAttributeDetail = () => {
             <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>
           </dt>
           <dd>{additionalAttributeEntity.articleWarrantyDocument ? additionalAttributeEntity.articleWarrantyDocument.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrder">Service Order</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.serviceOrder ? additionalAttributeEntity.serviceOrder.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderPayment">Service Order Payment</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.serviceOrderPayment ? additionalAttributeEntity.serviceOrderPayment.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.serviceOrderAssignment ? additionalAttributeEntity.serviceOrderAssignment.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/additional-attribute" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

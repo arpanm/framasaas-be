@@ -51,6 +51,18 @@ public class FranchiseDocument implements Serializable {
     private String documentPath;
 
     @NotNull
+    @Column(name = "is_validated", nullable = false)
+    private Boolean isValidated;
+
+    @NotNull
+    @Column(name = "validated_by", nullable = false)
+    private String validatedBy;
+
+    @NotNull
+    @Column(name = "validated_time", nullable = false)
+    private Instant validatedTime;
+
+    @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
 
@@ -89,6 +101,9 @@ public class FranchiseDocument implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -102,6 +117,7 @@ public class FranchiseDocument implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
+            "serviceOrderAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",
@@ -189,6 +205,45 @@ public class FranchiseDocument implements Serializable {
 
     public void setDocumentPath(String documentPath) {
         this.documentPath = documentPath;
+    }
+
+    public Boolean getIsValidated() {
+        return this.isValidated;
+    }
+
+    public FranchiseDocument isValidated(Boolean isValidated) {
+        this.setIsValidated(isValidated);
+        return this;
+    }
+
+    public void setIsValidated(Boolean isValidated) {
+        this.isValidated = isValidated;
+    }
+
+    public String getValidatedBy() {
+        return this.validatedBy;
+    }
+
+    public FranchiseDocument validatedBy(String validatedBy) {
+        this.setValidatedBy(validatedBy);
+        return this;
+    }
+
+    public void setValidatedBy(String validatedBy) {
+        this.validatedBy = validatedBy;
+    }
+
+    public Instant getValidatedTime() {
+        return this.validatedTime;
+    }
+
+    public FranchiseDocument validatedTime(Instant validatedTime) {
+        this.setValidatedTime(validatedTime);
+        return this;
+    }
+
+    public void setValidatedTime(Instant validatedTime) {
+        this.validatedTime = validatedTime;
     }
 
     public String getCreateddBy() {
@@ -316,6 +371,9 @@ public class FranchiseDocument implements Serializable {
             ", documentFormat='" + getDocumentFormat() + "'" +
             ", documentSize=" + getDocumentSize() +
             ", documentPath='" + getDocumentPath() + "'" +
+            ", isValidated='" + getIsValidated() + "'" +
+            ", validatedBy='" + getValidatedBy() + "'" +
+            ", validatedTime='" + getValidatedTime() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

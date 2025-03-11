@@ -10,6 +10,7 @@ import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderAssignmentTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -131,6 +132,28 @@ class FranchiseTest {
         franchise.setFranchiseUsers(new HashSet<>());
         assertThat(franchise.getFranchiseUsers()).doesNotContain(franchiseUserBack);
         assertThat(franchiseUserBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void serviceOrderAssignmentTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        ServiceOrderAssignment serviceOrderAssignmentBack = getServiceOrderAssignmentRandomSampleGenerator();
+
+        franchise.addServiceOrderAssignment(serviceOrderAssignmentBack);
+        assertThat(franchise.getServiceOrderAssignments()).containsOnly(serviceOrderAssignmentBack);
+        assertThat(serviceOrderAssignmentBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.removeServiceOrderAssignment(serviceOrderAssignmentBack);
+        assertThat(franchise.getServiceOrderAssignments()).doesNotContain(serviceOrderAssignmentBack);
+        assertThat(serviceOrderAssignmentBack.getFranchise()).isNull();
+
+        franchise.serviceOrderAssignments(new HashSet<>(Set.of(serviceOrderAssignmentBack)));
+        assertThat(franchise.getServiceOrderAssignments()).containsOnly(serviceOrderAssignmentBack);
+        assertThat(serviceOrderAssignmentBack.getFranchise()).isEqualTo(franchise);
+
+        franchise.setServiceOrderAssignments(new HashSet<>());
+        assertThat(franchise.getServiceOrderAssignments()).doesNotContain(serviceOrderAssignmentBack);
+        assertThat(serviceOrderAssignmentBack.getFranchise()).isNull();
     }
 
     @Test

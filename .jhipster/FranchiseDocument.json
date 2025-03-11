@@ -31,6 +31,21 @@
       "fieldValidateRules": ["required"]
     },
     {
+      "fieldName": "isValidated",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]

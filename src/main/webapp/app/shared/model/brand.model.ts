@@ -7,6 +7,7 @@ export interface IBrand {
   logoPath?: string | null;
   vendorBrandId?: string;
   description?: string | null;
+  isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -14,4 +15,6 @@ export interface IBrand {
   franchiseRule?: IFranchiseAllocationRule | null;
 }
 
-export const defaultValue: Readonly<IBrand> = {};
+export const defaultValue: Readonly<IBrand> = {
+  isActive: false,
+};

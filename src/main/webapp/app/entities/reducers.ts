@@ -24,6 +24,10 @@ import articleWarrantyDetails from 'app/entities/article-warranty-details/articl
 import warrantyMaster from 'app/entities/warranty-master/warranty-master.reducer';
 import warrantyMasterPriceHistory from 'app/entities/warranty-master-price-history/warranty-master-price-history.reducer';
 import articleWarrantyDetailsDocument from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
+import serviceOrderMaster from 'app/entities/service-order-master/service-order-master.reducer';
+import serviceOrder from 'app/entities/service-order/service-order.reducer';
+import serviceOrderPayment from 'app/entities/service-order-payment/service-order-payment.reducer';
+import serviceOrderAssignment from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -53,6 +57,10 @@ const entitiesReducers = {
   warrantyMaster,
   warrantyMasterPriceHistory,
   articleWarrantyDetailsDocument,
+  serviceOrderMaster,
+  serviceOrder,
+  serviceOrderPayment,
+  serviceOrderAssignment,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

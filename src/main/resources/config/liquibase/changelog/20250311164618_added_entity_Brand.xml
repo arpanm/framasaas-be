@@ -26,6 +26,9 @@
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="true" />
+            </column>
             <column name="createdd_by" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -68,6 +71,7 @@
             <column name="logo_path" type="string"/>
             <column name="vendor_brand_id" type="string"/>
             <column name="description" type="string"/>
+            <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
             <column name="updated_by" type="string"/>

@@ -92,6 +92,13 @@ public class AdditionalAttributeAsserts {
                 assertThat(a.getArticleWarrantyDocument())
                     .as("check articleWarrantyDocument")
                     .isEqualTo(expected.getArticleWarrantyDocument())
+            )
+            .satisfies(a -> assertThat(a.getServiceOrder()).as("check serviceOrder").isEqualTo(expected.getServiceOrder()))
+            .satisfies(a ->
+                assertThat(a.getServiceOrderPayment()).as("check serviceOrderPayment").isEqualTo(expected.getServiceOrderPayment())
+            )
+            .satisfies(a ->
+                assertThat(a.getServiceOrderAssignment()).as("check serviceOrderAssignment").isEqualTo(expected.getServiceOrderAssignment())
             );
     }
 }

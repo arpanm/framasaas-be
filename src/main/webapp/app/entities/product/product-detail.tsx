@@ -63,6 +63,12 @@ export const ProductDetail = () => {
           </dt>
           <dd>{productEntity.productType}</dd>
           <dt>
+            <span id="isActive">
+              <Translate contentKey="framasaasApp.product.isActive">Is Active</Translate>
+            </span>
+          </dt>
+          <dd>{productEntity.isActive ? 'true' : 'false'}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.product.createddBy">Createdd By</Translate>
             </span>

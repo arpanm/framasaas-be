@@ -60,6 +60,9 @@ public class ProductServiceImpl implements ProductService {
                 if (product.getProductType() != null) {
                     existingProduct.setProductType(product.getProductType());
                 }
+                if (product.getIsActive() != null) {
+                    existingProduct.setIsActive(product.getIsActive());
+                }
                 if (product.getCreateddBy() != null) {
                     existingProduct.setCreateddBy(product.getCreateddBy());
                 }

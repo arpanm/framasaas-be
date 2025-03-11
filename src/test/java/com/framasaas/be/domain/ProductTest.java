@@ -7,6 +7,7 @@ import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.HsnTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderMasterTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -95,6 +96,28 @@ class ProductTest {
         product.setArticles(new HashSet<>());
         assertThat(product.getArticles()).doesNotContain(articleBack);
         assertThat(articleBack.getProduct()).isNull();
+    }
+
+    @Test
+    void serviceOrderMasterTest() {
+        Product product = getProductRandomSampleGenerator();
+        ServiceOrderMaster serviceOrderMasterBack = getServiceOrderMasterRandomSampleGenerator();
+
+        product.addServiceOrderMaster(serviceOrderMasterBack);
+        assertThat(product.getServiceOrderMasters()).containsOnly(serviceOrderMasterBack);
+        assertThat(serviceOrderMasterBack.getProduct()).isEqualTo(product);
+
+        product.removeServiceOrderMaster(serviceOrderMasterBack);
+        assertThat(product.getServiceOrderMasters()).doesNotContain(serviceOrderMasterBack);
+        assertThat(serviceOrderMasterBack.getProduct()).isNull();
+
+        product.serviceOrderMasters(new HashSet<>(Set.of(serviceOrderMasterBack)));
+        assertThat(product.getServiceOrderMasters()).containsOnly(serviceOrderMasterBack);
+        assertThat(serviceOrderMasterBack.getProduct()).isEqualTo(product);
+
+        product.setServiceOrderMasters(new HashSet<>());
+        assertThat(product.getServiceOrderMasters()).doesNotContain(serviceOrderMasterBack);
+        assertThat(serviceOrderMasterBack.getProduct()).isNull();
     }
 
     @Test

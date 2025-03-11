@@ -23,6 +23,10 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]

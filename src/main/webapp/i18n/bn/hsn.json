@@ -21,6 +21,7 @@
       "hsnCD": "Hsn CD",
       "description": "Description",
       "taxRate": "Tax Rate",
+      "isActive": "Is Active",
       "createddBy": "Createdd By",
       "createdTime": "Created Time",
       "updatedBy": "Updated By",

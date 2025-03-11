@@ -64,6 +64,13 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
+      "otherEntityName": "serviceOrder",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
       "otherEntityRelationshipName": "address",
       "relationshipName": "additionalAttribute",

@@ -62,6 +62,9 @@ public class ProductPriceHistory implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -69,7 +72,16 @@ public class ProductPriceHistory implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Product product;

@@ -5,6 +5,7 @@ import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -26,6 +27,28 @@ class AddressTest {
 
         address2 = getAddressSample2();
         assertThat(address1).isNotEqualTo(address2);
+    }
+
+    @Test
+    void serviceOrderTest() {
+        Address address = getAddressRandomSampleGenerator();
+        ServiceOrder serviceOrderBack = getServiceOrderRandomSampleGenerator();
+
+        address.addServiceOrder(serviceOrderBack);
+        assertThat(address.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getAddress()).isEqualTo(address);
+
+        address.removeServiceOrder(serviceOrderBack);
+        assertThat(address.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getAddress()).isNull();
+
+        address.serviceOrders(new HashSet<>(Set.of(serviceOrderBack)));
+        assertThat(address.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getAddress()).isEqualTo(address);
+
+        address.setServiceOrders(new HashSet<>());
+        assertThat(address.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getAddress()).isNull();
     }
 
     @Test

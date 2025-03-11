@@ -1,0 +1,11 @@
+{
+  "framasaasApp": {
+    "ServiceOrderAssignmentStatus": {
+      "null": "",
+      "ASSIGNED": "ASSIGNED",
+      "MOVEDBACK": "MOVEDBACK",
+      "COMPLETED": "COMPLETED",
+      "CANCELED": "CANCELED"
+    }
+  }
+}

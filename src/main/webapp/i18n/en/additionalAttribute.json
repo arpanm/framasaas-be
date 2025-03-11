@@ -43,7 +43,10 @@
       "warrantyMasterPriceHistory": "Warranty Master Price History",
       "article": "Article",
       "articleWarranty": "Article Warranty",
-      "articleWarrantyDocument": "Article Warranty Document"
+      "articleWarrantyDocument": "Article Warranty Document",
+      "serviceOrder": "Service Order",
+      "serviceOrderPayment": "Service Order Payment",
+      "serviceOrderAssignment": "Service Order Assignment"
     }
   }
 }

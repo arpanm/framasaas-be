@@ -29,6 +29,7 @@
       "updatedTime": "Updated Time",
       "address": "Address",
       "article": "Article",
+      "serviceOrder": "Service Order",
       "additionalAttribute": "Additional Attribute"
     }
   }
