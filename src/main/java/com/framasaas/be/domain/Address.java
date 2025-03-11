@@ -88,6 +88,8 @@ public class Address implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )
@@ -115,7 +117,7 @@ public class Address implements Serializable {
     private Franchise franchise;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "addresses", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "addresses", "articles", "additionalAttributes" }, allowSetters = true)
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

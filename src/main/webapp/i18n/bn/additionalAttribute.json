@@ -38,7 +38,9 @@
       "document": "Document",
       "product": "Product",
       "hsn": "Hsn",
-      "priceHistory": "Price History"
+      "priceHistory": "Price History",
+      "article": "Article",
+      "articleWarrantyDetails": "Article Warranty Details"
     }
   }
 }

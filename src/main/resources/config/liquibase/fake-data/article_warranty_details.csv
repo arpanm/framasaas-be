@@ -1,0 +1,11 @@
+id;warranty_type;vendor_article_warranty_id;vendor_warranty_master_id;start_date;end_date;is_active;createdd_by;created_time;updated_by;updated_time
+1;BRANDFREEWARRANTY;blank eek;fooey plump;2025-03-10;2025-03-11;false;fooey;2025-03-11T05:23:21;meh deduction;2025-03-11T00:03:09
+2;BRANDFREEWARRANTY;failing;interviewer;2025-03-10;2025-03-11;true;outdo;2025-03-10T23:45:59;perfection;2025-03-11T01:31:11
+3;OTHER;qualified custody;yum;2025-03-11;2025-03-11;true;scare marketplace selfishly;2025-03-11T12:47:15;wire;2025-03-11T06:35:26
+4;EXTENDEDPAIDWARRANTY;pacemaker hm;guidance after ugh;2025-03-11;2025-03-11;false;effector;2025-03-10T19:36:29;pfft shell;2025-03-11T16:27:18
+5;OTHER;yum;which;2025-03-11;2025-03-10;true;muted hollow;2025-03-11T16:43:32;zowie;2025-03-11T09:09:51
+6;EXTENDEDPAIDWARRANTY;stylish thoughtfully;monthly;2025-03-11;2025-03-11;true;behind nervous resort;2025-03-10T17:12:37;fit above;2025-03-11T00:35:11
+7;OTHER;parsnip offend gosh;majestically amid woefully;2025-03-11;2025-03-10;true;well psst;2025-03-11T01:55:23;whether certainly;2025-03-10T18:52:55
+8;BRANDFREEWARRANTY;rubric;censor;2025-03-11;2025-03-11;true;granular tame;2025-03-11T08:04:14;sudden bitterly;2025-03-10T20:31:38
+9;EXTENDEDPAIDWARRANTY;blah;toward;2025-03-11;2025-03-11;true;whenever;2025-03-11T02:08:17;hence;2025-03-10T21:41:58
+10;BRANDFREEWARRANTY;possible extent;rigidly clamor deserted;2025-03-11;2025-03-10;true;option;2025-03-11T05:04:49;supplier casement lest;2025-03-11T01:06:41

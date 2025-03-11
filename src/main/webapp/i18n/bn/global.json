@@ -28,7 +28,9 @@
         "category": "Category",
         "pincode": "Pincode",
         "franchiseAllocationRuleSet": "Franchise Allocation Rule Set",
-        "franchiseAllocationRule": "Franchise Allocation Rule"
+        "franchiseAllocationRule": "Franchise Allocation Rule",
+        "article": "Article",
+        "articleWarrantyDetails": "Article Warranty Details"
       },
       "account": {
         "main": "Account",

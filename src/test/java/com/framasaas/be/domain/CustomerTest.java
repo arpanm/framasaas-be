@@ -2,6 +2,7 @@ package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
+import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -46,6 +47,28 @@ class CustomerTest {
         customer.setAddresses(new HashSet<>());
         assertThat(customer.getAddresses()).doesNotContain(addressBack);
         assertThat(addressBack.getCustomer()).isNull();
+    }
+
+    @Test
+    void articleTest() {
+        Customer customer = getCustomerRandomSampleGenerator();
+        Article articleBack = getArticleRandomSampleGenerator();
+
+        customer.addArticle(articleBack);
+        assertThat(customer.getArticles()).containsOnly(articleBack);
+        assertThat(articleBack.getCustomer()).isEqualTo(customer);
+
+        customer.removeArticle(articleBack);
+        assertThat(customer.getArticles()).doesNotContain(articleBack);
+        assertThat(articleBack.getCustomer()).isNull();
+
+        customer.articles(new HashSet<>(Set.of(articleBack)));
+        assertThat(customer.getArticles()).containsOnly(articleBack);
+        assertThat(articleBack.getCustomer()).isEqualTo(customer);
+
+        customer.setArticles(new HashSet<>());
+        assertThat(customer.getArticles()).doesNotContain(articleBack);
+        assertThat(articleBack.getCustomer()).isNull();
     }
 
     @Test

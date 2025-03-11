@@ -60,6 +60,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "article",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
       "otherEntityRelationshipName": "product",
       "relationshipName": "additionalAttribute",

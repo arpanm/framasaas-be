@@ -402,9 +402,9 @@ class HsnResourceIT {
         partialUpdatedHsn.setId(hsn.getId());
 
         partialUpdatedHsn
-            .hsnCD(UPDATED_HSN_CD)
             .description(UPDATED_DESCRIPTION)
-            .taxRate(UPDATED_TAX_RATE)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 

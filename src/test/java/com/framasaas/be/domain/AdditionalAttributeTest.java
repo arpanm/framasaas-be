@@ -3,6 +3,8 @@ package com.framasaas.be.domain;
 import static com.framasaas.be.domain.AdditionalAttributePossibleValueTestSamples.*;
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
+import static com.framasaas.be.domain.ArticleTestSamples.*;
+import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
@@ -214,5 +216,29 @@ class AdditionalAttributeTest {
 
         additionalAttribute.priceHistory(null);
         assertThat(additionalAttribute.getPriceHistory()).isNull();
+    }
+
+    @Test
+    void articleTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        Article articleBack = getArticleRandomSampleGenerator();
+
+        additionalAttribute.setArticle(articleBack);
+        assertThat(additionalAttribute.getArticle()).isEqualTo(articleBack);
+
+        additionalAttribute.article(null);
+        assertThat(additionalAttribute.getArticle()).isNull();
+    }
+
+    @Test
+    void articleWarrantyDetailsTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ArticleWarrantyDetails articleWarrantyDetailsBack = getArticleWarrantyDetailsRandomSampleGenerator();
+
+        additionalAttribute.setArticleWarrantyDetails(articleWarrantyDetailsBack);
+        assertThat(additionalAttribute.getArticleWarrantyDetails()).isEqualTo(articleWarrantyDetailsBack);
+
+        additionalAttribute.articleWarrantyDetails(null);
+        assertThat(additionalAttribute.getArticleWarrantyDetails()).isNull();
     }
 }

@@ -20,6 +20,8 @@ import { getEntities as getFranchiseDocuments } from 'app/entities/franchise-doc
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
 import { getEntities as getHsns } from 'app/entities/hsn/hsn.reducer';
 import { getEntities as getProductPriceHistories } from 'app/entities/product-price-history/product-price-history.reducer';
+import { getEntities as getArticles } from 'app/entities/article/article.reducer';
+import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-warranty-details/article-warranty-details.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
 
@@ -44,6 +46,8 @@ export const AdditionalAttributeUpdate = () => {
   const products = useAppSelector(state => state.product.entities);
   const hsns = useAppSelector(state => state.hsn.entities);
   const productPriceHistories = useAppSelector(state => state.productPriceHistory.entities);
+  const articles = useAppSelector(state => state.article.entities);
+  const articleWarrantyDetails = useAppSelector(state => state.articleWarrantyDetails.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
   const updating = useAppSelector(state => state.additionalAttribute.updating);
@@ -72,6 +76,8 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getProducts({}));
     dispatch(getHsns({}));
     dispatch(getProductPriceHistories({}));
+    dispatch(getArticles({}));
+    dispatch(getArticleWarrantyDetails({}));
   }, []);
 
   useEffect(() => {
@@ -103,6 +109,8 @@ export const AdditionalAttributeUpdate = () => {
       product: products.find(it => it.id.toString() === values.product?.toString()),
       hsn: hsns.find(it => it.id.toString() === values.hsn?.toString()),
       priceHistory: productPriceHistories.find(it => it.id.toString() === values.priceHistory?.toString()),
+      article: articles.find(it => it.id.toString() === values.article?.toString()),
+      articleWarrantyDetails: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarrantyDetails?.toString()),
     };
 
     if (isNew) {
@@ -136,6 +144,8 @@ export const AdditionalAttributeUpdate = () => {
           product: additionalAttributeEntity?.product?.id,
           hsn: additionalAttributeEntity?.hsn?.id,
           priceHistory: additionalAttributeEntity?.priceHistory?.id,
+          article: additionalAttributeEntity?.article?.id,
+          articleWarrantyDetails: additionalAttributeEntity?.articleWarrantyDetails?.id,
         };
 
   return (
@@ -440,6 +450,38 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {productPriceHistories
                   ? productPriceHistories.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-article"
+                name="article"
+                data-cy="article"
+                label={translate('framasaasApp.additionalAttribute.article')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {articles
+                  ? articles.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-articleWarrantyDetails"
+                name="articleWarrantyDetails"
+                data-cy="articleWarrantyDetails"
+                label={translate('framasaasApp.additionalAttribute.articleWarrantyDetails')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {articleWarrantyDetails
+                  ? articleWarrantyDetails.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
