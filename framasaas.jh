@@ -52,51 +52,6 @@ relationship OneToMany {
 	Franchise to FranchisePerformanceHistory{franchise}
 }
 
-entity FranchiseBrandMapping {
-	brand Brand required,
-    createddBy String required,
-    createdTime Instant required,
-    updatedBy String required,
-    updatedTime Instant required
-}
-
-enum Brand {
-	Samsung,
-    LG,
-    Hitachi,
-    BPL,
-    Kelvinator,
-    Sony,
-    Other
-}
-
-relationship OneToMany {
-	Franchise{brands} to FranchiseBrandMapping{franchise}
-}
-
-entity FranchiseCategoryMapping {
-	serviceCategory ServiceCategory required,
-    createddBy String required,
-    createdTime Instant required,
-    updatedBy String required,
-    updatedTime Instant required
-}
-
-enum ServiceCategory {
-	AC,
-    TV,
-    Refrigerator,
-    WashingMachine,
-    Phone,
-    Tablet,
-    Laptop,
-  	Other
-}
-
-relationship OneToMany {
-	Franchise{categories} to FranchiseCategoryMapping{franchise}
-}
-
 entity Address {
 	address1 String required,
     address2 String,
@@ -128,6 +83,10 @@ relationship OneToOne {
 	Franchise{address} to Address{franchise}
 }
 
+relationship OneToMany {
+	Franchise to LocationMapping{franchise}
+}
+
 entity FranchiseDocument {
 	documentName String required,
     documentType DocumentType required,
@@ -155,7 +114,7 @@ enum DocumentFormat {
 }
 
 relationship OneToMany {
-	Franchise{documents} to FranchiseDocument{franchise}
+	Franchise to FranchiseDocument{franchise}
 }
 
 entity FranchiseUser {
@@ -235,6 +194,73 @@ relationship OneToMany {
 }
 
 
+entity AdditionalAttribute {
+	attributeName String required,
+    attributeValue String required,
+    attributeType AttributeType,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum AttributeType {
+	ATTRSTRING,
+    ATTRNUMBER,
+    ATTRDECIMAL,
+    ATTRSINGLESELCT,
+    ATTRMULTISELECT,
+    ATTRDATE,
+    ATTRDATETIME,
+    ATTRFILEPATH,
+    ATTRIMAGEPATH
+}
+
+entity AdditionalAttributePossibleValue {
+	possibleValue String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	AdditionalAttribute to AdditionalAttributePossibleValue{attribute}
+}
+
+relationship OneToMany {
+	Franchise to AdditionalAttribute{franchise}
+}
+
+relationship OneToMany {
+	FranchiseStatusHistory to AdditionalAttribute{franchiseStatus}
+}
+
+relationship OneToMany {
+	FranchisePerformanceHistory to AdditionalAttribute{franchisePerformance}
+}
+
+
+
+relationship OneToMany {
+	Address to AdditionalAttribute{address}
+}
+
+relationship OneToMany {
+	LocationMapping to AdditionalAttribute{location}
+}
+
+relationship OneToMany {
+	FranchiseUser to AdditionalAttribute{franchiseUser}
+}
+
+relationship OneToMany {
+	Customer to AdditionalAttribute{customer}
+}
+
+relationship OneToMany {
+	FranchiseDocument to AdditionalAttribute{document}
+}
 
 // Set pagination options
 paginate all with infinite-scroll
