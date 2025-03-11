@@ -613,8 +613,6 @@ entity ServiceOrderFranchiseAssignment {
     spareOrderTime Instant,
     spareDeliveryTime Instant,
     completedTime Instant,
-    completionOTP Long,
-    cancellationOTP Long,
     franchiseCommision Float,
     franchiseCommisionTax Float,
     franchiseInvoicePath String,
@@ -627,8 +625,10 @@ entity ServiceOrderFranchiseAssignment {
 enum ServiceOrderAssignmentStatus {
 	ASSIGNED,
     MOVEDBACK,
-    COMPLETED,
-    CANCELED
+    COMPLETEDINIT,
+    COMPLETEDAPPROVED,
+    CANCELATIONINIT,
+    CANCELATIONAPPROVED
 }
 
 relationship OneToMany {
@@ -637,6 +637,24 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Franchise to ServiceOrderFranchiseAssignment{franchise}
+}
+
+entity ServiceOrderFieldAgentAssignment {
+	serviceOrderAssignmentStatus ServiceOrderAssignmentStatus required,
+    nps Long,
+	isActive Boolean,
+    assignedTime Instant,
+    movedBackTime Instant,
+    visitTime Instant,
+    spareOrderTime Instant,
+    spareDeliveryTime Instant,
+    completedTime Instant,
+    completionOTP Long,
+    cancellationOTP Long,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
 }
 
 entity ServiceOrderSpare {
@@ -794,7 +812,23 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	ServiceOrderSpare to AdditionalAttribute{serviceOrderSpare}
+	ServiceOrderFieldAgentAssignment to AdditionalAttribute{serviceOrderFieldAgentAssignment}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRuleSet to AdditionalAttribute{franchiseAllocationRuleSet}
+}
+
+relationship OneToMany {
+	FranchiseAllocationRule to AdditionalAttribute{franchiseAllocationRule}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRuleSet to AdditionalAttribute{fieldAgentSkillRuleSet}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRule to AdditionalAttribute{fieldAgentSkillRule}
 }
 
 // Set pagination options
