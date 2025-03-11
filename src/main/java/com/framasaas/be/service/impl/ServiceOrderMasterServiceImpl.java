@@ -60,14 +60,14 @@ public class ServiceOrderMasterServiceImpl implements ServiceOrderMasterService 
                 if (serviceOrderMaster.getFranchiseCommissionWithinSla() != null) {
                     existingServiceOrderMaster.setFranchiseCommissionWithinSla(serviceOrderMaster.getFranchiseCommissionWithinSla());
                 }
-                if (serviceOrderMaster.getFranchiseChargeWithinSlaTax() != null) {
-                    existingServiceOrderMaster.setFranchiseChargeWithinSlaTax(serviceOrderMaster.getFranchiseChargeWithinSlaTax());
+                if (serviceOrderMaster.getFranchiseTaxWithinSlaTax() != null) {
+                    existingServiceOrderMaster.setFranchiseTaxWithinSlaTax(serviceOrderMaster.getFranchiseTaxWithinSlaTax());
                 }
                 if (serviceOrderMaster.getFranchiseCommissionOutsideSla() != null) {
                     existingServiceOrderMaster.setFranchiseCommissionOutsideSla(serviceOrderMaster.getFranchiseCommissionOutsideSla());
                 }
-                if (serviceOrderMaster.getFranchiseChargeOutsideSlaTax() != null) {
-                    existingServiceOrderMaster.setFranchiseChargeOutsideSlaTax(serviceOrderMaster.getFranchiseChargeOutsideSlaTax());
+                if (serviceOrderMaster.getFranchiseTaxOutsideSlaTax() != null) {
+                    existingServiceOrderMaster.setFranchiseTaxOutsideSlaTax(serviceOrderMaster.getFranchiseTaxOutsideSlaTax());
                 }
                 if (serviceOrderMaster.getIsActive() != null) {
                     existingServiceOrderMaster.setIsActive(serviceOrderMaster.getIsActive());

@@ -14,6 +14,7 @@ public class ArticleWarrantyDetailsTestSamples {
             .id(1L)
             .vendorArticleWarrantyId("vendorArticleWarrantyId1")
             .vendorWarrantyMasterId("vendorWarrantyMasterId1")
+            .soldByUser("soldByUser1")
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
     }
@@ -23,6 +24,7 @@ public class ArticleWarrantyDetailsTestSamples {
             .id(2L)
             .vendorArticleWarrantyId("vendorArticleWarrantyId2")
             .vendorWarrantyMasterId("vendorWarrantyMasterId2")
+            .soldByUser("soldByUser2")
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
     }
@@ -32,6 +34,7 @@ public class ArticleWarrantyDetailsTestSamples {
             .id(longCount.incrementAndGet())
             .vendorArticleWarrantyId(UUID.randomUUID().toString())
             .vendorWarrantyMasterId(UUID.randomUUID().toString())
+            .soldByUser(UUID.randomUUID().toString())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());
     }

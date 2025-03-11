@@ -90,6 +90,8 @@ public class ArticleWarrantyDetailsDocument implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true

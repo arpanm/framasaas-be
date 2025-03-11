@@ -421,12 +421,14 @@ class ServiceOrderPaymentResourceIT {
         partialUpdatedServiceOrderPayment.setId(serviceOrderPayment.getId());
 
         partialUpdatedServiceOrderPayment
+            .paymentLink(UPDATED_PAYMENT_LINK)
             .paymentStatus(UPDATED_PAYMENT_STATUS)
             .pgTxnId(UPDATED_PG_TXN_ID)
-            .pgTxnResponseTime(UPDATED_PG_TXN_RESPONSE_TIME)
-            .isActive(UPDATED_IS_ACTIVE)
+            .pgTxnResponse(UPDATED_PG_TXN_RESPONSE)
+            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderPaymentMockMvc
             .perform(

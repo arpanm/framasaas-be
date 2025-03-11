@@ -71,6 +71,28 @@ export const ArticleWarrantyDetailsDetail = () => {
             ) : null}
           </dd>
           <dt>
+            <span id="soldBy">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.soldBy">Sold By</Translate>
+            </span>
+          </dt>
+          <dd>{articleWarrantyDetailsEntity.soldBy}</dd>
+          <dt>
+            <span id="soldByUser">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.soldByUser">Sold By User</Translate>
+            </span>
+          </dt>
+          <dd>{articleWarrantyDetailsEntity.soldByUser}</dd>
+          <dt>
+            <span id="soldDate">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.soldDate">Sold Date</Translate>
+            </span>
+          </dt>
+          <dd>
+            {articleWarrantyDetailsEntity.soldDate ? (
+              <TextFormat value={articleWarrantyDetailsEntity.soldDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
             <span id="isActive">
               <Translate contentKey="framasaasApp.articleWarrantyDetails.isActive">Is Active</Translate>
             </span>

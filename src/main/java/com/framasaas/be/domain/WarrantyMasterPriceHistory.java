@@ -27,9 +27,17 @@ public class WarrantyMasterPriceHistory implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private Float price;
+
+    @Column(name = "tax")
+    private Float tax;
+
+    @Column(name = "franchise_commission")
+    private Float franchiseCommission;
+
+    @Column(name = "franchise_tax")
+    private Float franchiseTax;
 
     @NotNull
     @Column(name = "updated_by", nullable = false)
@@ -70,6 +78,8 @@ public class WarrantyMasterPriceHistory implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -109,6 +119,45 @@ public class WarrantyMasterPriceHistory implements Serializable {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Float getTax() {
+        return this.tax;
+    }
+
+    public WarrantyMasterPriceHistory tax(Float tax) {
+        this.setTax(tax);
+        return this;
+    }
+
+    public void setTax(Float tax) {
+        this.tax = tax;
+    }
+
+    public Float getFranchiseCommission() {
+        return this.franchiseCommission;
+    }
+
+    public WarrantyMasterPriceHistory franchiseCommission(Float franchiseCommission) {
+        this.setFranchiseCommission(franchiseCommission);
+        return this;
+    }
+
+    public void setFranchiseCommission(Float franchiseCommission) {
+        this.franchiseCommission = franchiseCommission;
+    }
+
+    public Float getFranchiseTax() {
+        return this.franchiseTax;
+    }
+
+    public WarrantyMasterPriceHistory franchiseTax(Float franchiseTax) {
+        this.setFranchiseTax(franchiseTax);
+        return this;
+    }
+
+    public void setFranchiseTax(Float franchiseTax) {
+        this.franchiseTax = franchiseTax;
     }
 
     public String getUpdatedBy() {
@@ -206,6 +255,9 @@ public class WarrantyMasterPriceHistory implements Serializable {
         return "WarrantyMasterPriceHistory{" +
             "id=" + getId() +
             ", price=" + getPrice() +
+            ", tax=" + getTax() +
+            ", franchiseCommission=" + getFranchiseCommission() +
+            ", franchiseTax=" + getFranchiseTax() +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", updatedTime='" + getUpdatedTime() + "'" +
             "}";

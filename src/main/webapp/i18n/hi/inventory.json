@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "inventory": {
+      "home": {
+        "title": "Inventories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Inventory बनाएँ",
+        "createOrEditLabel": "Inventory बनाएँ या संपादित करें",
+        "notFound": "No Inventories found"
+      },
+      "created": "एक नया Inventory [identifier: {{ param }}] तैयार है",
+      "updated": "एक Inventory [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Inventory [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Inventory [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Inventory"
+      },
+      "id": "ID",
+      "inventoryValue": "Inventory Value",
+      "isSellable": "Is Sellable",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "product": "Product",
+      "location": "Location"
+    }
+  }
+}

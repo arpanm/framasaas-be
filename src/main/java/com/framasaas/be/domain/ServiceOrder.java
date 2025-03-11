@@ -142,6 +142,8 @@ public class ServiceOrder implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true

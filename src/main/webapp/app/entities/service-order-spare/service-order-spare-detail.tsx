@@ -51,6 +51,18 @@ export const ServiceOrderSpareDetail = () => {
           </dt>
           <dd>{serviceOrderSpareEntity.totalCharge}</dd>
           <dt>
+            <span id="franchiseCommision">
+              <Translate contentKey="framasaasApp.serviceOrderSpare.franchiseCommision">Franchise Commision</Translate>
+            </span>
+          </dt>
+          <dd>{serviceOrderSpareEntity.franchiseCommision}</dd>
+          <dt>
+            <span id="franchiseCommisionTax">
+              <Translate contentKey="framasaasApp.serviceOrderSpare.franchiseCommisionTax">Franchise Commision Tax</Translate>
+            </span>
+          </dt>
+          <dd>{serviceOrderSpareEntity.franchiseCommisionTax}</dd>
+          <dt>
             <span id="orderedFrom">
               <Translate contentKey="framasaasApp.serviceOrderSpare.orderedFrom">Ordered From</Translate>
             </span>

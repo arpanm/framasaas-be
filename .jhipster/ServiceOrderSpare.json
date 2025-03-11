@@ -17,8 +17,16 @@
       "fieldType": "Float"
     },
     {
+      "fieldName": "franchiseCommision",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseCommisionTax",
+      "fieldType": "Float"
+    },
+    {
       "fieldName": "orderedFrom",
-      "fieldType": "SpareOrderedFrom",
+      "fieldType": "InventoryLocationType",
       "fieldValues": "ENGINEER,FRANCHISE,MOTHERCOMPANY"
     },
     {

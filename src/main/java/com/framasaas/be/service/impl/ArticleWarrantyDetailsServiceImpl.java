@@ -60,6 +60,15 @@ public class ArticleWarrantyDetailsServiceImpl implements ArticleWarrantyDetails
                 if (articleWarrantyDetails.getEndDate() != null) {
                     existingArticleWarrantyDetails.setEndDate(articleWarrantyDetails.getEndDate());
                 }
+                if (articleWarrantyDetails.getSoldBy() != null) {
+                    existingArticleWarrantyDetails.setSoldBy(articleWarrantyDetails.getSoldBy());
+                }
+                if (articleWarrantyDetails.getSoldByUser() != null) {
+                    existingArticleWarrantyDetails.setSoldByUser(articleWarrantyDetails.getSoldByUser());
+                }
+                if (articleWarrantyDetails.getSoldDate() != null) {
+                    existingArticleWarrantyDetails.setSoldDate(articleWarrantyDetails.getSoldDate());
+                }
                 if (articleWarrantyDetails.getIsActive() != null) {
                     existingArticleWarrantyDetails.setIsActive(articleWarrantyDetails.getIsActive());
                 }

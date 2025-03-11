@@ -24,6 +24,21 @@
       "fieldValidateRules": ["required"]
     },
     {
+      "fieldName": "tax",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "franchiseCommission",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "franchiseTax",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
       "fieldName": "productType",
       "fieldType": "ProductType",
       "fieldValues": "COMMERCE,SPARE,ACCESSORIES,OTHER"
@@ -88,6 +103,13 @@
       "otherEntityName": "serviceOrderSpare",
       "otherEntityRelationshipName": "product",
       "relationshipName": "serviceOrderSpare",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "inventory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "inventory",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

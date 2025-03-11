@@ -6,8 +6,19 @@
   "fields": [
     {
       "fieldName": "price",
-      "fieldType": "Float",
-      "fieldValidateRules": ["required"]
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseCommission",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseTax",
+      "fieldType": "Float"
     },
     {
       "fieldName": "updatedBy",

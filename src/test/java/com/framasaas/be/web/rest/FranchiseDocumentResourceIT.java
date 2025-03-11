@@ -530,8 +530,13 @@ class FranchiseDocumentResourceIT {
         partialUpdatedFranchiseDocument.setId(franchiseDocument.getId());
 
         partialUpdatedFranchiseDocument
+            .documentName(UPDATED_DOCUMENT_NAME)
+            .documentFormat(UPDATED_DOCUMENT_FORMAT)
+            .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH)
+            .validatedBy(UPDATED_VALIDATED_BY)
             .validatedTime(UPDATED_VALIDATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY);
 

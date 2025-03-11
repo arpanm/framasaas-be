@@ -38,6 +38,9 @@ import LanguageMapping from './language-mapping';
 import FieldAgentSkillRuleSet from './field-agent-skill-rule-set';
 import FieldAgentSkillRule from './field-agent-skill-rule';
 import ServiceOrderFieldAgentAssignment from './service-order-field-agent-assignment';
+import InventoryLocation from './inventory-location';
+import Inventory from './inventory';
+import InventoryHistory from './inventory-history';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -81,6 +84,9 @@ export default () => {
         <Route path="field-agent-skill-rule-set/*" element={<FieldAgentSkillRuleSet />} />
         <Route path="field-agent-skill-rule/*" element={<FieldAgentSkillRule />} />
         <Route path="service-order-field-agent-assignment/*" element={<ServiceOrderFieldAgentAssignment />} />
+        <Route path="inventory-location/*" element={<InventoryLocation />} />
+        <Route path="inventory/*" element={<Inventory />} />
+        <Route path="inventory-history/*" element={<InventoryHistory />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

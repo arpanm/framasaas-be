@@ -159,6 +159,13 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.FieldAgentSkillRule.class.getName() + ".additionalAttributes");
             createCache(cm, com.framasaas.be.domain.ServiceOrderFieldAgentAssignment.class.getName());
             createCache(cm, com.framasaas.be.domain.ServiceOrderFieldAgentAssignment.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Product.class.getName() + ".inventories");
+            createCache(cm, com.framasaas.be.domain.InventoryLocation.class.getName());
+            createCache(cm, com.framasaas.be.domain.InventoryLocation.class.getName() + ".inventories");
+            createCache(cm, com.framasaas.be.domain.InventoryLocation.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Inventory.class.getName());
+            createCache(cm, com.framasaas.be.domain.Inventory.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.InventoryHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

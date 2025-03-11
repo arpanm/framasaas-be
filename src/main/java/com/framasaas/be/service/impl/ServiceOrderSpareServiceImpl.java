@@ -54,6 +54,12 @@ public class ServiceOrderSpareServiceImpl implements ServiceOrderSpareService {
                 if (serviceOrderSpare.getTotalCharge() != null) {
                     existingServiceOrderSpare.setTotalCharge(serviceOrderSpare.getTotalCharge());
                 }
+                if (serviceOrderSpare.getFranchiseCommision() != null) {
+                    existingServiceOrderSpare.setFranchiseCommision(serviceOrderSpare.getFranchiseCommision());
+                }
+                if (serviceOrderSpare.getFranchiseCommisionTax() != null) {
+                    existingServiceOrderSpare.setFranchiseCommisionTax(serviceOrderSpare.getFranchiseCommisionTax());
+                }
                 if (serviceOrderSpare.getOrderedFrom() != null) {
                     existingServiceOrderSpare.setOrderedFrom(serviceOrderSpare.getOrderedFrom());
                 }

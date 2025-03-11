@@ -50,6 +50,15 @@ class WarrantyMasterResourceIT {
     private static final Float DEFAULT_PRICE = 1F;
     private static final Float UPDATED_PRICE = 2F;
 
+    private static final Float DEFAULT_TAX = 1F;
+    private static final Float UPDATED_TAX = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_COMMISSION = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISSION = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX = 2F;
+
     private static final Long DEFAULT_PERIOD_IN_MONTHS = 1L;
     private static final Long UPDATED_PERIOD_IN_MONTHS = 2L;
 
@@ -106,6 +115,9 @@ class WarrantyMasterResourceIT {
             .warrantyType(DEFAULT_WARRANTY_TYPE)
             .description(DEFAULT_DESCRIPTION)
             .price(DEFAULT_PRICE)
+            .tax(DEFAULT_TAX)
+            .franchiseCommission(DEFAULT_FRANCHISE_COMMISSION)
+            .franchiseTax(DEFAULT_FRANCHISE_TAX)
             .periodInMonths(DEFAULT_PERIOD_IN_MONTHS)
             .taxRate(DEFAULT_TAX_RATE)
             .isActive(DEFAULT_IS_ACTIVE)
@@ -128,6 +140,9 @@ class WarrantyMasterResourceIT {
             .warrantyType(UPDATED_WARRANTY_TYPE)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
             .isActive(UPDATED_IS_ACTIVE)
@@ -255,6 +270,54 @@ class WarrantyMasterResourceIT {
 
     @Test
     @Transactional
+    void checkTaxIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        warrantyMaster.setTax(null);
+
+        // Create the WarrantyMaster, which fails.
+
+        restWarrantyMasterMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(warrantyMaster)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkFranchiseCommissionIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        warrantyMaster.setFranchiseCommission(null);
+
+        // Create the WarrantyMaster, which fails.
+
+        restWarrantyMasterMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(warrantyMaster)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkFranchiseTaxIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        warrantyMaster.setFranchiseTax(null);
+
+        // Create the WarrantyMaster, which fails.
+
+        restWarrantyMasterMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(warrantyMaster)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void checkPeriodInMonthsIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -366,6 +429,9 @@ class WarrantyMasterResourceIT {
             .andExpect(jsonPath("$.[*].warrantyType").value(hasItem(DEFAULT_WARRANTY_TYPE.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommission").value(hasItem(DEFAULT_FRANCHISE_COMMISSION.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseTax").value(hasItem(DEFAULT_FRANCHISE_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].periodInMonths").value(hasItem(DEFAULT_PERIOD_IN_MONTHS.intValue())))
             .andExpect(jsonPath("$.[*].taxRate").value(hasItem(DEFAULT_TAX_RATE.doubleValue())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
@@ -392,6 +458,9 @@ class WarrantyMasterResourceIT {
             .andExpect(jsonPath("$.warrantyType").value(DEFAULT_WARRANTY_TYPE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommission").value(DEFAULT_FRANCHISE_COMMISSION.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTax").value(DEFAULT_FRANCHISE_TAX.doubleValue()))
             .andExpect(jsonPath("$.periodInMonths").value(DEFAULT_PERIOD_IN_MONTHS.intValue()))
             .andExpect(jsonPath("$.taxRate").value(DEFAULT_TAX_RATE.doubleValue()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
@@ -426,6 +495,9 @@ class WarrantyMasterResourceIT {
             .warrantyType(UPDATED_WARRANTY_TYPE)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
             .isActive(UPDATED_IS_ACTIVE)
@@ -513,10 +585,13 @@ class WarrantyMasterResourceIT {
         partialUpdatedWarrantyMaster.setId(warrantyMaster.getId());
 
         partialUpdatedWarrantyMaster
-            .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
             .warrantyType(UPDATED_WARRANTY_TYPE)
             .price(UPDATED_PRICE)
-            .isActive(UPDATED_IS_ACTIVE);
+            .tax(UPDATED_TAX)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restWarrantyMasterMockMvc
             .perform(
@@ -553,6 +628,9 @@ class WarrantyMasterResourceIT {
             .warrantyType(UPDATED_WARRANTY_TYPE)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
             .isActive(UPDATED_IS_ACTIVE)

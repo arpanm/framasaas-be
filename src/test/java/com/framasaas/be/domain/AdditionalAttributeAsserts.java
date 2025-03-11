@@ -123,6 +123,8 @@ public class AdditionalAttributeAsserts {
             .satisfies(a ->
                 assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
             )
+            .satisfies(a -> assertThat(a.getInventoryLocation()).as("check inventoryLocation").isEqualTo(expected.getInventoryLocation()))
+            .satisfies(a -> assertThat(a.getInventory()).as("check inventory").isEqualTo(expected.getInventory()))
             .satisfies(a ->
                 assertThat(a.getServiceOrderAssignment()).as("check serviceOrderAssignment").isEqualTo(expected.getServiceOrderAssignment())
             );

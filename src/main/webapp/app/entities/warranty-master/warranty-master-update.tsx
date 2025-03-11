@@ -51,6 +51,15 @@ export const WarrantyMasterUpdate = () => {
     if (values.price !== undefined && typeof values.price !== 'number') {
       values.price = Number(values.price);
     }
+    if (values.tax !== undefined && typeof values.tax !== 'number') {
+      values.tax = Number(values.tax);
+    }
+    if (values.franchiseCommission !== undefined && typeof values.franchiseCommission !== 'number') {
+      values.franchiseCommission = Number(values.franchiseCommission);
+    }
+    if (values.franchiseTax !== undefined && typeof values.franchiseTax !== 'number') {
+      values.franchiseTax = Number(values.franchiseTax);
+    }
     if (values.periodInMonths !== undefined && typeof values.periodInMonths !== 'number') {
       values.periodInMonths = Number(values.periodInMonths);
     }
@@ -157,6 +166,39 @@ export const WarrantyMasterUpdate = () => {
                 id="warranty-master-price"
                 name="price"
                 data-cy="price"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                  validate: v => isNumber(v) || translate('entity.validation.number'),
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.tax')}
+                id="warranty-master-tax"
+                name="tax"
+                data-cy="tax"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                  validate: v => isNumber(v) || translate('entity.validation.number'),
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.franchiseCommission')}
+                id="warranty-master-franchiseCommission"
+                name="franchiseCommission"
+                data-cy="franchiseCommission"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                  validate: v => isNumber(v) || translate('entity.validation.number'),
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.franchiseTax')}
+                id="warranty-master-franchiseTax"
+                name="franchiseTax"
+                data-cy="franchiseTax"
                 type="text"
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },

@@ -48,6 +48,12 @@ public class ProductPriceHistoryAsserts {
         assertThat(actual)
             .as("Verify ProductPriceHistory relevant properties")
             .satisfies(a -> assertThat(a.getPrice()).as("check price").isEqualTo(expected.getPrice()))
+            .satisfies(a -> assertThat(a.getTax()).as("check tax").isEqualTo(expected.getTax()))
+            .satisfies(a ->
+                assertThat(a.getFranchiseCommission()).as("check franchiseCommission").isEqualTo(expected.getFranchiseCommission())
+            )
+            .satisfies(a -> assertThat(a.getFranchiseTax()).as("check franchiseTax").isEqualTo(expected.getFranchiseTax()))
+            .satisfies(a -> assertThat(a.getUpdateDescription()).as("check updateDescription").isEqualTo(expected.getUpdateDescription()))
             .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))
             .satisfies(a -> assertThat(a.getUpdatedTime()).as("check updatedTime").isEqualTo(expected.getUpdatedTime()));
     }

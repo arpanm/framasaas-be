@@ -9,9 +9,9 @@ export interface IServiceOrderMaster {
   charge?: number | null;
   tax?: number | null;
   franchiseCommissionWithinSla?: number | null;
-  franchiseChargeWithinSlaTax?: number | null;
+  franchiseTaxWithinSlaTax?: number | null;
   franchiseCommissionOutsideSla?: number | null;
-  franchiseChargeOutsideSlaTax?: number | null;
+  franchiseTaxOutsideSlaTax?: number | null;
   isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;

@@ -78,6 +78,8 @@ public class LocationMapping implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true

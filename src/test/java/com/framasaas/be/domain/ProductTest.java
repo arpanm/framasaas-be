@@ -5,6 +5,7 @@ import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.HsnTestSamples.*;
+import static com.framasaas.be.domain.InventoryTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderMasterTestSamples.*;
@@ -141,6 +142,28 @@ class ProductTest {
         product.setServiceOrderSpares(new HashSet<>());
         assertThat(product.getServiceOrderSpares()).doesNotContain(serviceOrderSpareBack);
         assertThat(serviceOrderSpareBack.getProduct()).isNull();
+    }
+
+    @Test
+    void inventoryTest() {
+        Product product = getProductRandomSampleGenerator();
+        Inventory inventoryBack = getInventoryRandomSampleGenerator();
+
+        product.addInventory(inventoryBack);
+        assertThat(product.getInventories()).containsOnly(inventoryBack);
+        assertThat(inventoryBack.getProduct()).isEqualTo(product);
+
+        product.removeInventory(inventoryBack);
+        assertThat(product.getInventories()).doesNotContain(inventoryBack);
+        assertThat(inventoryBack.getProduct()).isNull();
+
+        product.inventories(new HashSet<>(Set.of(inventoryBack)));
+        assertThat(product.getInventories()).containsOnly(inventoryBack);
+        assertThat(inventoryBack.getProduct()).isEqualTo(product);
+
+        product.setInventories(new HashSet<>());
+        assertThat(product.getInventories()).doesNotContain(inventoryBack);
+        assertThat(inventoryBack.getProduct()).isNull();
     }
 
     @Test

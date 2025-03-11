@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getWarrantyMasters } from 'app/entities/warranty-master/warranty-master.reducer';
 import { WarrantyType } from 'app/shared/model/enumerations/warranty-type.model';
+import { SoldBy } from 'app/shared/model/enumerations/sold-by.model';
 import { createEntity, getEntity, updateEntity } from './article-warranty-details.reducer';
 
 export const ArticleWarrantyDetailsUpdate = () => {
@@ -27,6 +28,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
   const updating = useAppSelector(state => state.articleWarrantyDetails.updating);
   const updateSuccess = useAppSelector(state => state.articleWarrantyDetails.updateSuccess);
   const warrantyTypeValues = Object.keys(WarrantyType);
+  const soldByValues = Object.keys(SoldBy);
 
   const handleClose = () => {
     navigate('/article-warranty-details');
@@ -76,6 +78,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
         }
       : {
           warrantyType: 'BRANDFREEWARRANTY',
+          soldBy: 'FRANCHISE',
           ...articleWarrantyDetailsEntity,
           createdTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.createdTime),
           updatedTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.updatedTime),
@@ -149,6 +152,33 @@ export const ArticleWarrantyDetailsUpdate = () => {
                 id="article-warranty-details-endDate"
                 name="endDate"
                 data-cy="endDate"
+                type="date"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.soldBy')}
+                id="article-warranty-details-soldBy"
+                name="soldBy"
+                data-cy="soldBy"
+                type="select"
+              >
+                {soldByValues.map(soldBy => (
+                  <option value={soldBy} key={soldBy}>
+                    {translate(`framasaasApp.SoldBy.${soldBy}`)}
+                  </option>
+                ))}
+              </ValidatedField>
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.soldByUser')}
+                id="article-warranty-details-soldByUser"
+                name="soldByUser"
+                data-cy="soldByUser"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.soldDate')}
+                id="article-warranty-details-soldDate"
+                name="soldDate"
+                data-cy="soldDate"
                 type="date"
               />
               <ValidatedField

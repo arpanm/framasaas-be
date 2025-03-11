@@ -205,6 +205,18 @@
       "relationshipName": "fieldAgentSkillRule",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "inventoryLocation",
+      "relationshipName": "inventoryLocation",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "inventory",
+      "relationshipName": "inventory",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",

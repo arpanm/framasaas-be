@@ -25,6 +25,8 @@ import { IFranchiseAllocationRuleSet } from 'app/shared/model/franchise-allocati
 import { IFranchiseAllocationRule } from 'app/shared/model/franchise-allocation-rule.model';
 import { IFieldAgentSkillRuleSet } from 'app/shared/model/field-agent-skill-rule-set.model';
 import { IFieldAgentSkillRule } from 'app/shared/model/field-agent-skill-rule.model';
+import { IInventoryLocation } from 'app/shared/model/inventory-location.model';
+import { IInventory } from 'app/shared/model/inventory.model';
 import { IServiceOrderAssignment } from 'app/shared/model/service-order-assignment.model';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 
@@ -63,6 +65,8 @@ export interface IAdditionalAttribute {
   franchiseAllocationRule?: IFranchiseAllocationRule | null;
   fieldAgentSkillRuleSet?: IFieldAgentSkillRuleSet | null;
   fieldAgentSkillRule?: IFieldAgentSkillRule | null;
+  inventoryLocation?: IInventoryLocation | null;
+  inventory?: IInventory | null;
   serviceOrderAssignment?: IServiceOrderAssignment | null;
 }
 

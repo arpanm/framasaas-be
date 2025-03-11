@@ -47,6 +47,15 @@ class ProductResourceIT {
     private static final Float DEFAULT_PRICE = 1F;
     private static final Float UPDATED_PRICE = 2F;
 
+    private static final Float DEFAULT_TAX = 1F;
+    private static final Float UPDATED_TAX = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_COMMISSION = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISSION = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX = 2F;
+
     private static final ProductType DEFAULT_PRODUCT_TYPE = ProductType.COMMERCE;
     private static final ProductType UPDATED_PRODUCT_TYPE = ProductType.SPARE;
 
@@ -99,6 +108,9 @@ class ProductResourceIT {
             .vendorProductId(DEFAULT_VENDOR_PRODUCT_ID)
             .description(DEFAULT_DESCRIPTION)
             .price(DEFAULT_PRICE)
+            .tax(DEFAULT_TAX)
+            .franchiseCommission(DEFAULT_FRANCHISE_COMMISSION)
+            .franchiseTax(DEFAULT_FRANCHISE_TAX)
             .productType(DEFAULT_PRODUCT_TYPE)
             .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
@@ -119,6 +131,9 @@ class ProductResourceIT {
             .vendorProductId(UPDATED_VENDOR_PRODUCT_ID)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .productType(UPDATED_PRODUCT_TYPE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
@@ -229,6 +244,54 @@ class ProductResourceIT {
 
     @Test
     @Transactional
+    void checkTaxIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        product.setTax(null);
+
+        // Create the Product, which fails.
+
+        restProductMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(product)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkFranchiseCommissionIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        product.setFranchiseCommission(null);
+
+        // Create the Product, which fails.
+
+        restProductMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(product)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkFranchiseTaxIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        product.setFranchiseTax(null);
+
+        // Create the Product, which fails.
+
+        restProductMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(product)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void checkCreateddByIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -307,6 +370,9 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].vendorProductId").value(hasItem(DEFAULT_VENDOR_PRODUCT_ID)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommission").value(hasItem(DEFAULT_FRANCHISE_COMMISSION.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseTax").value(hasItem(DEFAULT_FRANCHISE_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].productType").value(hasItem(DEFAULT_PRODUCT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
@@ -331,6 +397,9 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.vendorProductId").value(DEFAULT_VENDOR_PRODUCT_ID))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommission").value(DEFAULT_FRANCHISE_COMMISSION.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTax").value(DEFAULT_FRANCHISE_TAX.doubleValue()))
             .andExpect(jsonPath("$.productType").value(DEFAULT_PRODUCT_TYPE.toString()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
@@ -363,6 +432,9 @@ class ProductResourceIT {
             .vendorProductId(UPDATED_VENDOR_PRODUCT_ID)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .productType(UPDATED_PRODUCT_TYPE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
@@ -445,13 +517,14 @@ class ProductResourceIT {
         partialUpdatedProduct.setId(product.getId());
 
         partialUpdatedProduct
-            .vendorProductId(UPDATED_VENDOR_PRODUCT_ID)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .productType(UPDATED_PRODUCT_TYPE)
             .isActive(UPDATED_IS_ACTIVE)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restProductMockMvc
             .perform(
@@ -484,6 +557,9 @@ class ProductResourceIT {
             .vendorProductId(UPDATED_VENDOR_PRODUCT_ID)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
             .productType(UPDATED_PRODUCT_TYPE)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)

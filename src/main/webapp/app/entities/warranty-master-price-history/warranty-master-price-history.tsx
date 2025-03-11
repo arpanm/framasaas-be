@@ -142,6 +142,18 @@ export const WarrantyMasterPriceHistory = () => {
                     <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.price">Price</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('price')} />
                   </th>
+                  <th className="hand" onClick={sort('tax')}>
+                    <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.tax">Tax</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('tax')} />
+                  </th>
+                  <th className="hand" onClick={sort('franchiseCommission')}>
+                    <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.franchiseCommission">Franchise Commission</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommission')} />
+                  </th>
+                  <th className="hand" onClick={sort('franchiseTax')}>
+                    <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.franchiseTax">Franchise Tax</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseTax')} />
+                  </th>
                   <th className="hand" onClick={sort('updatedBy')}>
                     <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.updatedBy">Updated By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedBy')} />
@@ -166,6 +178,9 @@ export const WarrantyMasterPriceHistory = () => {
                       </Button>
                     </td>
                     <td>{warrantyMasterPriceHistory.price}</td>
+                    <td>{warrantyMasterPriceHistory.tax}</td>
+                    <td>{warrantyMasterPriceHistory.franchiseCommission}</td>
+                    <td>{warrantyMasterPriceHistory.franchiseTax}</td>
                     <td>{warrantyMasterPriceHistory.updatedBy}</td>
                     <td>
                       {warrantyMasterPriceHistory.updatedTime ? (

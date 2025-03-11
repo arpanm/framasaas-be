@@ -1,0 +1,62 @@
+{
+  "annotations": {
+    "changelogDate": "20250311194029"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "inventoryValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isSellable",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Inventory",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "inventory",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "inventoryLocation",
+      "relationshipName": "location",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

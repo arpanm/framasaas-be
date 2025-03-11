@@ -37,6 +37,15 @@ class WarrantyMasterPriceHistoryResourceIT {
     private static final Float DEFAULT_PRICE = 1F;
     private static final Float UPDATED_PRICE = 2F;
 
+    private static final Float DEFAULT_TAX = 1F;
+    private static final Float UPDATED_TAX = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_COMMISSION = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISSION = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX = 2F;
+
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
@@ -72,7 +81,13 @@ class WarrantyMasterPriceHistoryResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static WarrantyMasterPriceHistory createEntity() {
-        return new WarrantyMasterPriceHistory().price(DEFAULT_PRICE).updatedBy(DEFAULT_UPDATED_BY).updatedTime(DEFAULT_UPDATED_TIME);
+        return new WarrantyMasterPriceHistory()
+            .price(DEFAULT_PRICE)
+            .tax(DEFAULT_TAX)
+            .franchiseCommission(DEFAULT_FRANCHISE_COMMISSION)
+            .franchiseTax(DEFAULT_FRANCHISE_TAX)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -82,7 +97,13 @@ class WarrantyMasterPriceHistoryResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static WarrantyMasterPriceHistory createUpdatedEntity() {
-        return new WarrantyMasterPriceHistory().price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        return new WarrantyMasterPriceHistory()
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -144,22 +165,6 @@ class WarrantyMasterPriceHistoryResourceIT {
 
     @Test
     @Transactional
-    void checkPriceIsRequired() throws Exception {
-        long databaseSizeBeforeTest = getRepositoryCount();
-        // set the field null
-        warrantyMasterPriceHistory.setPrice(null);
-
-        // Create the WarrantyMasterPriceHistory, which fails.
-
-        restWarrantyMasterPriceHistoryMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(warrantyMasterPriceHistory)))
-            .andExpect(status().isBadRequest());
-
-        assertSameRepositoryCount(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void checkUpdatedByIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -203,6 +208,9 @@ class WarrantyMasterPriceHistoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(warrantyMasterPriceHistory.getId().intValue())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommission").value(hasItem(DEFAULT_FRANCHISE_COMMISSION.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseTax").value(hasItem(DEFAULT_FRANCHISE_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
@@ -220,6 +228,9 @@ class WarrantyMasterPriceHistoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(warrantyMasterPriceHistory.getId().intValue()))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommission").value(DEFAULT_FRANCHISE_COMMISSION.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTax").value(DEFAULT_FRANCHISE_TAX.doubleValue()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
             .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
@@ -245,7 +256,13 @@ class WarrantyMasterPriceHistoryResourceIT {
             .orElseThrow();
         // Disconnect from session so that the updates on updatedWarrantyMasterPriceHistory are not directly saved in db
         em.detach(updatedWarrantyMasterPriceHistory);
-        updatedWarrantyMasterPriceHistory.price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        updatedWarrantyMasterPriceHistory
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restWarrantyMasterPriceHistoryMockMvc
             .perform(
@@ -325,7 +342,11 @@ class WarrantyMasterPriceHistoryResourceIT {
         WarrantyMasterPriceHistory partialUpdatedWarrantyMasterPriceHistory = new WarrantyMasterPriceHistory();
         partialUpdatedWarrantyMasterPriceHistory.setId(warrantyMasterPriceHistory.getId());
 
-        partialUpdatedWarrantyMasterPriceHistory.price(UPDATED_PRICE).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedWarrantyMasterPriceHistory
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restWarrantyMasterPriceHistoryMockMvc
             .perform(
@@ -356,7 +377,13 @@ class WarrantyMasterPriceHistoryResourceIT {
         WarrantyMasterPriceHistory partialUpdatedWarrantyMasterPriceHistory = new WarrantyMasterPriceHistory();
         partialUpdatedWarrantyMasterPriceHistory.setId(warrantyMasterPriceHistory.getId());
 
-        partialUpdatedWarrantyMasterPriceHistory.price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedWarrantyMasterPriceHistory
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restWarrantyMasterPriceHistoryMockMvc
             .perform(

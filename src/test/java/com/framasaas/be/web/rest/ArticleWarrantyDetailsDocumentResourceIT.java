@@ -477,12 +477,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
         partialUpdatedArticleWarrantyDetailsDocument.setId(articleWarrantyDetailsDocument.getId());
 
         partialUpdatedArticleWarrantyDetailsDocument
-            .documentPath(UPDATED_DOCUMENT_PATH)
             .isValidated(UPDATED_IS_VALIDATED)
-            .validatedTime(UPDATED_VALIDATED_TIME)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME);
 
         restArticleWarrantyDetailsDocumentMockMvc
             .perform(

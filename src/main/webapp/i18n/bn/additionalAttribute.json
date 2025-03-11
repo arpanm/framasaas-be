@@ -52,6 +52,8 @@
       "franchiseAllocationRule": "Franchise Allocation Rule",
       "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set",
       "fieldAgentSkillRule": "Field Agent Skill Rule",
+      "inventoryLocation": "Inventory Location",
+      "inventory": "Inventory",
       "serviceOrderAssignment": "Service Order Assignment"
     }
   }

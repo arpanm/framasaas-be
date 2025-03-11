@@ -27,9 +27,20 @@ public class ProductPriceHistory implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private Float price;
+
+    @Column(name = "tax")
+    private Float tax;
+
+    @Column(name = "franchise_commission")
+    private Float franchiseCommission;
+
+    @Column(name = "franchise_tax")
+    private Float franchiseTax;
+
+    @Column(name = "update_description")
+    private String updateDescription;
 
     @NotNull
     @Column(name = "updated_by", nullable = false)
@@ -70,6 +81,8 @@ public class ProductPriceHistory implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -84,6 +97,7 @@ public class ProductPriceHistory implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -119,6 +133,58 @@ public class ProductPriceHistory implements Serializable {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Float getTax() {
+        return this.tax;
+    }
+
+    public ProductPriceHistory tax(Float tax) {
+        this.setTax(tax);
+        return this;
+    }
+
+    public void setTax(Float tax) {
+        this.tax = tax;
+    }
+
+    public Float getFranchiseCommission() {
+        return this.franchiseCommission;
+    }
+
+    public ProductPriceHistory franchiseCommission(Float franchiseCommission) {
+        this.setFranchiseCommission(franchiseCommission);
+        return this;
+    }
+
+    public void setFranchiseCommission(Float franchiseCommission) {
+        this.franchiseCommission = franchiseCommission;
+    }
+
+    public Float getFranchiseTax() {
+        return this.franchiseTax;
+    }
+
+    public ProductPriceHistory franchiseTax(Float franchiseTax) {
+        this.setFranchiseTax(franchiseTax);
+        return this;
+    }
+
+    public void setFranchiseTax(Float franchiseTax) {
+        this.franchiseTax = franchiseTax;
+    }
+
+    public String getUpdateDescription() {
+        return this.updateDescription;
+    }
+
+    public ProductPriceHistory updateDescription(String updateDescription) {
+        this.setUpdateDescription(updateDescription);
+        return this;
+    }
+
+    public void setUpdateDescription(String updateDescription) {
+        this.updateDescription = updateDescription;
     }
 
     public String getUpdatedBy() {
@@ -216,6 +282,10 @@ public class ProductPriceHistory implements Serializable {
         return "ProductPriceHistory{" +
             "id=" + getId() +
             ", price=" + getPrice() +
+            ", tax=" + getTax() +
+            ", franchiseCommission=" + getFranchiseCommission() +
+            ", franchiseTax=" + getFranchiseTax() +
+            ", updateDescription='" + getUpdateDescription() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", updatedTime='" + getUpdatedTime() + "'" +
             "}";

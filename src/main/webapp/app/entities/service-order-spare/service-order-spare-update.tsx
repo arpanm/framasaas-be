@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
-import { SpareOrderedFrom } from 'app/shared/model/enumerations/spare-ordered-from.model';
+import { InventoryLocationType } from 'app/shared/model/enumerations/inventory-location-type.model';
 import { ServiceOrderSpareStatus } from 'app/shared/model/enumerations/service-order-spare-status.model';
 import { createEntity, getEntity, updateEntity } from './service-order-spare.reducer';
 
@@ -27,7 +27,7 @@ export const ServiceOrderSpareUpdate = () => {
   const loading = useAppSelector(state => state.serviceOrderSpare.loading);
   const updating = useAppSelector(state => state.serviceOrderSpare.updating);
   const updateSuccess = useAppSelector(state => state.serviceOrderSpare.updateSuccess);
-  const spareOrderedFromValues = Object.keys(SpareOrderedFrom);
+  const inventoryLocationTypeValues = Object.keys(InventoryLocationType);
   const serviceOrderSpareStatusValues = Object.keys(ServiceOrderSpareStatus);
 
   const handleClose = () => {
@@ -61,6 +61,12 @@ export const ServiceOrderSpareUpdate = () => {
     }
     if (values.totalCharge !== undefined && typeof values.totalCharge !== 'number') {
       values.totalCharge = Number(values.totalCharge);
+    }
+    if (values.franchiseCommision !== undefined && typeof values.franchiseCommision !== 'number') {
+      values.franchiseCommision = Number(values.franchiseCommision);
+    }
+    if (values.franchiseCommisionTax !== undefined && typeof values.franchiseCommisionTax !== 'number') {
+      values.franchiseCommisionTax = Number(values.franchiseCommisionTax);
     }
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
@@ -142,15 +148,29 @@ export const ServiceOrderSpareUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('framasaasApp.serviceOrderSpare.franchiseCommision')}
+                id="service-order-spare-franchiseCommision"
+                name="franchiseCommision"
+                data-cy="franchiseCommision"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.serviceOrderSpare.franchiseCommisionTax')}
+                id="service-order-spare-franchiseCommisionTax"
+                name="franchiseCommisionTax"
+                data-cy="franchiseCommisionTax"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.serviceOrderSpare.orderedFrom')}
                 id="service-order-spare-orderedFrom"
                 name="orderedFrom"
                 data-cy="orderedFrom"
                 type="select"
               >
-                {spareOrderedFromValues.map(spareOrderedFrom => (
-                  <option value={spareOrderedFrom} key={spareOrderedFrom}>
-                    {translate(`framasaasApp.SpareOrderedFrom.${spareOrderedFrom}`)}
+                {inventoryLocationTypeValues.map(inventoryLocationType => (
+                  <option value={inventoryLocationType} key={inventoryLocationType}>
+                    {translate(`framasaasApp.InventoryLocationType.${inventoryLocationType}`)}
                   </option>
                 ))}
               </ValidatedField>

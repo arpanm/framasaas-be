@@ -9,6 +9,9 @@ export interface IWarrantyMaster {
   warrantyType?: keyof typeof WarrantyType;
   description?: string | null;
   price?: number;
+  tax?: number;
+  franchiseCommission?: number;
+  franchiseTax?: number;
   periodInMonths?: number;
   taxRate?: number;
   isActive?: boolean | null;

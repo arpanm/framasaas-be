@@ -488,11 +488,11 @@ class ServiceOrderFieldAgentAssignmentResourceIT {
         partialUpdatedServiceOrderFieldAgentAssignment.setId(serviceOrderFieldAgentAssignment.getId());
 
         partialUpdatedServiceOrderFieldAgentAssignment
-            .nps(UPDATED_NPS)
+            .movedBackTime(UPDATED_MOVED_BACK_TIME)
             .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
-            .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completionOTP(UPDATED_COMPLETION_OTP)
-            .createdTime(UPDATED_CREATED_TIME)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderFieldAgentAssignmentMockMvc

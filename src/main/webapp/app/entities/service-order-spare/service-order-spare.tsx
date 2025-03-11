@@ -148,6 +148,14 @@ export const ServiceOrderSpare = () => {
                     <Translate contentKey="framasaasApp.serviceOrderSpare.totalCharge">Total Charge</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('totalCharge')} />
                   </th>
+                  <th className="hand" onClick={sort('franchiseCommision')}>
+                    <Translate contentKey="framasaasApp.serviceOrderSpare.franchiseCommision">Franchise Commision</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommision')} />
+                  </th>
+                  <th className="hand" onClick={sort('franchiseCommisionTax')}>
+                    <Translate contentKey="framasaasApp.serviceOrderSpare.franchiseCommisionTax">Franchise Commision Tax</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommisionTax')} />
+                  </th>
                   <th className="hand" onClick={sort('orderedFrom')}>
                     <Translate contentKey="framasaasApp.serviceOrderSpare.orderedFrom">Ordered From</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('orderedFrom')} />
@@ -193,8 +201,10 @@ export const ServiceOrderSpare = () => {
                     <td>{serviceOrderSpare.price}</td>
                     <td>{serviceOrderSpare.tax}</td>
                     <td>{serviceOrderSpare.totalCharge}</td>
+                    <td>{serviceOrderSpare.franchiseCommision}</td>
+                    <td>{serviceOrderSpare.franchiseCommisionTax}</td>
                     <td>
-                      <Translate contentKey={`framasaasApp.SpareOrderedFrom.${serviceOrderSpare.orderedFrom}`} />
+                      <Translate contentKey={`framasaasApp.InventoryLocationType.${serviceOrderSpare.orderedFrom}`} />
                     </td>
                     <td>
                       <Translate contentKey={`framasaasApp.ServiceOrderSpareStatus.${serviceOrderSpare.spareStatus}`} />

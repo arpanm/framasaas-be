@@ -126,6 +126,7 @@ public class AdditionalAttribute implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -214,6 +215,14 @@ public class AdditionalAttribute implements Serializable {
         allowSetters = true
     )
     private FieldAgentSkillRule fieldAgentSkillRule;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "inventories", "additionalAttributes" }, allowSetters = true)
+    private InventoryLocation inventoryLocation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "product", "location" }, allowSetters = true)
+    private Inventory inventory;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
@@ -691,6 +700,32 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute fieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
         this.setFieldAgentSkillRule(fieldAgentSkillRule);
+        return this;
+    }
+
+    public InventoryLocation getInventoryLocation() {
+        return this.inventoryLocation;
+    }
+
+    public void setInventoryLocation(InventoryLocation inventoryLocation) {
+        this.inventoryLocation = inventoryLocation;
+    }
+
+    public AdditionalAttribute inventoryLocation(InventoryLocation inventoryLocation) {
+        this.setInventoryLocation(inventoryLocation);
+        return this;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public AdditionalAttribute inventory(Inventory inventory) {
+        this.setInventory(inventory);
         return this;
     }
 

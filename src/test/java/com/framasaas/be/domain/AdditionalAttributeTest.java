@@ -19,6 +19,8 @@ import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
 import static com.framasaas.be.domain.HsnTestSamples.*;
+import static com.framasaas.be.domain.InventoryLocationTestSamples.*;
+import static com.framasaas.be.domain.InventoryTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
@@ -384,6 +386,30 @@ class AdditionalAttributeTest {
 
         additionalAttribute.fieldAgentSkillRule(null);
         assertThat(additionalAttribute.getFieldAgentSkillRule()).isNull();
+    }
+
+    @Test
+    void inventoryLocationTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        InventoryLocation inventoryLocationBack = getInventoryLocationRandomSampleGenerator();
+
+        additionalAttribute.setInventoryLocation(inventoryLocationBack);
+        assertThat(additionalAttribute.getInventoryLocation()).isEqualTo(inventoryLocationBack);
+
+        additionalAttribute.inventoryLocation(null);
+        assertThat(additionalAttribute.getInventoryLocation()).isNull();
+    }
+
+    @Test
+    void inventoryTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        Inventory inventoryBack = getInventoryRandomSampleGenerator();
+
+        additionalAttribute.setInventory(inventoryBack);
+        assertThat(additionalAttribute.getInventory()).isEqualTo(inventoryBack);
+
+        additionalAttribute.inventory(null);
+        assertThat(additionalAttribute.getInventory()).isNull();
     }
 
     @Test

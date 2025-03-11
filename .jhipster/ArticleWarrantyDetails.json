@@ -26,6 +26,19 @@
       "fieldType": "LocalDate"
     },
     {
+      "fieldName": "soldBy",
+      "fieldType": "SoldBy",
+      "fieldValues": "FRANCHISE,ENGINEER,MOTHERCOMPANY"
+    },
+    {
+      "fieldName": "soldByUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soldDate",
+      "fieldType": "LocalDate"
+    },
+    {
       "fieldName": "isActive",
       "fieldType": "Boolean"
     },

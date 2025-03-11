@@ -42,14 +42,14 @@ public class ServiceOrderMaster implements Serializable {
     @Column(name = "franchise_commission_within_sla")
     private Float franchiseCommissionWithinSla;
 
-    @Column(name = "franchise_charge_within_sla_tax")
-    private Float franchiseChargeWithinSlaTax;
+    @Column(name = "franchise_tax_within_sla_tax")
+    private Float franchiseTaxWithinSlaTax;
 
     @Column(name = "franchise_commission_outside_sla")
     private Float franchiseCommissionOutsideSla;
 
-    @Column(name = "franchise_charge_outside_sla_tax")
-    private Float franchiseChargeOutsideSlaTax;
+    @Column(name = "franchise_tax_outside_sla_tax")
+    private Float franchiseTaxOutsideSlaTax;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -78,6 +78,7 @@ public class ServiceOrderMaster implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -167,17 +168,17 @@ public class ServiceOrderMaster implements Serializable {
         this.franchiseCommissionWithinSla = franchiseCommissionWithinSla;
     }
 
-    public Float getFranchiseChargeWithinSlaTax() {
-        return this.franchiseChargeWithinSlaTax;
+    public Float getFranchiseTaxWithinSlaTax() {
+        return this.franchiseTaxWithinSlaTax;
     }
 
-    public ServiceOrderMaster franchiseChargeWithinSlaTax(Float franchiseChargeWithinSlaTax) {
-        this.setFranchiseChargeWithinSlaTax(franchiseChargeWithinSlaTax);
+    public ServiceOrderMaster franchiseTaxWithinSlaTax(Float franchiseTaxWithinSlaTax) {
+        this.setFranchiseTaxWithinSlaTax(franchiseTaxWithinSlaTax);
         return this;
     }
 
-    public void setFranchiseChargeWithinSlaTax(Float franchiseChargeWithinSlaTax) {
-        this.franchiseChargeWithinSlaTax = franchiseChargeWithinSlaTax;
+    public void setFranchiseTaxWithinSlaTax(Float franchiseTaxWithinSlaTax) {
+        this.franchiseTaxWithinSlaTax = franchiseTaxWithinSlaTax;
     }
 
     public Float getFranchiseCommissionOutsideSla() {
@@ -193,17 +194,17 @@ public class ServiceOrderMaster implements Serializable {
         this.franchiseCommissionOutsideSla = franchiseCommissionOutsideSla;
     }
 
-    public Float getFranchiseChargeOutsideSlaTax() {
-        return this.franchiseChargeOutsideSlaTax;
+    public Float getFranchiseTaxOutsideSlaTax() {
+        return this.franchiseTaxOutsideSlaTax;
     }
 
-    public ServiceOrderMaster franchiseChargeOutsideSlaTax(Float franchiseChargeOutsideSlaTax) {
-        this.setFranchiseChargeOutsideSlaTax(franchiseChargeOutsideSlaTax);
+    public ServiceOrderMaster franchiseTaxOutsideSlaTax(Float franchiseTaxOutsideSlaTax) {
+        this.setFranchiseTaxOutsideSlaTax(franchiseTaxOutsideSlaTax);
         return this;
     }
 
-    public void setFranchiseChargeOutsideSlaTax(Float franchiseChargeOutsideSlaTax) {
-        this.franchiseChargeOutsideSlaTax = franchiseChargeOutsideSlaTax;
+    public void setFranchiseTaxOutsideSlaTax(Float franchiseTaxOutsideSlaTax) {
+        this.franchiseTaxOutsideSlaTax = franchiseTaxOutsideSlaTax;
     }
 
     public Boolean getIsActive() {
@@ -313,9 +314,9 @@ public class ServiceOrderMaster implements Serializable {
             ", charge=" + getCharge() +
             ", tax=" + getTax() +
             ", franchiseCommissionWithinSla=" + getFranchiseCommissionWithinSla() +
-            ", franchiseChargeWithinSlaTax=" + getFranchiseChargeWithinSlaTax() +
+            ", franchiseTaxWithinSlaTax=" + getFranchiseTaxWithinSlaTax() +
             ", franchiseCommissionOutsideSla=" + getFranchiseCommissionOutsideSla() +
-            ", franchiseChargeOutsideSlaTax=" + getFranchiseChargeOutsideSlaTax() +
+            ", franchiseTaxOutsideSlaTax=" + getFranchiseTaxOutsideSlaTax() +
             ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +

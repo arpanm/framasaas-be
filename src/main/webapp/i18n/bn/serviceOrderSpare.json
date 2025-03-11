@@ -21,6 +21,8 @@
       "price": "Price",
       "tax": "Tax",
       "totalCharge": "Total Charge",
+      "franchiseCommision": "Franchise Commision",
+      "franchiseCommisionTax": "Franchise Commision Tax",
       "orderedFrom": "Ordered From",
       "spareStatus": "Spare Status",
       "createddBy": "Createdd By",

@@ -33,6 +33,8 @@ import { getEntities as getFranchiseAllocationRuleSets } from 'app/entities/fran
 import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 import { getEntities as getFieldAgentSkillRuleSets } from 'app/entities/field-agent-skill-rule-set/field-agent-skill-rule-set.reducer';
 import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
+import { getEntities as getInventoryLocations } from 'app/entities/inventory-location/inventory-location.reducer';
+import { getEntities as getInventories } from 'app/entities/inventory/inventory.reducer';
 import { getEntities as getServiceOrderAssignments } from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
@@ -71,6 +73,8 @@ export const AdditionalAttributeUpdate = () => {
   const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
   const fieldAgentSkillRuleSets = useAppSelector(state => state.fieldAgentSkillRuleSet.entities);
   const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
+  const inventoryLocations = useAppSelector(state => state.inventoryLocation.entities);
+  const inventories = useAppSelector(state => state.inventory.entities);
   const serviceOrderAssignments = useAppSelector(state => state.serviceOrderAssignment.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
@@ -113,6 +117,8 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getFranchiseAllocationRules({}));
     dispatch(getFieldAgentSkillRuleSets({}));
     dispatch(getFieldAgentSkillRules({}));
+    dispatch(getInventoryLocations({}));
+    dispatch(getInventories({}));
     dispatch(getServiceOrderAssignments({}));
   }, []);
 
@@ -166,6 +172,8 @@ export const AdditionalAttributeUpdate = () => {
       franchiseAllocationRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseAllocationRule?.toString()),
       fieldAgentSkillRuleSet: fieldAgentSkillRuleSets.find(it => it.id.toString() === values.fieldAgentSkillRuleSet?.toString()),
       fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
+      inventoryLocation: inventoryLocations.find(it => it.id.toString() === values.inventoryLocation?.toString()),
+      inventory: inventories.find(it => it.id.toString() === values.inventory?.toString()),
       serviceOrderAssignment: serviceOrderAssignments.find(it => it.id.toString() === values.serviceOrderAssignment?.toString()),
     };
 
@@ -213,6 +221,8 @@ export const AdditionalAttributeUpdate = () => {
           franchiseAllocationRule: additionalAttributeEntity?.franchiseAllocationRule?.id,
           fieldAgentSkillRuleSet: additionalAttributeEntity?.fieldAgentSkillRuleSet?.id,
           fieldAgentSkillRule: additionalAttributeEntity?.fieldAgentSkillRule?.id,
+          inventoryLocation: additionalAttributeEntity?.inventoryLocation?.id,
+          inventory: additionalAttributeEntity?.inventory?.id,
           serviceOrderAssignment: additionalAttributeEntity?.serviceOrderAssignment?.id,
         };
 
@@ -726,6 +736,38 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {fieldAgentSkillRules
                   ? fieldAgentSkillRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-inventoryLocation"
+                name="inventoryLocation"
+                data-cy="inventoryLocation"
+                label={translate('framasaasApp.additionalAttribute.inventoryLocation')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {inventoryLocations
+                  ? inventoryLocations.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-inventory"
+                name="inventory"
+                data-cy="inventory"
+                label={translate('framasaasApp.additionalAttribute.inventory')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {inventories
+                  ? inventories.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

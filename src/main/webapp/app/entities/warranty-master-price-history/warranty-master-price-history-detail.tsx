@@ -39,6 +39,24 @@ export const WarrantyMasterPriceHistoryDetail = () => {
           </dt>
           <dd>{warrantyMasterPriceHistoryEntity.price}</dd>
           <dt>
+            <span id="tax">
+              <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.tax">Tax</Translate>
+            </span>
+          </dt>
+          <dd>{warrantyMasterPriceHistoryEntity.tax}</dd>
+          <dt>
+            <span id="franchiseCommission">
+              <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.franchiseCommission">Franchise Commission</Translate>
+            </span>
+          </dt>
+          <dd>{warrantyMasterPriceHistoryEntity.franchiseCommission}</dd>
+          <dt>
+            <span id="franchiseTax">
+              <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.franchiseTax">Franchise Tax</Translate>
+            </span>
+          </dt>
+          <dd>{warrantyMasterPriceHistoryEntity.franchiseTax}</dd>
+          <dt>
             <span id="updatedBy">
               <Translate contentKey="framasaasApp.warrantyMasterPriceHistory.updatedBy">Updated By</Translate>
             </span>

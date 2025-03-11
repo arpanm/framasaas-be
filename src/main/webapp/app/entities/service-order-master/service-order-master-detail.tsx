@@ -65,13 +65,11 @@ export const ServiceOrderMasterDetail = () => {
           </dt>
           <dd>{serviceOrderMasterEntity.franchiseCommissionWithinSla}</dd>
           <dt>
-            <span id="franchiseChargeWithinSlaTax">
-              <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseChargeWithinSlaTax">
-                Franchise Charge Within Sla Tax
-              </Translate>
+            <span id="franchiseTaxWithinSlaTax">
+              <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseTaxWithinSlaTax">Franchise Tax Within Sla Tax</Translate>
             </span>
           </dt>
-          <dd>{serviceOrderMasterEntity.franchiseChargeWithinSlaTax}</dd>
+          <dd>{serviceOrderMasterEntity.franchiseTaxWithinSlaTax}</dd>
           <dt>
             <span id="franchiseCommissionOutsideSla">
               <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseCommissionOutsideSla">
@@ -81,13 +79,11 @@ export const ServiceOrderMasterDetail = () => {
           </dt>
           <dd>{serviceOrderMasterEntity.franchiseCommissionOutsideSla}</dd>
           <dt>
-            <span id="franchiseChargeOutsideSlaTax">
-              <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseChargeOutsideSlaTax">
-                Franchise Charge Outside Sla Tax
-              </Translate>
+            <span id="franchiseTaxOutsideSlaTax">
+              <Translate contentKey="framasaasApp.serviceOrderMaster.franchiseTaxOutsideSlaTax">Franchise Tax Outside Sla Tax</Translate>
             </span>
           </dt>
-          <dd>{serviceOrderMasterEntity.franchiseChargeOutsideSlaTax}</dd>
+          <dd>{serviceOrderMasterEntity.franchiseTaxOutsideSlaTax}</dd>
           <dt>
             <span id="isActive">
               <Translate contentKey="framasaasApp.serviceOrderMaster.isActive">Is Active</Translate>

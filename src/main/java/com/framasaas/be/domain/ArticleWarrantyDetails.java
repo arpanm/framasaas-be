@@ -1,6 +1,7 @@
 package com.framasaas.be.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.framasaas.be.domain.enumeration.SoldBy;
 import com.framasaas.be.domain.enumeration.WarrantyType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -44,6 +45,16 @@ public class ArticleWarrantyDetails implements Serializable {
 
     @Column(name = "end_date")
     private LocalDate endDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sold_by")
+    private SoldBy soldBy;
+
+    @Column(name = "sold_by_user")
+    private String soldByUser;
+
+    @Column(name = "sold_date")
+    private LocalDate soldDate;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -100,6 +111,8 @@ public class ArticleWarrantyDetails implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -198,6 +211,45 @@ public class ArticleWarrantyDetails implements Serializable {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public SoldBy getSoldBy() {
+        return this.soldBy;
+    }
+
+    public ArticleWarrantyDetails soldBy(SoldBy soldBy) {
+        this.setSoldBy(soldBy);
+        return this;
+    }
+
+    public void setSoldBy(SoldBy soldBy) {
+        this.soldBy = soldBy;
+    }
+
+    public String getSoldByUser() {
+        return this.soldByUser;
+    }
+
+    public ArticleWarrantyDetails soldByUser(String soldByUser) {
+        this.setSoldByUser(soldByUser);
+        return this;
+    }
+
+    public void setSoldByUser(String soldByUser) {
+        this.soldByUser = soldByUser;
+    }
+
+    public LocalDate getSoldDate() {
+        return this.soldDate;
+    }
+
+    public ArticleWarrantyDetails soldDate(LocalDate soldDate) {
+        this.setSoldDate(soldDate);
+        return this;
+    }
+
+    public void setSoldDate(LocalDate soldDate) {
+        this.soldDate = soldDate;
     }
 
     public Boolean getIsActive() {
@@ -382,6 +434,9 @@ public class ArticleWarrantyDetails implements Serializable {
             ", vendorWarrantyMasterId='" + getVendorWarrantyMasterId() + "'" +
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
+            ", soldBy='" + getSoldBy() + "'" +
+            ", soldByUser='" + getSoldByUser() + "'" +
+            ", soldDate='" + getSoldDate() + "'" +
             ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +

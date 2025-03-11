@@ -50,14 +50,14 @@ class ServiceOrderMasterResourceIT {
     private static final Float DEFAULT_FRANCHISE_COMMISSION_WITHIN_SLA = 1F;
     private static final Float UPDATED_FRANCHISE_COMMISSION_WITHIN_SLA = 2F;
 
-    private static final Float DEFAULT_FRANCHISE_CHARGE_WITHIN_SLA_TAX = 1F;
-    private static final Float UPDATED_FRANCHISE_CHARGE_WITHIN_SLA_TAX = 2F;
+    private static final Float DEFAULT_FRANCHISE_TAX_WITHIN_SLA_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX_WITHIN_SLA_TAX = 2F;
 
     private static final Float DEFAULT_FRANCHISE_COMMISSION_OUTSIDE_SLA = 1F;
     private static final Float UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA = 2F;
 
-    private static final Float DEFAULT_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX = 1F;
-    private static final Float UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX = 2F;
+    private static final Float DEFAULT_FRANCHISE_TAX_OUTSIDE_SLA_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX_OUTSIDE_SLA_TAX = 2F;
 
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
@@ -109,9 +109,9 @@ class ServiceOrderMasterResourceIT {
             .charge(DEFAULT_CHARGE)
             .tax(DEFAULT_TAX)
             .franchiseCommissionWithinSla(DEFAULT_FRANCHISE_COMMISSION_WITHIN_SLA)
-            .franchiseChargeWithinSlaTax(DEFAULT_FRANCHISE_CHARGE_WITHIN_SLA_TAX)
+            .franchiseTaxWithinSlaTax(DEFAULT_FRANCHISE_TAX_WITHIN_SLA_TAX)
             .franchiseCommissionOutsideSla(DEFAULT_FRANCHISE_COMMISSION_OUTSIDE_SLA)
-            .franchiseChargeOutsideSlaTax(DEFAULT_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
+            .franchiseTaxOutsideSlaTax(DEFAULT_FRANCHISE_TAX_OUTSIDE_SLA_TAX)
             .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
@@ -132,9 +132,9 @@ class ServiceOrderMasterResourceIT {
             .charge(UPDATED_CHARGE)
             .tax(UPDATED_TAX)
             .franchiseCommissionWithinSla(UPDATED_FRANCHISE_COMMISSION_WITHIN_SLA)
-            .franchiseChargeWithinSlaTax(UPDATED_FRANCHISE_CHARGE_WITHIN_SLA_TAX)
+            .franchiseTaxWithinSlaTax(UPDATED_FRANCHISE_TAX_WITHIN_SLA_TAX)
             .franchiseCommissionOutsideSla(UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA)
-            .franchiseChargeOutsideSlaTax(UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
+            .franchiseTaxOutsideSlaTax(UPDATED_FRANCHISE_TAX_OUTSIDE_SLA_TAX)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -278,13 +278,11 @@ class ServiceOrderMasterResourceIT {
             .andExpect(jsonPath("$.[*].charge").value(hasItem(DEFAULT_CHARGE.doubleValue())))
             .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].franchiseCommissionWithinSla").value(hasItem(DEFAULT_FRANCHISE_COMMISSION_WITHIN_SLA.doubleValue())))
-            .andExpect(jsonPath("$.[*].franchiseChargeWithinSlaTax").value(hasItem(DEFAULT_FRANCHISE_CHARGE_WITHIN_SLA_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseTaxWithinSlaTax").value(hasItem(DEFAULT_FRANCHISE_TAX_WITHIN_SLA_TAX.doubleValue())))
             .andExpect(
                 jsonPath("$.[*].franchiseCommissionOutsideSla").value(hasItem(DEFAULT_FRANCHISE_COMMISSION_OUTSIDE_SLA.doubleValue()))
             )
-            .andExpect(
-                jsonPath("$.[*].franchiseChargeOutsideSlaTax").value(hasItem(DEFAULT_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX.doubleValue()))
-            )
+            .andExpect(jsonPath("$.[*].franchiseTaxOutsideSlaTax").value(hasItem(DEFAULT_FRANCHISE_TAX_OUTSIDE_SLA_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
@@ -309,9 +307,9 @@ class ServiceOrderMasterResourceIT {
             .andExpect(jsonPath("$.charge").value(DEFAULT_CHARGE.doubleValue()))
             .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
             .andExpect(jsonPath("$.franchiseCommissionWithinSla").value(DEFAULT_FRANCHISE_COMMISSION_WITHIN_SLA.doubleValue()))
-            .andExpect(jsonPath("$.franchiseChargeWithinSlaTax").value(DEFAULT_FRANCHISE_CHARGE_WITHIN_SLA_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTaxWithinSlaTax").value(DEFAULT_FRANCHISE_TAX_WITHIN_SLA_TAX.doubleValue()))
             .andExpect(jsonPath("$.franchiseCommissionOutsideSla").value(DEFAULT_FRANCHISE_COMMISSION_OUTSIDE_SLA.doubleValue()))
-            .andExpect(jsonPath("$.franchiseChargeOutsideSlaTax").value(DEFAULT_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTaxOutsideSlaTax").value(DEFAULT_FRANCHISE_TAX_OUTSIDE_SLA_TAX.doubleValue()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
@@ -344,9 +342,9 @@ class ServiceOrderMasterResourceIT {
             .charge(UPDATED_CHARGE)
             .tax(UPDATED_TAX)
             .franchiseCommissionWithinSla(UPDATED_FRANCHISE_COMMISSION_WITHIN_SLA)
-            .franchiseChargeWithinSlaTax(UPDATED_FRANCHISE_CHARGE_WITHIN_SLA_TAX)
+            .franchiseTaxWithinSlaTax(UPDATED_FRANCHISE_TAX_WITHIN_SLA_TAX)
             .franchiseCommissionOutsideSla(UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA)
-            .franchiseChargeOutsideSlaTax(UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
+            .franchiseTaxOutsideSlaTax(UPDATED_FRANCHISE_TAX_OUTSIDE_SLA_TAX)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -434,10 +432,9 @@ class ServiceOrderMasterResourceIT {
         partialUpdatedServiceOrderMaster
             .serviceOrderType(UPDATED_SERVICE_ORDER_TYPE)
             .slaInHours(UPDATED_SLA_IN_HOURS)
+            .charge(UPDATED_CHARGE)
             .tax(UPDATED_TAX)
-            .franchiseCommissionOutsideSla(UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA)
-            .franchiseChargeOutsideSlaTax(UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
-            .createddBy(UPDATED_CREATEDD_BY);
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restServiceOrderMasterMockMvc
             .perform(
@@ -474,9 +471,9 @@ class ServiceOrderMasterResourceIT {
             .charge(UPDATED_CHARGE)
             .tax(UPDATED_TAX)
             .franchiseCommissionWithinSla(UPDATED_FRANCHISE_COMMISSION_WITHIN_SLA)
-            .franchiseChargeWithinSlaTax(UPDATED_FRANCHISE_CHARGE_WITHIN_SLA_TAX)
+            .franchiseTaxWithinSlaTax(UPDATED_FRANCHISE_TAX_WITHIN_SLA_TAX)
             .franchiseCommissionOutsideSla(UPDATED_FRANCHISE_COMMISSION_OUTSIDE_SLA)
-            .franchiseChargeOutsideSlaTax(UPDATED_FRANCHISE_CHARGE_OUTSIDE_SLA_TAX)
+            .franchiseTaxOutsideSlaTax(UPDATED_FRANCHISE_TAX_OUTSIDE_SLA_TAX)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)

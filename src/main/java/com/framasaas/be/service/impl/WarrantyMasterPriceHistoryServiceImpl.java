@@ -48,6 +48,15 @@ public class WarrantyMasterPriceHistoryServiceImpl implements WarrantyMasterPric
                 if (warrantyMasterPriceHistory.getPrice() != null) {
                     existingWarrantyMasterPriceHistory.setPrice(warrantyMasterPriceHistory.getPrice());
                 }
+                if (warrantyMasterPriceHistory.getTax() != null) {
+                    existingWarrantyMasterPriceHistory.setTax(warrantyMasterPriceHistory.getTax());
+                }
+                if (warrantyMasterPriceHistory.getFranchiseCommission() != null) {
+                    existingWarrantyMasterPriceHistory.setFranchiseCommission(warrantyMasterPriceHistory.getFranchiseCommission());
+                }
+                if (warrantyMasterPriceHistory.getFranchiseTax() != null) {
+                    existingWarrantyMasterPriceHistory.setFranchiseTax(warrantyMasterPriceHistory.getFranchiseTax());
+                }
                 if (warrantyMasterPriceHistory.getUpdatedBy() != null) {
                     existingWarrantyMasterPriceHistory.setUpdatedBy(warrantyMasterPriceHistory.getUpdatedBy());
                 }

@@ -192,6 +192,20 @@
                                  referencedTableName="field_agent_skill_rule"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="inventory_location_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__inventory_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventory_location"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="inventory_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__inventory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventory"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="service_order_assignment_id"
                                  baseTableName="additional_attribute"
                                  constraintName="fk_additional_attribute__service_order_assignment_id"

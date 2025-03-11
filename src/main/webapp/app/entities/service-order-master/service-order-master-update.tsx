@@ -60,14 +60,14 @@ export const ServiceOrderMasterUpdate = () => {
     if (values.franchiseCommissionWithinSla !== undefined && typeof values.franchiseCommissionWithinSla !== 'number') {
       values.franchiseCommissionWithinSla = Number(values.franchiseCommissionWithinSla);
     }
-    if (values.franchiseChargeWithinSlaTax !== undefined && typeof values.franchiseChargeWithinSlaTax !== 'number') {
-      values.franchiseChargeWithinSlaTax = Number(values.franchiseChargeWithinSlaTax);
+    if (values.franchiseTaxWithinSlaTax !== undefined && typeof values.franchiseTaxWithinSlaTax !== 'number') {
+      values.franchiseTaxWithinSlaTax = Number(values.franchiseTaxWithinSlaTax);
     }
     if (values.franchiseCommissionOutsideSla !== undefined && typeof values.franchiseCommissionOutsideSla !== 'number') {
       values.franchiseCommissionOutsideSla = Number(values.franchiseCommissionOutsideSla);
     }
-    if (values.franchiseChargeOutsideSlaTax !== undefined && typeof values.franchiseChargeOutsideSlaTax !== 'number') {
-      values.franchiseChargeOutsideSlaTax = Number(values.franchiseChargeOutsideSlaTax);
+    if (values.franchiseTaxOutsideSlaTax !== undefined && typeof values.franchiseTaxOutsideSlaTax !== 'number') {
+      values.franchiseTaxOutsideSlaTax = Number(values.franchiseTaxOutsideSlaTax);
     }
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
@@ -166,10 +166,10 @@ export const ServiceOrderMasterUpdate = () => {
                 type="text"
               />
               <ValidatedField
-                label={translate('framasaasApp.serviceOrderMaster.franchiseChargeWithinSlaTax')}
-                id="service-order-master-franchiseChargeWithinSlaTax"
-                name="franchiseChargeWithinSlaTax"
-                data-cy="franchiseChargeWithinSlaTax"
+                label={translate('framasaasApp.serviceOrderMaster.franchiseTaxWithinSlaTax')}
+                id="service-order-master-franchiseTaxWithinSlaTax"
+                name="franchiseTaxWithinSlaTax"
+                data-cy="franchiseTaxWithinSlaTax"
                 type="text"
               />
               <ValidatedField
@@ -180,10 +180,10 @@ export const ServiceOrderMasterUpdate = () => {
                 type="text"
               />
               <ValidatedField
-                label={translate('framasaasApp.serviceOrderMaster.franchiseChargeOutsideSlaTax')}
-                id="service-order-master-franchiseChargeOutsideSlaTax"
-                name="franchiseChargeOutsideSlaTax"
-                data-cy="franchiseChargeOutsideSlaTax"
+                label={translate('framasaasApp.serviceOrderMaster.franchiseTaxOutsideSlaTax')}
+                id="service-order-master-franchiseTaxOutsideSlaTax"
+                name="franchiseTaxOutsideSlaTax"
+                data-cy="franchiseTaxOutsideSlaTax"
                 type="text"
               />
               <ValidatedField

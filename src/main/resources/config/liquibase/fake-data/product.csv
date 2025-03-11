@@ -1,11 +1,11 @@
-id;product_name;vendor_product_id;description;price;product_type;is_active;createdd_by;created_time;updated_by;updated_time
-1;yearly provision;than pinstripe near;and prickly;20888.52;ACCESSORIES;true;common baggy because;2025-03-11T07:26:08;descent hover ah;2025-03-11T07:25:08
-2;unless pillbox;upon ha;hmph why;14009.43;ACCESSORIES;true;whoa woot;2025-03-11T08:17:08;mid;2025-03-11T02:52:35
-3;secret casket;sailor;aha;8940.4;OTHER;false;democratize suckle;2025-03-11T11:56:37;gah phooey mature;2025-03-11T11:16:55
-4;tuxedo miserably;vivaciously tasty;dislocate smoothly accentuate;22489.39;SPARE;true;indeed indelible;2025-03-11T11:15:17;ew;2025-03-11T03:20:54
-5;and;regarding cautiously;sturdy following;811.6;COMMERCE;false;bah speedy;2025-03-10T23:46:36;trivial hyphenation where;2025-03-11T14:06:29
-6;petticoat;sugary tabulate;affectionate uproot hopelessly;19832.94;ACCESSORIES;false;poppy furthermore;2025-03-11T11:27:39;since if urgently;2025-03-10T18:54:44
-7;brr;hose including woefully;whenever tight;2688.13;SPARE;false;qua;2025-03-11T08:55:36;following spork retract;2025-03-11T16:31:46
-8;yahoo;versus;until;6787.08;COMMERCE;false;gray majestically;2025-03-11T08:08:22;gratefully obvious pish;2025-03-11T08:07:33
-9;mmm continually;short-term;nor;9970.55;ACCESSORIES;true;since heartfelt although;2025-03-10T16:43:53;amused zowie;2025-03-11T08:01:03
-10;amend ruin how;loaf why;outfit;17110.28;SPARE;false;seemingly bitterly;2025-03-11T13:15:39;stock barring qua;2025-03-10T18:05:28
+id;product_name;vendor_product_id;description;price;tax;franchise_commission;franchise_tax;product_type;is_active;createdd_by;created_time;updated_by;updated_time
+1;yearly provision;than pinstripe near;and prickly;20888.52;20496.33;14274.78;23427.4;ACCESSORIES;false;uh-huh than;2025-03-11T04:07:18;precedent;2025-03-10T21:35:06
+2;toward desk section;midst although;busily other;13753.25;27451.92;7619.1;28430.26;COMMERCE;true;dramatic almighty helplessly;2025-03-11T02:59:55;indeed impassioned;2025-03-11T15:21:41
+3;ack than unless;greedy inasmuch;sniff;19794.92;32094.32;15820.17;10901.7;COMMERCE;true;phooey mature;2025-03-11T11:16:55;tuxedo miserably;2025-03-11T06:33:38
+4;determined showy dislocate;since rebuff tankful;heavy;30397.17;13531.59;25394.09;4024.67;ACCESSORIES;true;collectivization nor regarding;2025-03-11T02:48:30;waist nifty;2025-03-11T06:03:06
+5;underneath;bah speedy;medium;28444.18;23631.38;20632.84;10574.84;ACCESSORIES;false;agile;2025-03-11T11:46:15;ugh stealthily jealously;2025-03-11T13:08:16
+6;shipper now lean;knit regarding;enraged inasmuch or;5426.77;17563.4;4216.05;10627.45;OTHER;true;brr;2025-03-11T14:32:07;inside yum;2025-03-10T18:57:40
+7;converse mmm;urgently besides than;christen newsstand;28497.92;23960.02;32595.88;7673.12;ACCESSORIES;true;duh boo;2025-03-11T12:49:33;speedily serenade;2025-03-11T02:08:26
+8;onto;gratefully obvious pish;than nor;4159.12;3119.01;16122.92;18964.26;SPARE;false;versus gosh since;2025-03-11T02:19:23;ouch;2025-03-11T12:53:26
+9;beside emboss without;ugh amongst yahoo;eek phooey outfit;17110.28;15755.84;22484.73;14521.26;ACCESSORIES;false;yippee aw circa;2025-03-11T00:39:49;failing knight;2025-03-10T18:08:03
+10;failing now graffiti;lost;bitterly;21075.44;31066.05;24192.99;24054.91;COMMERCE;true;huddle throughout vice;2025-03-11T15:24:50;silt wherever vice;2025-03-11T08:55:17

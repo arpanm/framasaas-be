@@ -69,6 +69,7 @@ public class Category implements Serializable {
             "articles",
             "serviceOrderMasters",
             "serviceOrderSpares",
+            "inventories",
             "additionalAttributes",
             "category",
             "brand",
@@ -109,6 +110,8 @@ public class Category implements Serializable {
             "franchiseAllocationRule",
             "fieldAgentSkillRuleSet",
             "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true

@@ -37,6 +37,18 @@ class ProductPriceHistoryResourceIT {
     private static final Float DEFAULT_PRICE = 1F;
     private static final Float UPDATED_PRICE = 2F;
 
+    private static final Float DEFAULT_TAX = 1F;
+    private static final Float UPDATED_TAX = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_COMMISSION = 1F;
+    private static final Float UPDATED_FRANCHISE_COMMISSION = 2F;
+
+    private static final Float DEFAULT_FRANCHISE_TAX = 1F;
+    private static final Float UPDATED_FRANCHISE_TAX = 2F;
+
+    private static final String DEFAULT_UPDATE_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_UPDATE_DESCRIPTION = "BBBBBBBBBB";
+
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
@@ -72,7 +84,14 @@ class ProductPriceHistoryResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static ProductPriceHistory createEntity() {
-        return new ProductPriceHistory().price(DEFAULT_PRICE).updatedBy(DEFAULT_UPDATED_BY).updatedTime(DEFAULT_UPDATED_TIME);
+        return new ProductPriceHistory()
+            .price(DEFAULT_PRICE)
+            .tax(DEFAULT_TAX)
+            .franchiseCommission(DEFAULT_FRANCHISE_COMMISSION)
+            .franchiseTax(DEFAULT_FRANCHISE_TAX)
+            .updateDescription(DEFAULT_UPDATE_DESCRIPTION)
+            .updatedBy(DEFAULT_UPDATED_BY)
+            .updatedTime(DEFAULT_UPDATED_TIME);
     }
 
     /**
@@ -82,7 +101,14 @@ class ProductPriceHistoryResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static ProductPriceHistory createUpdatedEntity() {
-        return new ProductPriceHistory().price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        return new ProductPriceHistory()
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updateDescription(UPDATED_UPDATE_DESCRIPTION)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
     }
 
     @BeforeEach
@@ -142,22 +168,6 @@ class ProductPriceHistoryResourceIT {
 
     @Test
     @Transactional
-    void checkPriceIsRequired() throws Exception {
-        long databaseSizeBeforeTest = getRepositoryCount();
-        // set the field null
-        productPriceHistory.setPrice(null);
-
-        // Create the ProductPriceHistory, which fails.
-
-        restProductPriceHistoryMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(productPriceHistory)))
-            .andExpect(status().isBadRequest());
-
-        assertSameRepositoryCount(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void checkUpdatedByIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -201,6 +211,10 @@ class ProductPriceHistoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(productPriceHistory.getId().intValue())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].tax").value(hasItem(DEFAULT_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseCommission").value(hasItem(DEFAULT_FRANCHISE_COMMISSION.doubleValue())))
+            .andExpect(jsonPath("$.[*].franchiseTax").value(hasItem(DEFAULT_FRANCHISE_TAX.doubleValue())))
+            .andExpect(jsonPath("$.[*].updateDescription").value(hasItem(DEFAULT_UPDATE_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
     }
@@ -218,6 +232,10 @@ class ProductPriceHistoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(productPriceHistory.getId().intValue()))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.tax").value(DEFAULT_TAX.doubleValue()))
+            .andExpect(jsonPath("$.franchiseCommission").value(DEFAULT_FRANCHISE_COMMISSION.doubleValue()))
+            .andExpect(jsonPath("$.franchiseTax").value(DEFAULT_FRANCHISE_TAX.doubleValue()))
+            .andExpect(jsonPath("$.updateDescription").value(DEFAULT_UPDATE_DESCRIPTION))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
             .andExpect(jsonPath("$.updatedTime").value(DEFAULT_UPDATED_TIME.toString()));
     }
@@ -241,7 +259,14 @@ class ProductPriceHistoryResourceIT {
         ProductPriceHistory updatedProductPriceHistory = productPriceHistoryRepository.findById(productPriceHistory.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedProductPriceHistory are not directly saved in db
         em.detach(updatedProductPriceHistory);
-        updatedProductPriceHistory.price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        updatedProductPriceHistory
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updateDescription(UPDATED_UPDATE_DESCRIPTION)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restProductPriceHistoryMockMvc
             .perform(
@@ -321,7 +346,10 @@ class ProductPriceHistoryResourceIT {
         ProductPriceHistory partialUpdatedProductPriceHistory = new ProductPriceHistory();
         partialUpdatedProductPriceHistory.setId(productPriceHistory.getId());
 
-        partialUpdatedProductPriceHistory.updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedProductPriceHistory
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restProductPriceHistoryMockMvc
             .perform(
@@ -352,7 +380,14 @@ class ProductPriceHistoryResourceIT {
         ProductPriceHistory partialUpdatedProductPriceHistory = new ProductPriceHistory();
         partialUpdatedProductPriceHistory.setId(productPriceHistory.getId());
 
-        partialUpdatedProductPriceHistory.price(UPDATED_PRICE).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedProductPriceHistory
+            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .franchiseTax(UPDATED_FRANCHISE_TAX)
+            .updateDescription(UPDATED_UPDATE_DESCRIPTION)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restProductPriceHistoryMockMvc
             .perform(
