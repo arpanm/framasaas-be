@@ -329,6 +329,47 @@ relationship OneToMany {
 	Product to ProductPriceHistory{franchise}
 }
 
+
+entity Article {
+	serialNo String,
+    vendorArticleId String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	Product to Article{product}
+}
+
+relationship OneToMany {
+	Customer to Article{customer}
+}
+
+entity ArticleWarrantyDetails {
+	warrantyType WarrantyType,
+    vendorArticleWarrantyId String,
+    vendorWarrantyMasterId String,
+    startDate LocalDate,
+    endDate LocalDate,
+    isActive Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum WarrantyType {
+	BRANDFREEWARRANTY,
+    EXTENDEDPAIDWARRANTY,
+    OTHER
+}
+
+relationship OneToMany {
+	Article to ArticleWarrantyDetails{article}
+}
+
 entity AdditionalAttribute {
 	attributeName String required,
     attributeValue String required,
@@ -413,6 +454,14 @@ relationship OneToMany {
 
 relationship OneToMany {
 	ProductPriceHistory to AdditionalAttribute{priceHistory}
+}
+
+relationship OneToMany {
+	Article to AdditionalAttribute{article}
+}
+
+relationship OneToMany {
+	ArticleWarrantyDetails to AdditionalAttribute{articleWarrantyDetails}
 }
 
 // Set pagination options
