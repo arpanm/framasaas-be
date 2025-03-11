@@ -61,6 +61,8 @@ public class LocationMappingAsserts {
      * @param actual the actual entity
      */
     public static void assertLocationMappingUpdatableRelationshipsEquals(LocationMapping expected, LocationMapping actual) {
-        // empty method
+        assertThat(actual)
+            .as("Verify LocationMapping relationships")
+            .satisfies(a -> assertThat(a.getFranchise()).as("check franchise").isEqualTo(expected.getFranchise()));
     }
 }

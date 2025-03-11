@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -64,10 +66,36 @@ public class FranchiseDocument implements Serializable {
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "document")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = {
+            "additionalAttributePossibleValues",
+            "franchise",
+            "franchiseStatus",
+            "franchisePerformance",
+            "address",
+            "location",
+            "franchiseUser",
+            "customer",
+            "document",
+        },
+        allowSetters = true
+    )
+    private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
         value = {
-            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+            "address",
+            "franchiseStatusHistories",
+            "franchisePerformanceHistories",
+            "locationMappings",
+            "franchiseDocuments",
+            "franchiseUsers",
+            "additionalAttributes",
+            "brands",
+            "categories",
         },
         allowSetters = true
     )
@@ -203,6 +231,37 @@ public class FranchiseDocument implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public Set<AdditionalAttribute> getAdditionalAttributes() {
+        return this.additionalAttributes;
+    }
+
+    public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        if (this.additionalAttributes != null) {
+            this.additionalAttributes.forEach(i -> i.setDocument(null));
+        }
+        if (additionalAttributes != null) {
+            additionalAttributes.forEach(i -> i.setDocument(this));
+        }
+        this.additionalAttributes = additionalAttributes;
+    }
+
+    public FranchiseDocument additionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        this.setAdditionalAttributes(additionalAttributes);
+        return this;
+    }
+
+    public FranchiseDocument addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.add(additionalAttribute);
+        additionalAttribute.setDocument(this);
+        return this;
+    }
+
+    public FranchiseDocument removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.remove(additionalAttribute);
+        additionalAttribute.setDocument(null);
+        return this;
     }
 
     public Franchise getFranchise() {

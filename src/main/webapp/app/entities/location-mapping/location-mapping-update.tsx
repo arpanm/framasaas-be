@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
 import { createEntity, getEntity, updateEntity } from './location-mapping.reducer';
 
 export const LocationMappingUpdate = () => {
@@ -17,6 +18,7 @@ export const LocationMappingUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const franchises = useAppSelector(state => state.franchise.entities);
   const locationMappingEntity = useAppSelector(state => state.locationMapping.entity);
   const loading = useAppSelector(state => state.locationMapping.loading);
   const updating = useAppSelector(state => state.locationMapping.updating);
@@ -30,6 +32,8 @@ export const LocationMappingUpdate = () => {
     if (!isNew) {
       dispatch(getEntity(id));
     }
+
+    dispatch(getFranchises({}));
   }, []);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export const LocationMappingUpdate = () => {
     const entity = {
       ...locationMappingEntity,
       ...values,
+      franchise: franchises.find(it => it.id.toString() === values.franchise?.toString()),
     };
 
     if (isNew) {
@@ -67,6 +72,7 @@ export const LocationMappingUpdate = () => {
           ...locationMappingEntity,
           createdTime: convertDateTimeFromServer(locationMappingEntity.createdTime),
           updatedTime: convertDateTimeFromServer(locationMappingEntity.updatedTime),
+          franchise: locationMappingEntity?.franchise?.id,
         };
 
   return (
@@ -146,6 +152,22 @@ export const LocationMappingUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                id="location-mapping-franchise"
+                name="franchise"
+                data-cy="franchise"
+                label={translate('framasaasApp.locationMapping.franchise')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchises
+                  ? franchises.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/location-mapping" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

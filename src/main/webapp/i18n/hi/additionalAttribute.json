@@ -1,0 +1,39 @@
+{
+  "framasaasApp": {
+    "additionalAttribute": {
+      "home": {
+        "title": "AdditionalAttributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Additional Attribute बनाएँ",
+        "createOrEditLabel": "Additional Attribute बनाएँ या संपादित करें",
+        "notFound": "No Additional Attributes found"
+      },
+      "created": "एक नया Additional Attribute [identifier: {{ param }}] तैयार है",
+      "updated": "एक Additional Attribute [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Additional Attribute [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Additional Attribute [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Additional Attribute"
+      },
+      "id": "ID",
+      "attributeName": "Attribute Name",
+      "attributeValue": "Attribute Value",
+      "attributeType": "Attribute Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttributePossibleValue": "Additional Attribute Possible Value",
+      "franchise": "Franchise",
+      "franchiseStatus": "Franchise Status",
+      "franchisePerformance": "Franchise Performance",
+      "address": "Address",
+      "location": "Location",
+      "franchiseUser": "Franchise User",
+      "customer": "Customer",
+      "document": "Document"
+    }
+  }
+}

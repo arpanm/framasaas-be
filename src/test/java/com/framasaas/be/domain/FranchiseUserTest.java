@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
@@ -46,6 +47,28 @@ class FranchiseUserTest {
         franchiseUser.setFranchiseUserStatusHistories(new HashSet<>());
         assertThat(franchiseUser.getFranchiseUserStatusHistories()).doesNotContain(franchiseUserStatusHistoryBack);
         assertThat(franchiseUserStatusHistoryBack.getFranchiseUser()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FranchiseUser franchiseUser = getFranchiseUserRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        franchiseUser.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseUser.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseUser()).isEqualTo(franchiseUser);
+
+        franchiseUser.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseUser.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseUser()).isNull();
+
+        franchiseUser.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(franchiseUser.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseUser()).isEqualTo(franchiseUser);
+
+        franchiseUser.setAdditionalAttributes(new HashSet<>());
+        assertThat(franchiseUser.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseUser()).isNull();
     }
 
     @Test

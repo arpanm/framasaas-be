@@ -1,0 +1,16 @@
+{
+  "framasaasApp": {
+    "AttributeType": {
+      "null": "",
+      "ATTRSTRING": "ATTRSTRING",
+      "ATTRNUMBER": "ATTRNUMBER",
+      "ATTRDECIMAL": "ATTRDECIMAL",
+      "ATTRSINGLESELCT": "ATTRSINGLESELCT",
+      "ATTRMULTISELECT": "ATTRMULTISELECT",
+      "ATTRDATE": "ATTRDATE",
+      "ATTRDATETIME": "ATTRDATETIME",
+      "ATTRFILEPATH": "ATTRFILEPATH",
+      "ATTRIMAGEPATH": "ATTRIMAGEPATH"
+    }
+  }
+}

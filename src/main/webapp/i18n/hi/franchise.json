@@ -34,10 +34,12 @@
       "address": "Address",
       "franchiseStatusHistory": "Franchise Status History",
       "franchisePerformanceHistory": "Franchise Performance History",
+      "locationMapping": "Location Mapping",
+      "franchiseDocument": "Franchise Document",
+      "franchiseUser": "Franchise User",
+      "additionalAttribute": "Additional Attribute",
       "brands": "Brands",
-      "categories": "Categories",
-      "documents": "Documents",
-      "franchiseUser": "Franchise User"
+      "categories": "Categories"
     }
   }
 }

@@ -1,0 +1,39 @@
+{
+  "framasaasApp": {
+    "additionalAttribute": {
+      "home": {
+        "title": "Additional Attributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Additional Attribute",
+        "createOrEditLabel": "Create or edit a Additional Attribute",
+        "notFound": "No Additional Attributes found"
+      },
+      "created": "A new Additional Attribute is created with identifier {{ param }}",
+      "updated": "A Additional Attribute is updated with identifier {{ param }}",
+      "deleted": "A Additional Attribute is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Additional Attribute {{ id }}?"
+      },
+      "detail": {
+        "title": "Additional Attribute"
+      },
+      "id": "ID",
+      "attributeName": "Attribute Name",
+      "attributeValue": "Attribute Value",
+      "attributeType": "Attribute Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttributePossibleValue": "Additional Attribute Possible Value",
+      "franchise": "Franchise",
+      "franchiseStatus": "Franchise Status",
+      "franchisePerformance": "Franchise Performance",
+      "address": "Address",
+      "location": "Location",
+      "franchiseUser": "Franchise User",
+      "customer": "Customer",
+      "document": "Document"
+    }
+  }
+}
