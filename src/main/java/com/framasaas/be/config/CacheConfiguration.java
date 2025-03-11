@@ -69,6 +69,27 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.FranchiseUserStatusHistory.class.getName());
             createCache(cm, com.framasaas.be.domain.Customer.class.getName());
             createCache(cm, com.framasaas.be.domain.Customer.class.getName() + ".addresses");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".locationMappings");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".franchiseDocuments");
+            createCache(cm, com.framasaas.be.domain.Franchise.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.FranchiseStatusHistory.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Address.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.LocationMapping.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.FranchiseDocument.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.FranchisePerformanceHistory.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.FranchiseUser.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Customer.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Product.class.getName());
+            createCache(cm, com.framasaas.be.domain.Product.class.getName() + ".productPriceHistories");
+            createCache(cm, com.framasaas.be.domain.Product.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Hsn.class.getName());
+            createCache(cm, com.framasaas.be.domain.Hsn.class.getName() + ".products");
+            createCache(cm, com.framasaas.be.domain.Hsn.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.ProductPriceHistory.class.getName());
+            createCache(cm, com.framasaas.be.domain.ProductPriceHistory.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.AdditionalAttribute.class.getName());
+            createCache(cm, com.framasaas.be.domain.AdditionalAttribute.class.getName() + ".additionalAttributePossibleValues");
+            createCache(cm, com.framasaas.be.domain.AdditionalAttributePossibleValue.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

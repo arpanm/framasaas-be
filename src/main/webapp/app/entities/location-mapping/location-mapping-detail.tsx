@@ -70,6 +70,10 @@ export const LocationMappingDetail = () => {
               <TextFormat value={locationMappingEntity.updatedTime} type="date" format={APP_DATE_FORMAT} />
             ) : null}
           </dd>
+          <dt>
+            <Translate contentKey="framasaasApp.locationMapping.franchise">Franchise</Translate>
+          </dt>
+          <dd>{locationMappingEntity.franchise ? locationMappingEntity.franchise.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/location-mapping" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

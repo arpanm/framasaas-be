@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity AdditionalAttribute.
+    -->
+    <changeSet id="20250311163922-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="franchise_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_status_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_status_history"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_performance_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_performance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_performance_history"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location_mapping"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_user_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="document_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_document"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="hsn_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__hsn_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="hsn"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="price_history_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__price_history_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_price_history"
+                                 />
+    </changeSet>
+</databaseChangeLog>

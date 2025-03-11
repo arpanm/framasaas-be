@@ -22,7 +22,9 @@
       "createddBy": "Createdd By",
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
-      "updatedTime": "Updated Time"
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
     }
   }
 }

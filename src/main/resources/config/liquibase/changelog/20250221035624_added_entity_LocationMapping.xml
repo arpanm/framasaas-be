@@ -29,6 +29,9 @@
             <column name="updated_time" type="${datetimeType}">
                 <constraints nullable="false" />
             </column>
+            <column name="franchise_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="location_mapping" columnName="created_time" columnDataType="${datetimeType}"/>

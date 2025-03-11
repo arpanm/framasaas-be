@@ -1,0 +1,11 @@
+{
+  "framasaasApp": {
+    "ProductType": {
+      "null": "",
+      "COMMERCE": "COMMERCE",
+      "SPARE": "SPARE",
+      "ACCESSORIES": "ACCESSORIES",
+      "OTHER": "OTHER"
+    }
+  }
+}

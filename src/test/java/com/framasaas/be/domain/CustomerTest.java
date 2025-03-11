@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,5 +46,27 @@ class CustomerTest {
         customer.setAddresses(new HashSet<>());
         assertThat(customer.getAddresses()).doesNotContain(addressBack);
         assertThat(addressBack.getCustomer()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        Customer customer = getCustomerRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        customer.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(customer.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getCustomer()).isEqualTo(customer);
+
+        customer.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(customer.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getCustomer()).isNull();
+
+        customer.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(customer.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getCustomer()).isEqualTo(customer);
+
+        customer.setAdditionalAttributes(new HashSet<>());
+        assertThat(customer.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getCustomer()).isNull();
     }
 }

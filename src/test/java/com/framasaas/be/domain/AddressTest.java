@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
@@ -7,6 +8,8 @@ import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 class AddressTest {
@@ -23,6 +26,28 @@ class AddressTest {
 
         address2 = getAddressSample2();
         assertThat(address1).isNotEqualTo(address2);
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        Address address = getAddressRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        address.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(address.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getAddress()).isEqualTo(address);
+
+        address.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(address.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getAddress()).isNull();
+
+        address.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(address.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getAddress()).isEqualTo(address);
+
+        address.setAdditionalAttributes(new HashSet<>());
+        assertThat(address.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getAddress()).isNull();
     }
 
     @Test

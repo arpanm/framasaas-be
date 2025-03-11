@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "hsn": {
+      "home": {
+        "title": "Hsns",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Hsn बनाएँ",
+        "createOrEditLabel": "Hsn बनाएँ या संपादित करें",
+        "notFound": "No Hsns found"
+      },
+      "created": "एक नया Hsn [identifier: {{ param }}] तैयार है",
+      "updated": "एक Hsn [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Hsn [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Hsn [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Hsn"
+      },
+      "id": "ID",
+      "hsnCD": "Hsn CD",
+      "description": "Description",
+      "taxRate": "Tax Rate",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "product": "Product",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

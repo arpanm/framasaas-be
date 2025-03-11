@@ -27,7 +27,8 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
-      "address": "Address"
+      "address": "Address",
+      "additionalAttribute": "Additional Attribute"
     }
   }
 }

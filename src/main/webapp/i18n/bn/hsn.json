@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "hsn": {
+      "home": {
+        "title": "Hsns",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Hsn",
+        "createOrEditLabel": "Create or edit a Hsn",
+        "notFound": "No Hsns found"
+      },
+      "created": "A new Hsn is created with identifier {{ param }}",
+      "updated": "A Hsn is updated with identifier {{ param }}",
+      "deleted": "A Hsn is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hsn {{ id }}?"
+      },
+      "detail": {
+        "title": "Hsn"
+      },
+      "id": "ID",
+      "hsnCD": "Hsn CD",
+      "description": "Description",
+      "taxRate": "Tax Rate",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "product": "Product",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

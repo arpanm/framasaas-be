@@ -13,6 +13,11 @@ import FranchisePerformanceHistory from './franchise-performance-history';
 import FranchiseUser from './franchise-user';
 import FranchiseUserStatusHistory from './franchise-user-status-history';
 import Customer from './customer';
+import Product from './product';
+import Hsn from './hsn';
+import ProductPriceHistory from './product-price-history';
+import AdditionalAttribute from './additional-attribute';
+import AdditionalAttributePossibleValue from './additional-attribute-possible-value';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -31,6 +36,11 @@ export default () => {
         <Route path="franchise-user/*" element={<FranchiseUser />} />
         <Route path="franchise-user-status-history/*" element={<FranchiseUserStatusHistory />} />
         <Route path="customer/*" element={<Customer />} />
+        <Route path="product/*" element={<Product />} />
+        <Route path="hsn/*" element={<Hsn />} />
+        <Route path="product-price-history/*" element={<ProductPriceHistory />} />
+        <Route path="additional-attribute/*" element={<AdditionalAttribute />} />
+        <Route path="additional-attribute-possible-value/*" element={<AdditionalAttributePossibleValue />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "additionalAttributePossibleValue": {
+      "home": {
+        "title": "AdditionalAttributePossibleValues",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Additional Attribute Possible Value बनाएँ",
+        "createOrEditLabel": "Additional Attribute Possible Value बनाएँ या संपादित करें",
+        "notFound": "No Additional Attribute Possible Values found"
+      },
+      "created": "एक नया Additional Attribute Possible Value [identifier: {{ param }}] तैयार है",
+      "updated": "एक Additional Attribute Possible Value [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Additional Attribute Possible Value [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Additional Attribute Possible Value [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Additional Attribute Possible Value"
+      },
+      "id": "ID",
+      "possibleValue": "Possible Value",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "attribute": "Attribute"
+    }
+  }
+}
