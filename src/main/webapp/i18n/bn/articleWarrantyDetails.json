@@ -28,8 +28,10 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
+      "articleWarrantyDetailsDocument": "Article Warranty Details Document",
       "additionalAttribute": "Additional Attribute",
-      "article": "Article"
+      "article": "Article",
+      "warrantyMaster": "Warranty Master"
     }
   }
 }

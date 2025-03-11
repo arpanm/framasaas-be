@@ -4,6 +4,7 @@ import static com.framasaas.be.domain.AdditionalAttributePossibleValueTestSample
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.ArticleTestSamples.*;
+import static com.framasaas.be.domain.ArticleWarrantyDetailsDocumentTestSamples.*;
 import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
@@ -17,6 +18,8 @@ import static com.framasaas.be.domain.HsnTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
+import static com.framasaas.be.domain.WarrantyMasterPriceHistoryTestSamples.*;
+import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -219,6 +222,30 @@ class AdditionalAttributeTest {
     }
 
     @Test
+    void warrantyMasterTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        WarrantyMaster warrantyMasterBack = getWarrantyMasterRandomSampleGenerator();
+
+        additionalAttribute.setWarrantyMaster(warrantyMasterBack);
+        assertThat(additionalAttribute.getWarrantyMaster()).isEqualTo(warrantyMasterBack);
+
+        additionalAttribute.warrantyMaster(null);
+        assertThat(additionalAttribute.getWarrantyMaster()).isNull();
+    }
+
+    @Test
+    void warrantyMasterPriceHistoryTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        WarrantyMasterPriceHistory warrantyMasterPriceHistoryBack = getWarrantyMasterPriceHistoryRandomSampleGenerator();
+
+        additionalAttribute.setWarrantyMasterPriceHistory(warrantyMasterPriceHistoryBack);
+        assertThat(additionalAttribute.getWarrantyMasterPriceHistory()).isEqualTo(warrantyMasterPriceHistoryBack);
+
+        additionalAttribute.warrantyMasterPriceHistory(null);
+        assertThat(additionalAttribute.getWarrantyMasterPriceHistory()).isNull();
+    }
+
+    @Test
     void articleTest() {
         AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
         Article articleBack = getArticleRandomSampleGenerator();
@@ -231,14 +258,26 @@ class AdditionalAttributeTest {
     }
 
     @Test
-    void articleWarrantyDetailsTest() {
+    void articleWarrantyTest() {
         AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
         ArticleWarrantyDetails articleWarrantyDetailsBack = getArticleWarrantyDetailsRandomSampleGenerator();
 
-        additionalAttribute.setArticleWarrantyDetails(articleWarrantyDetailsBack);
-        assertThat(additionalAttribute.getArticleWarrantyDetails()).isEqualTo(articleWarrantyDetailsBack);
+        additionalAttribute.setArticleWarranty(articleWarrantyDetailsBack);
+        assertThat(additionalAttribute.getArticleWarranty()).isEqualTo(articleWarrantyDetailsBack);
 
-        additionalAttribute.articleWarrantyDetails(null);
-        assertThat(additionalAttribute.getArticleWarrantyDetails()).isNull();
+        additionalAttribute.articleWarranty(null);
+        assertThat(additionalAttribute.getArticleWarranty()).isNull();
+    }
+
+    @Test
+    void articleWarrantyDocumentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ArticleWarrantyDetailsDocument articleWarrantyDetailsDocumentBack = getArticleWarrantyDetailsDocumentRandomSampleGenerator();
+
+        additionalAttribute.setArticleWarrantyDocument(articleWarrantyDetailsDocumentBack);
+        assertThat(additionalAttribute.getArticleWarrantyDocument()).isEqualTo(articleWarrantyDetailsDocumentBack);
+
+        additionalAttribute.articleWarrantyDocument(null);
+        assertThat(additionalAttribute.getArticleWarrantyDocument()).isNull();
     }
 }

@@ -1,0 +1,38 @@
+{
+  "framasaasApp": {
+    "warrantyMaster": {
+      "home": {
+        "title": "Warranty Masters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Warranty Master",
+        "createOrEditLabel": "Create or edit a Warranty Master",
+        "notFound": "No Warranty Masters found"
+      },
+      "created": "A new Warranty Master is created with identifier {{ param }}",
+      "updated": "A Warranty Master is updated with identifier {{ param }}",
+      "deleted": "A Warranty Master is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Warranty Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Warranty Master"
+      },
+      "id": "ID",
+      "name": "Name",
+      "vendorWarrantyMasterId": "Vendor Warranty Master Id",
+      "warrantyType": "Warranty Type",
+      "description": "Description",
+      "price": "Price",
+      "periodInMonths": "Period In Months",
+      "taxRate": "Tax Rate",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "warrantyMasterPriceHistory": "Warranty Master Price History",
+      "articleWarrantyDetails": "Article Warranty Details",
+      "additionalAttribute": "Additional Attribute",
+      "product": "Product"
+    }
+  }
+}

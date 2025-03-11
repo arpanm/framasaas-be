@@ -6,7 +6,7 @@ export interface IProductPriceHistory {
   price?: number;
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
-  franchise?: IProduct | null;
+  product?: IProduct | null;
 }
 
 export const defaultValue: Readonly<IProductPriceHistory> = {};

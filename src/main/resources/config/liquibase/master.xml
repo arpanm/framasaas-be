@@ -42,6 +42,9 @@
     <include file="config/liquibase/changelog/20250311165900_added_entity_FranchiseAllocationRule.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311170807_added_entity_Article.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311170808_added_entity_ArticleWarrantyDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172444_added_entity_WarrantyMaster.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172445_added_entity_WarrantyMasterPriceHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172446_added_entity_ArticleWarrantyDetailsDocument.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20250221035619_added_entity_constraints_Franchise.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035620_added_entity_constraints_FranchiseStatusHistory.xml" relativeToChangelogFile="false"/>
@@ -62,6 +65,9 @@
     <include file="config/liquibase/changelog/20250311164620_added_entity_constraints_Pincode.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311170807_added_entity_constraints_Article.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311170808_added_entity_constraints_ArticleWarrantyDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172444_added_entity_constraints_WarrantyMaster.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172445_added_entity_constraints_WarrantyMasterPriceHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250311172446_added_entity_constraints_ArticleWarrantyDetailsDocument.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -42,8 +42,8 @@ class FranchiseResourceIT {
     private static final String DEFAULT_OWNER = "AAAAAAAAAA";
     private static final String UPDATED_OWNER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "0Fo)i@D.j:ln2";
-    private static final String UPDATED_EMAIL = "\\$xa@DHK7.g!NxVS";
+    private static final String DEFAULT_EMAIL = "r-A@p.'l";
+    private static final String UPDATED_EMAIL = "\\',jV@~mACU>.Rof;_";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -480,12 +480,9 @@ class FranchiseResourceIT {
         partialUpdatedFranchise.setId(franchise.getId());
 
         partialUpdatedFranchise
-            .franchiseName(UPDATED_FRANCHISE_NAME)
-            .email(UPDATED_EMAIL)
-            .gstNumber(UPDATED_GST_NUMBER)
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
-            .performanceTag(UPDATED_PERFORMANCE_TAG)
-            .createddBy(UPDATED_CREATEDD_BY);
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseMockMvc
             .perform(

@@ -54,8 +54,15 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
+      "otherEntityName": "articleWarrantyDetailsDocument",
+      "otherEntityRelationshipName": "articleWarranty",
+      "relationshipName": "articleWarrantyDetailsDocument",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
-      "otherEntityRelationshipName": "articleWarrantyDetails",
+      "otherEntityRelationshipName": "articleWarranty",
       "relationshipName": "additionalAttribute",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
@@ -63,6 +70,12 @@
     {
       "otherEntityName": "article",
       "relationshipName": "article",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "warrantyMaster",
+      "relationshipName": "warrantyMaster",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

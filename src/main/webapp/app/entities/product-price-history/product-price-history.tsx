@@ -149,7 +149,7 @@ export const ProductPriceHistory = () => {
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
                   <th>
-                    <Translate contentKey="framasaasApp.productPriceHistory.franchise">Franchise</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="framasaasApp.productPriceHistory.product">Product</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -170,8 +170,8 @@ export const ProductPriceHistory = () => {
                       ) : null}
                     </td>
                     <td>
-                      {productPriceHistory.franchise ? (
-                        <Link to={`/product/${productPriceHistory.franchise.id}`}>{productPriceHistory.franchise.id}</Link>
+                      {productPriceHistory.product ? (
+                        <Link to={`/product/${productPriceHistory.product.id}`}>{productPriceHistory.product.id}</Link>
                       ) : (
                         ''
                       )}

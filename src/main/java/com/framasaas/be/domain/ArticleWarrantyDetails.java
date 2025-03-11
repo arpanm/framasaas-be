@@ -64,7 +64,12 @@ public class ArticleWarrantyDetails implements Serializable {
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarrantyDetails")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
+    private Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
@@ -82,8 +87,11 @@ public class ArticleWarrantyDetails implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
             "article",
-            "articleWarrantyDetails",
+            "articleWarranty",
+            "articleWarrantyDocument",
         },
         allowSetters = true
     )
@@ -92,6 +100,13 @@ public class ArticleWarrantyDetails implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
     private Article article;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "product" },
+        allowSetters = true
+    )
+    private WarrantyMaster warrantyMaster;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -238,16 +253,47 @@ public class ArticleWarrantyDetails implements Serializable {
         this.updatedTime = updatedTime;
     }
 
+    public Set<ArticleWarrantyDetailsDocument> getArticleWarrantyDetailsDocuments() {
+        return this.articleWarrantyDetailsDocuments;
+    }
+
+    public void setArticleWarrantyDetailsDocuments(Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments) {
+        if (this.articleWarrantyDetailsDocuments != null) {
+            this.articleWarrantyDetailsDocuments.forEach(i -> i.setArticleWarranty(null));
+        }
+        if (articleWarrantyDetailsDocuments != null) {
+            articleWarrantyDetailsDocuments.forEach(i -> i.setArticleWarranty(this));
+        }
+        this.articleWarrantyDetailsDocuments = articleWarrantyDetailsDocuments;
+    }
+
+    public ArticleWarrantyDetails articleWarrantyDetailsDocuments(Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments) {
+        this.setArticleWarrantyDetailsDocuments(articleWarrantyDetailsDocuments);
+        return this;
+    }
+
+    public ArticleWarrantyDetails addArticleWarrantyDetailsDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.articleWarrantyDetailsDocuments.add(articleWarrantyDetailsDocument);
+        articleWarrantyDetailsDocument.setArticleWarranty(this);
+        return this;
+    }
+
+    public ArticleWarrantyDetails removeArticleWarrantyDetailsDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.articleWarrantyDetailsDocuments.remove(articleWarrantyDetailsDocument);
+        articleWarrantyDetailsDocument.setArticleWarranty(null);
+        return this;
+    }
+
     public Set<AdditionalAttribute> getAdditionalAttributes() {
         return this.additionalAttributes;
     }
 
     public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
         if (this.additionalAttributes != null) {
-            this.additionalAttributes.forEach(i -> i.setArticleWarrantyDetails(null));
+            this.additionalAttributes.forEach(i -> i.setArticleWarranty(null));
         }
         if (additionalAttributes != null) {
-            additionalAttributes.forEach(i -> i.setArticleWarrantyDetails(this));
+            additionalAttributes.forEach(i -> i.setArticleWarranty(this));
         }
         this.additionalAttributes = additionalAttributes;
     }
@@ -259,13 +305,13 @@ public class ArticleWarrantyDetails implements Serializable {
 
     public ArticleWarrantyDetails addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.add(additionalAttribute);
-        additionalAttribute.setArticleWarrantyDetails(this);
+        additionalAttribute.setArticleWarranty(this);
         return this;
     }
 
     public ArticleWarrantyDetails removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.remove(additionalAttribute);
-        additionalAttribute.setArticleWarrantyDetails(null);
+        additionalAttribute.setArticleWarranty(null);
         return this;
     }
 
@@ -279,6 +325,19 @@ public class ArticleWarrantyDetails implements Serializable {
 
     public ArticleWarrantyDetails article(Article article) {
         this.setArticle(article);
+        return this;
+    }
+
+    public WarrantyMaster getWarrantyMaster() {
+        return this.warrantyMaster;
+    }
+
+    public void setWarrantyMaster(WarrantyMaster warrantyMaster) {
+        this.warrantyMaster = warrantyMaster;
+    }
+
+    public ArticleWarrantyDetails warrantyMaster(WarrantyMaster warrantyMaster) {
+        this.setWarrantyMaster(warrantyMaster);
         return this;
     }
 

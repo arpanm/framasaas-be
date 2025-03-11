@@ -459,8 +459,9 @@ class FranchiseDocumentResourceIT {
 
         partialUpdatedFranchiseDocument
             .documentName(UPDATED_DOCUMENT_NAME)
-            .documentType(UPDATED_DOCUMENT_TYPE)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .documentFormat(UPDATED_DOCUMENT_FORMAT)
+            .documentSize(UPDATED_DOCUMENT_SIZE)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restFranchiseDocumentMockMvc
             .perform(

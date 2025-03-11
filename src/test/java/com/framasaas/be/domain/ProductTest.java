@@ -7,6 +7,7 @@ import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.HsnTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
+import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -37,19 +38,41 @@ class ProductTest {
 
         product.addProductPriceHistory(productPriceHistoryBack);
         assertThat(product.getProductPriceHistories()).containsOnly(productPriceHistoryBack);
-        assertThat(productPriceHistoryBack.getFranchise()).isEqualTo(product);
+        assertThat(productPriceHistoryBack.getProduct()).isEqualTo(product);
 
         product.removeProductPriceHistory(productPriceHistoryBack);
         assertThat(product.getProductPriceHistories()).doesNotContain(productPriceHistoryBack);
-        assertThat(productPriceHistoryBack.getFranchise()).isNull();
+        assertThat(productPriceHistoryBack.getProduct()).isNull();
 
         product.productPriceHistories(new HashSet<>(Set.of(productPriceHistoryBack)));
         assertThat(product.getProductPriceHistories()).containsOnly(productPriceHistoryBack);
-        assertThat(productPriceHistoryBack.getFranchise()).isEqualTo(product);
+        assertThat(productPriceHistoryBack.getProduct()).isEqualTo(product);
 
         product.setProductPriceHistories(new HashSet<>());
         assertThat(product.getProductPriceHistories()).doesNotContain(productPriceHistoryBack);
-        assertThat(productPriceHistoryBack.getFranchise()).isNull();
+        assertThat(productPriceHistoryBack.getProduct()).isNull();
+    }
+
+    @Test
+    void warrantyMasterTest() {
+        Product product = getProductRandomSampleGenerator();
+        WarrantyMaster warrantyMasterBack = getWarrantyMasterRandomSampleGenerator();
+
+        product.addWarrantyMaster(warrantyMasterBack);
+        assertThat(product.getWarrantyMasters()).containsOnly(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getProduct()).isEqualTo(product);
+
+        product.removeWarrantyMaster(warrantyMasterBack);
+        assertThat(product.getWarrantyMasters()).doesNotContain(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getProduct()).isNull();
+
+        product.warrantyMasters(new HashSet<>(Set.of(warrantyMasterBack)));
+        assertThat(product.getWarrantyMasters()).containsOnly(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getProduct()).isEqualTo(product);
+
+        product.setWarrantyMasters(new HashSet<>());
+        assertThat(product.getWarrantyMasters()).doesNotContain(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getProduct()).isNull();
     }
 
     @Test

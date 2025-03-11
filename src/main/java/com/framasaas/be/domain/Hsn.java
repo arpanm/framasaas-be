@@ -57,7 +57,7 @@ public class Hsn implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hsn")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
         allowSetters = true
     )
     private Set<Product> products = new HashSet<>();
@@ -80,8 +80,11 @@ public class Hsn implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
             "article",
-            "articleWarrantyDetails",
+            "articleWarranty",
+            "articleWarrantyDocument",
         },
         allowSetters = true
     )

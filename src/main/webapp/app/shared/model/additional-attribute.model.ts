@@ -12,8 +12,11 @@ import { IFranchiseDocument } from 'app/shared/model/franchise-document.model';
 import { IProduct } from 'app/shared/model/product.model';
 import { IHsn } from 'app/shared/model/hsn.model';
 import { IProductPriceHistory } from 'app/shared/model/product-price-history.model';
+import { IWarrantyMaster } from 'app/shared/model/warranty-master.model';
+import { IWarrantyMasterPriceHistory } from 'app/shared/model/warranty-master-price-history.model';
 import { IArticle } from 'app/shared/model/article.model';
 import { IArticleWarrantyDetails } from 'app/shared/model/article-warranty-details.model';
+import { IArticleWarrantyDetailsDocument } from 'app/shared/model/article-warranty-details-document.model';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 
 export interface IAdditionalAttribute {
@@ -38,8 +41,11 @@ export interface IAdditionalAttribute {
   product?: IProduct | null;
   hsn?: IHsn | null;
   priceHistory?: IProductPriceHistory | null;
+  warrantyMaster?: IWarrantyMaster | null;
+  warrantyMasterPriceHistory?: IWarrantyMasterPriceHistory | null;
   article?: IArticle | null;
-  articleWarrantyDetails?: IArticleWarrantyDetails | null;
+  articleWarranty?: IArticleWarrantyDetails | null;
+  articleWarrantyDocument?: IArticleWarrantyDetailsDocument | null;
 }
 
 export const defaultValue: Readonly<IAdditionalAttribute> = {};

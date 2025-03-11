@@ -61,6 +61,6 @@ public class ProductPriceHistoryAsserts {
     public static void assertProductPriceHistoryUpdatableRelationshipsEquals(ProductPriceHistory expected, ProductPriceHistory actual) {
         assertThat(actual)
             .as("Verify ProductPriceHistory relationships")
-            .satisfies(a -> assertThat(a.getFranchise()).as("check franchise").isEqualTo(expected.getFranchise()));
+            .satisfies(a -> assertThat(a.getProduct()).as("check product").isEqualTo(expected.getProduct()));
     }
 }

@@ -32,7 +32,7 @@
     },
     {
       "otherEntityName": "product",
-      "relationshipName": "franchise",
+      "relationshipName": "product",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

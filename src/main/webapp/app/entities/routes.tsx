@@ -25,6 +25,9 @@ import FranchiseAllocationRuleSet from './franchise-allocation-rule-set';
 import FranchiseAllocationRule from './franchise-allocation-rule';
 import Article from './article';
 import ArticleWarrantyDetails from './article-warranty-details';
+import WarrantyMaster from './warranty-master';
+import WarrantyMasterPriceHistory from './warranty-master-price-history';
+import ArticleWarrantyDetailsDocument from './article-warranty-details-document';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -55,6 +58,9 @@ export default () => {
         <Route path="franchise-allocation-rule/*" element={<FranchiseAllocationRule />} />
         <Route path="article/*" element={<Article />} />
         <Route path="article-warranty-details/*" element={<ArticleWarrantyDetails />} />
+        <Route path="warranty-master/*" element={<WarrantyMaster />} />
+        <Route path="warranty-master-price-history/*" element={<WarrantyMasterPriceHistory />} />
+        <Route path="article-warranty-details-document/*" element={<ArticleWarrantyDetailsDocument />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

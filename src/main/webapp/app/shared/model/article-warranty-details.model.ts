@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { IArticle } from 'app/shared/model/article.model';
+import { IWarrantyMaster } from 'app/shared/model/warranty-master.model';
 import { WarrantyType } from 'app/shared/model/enumerations/warranty-type.model';
 
 export interface IArticleWarrantyDetails {
@@ -15,6 +16,7 @@ export interface IArticleWarrantyDetails {
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
   article?: IArticle | null;
+  warrantyMaster?: IWarrantyMaster | null;
 }
 
 export const defaultValue: Readonly<IArticleWarrantyDetails> = {

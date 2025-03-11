@@ -55,9 +55,9 @@ export const ProductPriceHistoryDetail = () => {
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="framasaasApp.productPriceHistory.franchise">Franchise</Translate>
+            <Translate contentKey="framasaasApp.productPriceHistory.product">Product</Translate>
           </dt>
-          <dd>{productPriceHistoryEntity.franchise ? productPriceHistoryEntity.franchise.id : ''}</dd>
+          <dd>{productPriceHistoryEntity.product ? productPriceHistoryEntity.product.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/product-price-history" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

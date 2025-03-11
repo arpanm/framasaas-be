@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "articleWarrantyDetailsDocument": {
+      "home": {
+        "title": "Article Warranty Details Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Article Warranty Details Document",
+        "createOrEditLabel": "Create or edit a Article Warranty Details Document",
+        "notFound": "No Article Warranty Details Documents found"
+      },
+      "created": "A new Article Warranty Details Document is created with identifier {{ param }}",
+      "updated": "A Article Warranty Details Document is updated with identifier {{ param }}",
+      "deleted": "A Article Warranty Details Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Article Warranty Details Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Article Warranty Details Document"
+      },
+      "id": "ID",
+      "documentPath": "Document Path",
+      "isValid": "Is Valid",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "articleWarranty": "Article Warranty"
+    }
+  }
+}

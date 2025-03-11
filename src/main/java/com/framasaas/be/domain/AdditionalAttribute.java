@@ -116,7 +116,7 @@ public class AdditionalAttribute implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
         allowSetters = true
     )
     private Product product;
@@ -126,16 +126,34 @@ public class AdditionalAttribute implements Serializable {
     private Hsn hsn;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "product" }, allowSetters = true)
     private ProductPriceHistory priceHistory;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "product" },
+        allowSetters = true
+    )
+    private WarrantyMaster warrantyMaster;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "warrantyMaster" }, allowSetters = true)
+    private WarrantyMasterPriceHistory warrantyMasterPriceHistory;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
     private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "article" }, allowSetters = true)
-    private ArticleWarrantyDetails articleWarrantyDetails;
+    @JsonIgnoreProperties(
+        value = { "articleWarrantyDetailsDocuments", "additionalAttributes", "article", "warrantyMaster" },
+        allowSetters = true
+    )
+    private ArticleWarrantyDetails articleWarranty;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
+    private ArticleWarrantyDetailsDocument articleWarrantyDocument;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -443,6 +461,32 @@ public class AdditionalAttribute implements Serializable {
         return this;
     }
 
+    public WarrantyMaster getWarrantyMaster() {
+        return this.warrantyMaster;
+    }
+
+    public void setWarrantyMaster(WarrantyMaster warrantyMaster) {
+        this.warrantyMaster = warrantyMaster;
+    }
+
+    public AdditionalAttribute warrantyMaster(WarrantyMaster warrantyMaster) {
+        this.setWarrantyMaster(warrantyMaster);
+        return this;
+    }
+
+    public WarrantyMasterPriceHistory getWarrantyMasterPriceHistory() {
+        return this.warrantyMasterPriceHistory;
+    }
+
+    public void setWarrantyMasterPriceHistory(WarrantyMasterPriceHistory warrantyMasterPriceHistory) {
+        this.warrantyMasterPriceHistory = warrantyMasterPriceHistory;
+    }
+
+    public AdditionalAttribute warrantyMasterPriceHistory(WarrantyMasterPriceHistory warrantyMasterPriceHistory) {
+        this.setWarrantyMasterPriceHistory(warrantyMasterPriceHistory);
+        return this;
+    }
+
     public Article getArticle() {
         return this.article;
     }
@@ -456,16 +500,29 @@ public class AdditionalAttribute implements Serializable {
         return this;
     }
 
-    public ArticleWarrantyDetails getArticleWarrantyDetails() {
-        return this.articleWarrantyDetails;
+    public ArticleWarrantyDetails getArticleWarranty() {
+        return this.articleWarranty;
     }
 
-    public void setArticleWarrantyDetails(ArticleWarrantyDetails articleWarrantyDetails) {
-        this.articleWarrantyDetails = articleWarrantyDetails;
+    public void setArticleWarranty(ArticleWarrantyDetails articleWarrantyDetails) {
+        this.articleWarranty = articleWarrantyDetails;
     }
 
-    public AdditionalAttribute articleWarrantyDetails(ArticleWarrantyDetails articleWarrantyDetails) {
-        this.setArticleWarrantyDetails(articleWarrantyDetails);
+    public AdditionalAttribute articleWarranty(ArticleWarrantyDetails articleWarrantyDetails) {
+        this.setArticleWarranty(articleWarrantyDetails);
+        return this;
+    }
+
+    public ArticleWarrantyDetailsDocument getArticleWarrantyDocument() {
+        return this.articleWarrantyDocument;
+    }
+
+    public void setArticleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.articleWarrantyDocument = articleWarrantyDetailsDocument;
+    }
+
+    public AdditionalAttribute articleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.setArticleWarrantyDocument(articleWarrantyDetailsDocument);
         return this;
     }
 

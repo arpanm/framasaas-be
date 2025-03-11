@@ -20,8 +20,11 @@ import { getEntities as getFranchiseDocuments } from 'app/entities/franchise-doc
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
 import { getEntities as getHsns } from 'app/entities/hsn/hsn.reducer';
 import { getEntities as getProductPriceHistories } from 'app/entities/product-price-history/product-price-history.reducer';
+import { getEntities as getWarrantyMasters } from 'app/entities/warranty-master/warranty-master.reducer';
+import { getEntities as getWarrantyMasterPriceHistories } from 'app/entities/warranty-master-price-history/warranty-master-price-history.reducer';
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-warranty-details/article-warranty-details.reducer';
+import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
 
@@ -46,8 +49,11 @@ export const AdditionalAttributeUpdate = () => {
   const products = useAppSelector(state => state.product.entities);
   const hsns = useAppSelector(state => state.hsn.entities);
   const productPriceHistories = useAppSelector(state => state.productPriceHistory.entities);
+  const warrantyMasters = useAppSelector(state => state.warrantyMaster.entities);
+  const warrantyMasterPriceHistories = useAppSelector(state => state.warrantyMasterPriceHistory.entities);
   const articles = useAppSelector(state => state.article.entities);
   const articleWarrantyDetails = useAppSelector(state => state.articleWarrantyDetails.entities);
+  const articleWarrantyDetailsDocuments = useAppSelector(state => state.articleWarrantyDetailsDocument.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
   const updating = useAppSelector(state => state.additionalAttribute.updating);
@@ -76,8 +82,11 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getProducts({}));
     dispatch(getHsns({}));
     dispatch(getProductPriceHistories({}));
+    dispatch(getWarrantyMasters({}));
+    dispatch(getWarrantyMasterPriceHistories({}));
     dispatch(getArticles({}));
     dispatch(getArticleWarrantyDetails({}));
+    dispatch(getArticleWarrantyDetailsDocuments({}));
   }, []);
 
   useEffect(() => {
@@ -109,8 +118,13 @@ export const AdditionalAttributeUpdate = () => {
       product: products.find(it => it.id.toString() === values.product?.toString()),
       hsn: hsns.find(it => it.id.toString() === values.hsn?.toString()),
       priceHistory: productPriceHistories.find(it => it.id.toString() === values.priceHistory?.toString()),
+      warrantyMaster: warrantyMasters.find(it => it.id.toString() === values.warrantyMaster?.toString()),
+      warrantyMasterPriceHistory: warrantyMasterPriceHistories.find(
+        it => it.id.toString() === values.warrantyMasterPriceHistory?.toString(),
+      ),
       article: articles.find(it => it.id.toString() === values.article?.toString()),
-      articleWarrantyDetails: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarrantyDetails?.toString()),
+      articleWarranty: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarranty?.toString()),
+      articleWarrantyDocument: articleWarrantyDetailsDocuments.find(it => it.id.toString() === values.articleWarrantyDocument?.toString()),
     };
 
     if (isNew) {
@@ -144,8 +158,11 @@ export const AdditionalAttributeUpdate = () => {
           product: additionalAttributeEntity?.product?.id,
           hsn: additionalAttributeEntity?.hsn?.id,
           priceHistory: additionalAttributeEntity?.priceHistory?.id,
+          warrantyMaster: additionalAttributeEntity?.warrantyMaster?.id,
+          warrantyMasterPriceHistory: additionalAttributeEntity?.warrantyMasterPriceHistory?.id,
           article: additionalAttributeEntity?.article?.id,
-          articleWarrantyDetails: additionalAttributeEntity?.articleWarrantyDetails?.id,
+          articleWarranty: additionalAttributeEntity?.articleWarranty?.id,
+          articleWarrantyDocument: additionalAttributeEntity?.articleWarrantyDocument?.id,
         };
 
   return (
@@ -457,6 +474,38 @@ export const AdditionalAttributeUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
+                id="additional-attribute-warrantyMaster"
+                name="warrantyMaster"
+                data-cy="warrantyMaster"
+                label={translate('framasaasApp.additionalAttribute.warrantyMaster')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {warrantyMasters
+                  ? warrantyMasters.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-warrantyMasterPriceHistory"
+                name="warrantyMasterPriceHistory"
+                data-cy="warrantyMasterPriceHistory"
+                label={translate('framasaasApp.additionalAttribute.warrantyMasterPriceHistory')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {warrantyMasterPriceHistories
+                  ? warrantyMasterPriceHistories.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
                 id="additional-attribute-article"
                 name="article"
                 data-cy="article"
@@ -473,15 +522,31 @@ export const AdditionalAttributeUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="additional-attribute-articleWarrantyDetails"
-                name="articleWarrantyDetails"
-                data-cy="articleWarrantyDetails"
-                label={translate('framasaasApp.additionalAttribute.articleWarrantyDetails')}
+                id="additional-attribute-articleWarranty"
+                name="articleWarranty"
+                data-cy="articleWarranty"
+                label={translate('framasaasApp.additionalAttribute.articleWarranty')}
                 type="select"
               >
                 <option value="" key="0" />
                 {articleWarrantyDetails
                   ? articleWarrantyDetails.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-articleWarrantyDocument"
+                name="articleWarrantyDocument"
+                data-cy="articleWarrantyDocument"
+                label={translate('framasaasApp.additionalAttribute.articleWarrantyDocument')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {articleWarrantyDetailsDocuments
+                  ? articleWarrantyDetailsDocuments.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
