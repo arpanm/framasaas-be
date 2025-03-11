@@ -126,6 +126,14 @@ export const HsnUpdate = () => {
                 }}
               />
               <ValidatedField
+                label={translate('framasaasApp.hsn.isActive')}
+                id="hsn-isActive"
+                name="isActive"
+                data-cy="isActive"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.hsn.createddBy')}
                 id="hsn-createddBy"
                 name="createddBy"

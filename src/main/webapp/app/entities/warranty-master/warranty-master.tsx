@@ -159,6 +159,10 @@ export const WarrantyMaster = () => {
                     <Translate contentKey="framasaasApp.warrantyMaster.taxRate">Tax Rate</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('taxRate')} />
                   </th>
+                  <th className="hand" onClick={sort('isActive')}>
+                    <Translate contentKey="framasaasApp.warrantyMaster.isActive">Is Active</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isActive')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.warrantyMaster.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -198,6 +202,7 @@ export const WarrantyMaster = () => {
                     <td>{warrantyMaster.price}</td>
                     <td>{warrantyMaster.periodInMonths}</td>
                     <td>{warrantyMaster.taxRate}</td>
+                    <td>{warrantyMaster.isActive ? 'true' : 'false'}</td>
                     <td>{warrantyMaster.createddBy}</td>
                     <td>
                       {warrantyMaster.createdTime ? (

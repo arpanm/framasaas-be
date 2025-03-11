@@ -157,6 +157,24 @@
       "relationshipName": "articleWarrantyDocument",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceOrder",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceOrderPayment",
+      "relationshipName": "serviceOrderPayment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceOrderAssignment",
+      "relationshipName": "serviceOrderAssignment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",

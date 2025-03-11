@@ -54,6 +54,9 @@ public class HsnServiceImpl implements HsnService {
                 if (hsn.getTaxRate() != null) {
                     existingHsn.setTaxRate(hsn.getTaxRate());
                 }
+                if (hsn.getIsActive() != null) {
+                    existingHsn.setIsActive(hsn.getIsActive());
+                }
                 if (hsn.getCreateddBy() != null) {
                     existingHsn.setCreateddBy(hsn.getCreateddBy());
                 }

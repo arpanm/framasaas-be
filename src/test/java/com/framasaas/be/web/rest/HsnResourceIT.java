@@ -43,6 +43,9 @@ class HsnResourceIT {
     private static final Float DEFAULT_TAX_RATE = 1F;
     private static final Float UPDATED_TAX_RATE = 2F;
 
+    private static final Boolean DEFAULT_IS_ACTIVE = false;
+    private static final Boolean UPDATED_IS_ACTIVE = true;
+
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
 
@@ -88,6 +91,7 @@ class HsnResourceIT {
             .hsnCD(DEFAULT_HSN_CD)
             .description(DEFAULT_DESCRIPTION)
             .taxRate(DEFAULT_TAX_RATE)
+            .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -105,6 +109,7 @@ class HsnResourceIT {
             .hsnCD(UPDATED_HSN_CD)
             .description(UPDATED_DESCRIPTION)
             .taxRate(UPDATED_TAX_RATE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -274,6 +279,7 @@ class HsnResourceIT {
             .andExpect(jsonPath("$.[*].hsnCD").value(hasItem(DEFAULT_HSN_CD)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].taxRate").value(hasItem(DEFAULT_TAX_RATE.doubleValue())))
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -295,6 +301,7 @@ class HsnResourceIT {
             .andExpect(jsonPath("$.hsnCD").value(DEFAULT_HSN_CD))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.taxRate").value(DEFAULT_TAX_RATE.doubleValue()))
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -324,6 +331,7 @@ class HsnResourceIT {
             .hsnCD(UPDATED_HSN_CD)
             .description(UPDATED_DESCRIPTION)
             .taxRate(UPDATED_TAX_RATE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -405,6 +413,7 @@ class HsnResourceIT {
             .taxRate(UPDATED_TAX_RATE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restHsnMockMvc
@@ -437,6 +446,7 @@ class HsnResourceIT {
             .hsnCD(UPDATED_HSN_CD)
             .description(UPDATED_DESCRIPTION)
             .taxRate(UPDATED_TAX_RATE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

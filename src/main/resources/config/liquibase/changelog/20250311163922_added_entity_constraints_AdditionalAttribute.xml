@@ -135,5 +135,26 @@
                                  referencedColumnNames="id"
                                  referencedTableName="article_warranty_details_document"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="service_order_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__service_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_order_payment_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__service_order_payment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order_payment"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_order_assignment_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__service_order_assignment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order_assignment"
+                                 />
     </changeSet>
 </databaseChangeLog>

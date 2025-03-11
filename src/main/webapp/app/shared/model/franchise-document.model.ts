@@ -10,6 +10,9 @@ export interface IFranchiseDocument {
   documentFormat?: keyof typeof DocumentFormat;
   documentSize?: number | null;
   documentPath?: string;
+  isValidated?: boolean;
+  validatedBy?: string;
+  validatedTime?: dayjs.Dayjs;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -17,4 +20,6 @@ export interface IFranchiseDocument {
   franchise?: IFranchise | null;
 }
 
-export const defaultValue: Readonly<IFranchiseDocument> = {};
+export const defaultValue: Readonly<IFranchiseDocument> = {
+  isValidated: false,
+};

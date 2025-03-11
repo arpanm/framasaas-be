@@ -56,6 +56,9 @@ public class WarrantyMaster implements Serializable {
     @Column(name = "tax_rate", nullable = false)
     private Float taxRate;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
@@ -108,6 +111,9 @@ public class WarrantyMaster implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -115,7 +121,16 @@ public class WarrantyMaster implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Product product;
@@ -224,6 +239,19 @@ public class WarrantyMaster implements Serializable {
 
     public void setTaxRate(Float taxRate) {
         this.taxRate = taxRate;
+    }
+
+    public Boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public WarrantyMaster isActive(Boolean isActive) {
+        this.setIsActive(isActive);
+        return this;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public String getCreateddBy() {
@@ -415,6 +443,7 @@ public class WarrantyMaster implements Serializable {
             ", price=" + getPrice() +
             ", periodInMonths=" + getPeriodInMonths() +
             ", taxRate=" + getTaxRate() +
+            ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

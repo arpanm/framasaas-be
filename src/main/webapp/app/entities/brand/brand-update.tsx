@@ -135,6 +135,14 @@ export const BrandUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('framasaasApp.brand.isActive')}
+                id="brand-isActive"
+                name="isActive"
+                data-cy="isActive"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.brand.createddBy')}
                 id="brand-createddBy"
                 name="createddBy"

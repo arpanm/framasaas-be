@@ -69,6 +69,7 @@ public class FranchiseAllocationRuleSet implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
+            "serviceOrderAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",

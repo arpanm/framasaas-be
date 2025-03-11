@@ -57,6 +57,9 @@ public class CategoryServiceImpl implements CategoryService {
                 if (category.getDescription() != null) {
                     existingCategory.setDescription(category.getDescription());
                 }
+                if (category.getIsActive() != null) {
+                    existingCategory.setIsActive(category.getIsActive());
+                }
                 if (category.getCreateddBy() != null) {
                     existingCategory.setCreateddBy(category.getCreateddBy());
                 }

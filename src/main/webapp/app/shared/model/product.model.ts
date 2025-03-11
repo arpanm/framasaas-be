@@ -11,6 +11,7 @@ export interface IProduct {
   description?: string | null;
   price?: number;
   productType?: keyof typeof ProductType | null;
+  isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -20,4 +21,6 @@ export interface IProduct {
   hsn?: IHsn | null;
 }
 
-export const defaultValue: Readonly<IProduct> = {};
+export const defaultValue: Readonly<IProduct> = {
+  isActive: false,
+};

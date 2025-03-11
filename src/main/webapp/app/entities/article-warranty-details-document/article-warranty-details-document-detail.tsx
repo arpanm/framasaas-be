@@ -39,11 +39,27 @@ export const ArticleWarrantyDetailsDocumentDetail = () => {
           </dt>
           <dd>{articleWarrantyDetailsDocumentEntity.documentPath}</dd>
           <dt>
-            <span id="isValid">
-              <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.isValid">Is Valid</Translate>
+            <span id="isValidated">
+              <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.isValidated">Is Validated</Translate>
             </span>
           </dt>
-          <dd>{articleWarrantyDetailsDocumentEntity.isValid ? 'true' : 'false'}</dd>
+          <dd>{articleWarrantyDetailsDocumentEntity.isValidated ? 'true' : 'false'}</dd>
+          <dt>
+            <span id="validatedBy">
+              <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.validatedBy">Validated By</Translate>
+            </span>
+          </dt>
+          <dd>{articleWarrantyDetailsDocumentEntity.validatedBy}</dd>
+          <dt>
+            <span id="validatedTime">
+              <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.validatedTime">Validated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {articleWarrantyDetailsDocumentEntity.validatedTime ? (
+              <TextFormat value={articleWarrantyDetailsDocumentEntity.validatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
           <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.articleWarrantyDetailsDocument.createddBy">Createdd By</Translate>

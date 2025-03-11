@@ -70,13 +70,24 @@ public class Customer implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "serviceOrders", "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
     private Set<Address> addresses = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        allowSetters = true
+    )
     private Set<Article> articles = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        allowSetters = true
+    )
+    private Set<ServiceOrder> serviceOrders = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -101,6 +112,9 @@ public class Customer implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -297,6 +311,37 @@ public class Customer implements Serializable {
     public Customer removeArticle(Article article) {
         this.articles.remove(article);
         article.setCustomer(null);
+        return this;
+    }
+
+    public Set<ServiceOrder> getServiceOrders() {
+        return this.serviceOrders;
+    }
+
+    public void setServiceOrders(Set<ServiceOrder> serviceOrders) {
+        if (this.serviceOrders != null) {
+            this.serviceOrders.forEach(i -> i.setCustomer(null));
+        }
+        if (serviceOrders != null) {
+            serviceOrders.forEach(i -> i.setCustomer(this));
+        }
+        this.serviceOrders = serviceOrders;
+    }
+
+    public Customer serviceOrders(Set<ServiceOrder> serviceOrders) {
+        this.setServiceOrders(serviceOrders);
+        return this;
+    }
+
+    public Customer addServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.add(serviceOrder);
+        serviceOrder.setCustomer(this);
+        return this;
+    }
+
+    public Customer removeServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.remove(serviceOrder);
+        serviceOrder.setCustomer(null);
         return this;
     }
 

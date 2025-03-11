@@ -1,11 +1,11 @@
-id;document_name;document_type;document_format;document_size;document_path;createdd_by;created_time;updated_by;updated_time
-1;pro;Others;JpgFormat;29635;physically whack where;digit stiff log;2025-02-20T21:12:11;contractor;2025-02-20T09:36:54
-2;sundae;AdditionalImages;JpgFormat;4968;noisily meh;reiterate;2025-02-20T06:14:00;really unimpressively reasoning;2025-02-20T22:14:17
-3;after;CancelledCheque;JpgFormat;23084;shakily ignorant if;bide;2025-02-20T22:33:39;colour;2025-02-20T14:25:29
-4;at midst;CancelledCheque;PdfFormat;7070;instead;oddball sign fleck;2025-02-20T13:28:31;what petticoat;2025-02-20T06:49:57
-5;unlike even;AddressProof;JpgFormat;9764;popularity greedily;pointed woot;2025-02-20T06:05:50;although meh trek;2025-02-20T20:51:41
-6;vamoose faraway;RegistrationProof;PdfFormat;1970;tenderly excluding;but of apud;2025-02-20T22:22:56;doorpost honestly who;2025-02-20T13:38:09
-7;primary where;RegistrationProof;JpgFormat;9131;though geez closely;charming;2025-02-21T00:05:48;gadzooks valiantly superficial;2025-02-20T17:54:31
-8;swing past taxicab;RegistrationProof;PdfFormat;225;punctually oh drat;excepting athwart or;2025-02-20T20:18:08;behind;2025-02-20T07:35:11
-9;duh hence;Others;Other;24202;aside inasmuch;new brr;2025-02-20T19:33:43;forenenst;2025-02-20T08:15:40
-10;surprisingly;RegistrationProof;Other;3521;character;fess blight an;2025-02-20T21:12:05;unethically once;2025-02-20T16:43:43
+id;document_name;document_type;document_format;document_size;document_path;is_validated;validated_by;validated_time;createdd_by;created_time;updated_by;updated_time
+1;pro;Others;JpgFormat;29635;physically whack where;false;neaten;2025-02-20T16:13:11;welcome boohoo far;2025-02-20T10:10:49;outset restfully happily;2025-02-21T03:51:21
+2;who;Others;Other;3130;really unimpressively reasoning;false;after;2025-02-20T13:47:58;search redraw;2025-02-21T00:40:06;if pish;2025-02-20T05:32:46
+3;cod geez difficult;CancelledCheque;JpgFormat;18597;councilman personal;false;athletic hm putrid;2025-02-20T05:58:17;whenever;2025-02-20T04:44:48;sternly dispose;2025-02-20T04:24:36
+4;plus;CancelledCheque;PdfFormat;16705;greedily poor fly;true;suspension;2025-02-20T04:29:20;per sandy for;2025-02-21T02:56:50;athwart receptor;2025-02-20T23:35:33
+5;collaboration;CancelledCheque;Other;4861;clavicle;false;whether hundred flash;2025-02-20T05:50:30;sans only pish;2025-02-20T09:22:01;yet though;2025-02-21T01:31:19
+6;mainstream diversity times;Others;PdfFormat;23079;scented euphonium;false;interestingly so on;2025-02-20T19:42:05;since;2025-02-20T22:28:33;yippee as annual;2025-02-20T21:10:57
+7;lounge;Others;PdfFormat;8066;over;true;daintily;2025-02-20T14:25:37;while whether bossy;2025-02-20T16:21:22;repossess standard or;2025-02-20T03:57:44
+8;between round;CancelledCheque;Other;631;only prejudge forenenst;false;frenetically;2025-02-20T13:10:57;energetic;2025-02-20T22:27:48;woot though;2025-02-20T15:20:52
+9;interesting;CancelledCheque;Other;32637;ecstatic within;true;for;2025-02-20T22:23:31;careless;2025-02-20T16:23:32;overwork coin bogus;2025-02-21T02:27:48
+10;beside;Others;PdfFormat;22761;jut conclude enrich;false;verve jeopardise;2025-02-20T18:33:49;twist gah;2025-02-20T20:12:04;whose;2025-02-20T13:14:41

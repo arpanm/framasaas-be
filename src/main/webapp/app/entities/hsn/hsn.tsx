@@ -142,6 +142,10 @@ export const Hsn = () => {
                     <Translate contentKey="framasaasApp.hsn.taxRate">Tax Rate</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('taxRate')} />
                   </th>
+                  <th className="hand" onClick={sort('isActive')}>
+                    <Translate contentKey="framasaasApp.hsn.isActive">Is Active</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isActive')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.hsn.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -172,6 +176,7 @@ export const Hsn = () => {
                     <td>{hsn.hsnCD}</td>
                     <td>{hsn.description}</td>
                     <td>{hsn.taxRate}</td>
+                    <td>{hsn.isActive ? 'true' : 'false'}</td>
                     <td>{hsn.createddBy}</td>
                     <td>{hsn.createdTime ? <TextFormat type="date" value={hsn.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{hsn.updatedBy}</td>

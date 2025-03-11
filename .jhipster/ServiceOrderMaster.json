@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20250311180929"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "serviceOrderType",
+      "fieldType": "ServiceOrderType",
+      "fieldValues": "REPAIR,PERIODICMAINTENANCE,INSTALLATION,UNINSTALLATION,RETURNVERIFICATION"
+    },
+    {
+      "fieldName": "slaInHours",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "charge",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseCommissionWithinSla",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseChargeWithinSlaTax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseCommissionOutsideSla",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "franchiseChargeOutsideSlaTax",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrderMaster",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

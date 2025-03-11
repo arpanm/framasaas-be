@@ -135,6 +135,14 @@ export const CategoryUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('framasaasApp.category.isActive')}
+                id="category-isActive"
+                name="isActive"
+                data-cy="isActive"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.category.createddBy')}
                 id="category-createddBy"
                 name="createddBy"

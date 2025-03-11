@@ -5,6 +5,7 @@ import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -48,6 +49,28 @@ class ArticleTest {
         article.setArticleWarrantyDetails(new HashSet<>());
         assertThat(article.getArticleWarrantyDetails()).doesNotContain(articleWarrantyDetailsBack);
         assertThat(articleWarrantyDetailsBack.getArticle()).isNull();
+    }
+
+    @Test
+    void serviceOrderTest() {
+        Article article = getArticleRandomSampleGenerator();
+        ServiceOrder serviceOrderBack = getServiceOrderRandomSampleGenerator();
+
+        article.addServiceOrder(serviceOrderBack);
+        assertThat(article.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getArticle()).isEqualTo(article);
+
+        article.removeServiceOrder(serviceOrderBack);
+        assertThat(article.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getArticle()).isNull();
+
+        article.serviceOrders(new HashSet<>(Set.of(serviceOrderBack)));
+        assertThat(article.getServiceOrders()).containsOnly(serviceOrderBack);
+        assertThat(serviceOrderBack.getArticle()).isEqualTo(article);
+
+        article.setServiceOrders(new HashSet<>());
+        assertThat(article.getServiceOrders()).doesNotContain(serviceOrderBack);
+        assertThat(serviceOrderBack.getArticle()).isNull();
     }
 
     @Test

@@ -228,6 +228,18 @@ export const AdditionalAttribute = () => {
                     <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrder">Service Order</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderPayment">Service Order Payment</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -387,6 +399,31 @@ export const AdditionalAttribute = () => {
                       {additionalAttribute.articleWarrantyDocument ? (
                         <Link to={`/article-warranty-details-document/${additionalAttribute.articleWarrantyDocument.id}`}>
                           {additionalAttribute.articleWarrantyDocument.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.serviceOrder ? (
+                        <Link to={`/service-order/${additionalAttribute.serviceOrder.id}`}>{additionalAttribute.serviceOrder.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.serviceOrderPayment ? (
+                        <Link to={`/service-order-payment/${additionalAttribute.serviceOrderPayment.id}`}>
+                          {additionalAttribute.serviceOrderPayment.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.serviceOrderAssignment ? (
+                        <Link to={`/service-order-assignment/${additionalAttribute.serviceOrderAssignment.id}`}>
+                          {additionalAttribute.serviceOrderAssignment.id}
                         </Link>
                       ) : (
                         ''

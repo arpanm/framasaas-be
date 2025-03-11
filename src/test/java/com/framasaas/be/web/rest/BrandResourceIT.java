@@ -46,6 +46,9 @@ class BrandResourceIT {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
+    private static final Boolean DEFAULT_IS_ACTIVE = false;
+    private static final Boolean UPDATED_IS_ACTIVE = true;
+
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
 
@@ -92,6 +95,7 @@ class BrandResourceIT {
             .logoPath(DEFAULT_LOGO_PATH)
             .vendorBrandId(DEFAULT_VENDOR_BRAND_ID)
             .description(DEFAULT_DESCRIPTION)
+            .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -110,6 +114,7 @@ class BrandResourceIT {
             .logoPath(UPDATED_LOGO_PATH)
             .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
             .description(UPDATED_DESCRIPTION)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -280,6 +285,7 @@ class BrandResourceIT {
             .andExpect(jsonPath("$.[*].logoPath").value(hasItem(DEFAULT_LOGO_PATH)))
             .andExpect(jsonPath("$.[*].vendorBrandId").value(hasItem(DEFAULT_VENDOR_BRAND_ID)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -302,6 +308,7 @@ class BrandResourceIT {
             .andExpect(jsonPath("$.logoPath").value(DEFAULT_LOGO_PATH))
             .andExpect(jsonPath("$.vendorBrandId").value(DEFAULT_VENDOR_BRAND_ID))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -332,6 +339,7 @@ class BrandResourceIT {
             .logoPath(UPDATED_LOGO_PATH)
             .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
             .description(UPDATED_DESCRIPTION)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -411,7 +419,11 @@ class BrandResourceIT {
         Brand partialUpdatedBrand = new Brand();
         partialUpdatedBrand.setId(brand.getId());
 
-        partialUpdatedBrand.logoPath(UPDATED_LOGO_PATH).createdTime(UPDATED_CREATED_TIME);
+        partialUpdatedBrand
+            .logoPath(UPDATED_LOGO_PATH)
+            .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
+            .isActive(UPDATED_IS_ACTIVE)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restBrandMockMvc
             .perform(
@@ -444,6 +456,7 @@ class BrandResourceIT {
             .logoPath(UPDATED_LOGO_PATH)
             .vendorBrandId(UPDATED_VENDOR_BRAND_ID)
             .description(UPDATED_DESCRIPTION)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

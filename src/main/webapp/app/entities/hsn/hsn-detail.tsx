@@ -51,6 +51,12 @@ export const HsnDetail = () => {
           </dt>
           <dd>{hsnEntity.taxRate}</dd>
           <dt>
+            <span id="isActive">
+              <Translate contentKey="framasaasApp.hsn.isActive">Is Active</Translate>
+            </span>
+          </dt>
+          <dd>{hsnEntity.isActive ? 'true' : 'false'}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.hsn.createddBy">Createdd By</Translate>
             </span>

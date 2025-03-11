@@ -73,6 +73,14 @@ public class Address implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
+        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        allowSetters = true
+    )
+    private Set<ServiceOrder> serviceOrders = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
             "franchise",
@@ -93,6 +101,9 @@ public class Address implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -109,6 +120,7 @@ public class Address implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
+            "serviceOrderAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",
@@ -120,7 +132,7 @@ public class Address implements Serializable {
     private Franchise franchise;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "addresses", "articles", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "addresses", "articles", "serviceOrders", "additionalAttributes" }, allowSetters = true)
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -292,6 +304,37 @@ public class Address implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public Set<ServiceOrder> getServiceOrders() {
+        return this.serviceOrders;
+    }
+
+    public void setServiceOrders(Set<ServiceOrder> serviceOrders) {
+        if (this.serviceOrders != null) {
+            this.serviceOrders.forEach(i -> i.setAddress(null));
+        }
+        if (serviceOrders != null) {
+            serviceOrders.forEach(i -> i.setAddress(this));
+        }
+        this.serviceOrders = serviceOrders;
+    }
+
+    public Address serviceOrders(Set<ServiceOrder> serviceOrders) {
+        this.setServiceOrders(serviceOrders);
+        return this;
+    }
+
+    public Address addServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.add(serviceOrder);
+        serviceOrder.setAddress(this);
+        return this;
+    }
+
+    public Address removeServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrders.remove(serviceOrder);
+        serviceOrder.setAddress(null);
+        return this;
     }
 
     public Set<AdditionalAttribute> getAdditionalAttributes() {

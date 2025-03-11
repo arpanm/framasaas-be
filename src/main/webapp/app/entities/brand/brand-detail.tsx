@@ -57,6 +57,12 @@ export const BrandDetail = () => {
           </dt>
           <dd>{brandEntity.description}</dd>
           <dt>
+            <span id="isActive">
+              <Translate contentKey="framasaasApp.brand.isActive">Is Active</Translate>
+            </span>
+          </dt>
+          <dd>{brandEntity.isActive ? 'true' : 'false'}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.brand.createddBy">Createdd By</Translate>
             </span>

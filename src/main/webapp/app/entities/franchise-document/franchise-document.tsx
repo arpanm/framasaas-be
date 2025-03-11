@@ -156,6 +156,18 @@ export const FranchiseDocument = () => {
                     <Translate contentKey="framasaasApp.franchiseDocument.documentPath">Document Path</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('documentPath')} />
                   </th>
+                  <th className="hand" onClick={sort('isValidated')}>
+                    <Translate contentKey="framasaasApp.franchiseDocument.isValidated">Is Validated</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isValidated')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedBy')}>
+                    <Translate contentKey="framasaasApp.franchiseDocument.validatedBy">Validated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedTime')}>
+                    <Translate contentKey="framasaasApp.franchiseDocument.validatedTime">Validated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedTime')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.franchiseDocument.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -195,6 +207,13 @@ export const FranchiseDocument = () => {
                     </td>
                     <td>{franchiseDocument.documentSize}</td>
                     <td>{franchiseDocument.documentPath}</td>
+                    <td>{franchiseDocument.isValidated ? 'true' : 'false'}</td>
+                    <td>{franchiseDocument.validatedBy}</td>
+                    <td>
+                      {franchiseDocument.validatedTime ? (
+                        <TextFormat type="date" value={franchiseDocument.validatedTime} format={APP_DATE_FORMAT} />
+                      ) : null}
+                    </td>
                     <td>{franchiseDocument.createddBy}</td>
                     <td>
                       {franchiseDocument.createdTime ? (

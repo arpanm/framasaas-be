@@ -64,6 +64,9 @@ public class FranchiseStatusHistory implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -77,6 +80,7 @@ public class FranchiseStatusHistory implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
+            "serviceOrderAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",

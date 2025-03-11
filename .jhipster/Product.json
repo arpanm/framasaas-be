@@ -29,6 +29,10 @@
       "fieldValues": "COMMERCE,SPARE,ACCESSORIES,OTHER"
     },
     {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
@@ -70,6 +74,13 @@
       "otherEntityName": "article",
       "otherEntityRelationshipName": "product",
       "relationshipName": "article",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceOrderMaster",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "serviceOrderMaster",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

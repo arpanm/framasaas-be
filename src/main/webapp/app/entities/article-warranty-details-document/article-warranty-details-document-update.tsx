@@ -46,6 +46,7 @@ export const ArticleWarrantyDetailsDocumentUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    values.validatedTime = convertDateTimeToServer(values.validatedTime);
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
@@ -65,11 +66,13 @@ export const ArticleWarrantyDetailsDocumentUpdate = () => {
   const defaultValues = () =>
     isNew
       ? {
+          validatedTime: displayDefaultDateTime(),
           createdTime: displayDefaultDateTime(),
           updatedTime: displayDefaultDateTime(),
         }
       : {
           ...articleWarrantyDetailsDocumentEntity,
+          validatedTime: convertDateTimeFromServer(articleWarrantyDetailsDocumentEntity.validatedTime),
           createdTime: convertDateTimeFromServer(articleWarrantyDetailsDocumentEntity.createdTime),
           updatedTime: convertDateTimeFromServer(articleWarrantyDetailsDocumentEntity.updatedTime),
           articleWarranty: articleWarrantyDetailsDocumentEntity?.articleWarranty?.id,
@@ -116,12 +119,33 @@ export const ArticleWarrantyDetailsDocumentUpdate = () => {
                 }}
               />
               <ValidatedField
-                label={translate('framasaasApp.articleWarrantyDetailsDocument.isValid')}
-                id="article-warranty-details-document-isValid"
-                name="isValid"
-                data-cy="isValid"
+                label={translate('framasaasApp.articleWarrantyDetailsDocument.isValidated')}
+                id="article-warranty-details-document-isValidated"
+                name="isValidated"
+                data-cy="isValidated"
                 check
                 type="checkbox"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetailsDocument.validatedBy')}
+                id="article-warranty-details-document-validatedBy"
+                name="validatedBy"
+                data-cy="validatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetailsDocument.validatedTime')}
+                id="article-warranty-details-document-validatedTime"
+                name="validatedTime"
+                data-cy="validatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
               />
               <ValidatedField
                 label={translate('framasaasApp.articleWarrantyDetailsDocument.createddBy')}

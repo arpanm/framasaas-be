@@ -41,6 +41,9 @@ public class Category implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
@@ -60,7 +63,16 @@ public class Category implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "productPriceHistories", "warrantyMasters", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+        },
         allowSetters = true
     )
     private Set<Product> products = new HashSet<>();
@@ -88,6 +100,9 @@ public class Category implements Serializable {
             "article",
             "articleWarranty",
             "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderAssignment",
         },
         allowSetters = true
     )
@@ -162,6 +177,19 @@ public class Category implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public Category isActive(Boolean isActive) {
+        this.setIsActive(isActive);
+        return this;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public String getCreateddBy() {
@@ -319,6 +347,7 @@ public class Category implements Serializable {
             ", imagePath='" + getImagePath() + "'" +
             ", vendorCategoryId='" + getVendorCategoryId() + "'" +
             ", description='" + getDescription() + "'" +
+            ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

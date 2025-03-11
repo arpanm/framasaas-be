@@ -186,6 +186,14 @@ export const WarrantyMasterUpdate = () => {
                 }}
               />
               <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.isActive')}
+                id="warranty-master-isActive"
+                name="isActive"
+                data-cy="isActive"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.warrantyMaster.createddBy')}
                 id="warranty-master-createddBy"
                 name="createddBy"

@@ -37,8 +37,14 @@ class ArticleWarrantyDetailsDocumentResourceIT {
     private static final String DEFAULT_DOCUMENT_PATH = "AAAAAAAAAA";
     private static final String UPDATED_DOCUMENT_PATH = "BBBBBBBBBB";
 
-    private static final Boolean DEFAULT_IS_VALID = false;
-    private static final Boolean UPDATED_IS_VALID = true;
+    private static final Boolean DEFAULT_IS_VALIDATED = false;
+    private static final Boolean UPDATED_IS_VALIDATED = true;
+
+    private static final String DEFAULT_VALIDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_VALIDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_VALIDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_VALIDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
@@ -83,7 +89,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
     public static ArticleWarrantyDetailsDocument createEntity() {
         return new ArticleWarrantyDetailsDocument()
             .documentPath(DEFAULT_DOCUMENT_PATH)
-            .isValid(DEFAULT_IS_VALID)
+            .isValidated(DEFAULT_IS_VALIDATED)
+            .validatedBy(DEFAULT_VALIDATED_BY)
+            .validatedTime(DEFAULT_VALIDATED_TIME)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -99,7 +107,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
     public static ArticleWarrantyDetailsDocument createUpdatedEntity() {
         return new ArticleWarrantyDetailsDocument()
             .documentPath(UPDATED_DOCUMENT_PATH)
-            .isValid(UPDATED_IS_VALID)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -173,6 +183,60 @@ class ArticleWarrantyDetailsDocumentResourceIT {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
         articleWarrantyDetailsDocument.setDocumentPath(null);
+
+        // Create the ArticleWarrantyDetailsDocument, which fails.
+
+        restArticleWarrantyDetailsDocumentMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(articleWarrantyDetailsDocument))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkIsValidatedIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        articleWarrantyDetailsDocument.setIsValidated(null);
+
+        // Create the ArticleWarrantyDetailsDocument, which fails.
+
+        restArticleWarrantyDetailsDocumentMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(articleWarrantyDetailsDocument))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkValidatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        articleWarrantyDetailsDocument.setValidatedBy(null);
+
+        // Create the ArticleWarrantyDetailsDocument, which fails.
+
+        restArticleWarrantyDetailsDocumentMockMvc
+            .perform(
+                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(articleWarrantyDetailsDocument))
+            )
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkValidatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        articleWarrantyDetailsDocument.setValidatedTime(null);
 
         // Create the ArticleWarrantyDetailsDocument, which fails.
 
@@ -270,7 +334,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(articleWarrantyDetailsDocument.getId().intValue())))
             .andExpect(jsonPath("$.[*].documentPath").value(hasItem(DEFAULT_DOCUMENT_PATH)))
-            .andExpect(jsonPath("$.[*].isValid").value(hasItem(DEFAULT_IS_VALID)))
+            .andExpect(jsonPath("$.[*].isValidated").value(hasItem(DEFAULT_IS_VALIDATED)))
+            .andExpect(jsonPath("$.[*].validatedBy").value(hasItem(DEFAULT_VALIDATED_BY)))
+            .andExpect(jsonPath("$.[*].validatedTime").value(hasItem(DEFAULT_VALIDATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -290,7 +356,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(articleWarrantyDetailsDocument.getId().intValue()))
             .andExpect(jsonPath("$.documentPath").value(DEFAULT_DOCUMENT_PATH))
-            .andExpect(jsonPath("$.isValid").value(DEFAULT_IS_VALID))
+            .andExpect(jsonPath("$.isValidated").value(DEFAULT_IS_VALIDATED))
+            .andExpect(jsonPath("$.validatedBy").value(DEFAULT_VALIDATED_BY))
+            .andExpect(jsonPath("$.validatedTime").value(DEFAULT_VALIDATED_TIME.toString()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -320,7 +388,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
         em.detach(updatedArticleWarrantyDetailsDocument);
         updatedArticleWarrantyDetailsDocument
             .documentPath(UPDATED_DOCUMENT_PATH)
-            .isValid(UPDATED_IS_VALID)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -406,6 +476,11 @@ class ArticleWarrantyDetailsDocumentResourceIT {
         ArticleWarrantyDetailsDocument partialUpdatedArticleWarrantyDetailsDocument = new ArticleWarrantyDetailsDocument();
         partialUpdatedArticleWarrantyDetailsDocument.setId(articleWarrantyDetailsDocument.getId());
 
+        partialUpdatedArticleWarrantyDetailsDocument
+            .documentPath(UPDATED_DOCUMENT_PATH)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
+
         restArticleWarrantyDetailsDocumentMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedArticleWarrantyDetailsDocument.getId())
@@ -437,7 +512,9 @@ class ArticleWarrantyDetailsDocumentResourceIT {
 
         partialUpdatedArticleWarrantyDetailsDocument
             .documentPath(UPDATED_DOCUMENT_PATH)
-            .isValid(UPDATED_IS_VALID)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

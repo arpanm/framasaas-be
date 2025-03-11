@@ -146,6 +146,10 @@ export const Category = () => {
                     <Translate contentKey="framasaasApp.category.description">Description</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('description')} />
                   </th>
+                  <th className="hand" onClick={sort('isActive')}>
+                    <Translate contentKey="framasaasApp.category.isActive">Is Active</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isActive')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.category.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -180,6 +184,7 @@ export const Category = () => {
                     <td>{category.imagePath}</td>
                     <td>{category.vendorCategoryId}</td>
                     <td>{category.description}</td>
+                    <td>{category.isActive ? 'true' : 'false'}</td>
                     <td>{category.createddBy}</td>
                     <td>
                       {category.createdTime ? <TextFormat type="date" value={category.createdTime} format={APP_DATE_FORMAT} /> : null}

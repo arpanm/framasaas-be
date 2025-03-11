@@ -33,7 +33,11 @@
         "articleWarrantyDetails": "Article Warranty Details",
         "warrantyMaster": "Warranty Master",
         "warrantyMasterPriceHistory": "Warranty Master Price History",
-        "articleWarrantyDetailsDocument": "Article Warranty Details Document"
+        "articleWarrantyDetailsDocument": "Article Warranty Details Document",
+        "serviceOrderMaster": "Service Order Master",
+        "serviceOrder": "Service Order",
+        "serviceOrderPayment": "Service Order Payment",
+        "serviceOrderAssignment": "Service Order Assignment"
       },
       "account": {
         "main": "Account",

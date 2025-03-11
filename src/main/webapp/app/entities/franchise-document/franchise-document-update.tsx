@@ -53,6 +53,7 @@ export const FranchiseDocumentUpdate = () => {
     if (values.documentSize !== undefined && typeof values.documentSize !== 'number') {
       values.documentSize = Number(values.documentSize);
     }
+    values.validatedTime = convertDateTimeToServer(values.validatedTime);
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
@@ -72,6 +73,7 @@ export const FranchiseDocumentUpdate = () => {
   const defaultValues = () =>
     isNew
       ? {
+          validatedTime: displayDefaultDateTime(),
           createdTime: displayDefaultDateTime(),
           updatedTime: displayDefaultDateTime(),
         }
@@ -79,6 +81,7 @@ export const FranchiseDocumentUpdate = () => {
           documentType: 'AddressProof',
           documentFormat: 'PdfFormat',
           ...franchiseDocumentEntity,
+          validatedTime: convertDateTimeFromServer(franchiseDocumentEntity.validatedTime),
           createdTime: convertDateTimeFromServer(franchiseDocumentEntity.createdTime),
           updatedTime: convertDateTimeFromServer(franchiseDocumentEntity.updatedTime),
           franchise: franchiseDocumentEntity?.franchise?.id,
@@ -158,6 +161,35 @@ export const FranchiseDocumentUpdate = () => {
                 name="documentPath"
                 data-cy="documentPath"
                 type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseDocument.isValidated')}
+                id="franchise-document-isValidated"
+                name="isValidated"
+                data-cy="isValidated"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseDocument.validatedBy')}
+                id="franchise-document-validatedBy"
+                name="validatedBy"
+                data-cy="validatedBy"
+                type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
+              />
+              <ValidatedField
+                label={translate('framasaasApp.franchiseDocument.validatedTime')}
+                id="franchise-document-validatedTime"
+                name="validatedTime"
+                data-cy="validatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },
                 }}

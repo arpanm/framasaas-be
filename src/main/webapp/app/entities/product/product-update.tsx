@@ -168,6 +168,14 @@ export const ProductUpdate = () => {
                 ))}
               </ValidatedField>
               <ValidatedField
+                label={translate('framasaasApp.product.isActive')}
+                id="product-isActive"
+                name="isActive"
+                data-cy="isActive"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.product.createddBy')}
                 id="product-createddBy"
                 name="createddBy"

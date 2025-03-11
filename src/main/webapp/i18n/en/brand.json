@@ -22,6 +22,7 @@
       "logoPath": "Logo Path",
       "vendorBrandId": "Vendor Brand Id",
       "description": "Description",
+      "isActive": "Is Active",
       "createddBy": "Createdd By",
       "createdTime": "Created Time",
       "updatedBy": "Updated By",

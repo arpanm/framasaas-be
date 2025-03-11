@@ -23,6 +23,9 @@
             <column name="tax_rate" type="${floatType}">
                 <constraints nullable="false" />
             </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="true" />
+            </column>
             <column name="createdd_by" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -61,6 +64,7 @@
             <column name="hsn_cd" type="string"/>
             <column name="description" type="string"/>
             <column name="tax_rate" type="numeric"/>
+            <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
             <column name="updated_by" type="string"/>

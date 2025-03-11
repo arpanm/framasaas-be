@@ -18,6 +18,9 @@ import static com.framasaas.be.domain.HsnTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderAssignmentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderPaymentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -279,5 +282,41 @@ class AdditionalAttributeTest {
 
         additionalAttribute.articleWarrantyDocument(null);
         assertThat(additionalAttribute.getArticleWarrantyDocument()).isNull();
+    }
+
+    @Test
+    void serviceOrderTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ServiceOrder serviceOrderBack = getServiceOrderRandomSampleGenerator();
+
+        additionalAttribute.setServiceOrder(serviceOrderBack);
+        assertThat(additionalAttribute.getServiceOrder()).isEqualTo(serviceOrderBack);
+
+        additionalAttribute.serviceOrder(null);
+        assertThat(additionalAttribute.getServiceOrder()).isNull();
+    }
+
+    @Test
+    void serviceOrderPaymentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ServiceOrderPayment serviceOrderPaymentBack = getServiceOrderPaymentRandomSampleGenerator();
+
+        additionalAttribute.setServiceOrderPayment(serviceOrderPaymentBack);
+        assertThat(additionalAttribute.getServiceOrderPayment()).isEqualTo(serviceOrderPaymentBack);
+
+        additionalAttribute.serviceOrderPayment(null);
+        assertThat(additionalAttribute.getServiceOrderPayment()).isNull();
+    }
+
+    @Test
+    void serviceOrderAssignmentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ServiceOrderAssignment serviceOrderAssignmentBack = getServiceOrderAssignmentRandomSampleGenerator();
+
+        additionalAttribute.setServiceOrderAssignment(serviceOrderAssignmentBack);
+        assertThat(additionalAttribute.getServiceOrderAssignment()).isEqualTo(serviceOrderAssignmentBack);
+
+        additionalAttribute.serviceOrderAssignment(null);
+        assertThat(additionalAttribute.getServiceOrderAssignment()).isNull();
     }
 }

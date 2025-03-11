@@ -51,6 +51,15 @@ class FranchiseDocumentResourceIT {
     private static final String DEFAULT_DOCUMENT_PATH = "AAAAAAAAAA";
     private static final String UPDATED_DOCUMENT_PATH = "BBBBBBBBBB";
 
+    private static final Boolean DEFAULT_IS_VALIDATED = false;
+    private static final Boolean UPDATED_IS_VALIDATED = true;
+
+    private static final String DEFAULT_VALIDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_VALIDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_VALIDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_VALIDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
 
@@ -98,6 +107,9 @@ class FranchiseDocumentResourceIT {
             .documentFormat(DEFAULT_DOCUMENT_FORMAT)
             .documentSize(DEFAULT_DOCUMENT_SIZE)
             .documentPath(DEFAULT_DOCUMENT_PATH)
+            .isValidated(DEFAULT_IS_VALIDATED)
+            .validatedBy(DEFAULT_VALIDATED_BY)
+            .validatedTime(DEFAULT_VALIDATED_TIME)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -117,6 +129,9 @@ class FranchiseDocumentResourceIT {
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -241,6 +256,54 @@ class FranchiseDocumentResourceIT {
 
     @Test
     @Transactional
+    void checkIsValidatedIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setIsValidated(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkValidatedByIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setValidatedBy(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkValidatedTimeIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        franchiseDocument.setValidatedTime(null);
+
+        // Create the FranchiseDocument, which fails.
+
+        restFranchiseDocumentMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(franchiseDocument)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void checkCreateddByIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -320,6 +383,9 @@ class FranchiseDocumentResourceIT {
             .andExpect(jsonPath("$.[*].documentFormat").value(hasItem(DEFAULT_DOCUMENT_FORMAT.toString())))
             .andExpect(jsonPath("$.[*].documentSize").value(hasItem(DEFAULT_DOCUMENT_SIZE.intValue())))
             .andExpect(jsonPath("$.[*].documentPath").value(hasItem(DEFAULT_DOCUMENT_PATH)))
+            .andExpect(jsonPath("$.[*].isValidated").value(hasItem(DEFAULT_IS_VALIDATED)))
+            .andExpect(jsonPath("$.[*].validatedBy").value(hasItem(DEFAULT_VALIDATED_BY)))
+            .andExpect(jsonPath("$.[*].validatedTime").value(hasItem(DEFAULT_VALIDATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -343,6 +409,9 @@ class FranchiseDocumentResourceIT {
             .andExpect(jsonPath("$.documentFormat").value(DEFAULT_DOCUMENT_FORMAT.toString()))
             .andExpect(jsonPath("$.documentSize").value(DEFAULT_DOCUMENT_SIZE.intValue()))
             .andExpect(jsonPath("$.documentPath").value(DEFAULT_DOCUMENT_PATH))
+            .andExpect(jsonPath("$.isValidated").value(DEFAULT_IS_VALIDATED))
+            .andExpect(jsonPath("$.validatedBy").value(DEFAULT_VALIDATED_BY))
+            .andExpect(jsonPath("$.validatedTime").value(DEFAULT_VALIDATED_TIME.toString()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -374,6 +443,9 @@ class FranchiseDocumentResourceIT {
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -458,10 +530,12 @@ class FranchiseDocumentResourceIT {
         partialUpdatedFranchiseDocument.setId(franchiseDocument.getId());
 
         partialUpdatedFranchiseDocument
-            .documentName(UPDATED_DOCUMENT_NAME)
-            .documentFormat(UPDATED_DOCUMENT_FORMAT)
-            .documentSize(UPDATED_DOCUMENT_SIZE)
-            .createdTime(UPDATED_CREATED_TIME);
+            .documentType(UPDATED_DOCUMENT_TYPE)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseDocumentMockMvc
             .perform(
@@ -498,6 +572,9 @@ class FranchiseDocumentResourceIT {
             .documentFormat(UPDATED_DOCUMENT_FORMAT)
             .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

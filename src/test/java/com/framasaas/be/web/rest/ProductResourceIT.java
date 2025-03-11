@@ -50,6 +50,9 @@ class ProductResourceIT {
     private static final ProductType DEFAULT_PRODUCT_TYPE = ProductType.COMMERCE;
     private static final ProductType UPDATED_PRODUCT_TYPE = ProductType.SPARE;
 
+    private static final Boolean DEFAULT_IS_ACTIVE = false;
+    private static final Boolean UPDATED_IS_ACTIVE = true;
+
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
 
@@ -97,6 +100,7 @@ class ProductResourceIT {
             .description(DEFAULT_DESCRIPTION)
             .price(DEFAULT_PRICE)
             .productType(DEFAULT_PRODUCT_TYPE)
+            .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -116,6 +120,7 @@ class ProductResourceIT {
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
             .productType(UPDATED_PRODUCT_TYPE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -303,6 +308,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].productType").value(hasItem(DEFAULT_PRODUCT_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -326,6 +332,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
             .andExpect(jsonPath("$.productType").value(DEFAULT_PRODUCT_TYPE.toString()))
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -357,6 +364,7 @@ class ProductResourceIT {
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
             .productType(UPDATED_PRODUCT_TYPE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -436,7 +444,13 @@ class ProductResourceIT {
         Product partialUpdatedProduct = new Product();
         partialUpdatedProduct.setId(product.getId());
 
-        partialUpdatedProduct.description(UPDATED_DESCRIPTION).price(UPDATED_PRICE).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedProduct
+            .productName(UPDATED_PRODUCT_NAME)
+            .vendorProductId(UPDATED_VENDOR_PRODUCT_ID)
+            .productType(UPDATED_PRODUCT_TYPE)
+            .isActive(UPDATED_IS_ACTIVE)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restProductMockMvc
             .perform(
@@ -470,6 +484,7 @@ class ProductResourceIT {
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
             .productType(UPDATED_PRODUCT_TYPE)
+            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

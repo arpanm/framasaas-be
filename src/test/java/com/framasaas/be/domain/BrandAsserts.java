@@ -51,6 +51,7 @@ public class BrandAsserts {
             .satisfies(a -> assertThat(a.getLogoPath()).as("check logoPath").isEqualTo(expected.getLogoPath()))
             .satisfies(a -> assertThat(a.getVendorBrandId()).as("check vendorBrandId").isEqualTo(expected.getVendorBrandId()))
             .satisfies(a -> assertThat(a.getDescription()).as("check description").isEqualTo(expected.getDescription()))
+            .satisfies(a -> assertThat(a.getIsActive()).as("check isActive").isEqualTo(expected.getIsActive()))
             .satisfies(a -> assertThat(a.getCreateddBy()).as("check createddBy").isEqualTo(expected.getCreateddBy()))
             .satisfies(a -> assertThat(a.getCreatedTime()).as("check createdTime").isEqualTo(expected.getCreatedTime()))
             .satisfies(a -> assertThat(a.getUpdatedBy()).as("check updatedBy").isEqualTo(expected.getUpdatedBy()))

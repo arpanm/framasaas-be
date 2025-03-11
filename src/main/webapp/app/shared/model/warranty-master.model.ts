@@ -11,6 +11,7 @@ export interface IWarrantyMaster {
   price?: number;
   periodInMonths?: number;
   taxRate?: number;
+  isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
@@ -18,4 +19,6 @@ export interface IWarrantyMaster {
   product?: IProduct | null;
 }
 
-export const defaultValue: Readonly<IWarrantyMaster> = {};
+export const defaultValue: Readonly<IWarrantyMaster> = {
+  isActive: false,
+};

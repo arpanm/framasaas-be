@@ -28,6 +28,10 @@ import ArticleWarrantyDetails from './article-warranty-details';
 import WarrantyMaster from './warranty-master';
 import WarrantyMasterPriceHistory from './warranty-master-price-history';
 import ArticleWarrantyDetailsDocument from './article-warranty-details-document';
+import ServiceOrderMaster from './service-order-master';
+import ServiceOrder from './service-order';
+import ServiceOrderPayment from './service-order-payment';
+import ServiceOrderAssignment from './service-order-assignment';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -61,6 +65,10 @@ export default () => {
         <Route path="warranty-master/*" element={<WarrantyMaster />} />
         <Route path="warranty-master-price-history/*" element={<WarrantyMasterPriceHistory />} />
         <Route path="article-warranty-details-document/*" element={<ArticleWarrantyDetailsDocument />} />
+        <Route path="service-order-master/*" element={<ServiceOrderMaster />} />
+        <Route path="service-order/*" element={<ServiceOrder />} />
+        <Route path="service-order-payment/*" element={<ServiceOrderPayment />} />
+        <Route path="service-order-assignment/*" element={<ServiceOrderAssignment />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>
