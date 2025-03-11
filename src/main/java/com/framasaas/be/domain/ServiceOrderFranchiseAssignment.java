@@ -57,12 +57,6 @@ public class ServiceOrderFranchiseAssignment implements Serializable {
     @Column(name = "completed_time")
     private Instant completedTime;
 
-    @Column(name = "completion_otp")
-    private Long completionOTP;
-
-    @Column(name = "cancellation_otp")
-    private Long cancellationOTP;
-
     @Column(name = "franchise_commision")
     private Float franchiseCommision;
 
@@ -114,7 +108,11 @@ public class ServiceOrderFranchiseAssignment implements Serializable {
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -276,32 +274,6 @@ public class ServiceOrderFranchiseAssignment implements Serializable {
 
     public void setCompletedTime(Instant completedTime) {
         this.completedTime = completedTime;
-    }
-
-    public Long getCompletionOTP() {
-        return this.completionOTP;
-    }
-
-    public ServiceOrderFranchiseAssignment completionOTP(Long completionOTP) {
-        this.setCompletionOTP(completionOTP);
-        return this;
-    }
-
-    public void setCompletionOTP(Long completionOTP) {
-        this.completionOTP = completionOTP;
-    }
-
-    public Long getCancellationOTP() {
-        return this.cancellationOTP;
-    }
-
-    public ServiceOrderFranchiseAssignment cancellationOTP(Long cancellationOTP) {
-        this.setCancellationOTP(cancellationOTP);
-        return this;
-    }
-
-    public void setCancellationOTP(Long cancellationOTP) {
-        this.cancellationOTP = cancellationOTP;
     }
 
     public Float getFranchiseCommision() {
@@ -485,8 +457,6 @@ public class ServiceOrderFranchiseAssignment implements Serializable {
             ", spareOrderTime='" + getSpareOrderTime() + "'" +
             ", spareDeliveryTime='" + getSpareDeliveryTime() + "'" +
             ", completedTime='" + getCompletedTime() + "'" +
-            ", completionOTP=" + getCompletionOTP() +
-            ", cancellationOTP=" + getCancellationOTP() +
             ", franchiseCommision=" + getFranchiseCommision() +
             ", franchiseCommisionTax=" + getFranchiseCommisionTax() +
             ", franchiseInvoicePath='" + getFranchiseInvoicePath() + "'" +

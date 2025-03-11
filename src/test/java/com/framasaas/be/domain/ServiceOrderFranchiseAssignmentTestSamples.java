@@ -13,8 +13,6 @@ public class ServiceOrderFranchiseAssignmentTestSamples {
         return new ServiceOrderFranchiseAssignment()
             .id(1L)
             .nps(1L)
-            .completionOTP(1L)
-            .cancellationOTP(1L)
             .franchiseInvoicePath("franchiseInvoicePath1")
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
@@ -24,8 +22,6 @@ public class ServiceOrderFranchiseAssignmentTestSamples {
         return new ServiceOrderFranchiseAssignment()
             .id(2L)
             .nps(2L)
-            .completionOTP(2L)
-            .cancellationOTP(2L)
             .franchiseInvoicePath("franchiseInvoicePath2")
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
@@ -35,8 +31,6 @@ public class ServiceOrderFranchiseAssignmentTestSamples {
         return new ServiceOrderFranchiseAssignment()
             .id(longCount.incrementAndGet())
             .nps(longCount.incrementAndGet())
-            .completionOTP(longCount.incrementAndGet())
-            .cancellationOTP(longCount.incrementAndGet())
             .franchiseInvoicePath(UUID.randomUUID().toString())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());

@@ -47,7 +47,11 @@
       "serviceOrder": "Service Order",
       "serviceOrderPayment": "Service Order Payment",
       "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
-      "serviceOrderSpare": "Service Order Spare",
+      "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment",
+      "franchiseAllocationRuleSet": "Franchise Allocation Rule Set",
+      "franchiseAllocationRule": "Franchise Allocation Rule",
+      "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set",
+      "fieldAgentSkillRule": "Field Agent Skill Rule",
       "serviceOrderAssignment": "Service Order Assignment"
     }
   }

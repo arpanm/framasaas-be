@@ -7,8 +7,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -61,39 +59,6 @@ public class ServiceOrderSpare implements Serializable {
     @NotNull
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrderSpare")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = {
-            "additionalAttributePossibleValues",
-            "franchise",
-            "franchiseStatus",
-            "franchisePerformance",
-            "brand",
-            "category",
-            "address",
-            "location",
-            "franchiseUser",
-            "customer",
-            "document",
-            "product",
-            "hsn",
-            "priceHistory",
-            "warrantyMaster",
-            "warrantyMasterPriceHistory",
-            "article",
-            "articleWarranty",
-            "articleWarrantyDocument",
-            "serviceOrder",
-            "serviceOrderPayment",
-            "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
-            "serviceOrderAssignment",
-        },
-        allowSetters = true
-    )
-    private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
@@ -249,37 +214,6 @@ public class ServiceOrderSpare implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
-    }
-
-    public Set<AdditionalAttribute> getAdditionalAttributes() {
-        return this.additionalAttributes;
-    }
-
-    public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
-        if (this.additionalAttributes != null) {
-            this.additionalAttributes.forEach(i -> i.setServiceOrderSpare(null));
-        }
-        if (additionalAttributes != null) {
-            additionalAttributes.forEach(i -> i.setServiceOrderSpare(this));
-        }
-        this.additionalAttributes = additionalAttributes;
-    }
-
-    public ServiceOrderSpare additionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
-        this.setAdditionalAttributes(additionalAttributes);
-        return this;
-    }
-
-    public ServiceOrderSpare addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
-        this.additionalAttributes.add(additionalAttribute);
-        additionalAttribute.setServiceOrderSpare(this);
-        return this;
-    }
-
-    public ServiceOrderSpare removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
-        this.additionalAttributes.remove(additionalAttribute);
-        additionalAttribute.setServiceOrderSpare(null);
-        return this;
     }
 
     public ServiceOrder getServiceOrder() {

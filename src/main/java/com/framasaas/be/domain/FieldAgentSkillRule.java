@@ -78,8 +78,45 @@ public class FieldAgentSkillRule implements Serializable {
     @JsonIgnoreProperties(value = { "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<LanguageMapping> languageMappings = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "fieldAgentSkillRule")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = {
+            "additionalAttributePossibleValues",
+            "franchise",
+            "franchiseStatus",
+            "franchisePerformance",
+            "brand",
+            "category",
+            "address",
+            "location",
+            "franchiseUser",
+            "customer",
+            "document",
+            "product",
+            "hsn",
+            "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
+            "article",
+            "articleWarranty",
+            "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
+            "serviceOrderAssignment",
+        },
+        allowSetters = true
+    )
+    private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers", "additionalAttributes" }, allowSetters = true)
     private FieldAgentSkillRuleSet fieldAgentSkillRuleSet;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -327,6 +364,37 @@ public class FieldAgentSkillRule implements Serializable {
     public FieldAgentSkillRule removeLanguageMapping(LanguageMapping languageMapping) {
         this.languageMappings.remove(languageMapping);
         languageMapping.setFieldAgentSkillRule(null);
+        return this;
+    }
+
+    public Set<AdditionalAttribute> getAdditionalAttributes() {
+        return this.additionalAttributes;
+    }
+
+    public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        if (this.additionalAttributes != null) {
+            this.additionalAttributes.forEach(i -> i.setFieldAgentSkillRule(null));
+        }
+        if (additionalAttributes != null) {
+            additionalAttributes.forEach(i -> i.setFieldAgentSkillRule(this));
+        }
+        this.additionalAttributes = additionalAttributes;
+    }
+
+    public FieldAgentSkillRule additionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        this.setAdditionalAttributes(additionalAttributes);
+        return this;
+    }
+
+    public FieldAgentSkillRule addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.add(additionalAttribute);
+        additionalAttribute.setFieldAgentSkillRule(this);
+        return this;
+    }
+
+    public FieldAgentSkillRule removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.remove(additionalAttribute);
+        additionalAttribute.setFieldAgentSkillRule(null);
         return this;
     }
 

@@ -176,14 +176,6 @@ export const ServiceOrderFranchiseAssignment = () => {
                     <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.completedTime">Completed Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('completedTime')} />
                   </th>
-                  <th className="hand" onClick={sort('completionOTP')}>
-                    <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.completionOTP">Completion OTP</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('completionOTP')} />
-                  </th>
-                  <th className="hand" onClick={sort('cancellationOTP')}>
-                    <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.cancellationOTP">Cancellation OTP</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('cancellationOTP')} />
-                  </th>
                   <th className="hand" onClick={sort('franchiseCommision')}>
                     <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.franchiseCommision">Franchise Commision</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('franchiseCommision')} />
@@ -277,8 +269,6 @@ export const ServiceOrderFranchiseAssignment = () => {
                         <TextFormat type="date" value={serviceOrderFranchiseAssignment.completedTime} format={APP_DATE_FORMAT} />
                       ) : null}
                     </td>
-                    <td>{serviceOrderFranchiseAssignment.completionOTP}</td>
-                    <td>{serviceOrderFranchiseAssignment.cancellationOTP}</td>
                     <td>{serviceOrderFranchiseAssignment.franchiseCommision}</td>
                     <td>{serviceOrderFranchiseAssignment.franchiseCommisionTax}</td>
                     <td>{serviceOrderFranchiseAssignment.franchiseInvoicePath}</td>

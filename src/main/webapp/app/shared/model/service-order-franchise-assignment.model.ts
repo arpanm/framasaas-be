@@ -14,8 +14,6 @@ export interface IServiceOrderFranchiseAssignment {
   spareOrderTime?: dayjs.Dayjs | null;
   spareDeliveryTime?: dayjs.Dayjs | null;
   completedTime?: dayjs.Dayjs | null;
-  completionOTP?: number | null;
-  cancellationOTP?: number | null;
   franchiseCommision?: number | null;
   franchiseCommisionTax?: number | null;
   franchiseInvoicePath?: string | null;

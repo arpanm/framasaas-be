@@ -157,11 +157,39 @@
                                  referencedTableName="service_order_franchise_assignment"
                                  />
 
-        <addForeignKeyConstraint baseColumnNames="service_order_spare_id"
+        <addForeignKeyConstraint baseColumnNames="service_order_field_agent_assignment_id"
                                  baseTableName="additional_attribute"
-                                 constraintName="fk_additional_attribute__service_order_spare_id"
+                                 constraintName="fk_additional_attribute__service_order_field_agent_assign_fa_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="service_order_spare"
+                                 referencedTableName="service_order_field_agent_assignment"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_allocation_rule_set_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_allocation_rule_set_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_allocation_rule_set"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="franchise_allocation_rule_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__franchise_allocation_rule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_allocation_rule"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="field_agent_skill_rule_set_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__field_agent_skill_rule_set_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field_agent_skill_rule_set"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="field_agent_skill_rule_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__field_agent_skill_rule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field_agent_skill_rule"
                                  />
 
         <addForeignKeyConstraint baseColumnNames="service_order_assignment_id"

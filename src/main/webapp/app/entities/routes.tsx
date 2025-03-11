@@ -37,6 +37,7 @@ import ServiceOrderSpare from './service-order-spare';
 import LanguageMapping from './language-mapping';
 import FieldAgentSkillRuleSet from './field-agent-skill-rule-set';
 import FieldAgentSkillRule from './field-agent-skill-rule';
+import ServiceOrderFieldAgentAssignment from './service-order-field-agent-assignment';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -79,6 +80,7 @@ export default () => {
         <Route path="language-mapping/*" element={<LanguageMapping />} />
         <Route path="field-agent-skill-rule-set/*" element={<FieldAgentSkillRuleSet />} />
         <Route path="field-agent-skill-rule/*" element={<FieldAgentSkillRule />} />
+        <Route path="service-order-field-agent-assignment/*" element={<ServiceOrderFieldAgentAssignment />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

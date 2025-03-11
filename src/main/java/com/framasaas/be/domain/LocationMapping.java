@@ -73,7 +73,11 @@ public class LocationMapping implements Serializable {
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -81,12 +85,17 @@ public class LocationMapping implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes" },
+        allowSetters = true
+    )
     private FranchiseAllocationRule franchiseRule;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "fieldAgentSkillRuleSet" },
+        value = {
+            "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes", "fieldAgentSkillRuleSet",
+        },
         allowSetters = true
     )
     private FieldAgentSkillRule fieldAgentSkillRule;

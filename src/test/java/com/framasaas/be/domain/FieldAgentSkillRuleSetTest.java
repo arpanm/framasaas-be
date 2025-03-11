@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.FieldAgentSkillRuleSetTestSamples.*;
 import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
@@ -68,5 +69,27 @@ class FieldAgentSkillRuleSetTest {
         fieldAgentSkillRuleSet.setFranchiseUsers(new HashSet<>());
         assertThat(fieldAgentSkillRuleSet.getFranchiseUsers()).doesNotContain(franchiseUserBack);
         assertThat(franchiseUserBack.getSkillRuleSet()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FieldAgentSkillRuleSet fieldAgentSkillRuleSet = getFieldAgentSkillRuleSetRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        fieldAgentSkillRuleSet.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(fieldAgentSkillRuleSet.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRuleSet()).isEqualTo(fieldAgentSkillRuleSet);
+
+        fieldAgentSkillRuleSet.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(fieldAgentSkillRuleSet.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRuleSet()).isNull();
+
+        fieldAgentSkillRuleSet.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(fieldAgentSkillRuleSet.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRuleSet()).isEqualTo(fieldAgentSkillRuleSet);
+
+        fieldAgentSkillRuleSet.setAdditionalAttributes(new HashSet<>());
+        assertThat(fieldAgentSkillRuleSet.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRuleSet()).isNull();
     }
 }

@@ -171,9 +171,31 @@ export const AdditionalAttributeDetail = () => {
             {additionalAttributeEntity.serviceOrderFranchiseAssignment ? additionalAttributeEntity.serviceOrderFranchiseAssignment.id : ''}
           </dd>
           <dt>
-            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderSpare">Service Order Spare</Translate>
+            <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderFieldAgentAssignment">
+              Service Order Field Agent Assignment
+            </Translate>
           </dt>
-          <dd>{additionalAttributeEntity.serviceOrderSpare ? additionalAttributeEntity.serviceOrderSpare.id : ''}</dd>
+          <dd>
+            {additionalAttributeEntity.serviceOrderFieldAgentAssignment
+              ? additionalAttributeEntity.serviceOrderFieldAgentAssignment.id
+              : ''}
+          </dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.franchiseAllocationRuleSet">Franchise Allocation Rule Set</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.franchiseAllocationRuleSet ? additionalAttributeEntity.franchiseAllocationRuleSet.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.franchiseAllocationRule">Franchise Allocation Rule</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.franchiseAllocationRule ? additionalAttributeEntity.franchiseAllocationRule.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.fieldAgentSkillRuleSet">Field Agent Skill Rule Set</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.fieldAgentSkillRuleSet ? additionalAttributeEntity.fieldAgentSkillRuleSet.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.fieldAgentSkillRule">Field Agent Skill Rule</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.fieldAgentSkillRule ? additionalAttributeEntity.fieldAgentSkillRule.id : ''}</dd>
           <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>
           </dt>

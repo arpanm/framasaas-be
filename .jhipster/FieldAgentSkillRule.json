@@ -74,6 +74,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "fieldAgentSkillRule",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "fieldAgentSkillRuleSet",
       "relationshipName": "fieldAgentSkillRuleSet",
       "relationshipSide": "right",

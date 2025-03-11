@@ -60,12 +60,6 @@ export const ServiceOrderFranchiseAssignmentUpdate = () => {
     values.spareOrderTime = convertDateTimeToServer(values.spareOrderTime);
     values.spareDeliveryTime = convertDateTimeToServer(values.spareDeliveryTime);
     values.completedTime = convertDateTimeToServer(values.completedTime);
-    if (values.completionOTP !== undefined && typeof values.completionOTP !== 'number') {
-      values.completionOTP = Number(values.completionOTP);
-    }
-    if (values.cancellationOTP !== undefined && typeof values.cancellationOTP !== 'number') {
-      values.cancellationOTP = Number(values.cancellationOTP);
-    }
     if (values.franchiseCommision !== undefined && typeof values.franchiseCommision !== 'number') {
       values.franchiseCommision = Number(values.franchiseCommision);
     }
@@ -221,20 +215,6 @@ export const ServiceOrderFranchiseAssignmentUpdate = () => {
                 data-cy="completedTime"
                 type="datetime-local"
                 placeholder="YYYY-MM-DD HH:mm"
-              />
-              <ValidatedField
-                label={translate('framasaasApp.serviceOrderFranchiseAssignment.completionOTP')}
-                id="service-order-franchise-assignment-completionOTP"
-                name="completionOTP"
-                data-cy="completionOTP"
-                type="text"
-              />
-              <ValidatedField
-                label={translate('framasaasApp.serviceOrderFranchiseAssignment.cancellationOTP')}
-                id="service-order-franchise-assignment-cancellationOTP"
-                name="cancellationOTP"
-                data-cy="cancellationOTP"
-                type="text"
               />
               <ValidatedField
                 label={translate('framasaasApp.serviceOrderFranchiseAssignment.franchiseCommision')}

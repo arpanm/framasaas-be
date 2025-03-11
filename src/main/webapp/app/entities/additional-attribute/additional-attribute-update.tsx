@@ -28,7 +28,11 @@ import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/
 import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
 import { getEntities as getServiceOrderPayments } from 'app/entities/service-order-payment/service-order-payment.reducer';
 import { getEntities as getServiceOrderFranchiseAssignments } from 'app/entities/service-order-franchise-assignment/service-order-franchise-assignment.reducer';
-import { getEntities as getServiceOrderSpares } from 'app/entities/service-order-spare/service-order-spare.reducer';
+import { getEntities as getServiceOrderFieldAgentAssignments } from 'app/entities/service-order-field-agent-assignment/service-order-field-agent-assignment.reducer';
+import { getEntities as getFranchiseAllocationRuleSets } from 'app/entities/franchise-allocation-rule-set/franchise-allocation-rule-set.reducer';
+import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
+import { getEntities as getFieldAgentSkillRuleSets } from 'app/entities/field-agent-skill-rule-set/field-agent-skill-rule-set.reducer';
+import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import { getEntities as getServiceOrderAssignments } from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
@@ -62,7 +66,11 @@ export const AdditionalAttributeUpdate = () => {
   const serviceOrders = useAppSelector(state => state.serviceOrder.entities);
   const serviceOrderPayments = useAppSelector(state => state.serviceOrderPayment.entities);
   const serviceOrderFranchiseAssignments = useAppSelector(state => state.serviceOrderFranchiseAssignment.entities);
-  const serviceOrderSpares = useAppSelector(state => state.serviceOrderSpare.entities);
+  const serviceOrderFieldAgentAssignments = useAppSelector(state => state.serviceOrderFieldAgentAssignment.entities);
+  const franchiseAllocationRuleSets = useAppSelector(state => state.franchiseAllocationRuleSet.entities);
+  const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
+  const fieldAgentSkillRuleSets = useAppSelector(state => state.fieldAgentSkillRuleSet.entities);
+  const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
   const serviceOrderAssignments = useAppSelector(state => state.serviceOrderAssignment.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
@@ -100,7 +108,11 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getServiceOrders({}));
     dispatch(getServiceOrderPayments({}));
     dispatch(getServiceOrderFranchiseAssignments({}));
-    dispatch(getServiceOrderSpares({}));
+    dispatch(getServiceOrderFieldAgentAssignments({}));
+    dispatch(getFranchiseAllocationRuleSets({}));
+    dispatch(getFranchiseAllocationRules({}));
+    dispatch(getFieldAgentSkillRuleSets({}));
+    dispatch(getFieldAgentSkillRules({}));
     dispatch(getServiceOrderAssignments({}));
   }, []);
 
@@ -145,7 +157,15 @@ export const AdditionalAttributeUpdate = () => {
       serviceOrderFranchiseAssignment: serviceOrderFranchiseAssignments.find(
         it => it.id.toString() === values.serviceOrderFranchiseAssignment?.toString(),
       ),
-      serviceOrderSpare: serviceOrderSpares.find(it => it.id.toString() === values.serviceOrderSpare?.toString()),
+      serviceOrderFieldAgentAssignment: serviceOrderFieldAgentAssignments.find(
+        it => it.id.toString() === values.serviceOrderFieldAgentAssignment?.toString(),
+      ),
+      franchiseAllocationRuleSet: franchiseAllocationRuleSets.find(
+        it => it.id.toString() === values.franchiseAllocationRuleSet?.toString(),
+      ),
+      franchiseAllocationRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseAllocationRule?.toString()),
+      fieldAgentSkillRuleSet: fieldAgentSkillRuleSets.find(it => it.id.toString() === values.fieldAgentSkillRuleSet?.toString()),
+      fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
       serviceOrderAssignment: serviceOrderAssignments.find(it => it.id.toString() === values.serviceOrderAssignment?.toString()),
     };
 
@@ -188,7 +208,11 @@ export const AdditionalAttributeUpdate = () => {
           serviceOrder: additionalAttributeEntity?.serviceOrder?.id,
           serviceOrderPayment: additionalAttributeEntity?.serviceOrderPayment?.id,
           serviceOrderFranchiseAssignment: additionalAttributeEntity?.serviceOrderFranchiseAssignment?.id,
-          serviceOrderSpare: additionalAttributeEntity?.serviceOrderSpare?.id,
+          serviceOrderFieldAgentAssignment: additionalAttributeEntity?.serviceOrderFieldAgentAssignment?.id,
+          franchiseAllocationRuleSet: additionalAttributeEntity?.franchiseAllocationRuleSet?.id,
+          franchiseAllocationRule: additionalAttributeEntity?.franchiseAllocationRule?.id,
+          fieldAgentSkillRuleSet: additionalAttributeEntity?.fieldAgentSkillRuleSet?.id,
+          fieldAgentSkillRule: additionalAttributeEntity?.fieldAgentSkillRule?.id,
           serviceOrderAssignment: additionalAttributeEntity?.serviceOrderAssignment?.id,
         };
 
@@ -629,15 +653,79 @@ export const AdditionalAttributeUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="additional-attribute-serviceOrderSpare"
-                name="serviceOrderSpare"
-                data-cy="serviceOrderSpare"
-                label={translate('framasaasApp.additionalAttribute.serviceOrderSpare')}
+                id="additional-attribute-serviceOrderFieldAgentAssignment"
+                name="serviceOrderFieldAgentAssignment"
+                data-cy="serviceOrderFieldAgentAssignment"
+                label={translate('framasaasApp.additionalAttribute.serviceOrderFieldAgentAssignment')}
                 type="select"
               >
                 <option value="" key="0" />
-                {serviceOrderSpares
-                  ? serviceOrderSpares.map(otherEntity => (
+                {serviceOrderFieldAgentAssignments
+                  ? serviceOrderFieldAgentAssignments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-franchiseAllocationRuleSet"
+                name="franchiseAllocationRuleSet"
+                data-cy="franchiseAllocationRuleSet"
+                label={translate('framasaasApp.additionalAttribute.franchiseAllocationRuleSet')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRuleSets
+                  ? franchiseAllocationRuleSets.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-franchiseAllocationRule"
+                name="franchiseAllocationRule"
+                data-cy="franchiseAllocationRule"
+                label={translate('framasaasApp.additionalAttribute.franchiseAllocationRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRules
+                  ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-fieldAgentSkillRuleSet"
+                name="fieldAgentSkillRuleSet"
+                data-cy="fieldAgentSkillRuleSet"
+                label={translate('framasaasApp.additionalAttribute.fieldAgentSkillRuleSet')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRuleSets
+                  ? fieldAgentSkillRuleSets.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-fieldAgentSkillRule"
+                name="fieldAgentSkillRule"
+                data-cy="fieldAgentSkillRule"
+                label={translate('framasaasApp.additionalAttribute.fieldAgentSkillRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {fieldAgentSkillRules
+                  ? fieldAgentSkillRules.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

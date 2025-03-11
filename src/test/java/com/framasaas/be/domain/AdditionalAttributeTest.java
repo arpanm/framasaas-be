@@ -9,6 +9,10 @@ import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
+import static com.framasaas.be.domain.FieldAgentSkillRuleSetTestSamples.*;
+import static com.framasaas.be.domain.FieldAgentSkillRuleTestSamples.*;
+import static com.framasaas.be.domain.FranchiseAllocationRuleSetTestSamples.*;
+import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
 import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
@@ -19,9 +23,9 @@ import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderAssignmentTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderFieldAgentAssignmentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderPaymentTestSamples.*;
-import static com.framasaas.be.domain.ServiceOrderSpareTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
@@ -323,15 +327,63 @@ class AdditionalAttributeTest {
     }
 
     @Test
-    void serviceOrderSpareTest() {
+    void serviceOrderFieldAgentAssignmentTest() {
         AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
-        ServiceOrderSpare serviceOrderSpareBack = getServiceOrderSpareRandomSampleGenerator();
+        ServiceOrderFieldAgentAssignment serviceOrderFieldAgentAssignmentBack = getServiceOrderFieldAgentAssignmentRandomSampleGenerator();
 
-        additionalAttribute.setServiceOrderSpare(serviceOrderSpareBack);
-        assertThat(additionalAttribute.getServiceOrderSpare()).isEqualTo(serviceOrderSpareBack);
+        additionalAttribute.setServiceOrderFieldAgentAssignment(serviceOrderFieldAgentAssignmentBack);
+        assertThat(additionalAttribute.getServiceOrderFieldAgentAssignment()).isEqualTo(serviceOrderFieldAgentAssignmentBack);
 
-        additionalAttribute.serviceOrderSpare(null);
-        assertThat(additionalAttribute.getServiceOrderSpare()).isNull();
+        additionalAttribute.serviceOrderFieldAgentAssignment(null);
+        assertThat(additionalAttribute.getServiceOrderFieldAgentAssignment()).isNull();
+    }
+
+    @Test
+    void franchiseAllocationRuleSetTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        FranchiseAllocationRuleSet franchiseAllocationRuleSetBack = getFranchiseAllocationRuleSetRandomSampleGenerator();
+
+        additionalAttribute.setFranchiseAllocationRuleSet(franchiseAllocationRuleSetBack);
+        assertThat(additionalAttribute.getFranchiseAllocationRuleSet()).isEqualTo(franchiseAllocationRuleSetBack);
+
+        additionalAttribute.franchiseAllocationRuleSet(null);
+        assertThat(additionalAttribute.getFranchiseAllocationRuleSet()).isNull();
+    }
+
+    @Test
+    void franchiseAllocationRuleTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        FranchiseAllocationRule franchiseAllocationRuleBack = getFranchiseAllocationRuleRandomSampleGenerator();
+
+        additionalAttribute.setFranchiseAllocationRule(franchiseAllocationRuleBack);
+        assertThat(additionalAttribute.getFranchiseAllocationRule()).isEqualTo(franchiseAllocationRuleBack);
+
+        additionalAttribute.franchiseAllocationRule(null);
+        assertThat(additionalAttribute.getFranchiseAllocationRule()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleSetTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        FieldAgentSkillRuleSet fieldAgentSkillRuleSetBack = getFieldAgentSkillRuleSetRandomSampleGenerator();
+
+        additionalAttribute.setFieldAgentSkillRuleSet(fieldAgentSkillRuleSetBack);
+        assertThat(additionalAttribute.getFieldAgentSkillRuleSet()).isEqualTo(fieldAgentSkillRuleSetBack);
+
+        additionalAttribute.fieldAgentSkillRuleSet(null);
+        assertThat(additionalAttribute.getFieldAgentSkillRuleSet()).isNull();
+    }
+
+    @Test
+    void fieldAgentSkillRuleTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        FieldAgentSkillRule fieldAgentSkillRuleBack = getFieldAgentSkillRuleRandomSampleGenerator();
+
+        additionalAttribute.setFieldAgentSkillRule(fieldAgentSkillRuleBack);
+        assertThat(additionalAttribute.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRuleBack);
+
+        additionalAttribute.fieldAgentSkillRule(null);
+        assertThat(additionalAttribute.getFieldAgentSkillRule()).isNull();
     }
 
     @Test

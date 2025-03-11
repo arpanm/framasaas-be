@@ -62,12 +62,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
     private static final Instant DEFAULT_COMPLETED_TIME = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_COMPLETED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Long DEFAULT_COMPLETION_OTP = 1L;
-    private static final Long UPDATED_COMPLETION_OTP = 2L;
-
-    private static final Long DEFAULT_CANCELLATION_OTP = 1L;
-    private static final Long UPDATED_CANCELLATION_OTP = 2L;
-
     private static final Float DEFAULT_FRANCHISE_COMMISION = 1F;
     private static final Float UPDATED_FRANCHISE_COMMISION = 2F;
 
@@ -128,8 +122,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .spareOrderTime(DEFAULT_SPARE_ORDER_TIME)
             .spareDeliveryTime(DEFAULT_SPARE_DELIVERY_TIME)
             .completedTime(DEFAULT_COMPLETED_TIME)
-            .completionOTP(DEFAULT_COMPLETION_OTP)
-            .cancellationOTP(DEFAULT_CANCELLATION_OTP)
             .franchiseCommision(DEFAULT_FRANCHISE_COMMISION)
             .franchiseCommisionTax(DEFAULT_FRANCHISE_COMMISION_TAX)
             .franchiseInvoicePath(DEFAULT_FRANCHISE_INVOICE_PATH)
@@ -156,8 +148,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
             .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
-            .completionOTP(UPDATED_COMPLETION_OTP)
-            .cancellationOTP(UPDATED_CANCELLATION_OTP)
             .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
             .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
@@ -339,8 +329,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .andExpect(jsonPath("$.[*].spareOrderTime").value(hasItem(DEFAULT_SPARE_ORDER_TIME.toString())))
             .andExpect(jsonPath("$.[*].spareDeliveryTime").value(hasItem(DEFAULT_SPARE_DELIVERY_TIME.toString())))
             .andExpect(jsonPath("$.[*].completedTime").value(hasItem(DEFAULT_COMPLETED_TIME.toString())))
-            .andExpect(jsonPath("$.[*].completionOTP").value(hasItem(DEFAULT_COMPLETION_OTP.intValue())))
-            .andExpect(jsonPath("$.[*].cancellationOTP").value(hasItem(DEFAULT_CANCELLATION_OTP.intValue())))
             .andExpect(jsonPath("$.[*].franchiseCommision").value(hasItem(DEFAULT_FRANCHISE_COMMISION.doubleValue())))
             .andExpect(jsonPath("$.[*].franchiseCommisionTax").value(hasItem(DEFAULT_FRANCHISE_COMMISION_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].franchiseInvoicePath").value(hasItem(DEFAULT_FRANCHISE_INVOICE_PATH)))
@@ -371,8 +359,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .andExpect(jsonPath("$.spareOrderTime").value(DEFAULT_SPARE_ORDER_TIME.toString()))
             .andExpect(jsonPath("$.spareDeliveryTime").value(DEFAULT_SPARE_DELIVERY_TIME.toString()))
             .andExpect(jsonPath("$.completedTime").value(DEFAULT_COMPLETED_TIME.toString()))
-            .andExpect(jsonPath("$.completionOTP").value(DEFAULT_COMPLETION_OTP.intValue()))
-            .andExpect(jsonPath("$.cancellationOTP").value(DEFAULT_CANCELLATION_OTP.intValue()))
             .andExpect(jsonPath("$.franchiseCommision").value(DEFAULT_FRANCHISE_COMMISION.doubleValue()))
             .andExpect(jsonPath("$.franchiseCommisionTax").value(DEFAULT_FRANCHISE_COMMISION_TAX.doubleValue()))
             .andExpect(jsonPath("$.franchiseInvoicePath").value(DEFAULT_FRANCHISE_INVOICE_PATH))
@@ -413,8 +399,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
             .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
-            .completionOTP(UPDATED_COMPLETION_OTP)
-            .cancellationOTP(UPDATED_CANCELLATION_OTP)
             .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
             .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
@@ -505,15 +489,13 @@ class ServiceOrderFranchiseAssignmentResourceIT {
 
         partialUpdatedServiceOrderFranchiseAssignment
             .serviceOrderAssignmentStatus(UPDATED_SERVICE_ORDER_ASSIGNMENT_STATUS)
-            .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
+            .isActive(UPDATED_IS_ACTIVE)
+            .assignedTime(UPDATED_ASSIGNED_TIME)
+            .visitTime(UPDATED_VISIT_TIME)
             .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
-            .completedTime(UPDATED_COMPLETED_TIME)
-            .cancellationOTP(UPDATED_CANCELLATION_OTP)
-            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
             .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .createdTime(UPDATED_CREATED_TIME);
 
         restServiceOrderFranchiseAssignmentMockMvc
             .perform(
@@ -554,8 +536,6 @@ class ServiceOrderFranchiseAssignmentResourceIT {
             .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
             .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
-            .completionOTP(UPDATED_COMPLETION_OTP)
-            .cancellationOTP(UPDATED_CANCELLATION_OTP)
             .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
             .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
             .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)

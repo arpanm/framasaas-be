@@ -26,7 +26,8 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
-      "franchise": "Franchise"
+      "franchise": "Franchise",
+      "additionalAttribute": "Additional Attribute"
     }
   }
 }

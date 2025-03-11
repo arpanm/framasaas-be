@@ -243,7 +243,27 @@ export const AdditionalAttribute = () => {
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderSpare">Service Order Spare</Translate>{' '}
+                    <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderFieldAgentAssignment">
+                      Service Order Field Agent Assignment
+                    </Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.franchiseAllocationRuleSet">
+                      Franchise Allocation Rule Set
+                    </Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.franchiseAllocationRule">Franchise Allocation Rule</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.fieldAgentSkillRuleSet">Field Agent Skill Rule Set</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.fieldAgentSkillRule">Field Agent Skill Rule</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
@@ -440,9 +460,45 @@ export const AdditionalAttribute = () => {
                       )}
                     </td>
                     <td>
-                      {additionalAttribute.serviceOrderSpare ? (
-                        <Link to={`/service-order-spare/${additionalAttribute.serviceOrderSpare.id}`}>
-                          {additionalAttribute.serviceOrderSpare.id}
+                      {additionalAttribute.serviceOrderFieldAgentAssignment ? (
+                        <Link to={`/service-order-field-agent-assignment/${additionalAttribute.serviceOrderFieldAgentAssignment.id}`}>
+                          {additionalAttribute.serviceOrderFieldAgentAssignment.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.franchiseAllocationRuleSet ? (
+                        <Link to={`/franchise-allocation-rule-set/${additionalAttribute.franchiseAllocationRuleSet.id}`}>
+                          {additionalAttribute.franchiseAllocationRuleSet.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.franchiseAllocationRule ? (
+                        <Link to={`/franchise-allocation-rule/${additionalAttribute.franchiseAllocationRule.id}`}>
+                          {additionalAttribute.franchiseAllocationRule.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.fieldAgentSkillRuleSet ? (
+                        <Link to={`/field-agent-skill-rule-set/${additionalAttribute.fieldAgentSkillRuleSet.id}`}>
+                          {additionalAttribute.fieldAgentSkillRuleSet.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.fieldAgentSkillRule ? (
+                        <Link to={`/field-agent-skill-rule/${additionalAttribute.fieldAgentSkillRule.id}`}>
+                          {additionalAttribute.fieldAgentSkillRule.id}
                         </Link>
                       ) : (
                         ''

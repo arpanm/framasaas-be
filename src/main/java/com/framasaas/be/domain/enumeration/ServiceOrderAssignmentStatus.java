@@ -6,6 +6,8 @@ package com.framasaas.be.domain.enumeration;
 public enum ServiceOrderAssignmentStatus {
     ASSIGNED,
     MOVEDBACK,
-    COMPLETED,
-    CANCELED,
+    COMPLETEDINIT,
+    COMPLETEDAPPROVED,
+    CANCELATIONINIT,
+    CANCELATIONAPPROVED,
 }

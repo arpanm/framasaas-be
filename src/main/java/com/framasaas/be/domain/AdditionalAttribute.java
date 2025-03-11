@@ -188,8 +188,32 @@ public class AdditionalAttribute implements Serializable {
     private ServiceOrderFranchiseAssignment serviceOrderFranchiseAssignment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "product" }, allowSetters = true)
-    private ServiceOrderSpare serviceOrderSpare;
+    @JsonIgnoreProperties(value = { "additionalAttributes" }, allowSetters = true)
+    private ServiceOrderFieldAgentAssignment serviceOrderFieldAgentAssignment;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "franchises", "additionalAttributes" }, allowSetters = true)
+    private FranchiseAllocationRuleSet franchiseAllocationRuleSet;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes" },
+        allowSetters = true
+    )
+    private FranchiseAllocationRule franchiseAllocationRule;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers", "additionalAttributes" }, allowSetters = true)
+    private FieldAgentSkillRuleSet fieldAgentSkillRuleSet;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = {
+            "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes", "fieldAgentSkillRuleSet",
+        },
+        allowSetters = true
+    )
+    private FieldAgentSkillRule fieldAgentSkillRule;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
@@ -605,16 +629,68 @@ public class AdditionalAttribute implements Serializable {
         return this;
     }
 
-    public ServiceOrderSpare getServiceOrderSpare() {
-        return this.serviceOrderSpare;
+    public ServiceOrderFieldAgentAssignment getServiceOrderFieldAgentAssignment() {
+        return this.serviceOrderFieldAgentAssignment;
     }
 
-    public void setServiceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
-        this.serviceOrderSpare = serviceOrderSpare;
+    public void setServiceOrderFieldAgentAssignment(ServiceOrderFieldAgentAssignment serviceOrderFieldAgentAssignment) {
+        this.serviceOrderFieldAgentAssignment = serviceOrderFieldAgentAssignment;
     }
 
-    public AdditionalAttribute serviceOrderSpare(ServiceOrderSpare serviceOrderSpare) {
-        this.setServiceOrderSpare(serviceOrderSpare);
+    public AdditionalAttribute serviceOrderFieldAgentAssignment(ServiceOrderFieldAgentAssignment serviceOrderFieldAgentAssignment) {
+        this.setServiceOrderFieldAgentAssignment(serviceOrderFieldAgentAssignment);
+        return this;
+    }
+
+    public FranchiseAllocationRuleSet getFranchiseAllocationRuleSet() {
+        return this.franchiseAllocationRuleSet;
+    }
+
+    public void setFranchiseAllocationRuleSet(FranchiseAllocationRuleSet franchiseAllocationRuleSet) {
+        this.franchiseAllocationRuleSet = franchiseAllocationRuleSet;
+    }
+
+    public AdditionalAttribute franchiseAllocationRuleSet(FranchiseAllocationRuleSet franchiseAllocationRuleSet) {
+        this.setFranchiseAllocationRuleSet(franchiseAllocationRuleSet);
+        return this;
+    }
+
+    public FranchiseAllocationRule getFranchiseAllocationRule() {
+        return this.franchiseAllocationRule;
+    }
+
+    public void setFranchiseAllocationRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.franchiseAllocationRule = franchiseAllocationRule;
+    }
+
+    public AdditionalAttribute franchiseAllocationRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.setFranchiseAllocationRule(franchiseAllocationRule);
+        return this;
+    }
+
+    public FieldAgentSkillRuleSet getFieldAgentSkillRuleSet() {
+        return this.fieldAgentSkillRuleSet;
+    }
+
+    public void setFieldAgentSkillRuleSet(FieldAgentSkillRuleSet fieldAgentSkillRuleSet) {
+        this.fieldAgentSkillRuleSet = fieldAgentSkillRuleSet;
+    }
+
+    public AdditionalAttribute fieldAgentSkillRuleSet(FieldAgentSkillRuleSet fieldAgentSkillRuleSet) {
+        this.setFieldAgentSkillRuleSet(fieldAgentSkillRuleSet);
+        return this;
+    }
+
+    public FieldAgentSkillRule getFieldAgentSkillRule() {
+        return this.fieldAgentSkillRule;
+    }
+
+    public void setFieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.fieldAgentSkillRule = fieldAgentSkillRule;
+    }
+
+    public AdditionalAttribute fieldAgentSkillRule(FieldAgentSkillRule fieldAgentSkillRule) {
+        this.setFieldAgentSkillRule(fieldAgentSkillRule);
         return this;
     }
 

@@ -142,7 +142,11 @@ public class Franchise implements Serializable {
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -150,7 +154,7 @@ public class Franchise implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "franchises" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "franchises", "additionalAttributes" }, allowSetters = true)
     private FranchiseAllocationRuleSet ruleset;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")

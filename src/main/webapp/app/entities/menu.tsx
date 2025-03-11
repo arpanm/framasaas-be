@@ -109,6 +109,9 @@ const EntitiesMenu = () => {
       <MenuItem icon="asterisk" to="/field-agent-skill-rule">
         <Translate contentKey="global.menu.entities.fieldAgentSkillRule" />
       </MenuItem>
+      <MenuItem icon="asterisk" to="/service-order-field-agent-assignment">
+        <Translate contentKey="global.menu.entities.serviceOrderFieldAgentAssignment" />
+      </MenuItem>
       {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
     </>
   );

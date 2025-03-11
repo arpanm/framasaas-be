@@ -27,8 +27,6 @@
       "spareOrderTime": "Spare Order Time",
       "spareDeliveryTime": "Spare Delivery Time",
       "completedTime": "Completed Time",
-      "completionOTP": "Completion OTP",
-      "cancellationOTP": "Cancellation OTP",
       "franchiseCommision": "Franchise Commision",
       "franchiseCommisionTax": "Franchise Commision Tax",
       "franchiseInvoicePath": "Franchise Invoice Path",

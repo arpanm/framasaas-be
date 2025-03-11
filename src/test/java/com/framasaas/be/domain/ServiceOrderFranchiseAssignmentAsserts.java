@@ -72,8 +72,6 @@ public class ServiceOrderFranchiseAssignmentAsserts {
             .satisfies(a -> assertThat(a.getSpareOrderTime()).as("check spareOrderTime").isEqualTo(expected.getSpareOrderTime()))
             .satisfies(a -> assertThat(a.getSpareDeliveryTime()).as("check spareDeliveryTime").isEqualTo(expected.getSpareDeliveryTime()))
             .satisfies(a -> assertThat(a.getCompletedTime()).as("check completedTime").isEqualTo(expected.getCompletedTime()))
-            .satisfies(a -> assertThat(a.getCompletionOTP()).as("check completionOTP").isEqualTo(expected.getCompletionOTP()))
-            .satisfies(a -> assertThat(a.getCancellationOTP()).as("check cancellationOTP").isEqualTo(expected.getCancellationOTP()))
             .satisfies(a -> assertThat(a.getFranchiseCommision()).as("check franchiseCommision").isEqualTo(expected.getFranchiseCommision())
             )
             .satisfies(a ->
