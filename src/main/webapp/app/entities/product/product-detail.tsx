@@ -91,6 +91,14 @@ export const ProductDetail = () => {
             {productEntity.updatedTime ? <TextFormat value={productEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
           </dd>
           <dt>
+            <Translate contentKey="framasaasApp.product.category">Category</Translate>
+          </dt>
+          <dd>{productEntity.category ? productEntity.category.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.product.brand">Brand</Translate>
+          </dt>
+          <dd>{productEntity.brand ? productEntity.brand.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.product.hsn">Hsn</Translate>
           </dt>
           <dd>{productEntity.hsn ? productEntity.hsn.id : ''}</dd>

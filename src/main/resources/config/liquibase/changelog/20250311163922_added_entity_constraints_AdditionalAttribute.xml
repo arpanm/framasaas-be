@@ -31,6 +31,20 @@
                                  referencedTableName="franchise_performance_history"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="brand_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__brand_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="brand"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="address_id"
                                  baseTableName="additional_attribute"
                                  constraintName="fk_additional_attribute__address_id"

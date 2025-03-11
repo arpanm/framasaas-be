@@ -1,6 +1,8 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
+import static com.framasaas.be.domain.BrandTestSamples.*;
+import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.HsnTestSamples.*;
 import static com.framasaas.be.domain.ProductPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
@@ -69,6 +71,30 @@ class ProductTest {
         product.setAdditionalAttributes(new HashSet<>());
         assertThat(product.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
         assertThat(additionalAttributeBack.getProduct()).isNull();
+    }
+
+    @Test
+    void categoryTest() {
+        Product product = getProductRandomSampleGenerator();
+        Category categoryBack = getCategoryRandomSampleGenerator();
+
+        product.setCategory(categoryBack);
+        assertThat(product.getCategory()).isEqualTo(categoryBack);
+
+        product.category(null);
+        assertThat(product.getCategory()).isNull();
+    }
+
+    @Test
+    void brandTest() {
+        Product product = getProductRandomSampleGenerator();
+        Brand brandBack = getBrandRandomSampleGenerator();
+
+        product.setBrand(brandBack);
+        assertThat(product.getBrand()).isEqualTo(brandBack);
+
+        product.brand(null);
+        assertThat(product.getBrand()).isNull();
     }
 
     @Test

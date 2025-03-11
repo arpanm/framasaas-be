@@ -29,6 +29,8 @@
       "franchise": "Franchise",
       "franchiseStatus": "Franchise Status",
       "franchisePerformance": "Franchise Performance",
+      "brand": "Brand",
+      "category": "Category",
       "address": "Address",
       "location": "Location",
       "franchiseUser": "Franchise User",

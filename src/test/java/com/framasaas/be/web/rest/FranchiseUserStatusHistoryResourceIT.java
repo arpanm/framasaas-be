@@ -332,7 +332,10 @@ class FranchiseUserStatusHistoryResourceIT {
         FranchiseUserStatusHistory partialUpdatedFranchiseUserStatusHistory = new FranchiseUserStatusHistory();
         partialUpdatedFranchiseUserStatusHistory.setId(franchiseUserStatusHistory.getId());
 
-        partialUpdatedFranchiseUserStatusHistory.updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedFranchiseUserStatusHistory
+            .userSatus(UPDATED_USER_SATUS)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseUserStatusHistoryMockMvc
             .perform(

@@ -401,8 +401,6 @@ class HsnResourceIT {
         Hsn partialUpdatedHsn = new Hsn();
         partialUpdatedHsn.setId(hsn.getId());
 
-        partialUpdatedHsn.description(UPDATED_DESCRIPTION).createdTime(UPDATED_CREATED_TIME).updatedTime(UPDATED_UPDATED_TIME);
-
         restHsnMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedHsn.getId())

@@ -44,6 +44,12 @@
             <column name="franchise_performance_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="brand_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="address_id" type="bigint">
                 <constraints nullable="true" />
             </column>

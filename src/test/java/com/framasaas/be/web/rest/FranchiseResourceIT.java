@@ -42,8 +42,8 @@ class FranchiseResourceIT {
     private static final String DEFAULT_OWNER = "AAAAAAAAAA";
     private static final String UPDATED_OWNER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "AC@zEYv.z3?xD`";
-    private static final String UPDATED_EMAIL = "q7{J@fP3c.Nk";
+    private static final String DEFAULT_EMAIL = "-^\\iT~@X;Bg$.$";
+    private static final String UPDATED_EMAIL = "W@s44SDE.I%5a";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -474,8 +474,9 @@ class FranchiseResourceIT {
         partialUpdatedFranchise
             .franchiseName(UPDATED_FRANCHISE_NAME)
             .owner(UPDATED_OWNER)
-            .contact(UPDATED_CONTACT)
-            .createddBy(UPDATED_CREATEDD_BY)
+            .email(UPDATED_EMAIL)
+            .franchiseStatus(UPDATED_FRANCHISE_STATUS)
+            .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedTime(UPDATED_UPDATED_TIME);
 
