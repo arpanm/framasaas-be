@@ -90,6 +90,9 @@ entity FranchiseDocument {
     documentFormat DocumentFormat required,
     documentSize Long,
     documentPath String required,
+    isValidated Boolean required,
+    validatedBy String required,
+    validatedTime Instant required,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -195,6 +198,7 @@ entity Brand {
     logoPath String,
     vendorBrandId String required,
     description String,
+    isActive Boolean,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -206,6 +210,7 @@ entity Category {
     imagePath String,
     vendorCategoryId String required,
     description String,
+    isActive Boolean,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -284,6 +289,7 @@ entity Product {
     description String,
     price Float required,
     productType ProductType,
+    isActive Boolean,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -309,6 +315,7 @@ entity Hsn {
 	hsnCD String required,
     description String,
     taxRate Float required,
+    isActive Boolean,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -337,6 +344,7 @@ entity WarrantyMaster {
     price Float required,
     periodInMonths Long required,
     taxRate Float required,
+    isActive Boolean,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -403,7 +411,9 @@ relationship OneToMany {
 
 entity ArticleWarrantyDetailsDocument {
 	documentPath String required,
-    isValid Boolean,
+    isValidated Boolean required,
+    validatedBy String required,
+    validatedTime Instant required,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -412,6 +422,142 @@ entity ArticleWarrantyDetailsDocument {
 
 relationship OneToMany {
 	ArticleWarrantyDetails to ArticleWarrantyDetailsDocument{articleWarranty}
+}
+
+entity ServiceOrderMaster {
+	serviceOrderType ServiceOrderType,
+    slaInHours Long,
+	charge Float,
+    tax Float,
+    franchiseCommissionWithinSla Float,
+    franchiseChargeWithinSlaTax Float,
+    franchiseCommissionOutsideSla Float,
+    franchiseChargeOutsideSlaTax Float,
+    isActive Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	Product to ServiceOrderMaster{product}
+}
+
+entity ServiceOrder {
+	description String,
+    orderType ServiceOrderType,
+	orderStatus ServiceOrderStatus,
+    inWarranty Boolean,
+    isFree Boolean,
+    isSpareNeeded Boolean,
+    confirmedTime Instant,
+    closedTime Instant,
+    serviceCharge Float,
+    tax Float,
+    totalSpareCharges Float,
+    totalSpareTax Float,
+    totalCharges Float,
+    totalPaymentDone Float,
+    customerInvoicePath String,
+    nps Float,
+    priority Long,
+    isActive Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum ServiceOrderStatus {
+	CREATED,
+    ASSIGNED,
+    INPROGRESS,
+    WAITINGFORSPARE,
+    COMPLETED,
+    CANCELED
+}
+
+enum ServiceOrderType {
+	REPAIR,
+    PERIODICMAINTENANCE,
+    INSTALLATION,
+    UNINSTALLATION,
+    RETURNVERIFICATION
+}
+
+relationship OneToMany {
+	Customer to ServiceOrder{customer}
+}
+
+relationship OneToMany {
+	Article to ServiceOrder{article}
+}
+
+relationship OneToMany {
+	Address to ServiceOrder{address}
+}
+
+entity ServiceOrderPayment {
+	paymentLink String,
+    paymentStatus PaymentStatus,
+    mop ModeOfPayment,
+    pgTxnId String,
+    pgTxnResponse String,
+    pgTxnResponseTime Instant,
+    paymentInitiatedBy String,
+    isActive Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum PaymentStatus {
+	INITIATED,
+    SUCCESS,
+    FAILURE
+}
+
+enum ModeOfPayment {
+	CASH,
+    ONLINE
+}
+
+entity ServiceOrderAssignment {
+	serviceOrderAssignmentStatus ServiceOrderAssignmentStatus required,
+    nps Long,
+	isActive Boolean,
+    assignedTime Instant,
+    movedBackTime Instant,
+    visitTime Instant,
+    spareOrderTime Instant,
+    spareDeliveryTime Instant,
+    completedTime Instant,
+    completionOTP Long,
+    cancellationOTP Long,
+    franchiseCommision Float,
+    franchiseCommisionTax Float,
+    franchiseInvoicePath String,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum ServiceOrderAssignmentStatus {
+	ASSIGNED,
+    MOVEDBACK,
+    COMPLETED,
+    CANCELED
+}
+
+relationship OneToMany {
+	ServiceOrder to ServiceOrderAssignment{serviceOrder}
+}
+
+relationship OneToMany {
+	Franchise to ServiceOrderAssignment{franchise}
 }
 
 entity AdditionalAttribute {
@@ -518,6 +664,18 @@ relationship OneToMany {
 
 relationship OneToMany {
 	ArticleWarrantyDetailsDocument to AdditionalAttribute{articleWarrantyDocument}
+}
+
+relationship OneToMany {
+	ServiceOrder to AdditionalAttribute{serviceOrder}
+}
+
+relationship OneToMany {
+	ServiceOrderPayment to AdditionalAttribute{serviceOrderPayment}
+}
+
+relationship OneToMany {
+	ServiceOrderAssignment to AdditionalAttribute{serviceOrderAssignment}
 }
 
 // Set pagination options
