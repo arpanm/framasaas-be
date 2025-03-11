@@ -142,6 +142,8 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.ServiceOrderFranchiseAssignment.class.getName() + ".additionalAttributes");
             createCache(cm, com.framasaas.be.domain.ServiceOrderSpare.class.getName());
             createCache(cm, com.framasaas.be.domain.ServiceOrderSpare.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.FranchiseAllocationRule.class.getName() + ".languageMappings");
+            createCache(cm, com.framasaas.be.domain.LanguageMapping.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

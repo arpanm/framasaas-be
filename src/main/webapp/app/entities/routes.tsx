@@ -34,6 +34,7 @@ import ServiceOrderPayment from './service-order-payment';
 import ServiceOrderAssignment from './service-order-assignment';
 import ServiceOrderFranchiseAssignment from './service-order-franchise-assignment';
 import ServiceOrderSpare from './service-order-spare';
+import LanguageMapping from './language-mapping';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -73,6 +74,7 @@ export default () => {
         <Route path="service-order-assignment/*" element={<ServiceOrderAssignment />} />
         <Route path="service-order-franchise-assignment/*" element={<ServiceOrderFranchiseAssignment />} />
         <Route path="service-order-spare/*" element={<ServiceOrderSpare />} />
+        <Route path="language-mapping/*" element={<LanguageMapping />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "languageMapping": {
+      "home": {
+        "title": "Language Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Language Mapping",
+        "createOrEditLabel": "Create or edit a Language Mapping",
+        "notFound": "No Language Mappings found"
+      },
+      "created": "A new Language Mapping is created with identifier {{ param }}",
+      "updated": "A Language Mapping is updated with identifier {{ param }}",
+      "deleted": "A Language Mapping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Language Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Language Mapping"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseRule": "Franchise Rule"
+    }
+  }
+}

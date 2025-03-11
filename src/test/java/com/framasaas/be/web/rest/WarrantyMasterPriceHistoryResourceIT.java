@@ -325,7 +325,7 @@ class WarrantyMasterPriceHistoryResourceIT {
         WarrantyMasterPriceHistory partialUpdatedWarrantyMasterPriceHistory = new WarrantyMasterPriceHistory();
         partialUpdatedWarrantyMasterPriceHistory.setId(warrantyMasterPriceHistory.getId());
 
-        partialUpdatedWarrantyMasterPriceHistory.updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedWarrantyMasterPriceHistory.updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
 
         restWarrantyMasterPriceHistoryMockMvc
             .perform(

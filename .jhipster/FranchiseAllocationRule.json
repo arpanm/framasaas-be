@@ -67,6 +67,13 @@
       "relationshipName": "locationMapping",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "languageMapping",
+      "otherEntityRelationshipName": "franchiseRule",
+      "relationshipName": "languageMapping",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
     }
   ],
   "searchEngine": "no",

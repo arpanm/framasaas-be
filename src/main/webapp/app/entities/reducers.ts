@@ -30,6 +30,7 @@ import serviceOrderPayment from 'app/entities/service-order-payment/service-orde
 import serviceOrderAssignment from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import serviceOrderFranchiseAssignment from 'app/entities/service-order-franchise-assignment/service-order-franchise-assignment.reducer';
 import serviceOrderSpare from 'app/entities/service-order-spare/service-order-spare.reducer';
+import languageMapping from 'app/entities/language-mapping/language-mapping.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -65,6 +66,7 @@ const entitiesReducers = {
   serviceOrderAssignment,
   serviceOrderFranchiseAssignment,
   serviceOrderSpare,
+  languageMapping,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

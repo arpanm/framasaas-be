@@ -3,6 +3,7 @@ package com.framasaas.be.domain;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
+import static com.framasaas.be.domain.LanguageMappingTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static com.framasaas.be.domain.PincodeTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -114,5 +115,27 @@ class FranchiseAllocationRuleTest {
         franchiseAllocationRule.setLocationMappings(new HashSet<>());
         assertThat(franchiseAllocationRule.getLocationMappings()).doesNotContain(locationMappingBack);
         assertThat(locationMappingBack.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void languageMappingTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        LanguageMapping languageMappingBack = getLanguageMappingRandomSampleGenerator();
+
+        franchiseAllocationRule.addLanguageMapping(languageMappingBack);
+        assertThat(franchiseAllocationRule.getLanguageMappings()).containsOnly(languageMappingBack);
+        assertThat(languageMappingBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removeLanguageMapping(languageMappingBack);
+        assertThat(franchiseAllocationRule.getLanguageMappings()).doesNotContain(languageMappingBack);
+        assertThat(languageMappingBack.getFranchiseRule()).isNull();
+
+        franchiseAllocationRule.languageMappings(new HashSet<>(Set.of(languageMappingBack)));
+        assertThat(franchiseAllocationRule.getLanguageMappings()).containsOnly(languageMappingBack);
+        assertThat(languageMappingBack.getFranchiseRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setLanguageMappings(new HashSet<>());
+        assertThat(franchiseAllocationRule.getLanguageMappings()).doesNotContain(languageMappingBack);
+        assertThat(languageMappingBack.getFranchiseRule()).isNull();
     }
 }

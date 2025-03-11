@@ -75,6 +75,11 @@ public class FranchiseAllocationRule implements Serializable {
     @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private Set<LocationMapping> locationMappings = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseRule")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "franchiseRule" }, allowSetters = true)
+    private Set<LanguageMapping> languageMappings = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -289,6 +294,37 @@ public class FranchiseAllocationRule implements Serializable {
     public FranchiseAllocationRule removeLocationMapping(LocationMapping locationMapping) {
         this.locationMappings.remove(locationMapping);
         locationMapping.setFranchiseRule(null);
+        return this;
+    }
+
+    public Set<LanguageMapping> getLanguageMappings() {
+        return this.languageMappings;
+    }
+
+    public void setLanguageMappings(Set<LanguageMapping> languageMappings) {
+        if (this.languageMappings != null) {
+            this.languageMappings.forEach(i -> i.setFranchiseRule(null));
+        }
+        if (languageMappings != null) {
+            languageMappings.forEach(i -> i.setFranchiseRule(this));
+        }
+        this.languageMappings = languageMappings;
+    }
+
+    public FranchiseAllocationRule languageMappings(Set<LanguageMapping> languageMappings) {
+        this.setLanguageMappings(languageMappings);
+        return this;
+    }
+
+    public FranchiseAllocationRule addLanguageMapping(LanguageMapping languageMapping) {
+        this.languageMappings.add(languageMapping);
+        languageMapping.setFranchiseRule(this);
+        return this;
+    }
+
+    public FranchiseAllocationRule removeLanguageMapping(LanguageMapping languageMapping) {
+        this.languageMappings.remove(languageMapping);
+        languageMapping.setFranchiseRule(null);
         return this;
     }
 

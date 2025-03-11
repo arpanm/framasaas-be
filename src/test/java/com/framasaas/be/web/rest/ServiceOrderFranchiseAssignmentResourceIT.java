@@ -504,16 +504,12 @@ class ServiceOrderFranchiseAssignmentResourceIT {
         partialUpdatedServiceOrderFranchiseAssignment.setId(serviceOrderFranchiseAssignment.getId());
 
         partialUpdatedServiceOrderFranchiseAssignment
-            .serviceOrderAssignmentStatus(UPDATED_SERVICE_ORDER_ASSIGNMENT_STATUS)
             .nps(UPDATED_NPS)
-            .assignedTime(UPDATED_ASSIGNED_TIME)
-            .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
+            .isActive(UPDATED_IS_ACTIVE)
+            .movedBackTime(UPDATED_MOVED_BACK_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
-            .completionOTP(UPDATED_COMPLETION_OTP)
-            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
-            .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
+            .cancellationOTP(UPDATED_CANCELLATION_OTP)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderFranchiseAssignmentMockMvc
