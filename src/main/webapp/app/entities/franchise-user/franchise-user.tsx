@@ -147,6 +147,10 @@ export const FranchiseUser = () => {
                     <Translate contentKey="framasaasApp.franchiseUser.userStatus">User Status</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('userStatus')} />
                   </th>
+                  <th className="hand" onClick={sort('userRole')}>
+                    <Translate contentKey="framasaasApp.franchiseUser.userRole">User Role</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('userRole')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.franchiseUser.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -182,6 +186,9 @@ export const FranchiseUser = () => {
                     <td>{franchiseUser.contact}</td>
                     <td>
                       <Translate contentKey={`framasaasApp.FranchiseUserStatus.${franchiseUser.userStatus}`} />
+                    </td>
+                    <td>
+                      <Translate contentKey={`framasaasApp.FranchiseUserRole.${franchiseUser.userRole}`} />
                     </td>
                     <td>{franchiseUser.createddBy}</td>
                     <td>

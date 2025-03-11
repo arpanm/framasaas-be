@@ -26,6 +26,9 @@
             <column name="user_status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="user_role" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="createdd_by" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -68,6 +71,7 @@
             <column name="email" type="string"/>
             <column name="contact" type="numeric"/>
             <column name="user_status" type="string"/>
+            <column name="user_role" type="string"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
             <column name="updated_by" type="string"/>

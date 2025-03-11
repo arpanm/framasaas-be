@@ -70,6 +70,7 @@ public class AddressAsserts {
     public static void assertAddressUpdatableRelationshipsEquals(Address expected, Address actual) {
         assertThat(actual)
             .as("Verify Address relationships")
-            .satisfies(a -> assertThat(a.getLocation()).as("check location").isEqualTo(expected.getLocation()));
+            .satisfies(a -> assertThat(a.getLocation()).as("check location").isEqualTo(expected.getLocation()))
+            .satisfies(a -> assertThat(a.getCustomer()).as("check customer").isEqualTo(expected.getCustomer()));
     }
 }

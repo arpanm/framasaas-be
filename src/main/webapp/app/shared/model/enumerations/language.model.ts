@@ -1,0 +1,23 @@
+export enum Language {
+  English = 'English',
+
+  Hindi = 'Hindi',
+
+  Bengali = 'Bengali',
+
+  Marathi = 'Marathi',
+
+  Tamil = 'Tamil',
+
+  Telegu = 'Telegu',
+
+  Kanada = 'Kanada',
+
+  Malayalam = 'Malayalam',
+
+  Panjabi = 'Panjabi',
+
+  Bojhpuri = 'Bojhpuri',
+
+  Kashmiri = 'Kashmiri',
+}

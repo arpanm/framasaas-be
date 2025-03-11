@@ -17,7 +17,8 @@
         "franchiseDocument": "Franchise Document",
         "franchisePerformanceHistory": "Franchise Performance History",
         "franchiseUser": "Franchise User",
-        "franchiseUserStatusHistory": "Franchise User Status History"
+        "franchiseUserStatusHistory": "Franchise User Status History",
+        "customer": "Customer"
       },
       "account": {
         "main": "Account",

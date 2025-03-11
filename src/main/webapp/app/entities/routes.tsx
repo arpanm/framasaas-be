@@ -12,6 +12,7 @@ import FranchiseDocument from './franchise-document';
 import FranchisePerformanceHistory from './franchise-performance-history';
 import FranchiseUser from './franchise-user';
 import FranchiseUserStatusHistory from './franchise-user-status-history';
+import Customer from './customer';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -29,6 +30,7 @@ export default () => {
         <Route path="franchise-performance-history/*" element={<FranchisePerformanceHistory />} />
         <Route path="franchise-user/*" element={<FranchiseUser />} />
         <Route path="franchise-user-status-history/*" element={<FranchiseUserStatusHistory />} />
+        <Route path="customer/*" element={<Customer />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

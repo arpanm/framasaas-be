@@ -80,6 +80,10 @@ public class Address implements Serializable {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
     private Franchise franchise;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "addresses" }, allowSetters = true)
+    private Customer customer;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -280,6 +284,19 @@ public class Address implements Serializable {
 
     public Address franchise(Franchise franchise) {
         this.setFranchise(franchise);
+        return this;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Address customer(Customer customer) {
+        this.setCustomer(customer);
         return this;
     }
 

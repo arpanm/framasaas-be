@@ -1,6 +1,7 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AddressTestSamples.*;
+import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,5 +49,17 @@ class AddressTest {
         address.franchise(null);
         assertThat(address.getFranchise()).isNull();
         assertThat(franchiseBack.getAddress()).isNull();
+    }
+
+    @Test
+    void customerTest() {
+        Address address = getAddressRandomSampleGenerator();
+        Customer customerBack = getCustomerRandomSampleGenerator();
+
+        address.setCustomer(customerBack);
+        assertThat(address.getCustomer()).isEqualTo(customerBack);
+
+        address.customer(null);
+        assertThat(address.getCustomer()).isNull();
     }
 }

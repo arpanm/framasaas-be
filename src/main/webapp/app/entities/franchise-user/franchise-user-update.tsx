@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
 import { FranchiseUserStatus } from 'app/shared/model/enumerations/franchise-user-status.model';
+import { FranchiseUserRole } from 'app/shared/model/enumerations/franchise-user-role.model';
 import { createEntity, getEntity, updateEntity } from './franchise-user.reducer';
 
 export const FranchiseUserUpdate = () => {
@@ -25,6 +26,7 @@ export const FranchiseUserUpdate = () => {
   const updating = useAppSelector(state => state.franchiseUser.updating);
   const updateSuccess = useAppSelector(state => state.franchiseUser.updateSuccess);
   const franchiseUserStatusValues = Object.keys(FranchiseUserStatus);
+  const franchiseUserRoleValues = Object.keys(FranchiseUserRole);
 
   const handleClose = () => {
     navigate('/franchise-user');
@@ -75,6 +77,7 @@ export const FranchiseUserUpdate = () => {
         }
       : {
           userStatus: 'PendingApproval',
+          userRole: 'FranchiseAdmin',
           ...franchiseUserEntity,
           createdTime: convertDateTimeFromServer(franchiseUserEntity.createdTime),
           updatedTime: convertDateTimeFromServer(franchiseUserEntity.updatedTime),
@@ -153,6 +156,19 @@ export const FranchiseUserUpdate = () => {
                 {franchiseUserStatusValues.map(franchiseUserStatus => (
                   <option value={franchiseUserStatus} key={franchiseUserStatus}>
                     {translate(`framasaasApp.FranchiseUserStatus.${franchiseUserStatus}`)}
+                  </option>
+                ))}
+              </ValidatedField>
+              <ValidatedField
+                label={translate('framasaasApp.franchiseUser.userRole')}
+                id="franchise-user-userRole"
+                name="userRole"
+                data-cy="userRole"
+                type="select"
+              >
+                {franchiseUserRoleValues.map(franchiseUserRole => (
+                  <option value={franchiseUserRole} key={franchiseUserRole}>
+                    {translate(`framasaasApp.FranchiseUserRole.${franchiseUserRole}`)}
                   </option>
                 ))}
               </ValidatedField>

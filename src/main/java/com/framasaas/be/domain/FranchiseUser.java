@@ -1,6 +1,7 @@
 package com.framasaas.be.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.framasaas.be.domain.enumeration.FranchiseUserRole;
 import com.framasaas.be.domain.enumeration.FranchiseUserStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -46,6 +47,10 @@ public class FranchiseUser implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "user_status")
     private FranchiseUserStatus userStatus;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
+    private FranchiseUserRole userRole;
 
     @NotNull
     @Column(name = "createdd_by", nullable = false)
@@ -142,6 +147,19 @@ public class FranchiseUser implements Serializable {
 
     public void setUserStatus(FranchiseUserStatus userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public FranchiseUserRole getUserRole() {
+        return this.userRole;
+    }
+
+    public FranchiseUser userRole(FranchiseUserRole userRole) {
+        this.setUserRole(userRole);
+        return this;
+    }
+
+    public void setUserRole(FranchiseUserRole userRole) {
+        this.userRole = userRole;
     }
 
     public String getCreateddBy() {
@@ -268,6 +286,7 @@ public class FranchiseUser implements Serializable {
             ", email='" + getEmail() + "'" +
             ", contact=" + getContact() +
             ", userStatus='" + getUserStatus() + "'" +
+            ", userRole='" + getUserRole() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

@@ -458,12 +458,9 @@ class FranchiseDocumentResourceIT {
         partialUpdatedFranchiseDocument.setId(franchiseDocument.getId());
 
         partialUpdatedFranchiseDocument
-            .documentName(UPDATED_DOCUMENT_NAME)
-            .documentType(UPDATED_DOCUMENT_TYPE)
-            .documentPath(UPDATED_DOCUMENT_PATH)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .documentFormat(UPDATED_DOCUMENT_FORMAT)
+            .documentSize(UPDATED_DOCUMENT_SIZE)
+            .createddBy(UPDATED_CREATEDD_BY);
 
         restFranchiseDocumentMockMvc
             .perform(
