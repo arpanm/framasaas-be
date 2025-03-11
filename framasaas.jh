@@ -225,6 +225,14 @@ entity Pincode {
     updatedTime Instant required
 }
 
+entity LanguageMapping {
+	language Language required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
 entity FranchiseAllocationRuleSet {
 	name String required,
     sortType FranchiseAllocationRuleSetSortType required,
@@ -255,7 +263,8 @@ enum FranchiseAllocationRuleType {
 	BRANDRULE,
     CATEGORYRULE,
     PINCODERULE,
-    LOCALITYRULE
+    LOCALITYRULE,
+    LANGUAGERULE
 }
 
 enum FranchiseAllocationRuleJoinType {
@@ -276,11 +285,72 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	FranchiseAllocationRule to LocationMapping{franchiseRule}
+	FranchiseAllocationRule to LanguageMapping{franchiseRule}
 }
 
 relationship OneToMany {
 	FranchiseAllocationRuleSet to Franchise{ruleset}
+}
+
+entity FieldAgentSkillRuleSet {
+	sortType FieldAgentSkillRuleSetSortType
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum FieldAgentSkillRuleSetSortType {
+	NPS,
+    ROUNDROBIN,
+    PROXIMITY,
+    EXPERIENCELEVEL
+}
+
+entity FieldAgentSkillRule {
+	skillType FieldAgentSkillRuleType,
+    joinType FieldAgentSkillRuleJoinType,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+relationship OneToMany {
+	FieldAgentSkillRuleSet to FieldAgentSkillRule{fieldAgentSkillRuleSet}
+}
+
+enum FieldAgentSkillRuleType {
+	BRANDSKILL,
+    CATEGORYSKILL,
+    PINCODESKILL,
+    LOCALITYSKILL,
+    LANGUAGESKILL
+}
+
+enum FieldAgentSkillRuleJoinType {
+	ANDJOIN,
+    ORJOIN
+}
+
+relationship OneToMany {
+	FieldAgentSkillRule to Brand{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRule to Category{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRule to Pincode{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRule to LanguageMapping{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+	FieldAgentSkillRuleSet to FranchiseUser{skillRuleSet}
 }
 
 entity Product {
@@ -524,7 +594,7 @@ enum ModeOfPayment {
     ONLINE
 }
 
-entity ServiceOrderAssignment {
+entity ServiceOrderFranchiseAssignment {
 	serviceOrderAssignmentStatus ServiceOrderAssignmentStatus required,
     nps Long,
 	isActive Boolean,
@@ -553,11 +623,47 @@ enum ServiceOrderAssignmentStatus {
 }
 
 relationship OneToMany {
-	ServiceOrder to ServiceOrderAssignment{serviceOrder}
+	ServiceOrder to ServiceOrderFranchiseAssignment{serviceOrder}
 }
 
 relationship OneToMany {
-	Franchise to ServiceOrderAssignment{franchise}
+	Franchise to ServiceOrderFranchiseAssignment{franchise}
+}
+
+entity ServiceOrderSpare {
+	price Float,
+    tax Float,
+    totalCharge Float,
+    orderedFrom SpareOrderedFrom,
+	spareStatus ServiceOrderSpareStatus,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum ServiceOrderSpareStatus {
+	ADDED,
+    PAYMENTINIT,
+    PAYMENTSUCCESS,
+    PAYMENTFAILED,
+    SPAREORDERED,
+    SPAREDELIVERED,
+    INSTALLED
+}
+
+enum SpareOrderedFrom {
+	ENGINEER,
+    FRANCHISE,
+    MOTHERCOMPANY
+}
+
+relationship OneToMany {
+	ServiceOrder to ServiceOrderSpare{serviceOrderSpare}
+}
+
+relationship OneToMany {
+	Product to ServiceOrderSpare{product}
 }
 
 entity AdditionalAttribute {
@@ -675,7 +781,11 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	ServiceOrderAssignment to AdditionalAttribute{serviceOrderAssignment}
+	ServiceOrderFranchiseAssignment to AdditionalAttribute{serviceOrderAssignment}
+}
+
+relationship OneToMany {
+	ServiceOrderSpare to AdditionalAttribute{serviceOrderSpare}
 }
 
 // Set pagination options
