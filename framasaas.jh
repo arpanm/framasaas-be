@@ -282,7 +282,17 @@ relationship OneToMany {
 	FranchiseAllocationRule to LocationMapping{franchiseRule}
 }
 
+entity LanguageMapping {
+    lang Language required,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
 
+relationship OneToMany {
+    FranchiseAllocationRule to LanguageMapping{franchiseRule}
+}
 
 relationship OneToMany {
 	FranchiseAllocationRuleSet to Franchise{ruleset}
