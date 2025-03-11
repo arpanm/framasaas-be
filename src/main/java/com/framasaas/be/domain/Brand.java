@@ -59,7 +59,10 @@ public class Brand implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "productPriceHistories", "additionalAttributes", "category", "brand", "hsn" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        allowSetters = true
+    )
     private Set<Product> products = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
@@ -80,6 +83,8 @@ public class Brand implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )

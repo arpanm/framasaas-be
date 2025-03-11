@@ -23,6 +23,8 @@ import Category from './category';
 import Pincode from './pincode';
 import FranchiseAllocationRuleSet from './franchise-allocation-rule-set';
 import FranchiseAllocationRule from './franchise-allocation-rule';
+import Article from './article';
+import ArticleWarrantyDetails from './article-warranty-details';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -51,6 +53,8 @@ export default () => {
         <Route path="pincode/*" element={<Pincode />} />
         <Route path="franchise-allocation-rule-set/*" element={<FranchiseAllocationRuleSet />} />
         <Route path="franchise-allocation-rule/*" element={<FranchiseAllocationRule />} />
+        <Route path="article/*" element={<Article />} />
+        <Route path="article-warranty-details/*" element={<ArticleWarrantyDetails />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

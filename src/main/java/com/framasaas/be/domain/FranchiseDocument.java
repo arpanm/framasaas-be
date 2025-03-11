@@ -84,6 +84,8 @@ public class FranchiseDocument implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )

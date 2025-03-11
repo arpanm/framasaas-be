@@ -126,6 +126,8 @@ public class Franchise implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )

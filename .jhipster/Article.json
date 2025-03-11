@@ -1,0 +1,68 @@
+{
+  "annotations": {
+    "changelogDate": "20250311170807"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "serialNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vendorArticleId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Article",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "articleWarrantyDetails",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "articleWarrantyDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "customer",
+      "relationshipName": "customer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

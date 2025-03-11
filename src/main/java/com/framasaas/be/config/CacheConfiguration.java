@@ -104,6 +104,13 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.FranchiseAllocationRule.class.getName() + ".categories");
             createCache(cm, com.framasaas.be.domain.FranchiseAllocationRule.class.getName() + ".pincodes");
             createCache(cm, com.framasaas.be.domain.FranchiseAllocationRule.class.getName() + ".locationMappings");
+            createCache(cm, com.framasaas.be.domain.Customer.class.getName() + ".articles");
+            createCache(cm, com.framasaas.be.domain.Product.class.getName() + ".articles");
+            createCache(cm, com.framasaas.be.domain.Article.class.getName());
+            createCache(cm, com.framasaas.be.domain.Article.class.getName() + ".articleWarrantyDetails");
+            createCache(cm, com.framasaas.be.domain.Article.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.ArticleWarrantyDetails.class.getName());
+            createCache(cm, com.framasaas.be.domain.ArticleWarrantyDetails.class.getName() + ".additionalAttributes");
             // jhipster-needle-ehcache-add-entry
         };
     }

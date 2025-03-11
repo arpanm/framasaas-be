@@ -57,13 +57,18 @@ public class ProductPriceHistory implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "productPriceHistories", "additionalAttributes", "category", "brand", "hsn" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        allowSetters = true
+    )
     private Product franchise;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -100,5 +100,19 @@
                                  referencedColumnNames="id"
                                  referencedTableName="product_price_history"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="article_warranty_details_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__article_warranty_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article_warranty_details"
+                                 />
     </changeSet>
 </databaseChangeLog>

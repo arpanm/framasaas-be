@@ -127,6 +127,18 @@
       "relationshipName": "priceHistory",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "article",
+      "relationshipName": "article",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "articleWarrantyDetails",
+      "relationshipName": "articleWarrantyDetails",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",

@@ -66,6 +66,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "article",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "additionalAttribute",
       "otherEntityRelationshipName": "customer",
       "relationshipName": "additionalAttribute",

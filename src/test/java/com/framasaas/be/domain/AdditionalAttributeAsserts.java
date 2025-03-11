@@ -79,6 +79,10 @@ public class AdditionalAttributeAsserts {
             .satisfies(a -> assertThat(a.getDocument()).as("check document").isEqualTo(expected.getDocument()))
             .satisfies(a -> assertThat(a.getProduct()).as("check product").isEqualTo(expected.getProduct()))
             .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()))
-            .satisfies(a -> assertThat(a.getPriceHistory()).as("check priceHistory").isEqualTo(expected.getPriceHistory()));
+            .satisfies(a -> assertThat(a.getPriceHistory()).as("check priceHistory").isEqualTo(expected.getPriceHistory()))
+            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
+            .satisfies(a ->
+                assertThat(a.getArticleWarrantyDetails()).as("check articleWarrantyDetails").isEqualTo(expected.getArticleWarrantyDetails())
+            );
     }
 }

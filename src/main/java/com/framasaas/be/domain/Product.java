@@ -70,6 +70,11 @@ public class Product implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    private Set<Article> articles = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
@@ -86,6 +91,8 @@ public class Product implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )
@@ -263,6 +270,37 @@ public class Product implements Serializable {
     public Product removeProductPriceHistory(ProductPriceHistory productPriceHistory) {
         this.productPriceHistories.remove(productPriceHistory);
         productPriceHistory.setFranchise(null);
+        return this;
+    }
+
+    public Set<Article> getArticles() {
+        return this.articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        if (this.articles != null) {
+            this.articles.forEach(i -> i.setProduct(null));
+        }
+        if (articles != null) {
+            articles.forEach(i -> i.setProduct(this));
+        }
+        this.articles = articles;
+    }
+
+    public Product articles(Set<Article> articles) {
+        this.setArticles(articles);
+        return this;
+    }
+
+    public Product addArticle(Article article) {
+        this.articles.add(article);
+        article.setProduct(this);
+        return this;
+    }
+
+    public Product removeArticle(Article article) {
+        this.articles.remove(article);
+        article.setProduct(null);
         return this;
     }
 

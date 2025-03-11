@@ -134,6 +134,14 @@ export const AdditionalAttributeDetail = () => {
             <Translate contentKey="framasaasApp.additionalAttribute.priceHistory">Price History</Translate>
           </dt>
           <dd>{additionalAttributeEntity.priceHistory ? additionalAttributeEntity.priceHistory.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.article">Article</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.article ? additionalAttributeEntity.article.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDetails">Article Warranty Details</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.articleWarrantyDetails ? additionalAttributeEntity.articleWarrantyDetails.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/additional-attribute" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

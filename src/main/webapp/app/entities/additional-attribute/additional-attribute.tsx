@@ -207,6 +207,13 @@ export const AdditionalAttribute = () => {
                     <Translate contentKey="framasaasApp.additionalAttribute.priceHistory">Price History</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.article">Article</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDetails">Article Warranty Details</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -323,6 +330,22 @@ export const AdditionalAttribute = () => {
                       {additionalAttribute.priceHistory ? (
                         <Link to={`/product-price-history/${additionalAttribute.priceHistory.id}`}>
                           {additionalAttribute.priceHistory.id}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.article ? (
+                        <Link to={`/article/${additionalAttribute.article.id}`}>{additionalAttribute.article.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.articleWarrantyDetails ? (
+                        <Link to={`/article-warranty-details/${additionalAttribute.articleWarrantyDetails.id}`}>
+                          {additionalAttribute.articleWarrantyDetails.id}
                         </Link>
                       ) : (
                         ''

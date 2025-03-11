@@ -107,7 +107,7 @@ public class AdditionalAttribute implements Serializable {
     private FranchiseUser franchiseUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "addresses", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "addresses", "articles", "additionalAttributes" }, allowSetters = true)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -115,7 +115,10 @@ public class AdditionalAttribute implements Serializable {
     private FranchiseDocument document;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "productPriceHistories", "additionalAttributes", "category", "brand", "hsn" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "productPriceHistories", "articles", "additionalAttributes", "category", "brand", "hsn" },
+        allowSetters = true
+    )
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -125,6 +128,14 @@ public class AdditionalAttribute implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
     private ProductPriceHistory priceHistory;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    private Article article;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "article" }, allowSetters = true)
+    private ArticleWarrantyDetails articleWarrantyDetails;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -429,6 +440,32 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute priceHistory(ProductPriceHistory productPriceHistory) {
         this.setPriceHistory(productPriceHistory);
+        return this;
+    }
+
+    public Article getArticle() {
+        return this.article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+
+    public AdditionalAttribute article(Article article) {
+        this.setArticle(article);
+        return this;
+    }
+
+    public ArticleWarrantyDetails getArticleWarrantyDetails() {
+        return this.articleWarrantyDetails;
+    }
+
+    public void setArticleWarrantyDetails(ArticleWarrantyDetails articleWarrantyDetails) {
+        this.articleWarrantyDetails = articleWarrantyDetails;
+    }
+
+    public AdditionalAttribute articleWarrantyDetails(ArticleWarrantyDetails articleWarrantyDetails) {
+        this.setArticleWarrantyDetails(articleWarrantyDetails);
         return this;
     }
 

@@ -75,6 +75,11 @@ public class Customer implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "articleWarrantyDetails", "additionalAttributes", "product", "customer" }, allowSetters = true)
+    private Set<Article> articles = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = {
             "additionalAttributePossibleValues",
@@ -91,6 +96,8 @@ public class Customer implements Serializable {
             "product",
             "hsn",
             "priceHistory",
+            "article",
+            "articleWarrantyDetails",
         },
         allowSetters = true
     )
@@ -256,6 +263,37 @@ public class Customer implements Serializable {
     public Customer removeAddress(Address address) {
         this.addresses.remove(address);
         address.setCustomer(null);
+        return this;
+    }
+
+    public Set<Article> getArticles() {
+        return this.articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        if (this.articles != null) {
+            this.articles.forEach(i -> i.setCustomer(null));
+        }
+        if (articles != null) {
+            articles.forEach(i -> i.setCustomer(this));
+        }
+        this.articles = articles;
+    }
+
+    public Customer articles(Set<Article> articles) {
+        this.setArticles(articles);
+        return this;
+    }
+
+    public Customer addArticle(Article article) {
+        this.articles.add(article);
+        article.setCustomer(this);
+        return this;
+    }
+
+    public Customer removeArticle(Article article) {
+        this.articles.remove(article);
+        article.setCustomer(null);
         return this;
     }
 

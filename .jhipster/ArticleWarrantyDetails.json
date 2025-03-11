@@ -1,0 +1,72 @@
+{
+  "annotations": {
+    "changelogDate": "20250311170808"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "warrantyType",
+      "fieldType": "WarrantyType",
+      "fieldValues": "BRANDFREEWARRANTY,EXTENDEDPAIDWARRANTY,OTHER"
+    },
+    {
+      "fieldName": "vendorArticleWarrantyId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vendorWarrantyMasterId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ArticleWarrantyDetails",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "articleWarrantyDetails",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "article",
+      "relationshipName": "article",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
