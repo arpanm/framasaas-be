@@ -387,6 +387,7 @@ class FranchisePerformanceHistoryResourceIT {
 
         partialUpdatedFranchisePerformanceHistory
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .updatedTime(UPDATED_UPDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME);
 

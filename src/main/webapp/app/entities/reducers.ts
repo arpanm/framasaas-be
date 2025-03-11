@@ -14,6 +14,9 @@ import hsn from 'app/entities/hsn/hsn.reducer';
 import productPriceHistory from 'app/entities/product-price-history/product-price-history.reducer';
 import additionalAttribute from 'app/entities/additional-attribute/additional-attribute.reducer';
 import additionalAttributePossibleValue from 'app/entities/additional-attribute-possible-value/additional-attribute-possible-value.reducer';
+import brand from 'app/entities/brand/brand.reducer';
+import category from 'app/entities/category/category.reducer';
+import pincode from 'app/entities/pincode/pincode.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -33,6 +36,9 @@ const entitiesReducers = {
   productPriceHistory,
   additionalAttribute,
   additionalAttributePossibleValue,
+  brand,
+  category,
+  pincode,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

@@ -2,6 +2,8 @@ import dayjs from 'dayjs';
 import { IFranchise } from 'app/shared/model/franchise.model';
 import { IFranchiseStatusHistory } from 'app/shared/model/franchise-status-history.model';
 import { IFranchisePerformanceHistory } from 'app/shared/model/franchise-performance-history.model';
+import { IBrand } from 'app/shared/model/brand.model';
+import { ICategory } from 'app/shared/model/category.model';
 import { IAddress } from 'app/shared/model/address.model';
 import { ILocationMapping } from 'app/shared/model/location-mapping.model';
 import { IFranchiseUser } from 'app/shared/model/franchise-user.model';
@@ -24,6 +26,8 @@ export interface IAdditionalAttribute {
   franchise?: IFranchise | null;
   franchiseStatus?: IFranchiseStatusHistory | null;
   franchisePerformance?: IFranchisePerformanceHistory | null;
+  brand?: IBrand | null;
+  category?: ICategory | null;
   address?: IAddress | null;
   location?: ILocationMapping | null;
   franchiseUser?: IFranchiseUser | null;

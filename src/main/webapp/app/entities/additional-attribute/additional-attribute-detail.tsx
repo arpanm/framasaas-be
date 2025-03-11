@@ -95,6 +95,14 @@ export const AdditionalAttributeDetail = () => {
           </dt>
           <dd>{additionalAttributeEntity.franchisePerformance ? additionalAttributeEntity.franchisePerformance.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.brand">Brand</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.brand ? additionalAttributeEntity.brand.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.category">Category</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.category ? additionalAttributeEntity.category.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.address">Address</Translate>
           </dt>
           <dd>{additionalAttributeEntity.address ? additionalAttributeEntity.address.id : ''}</dd>

@@ -3,6 +3,8 @@ package com.framasaas.be.domain;
 import static com.framasaas.be.domain.AdditionalAttributePossibleValueTestSamples.*;
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
+import static com.framasaas.be.domain.BrandTestSamples.*;
+import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
 import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
@@ -92,6 +94,30 @@ class AdditionalAttributeTest {
 
         additionalAttribute.franchisePerformance(null);
         assertThat(additionalAttribute.getFranchisePerformance()).isNull();
+    }
+
+    @Test
+    void brandTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        Brand brandBack = getBrandRandomSampleGenerator();
+
+        additionalAttribute.setBrand(brandBack);
+        assertThat(additionalAttribute.getBrand()).isEqualTo(brandBack);
+
+        additionalAttribute.brand(null);
+        assertThat(additionalAttribute.getBrand()).isNull();
+    }
+
+    @Test
+    void categoryTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        Category categoryBack = getCategoryRandomSampleGenerator();
+
+        additionalAttribute.setCategory(categoryBack);
+        assertThat(additionalAttribute.getCategory()).isEqualTo(categoryBack);
+
+        additionalAttribute.category(null);
+        assertThat(additionalAttribute.getCategory()).isNull();
     }
 
     @Test

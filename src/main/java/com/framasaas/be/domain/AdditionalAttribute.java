@@ -87,6 +87,14 @@ public class AdditionalAttribute implements Serializable {
     private FranchisePerformanceHistory franchisePerformance;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes" }, allowSetters = true)
+    private Brand brand;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes" }, allowSetters = true)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "location", "franchise", "customer" }, allowSetters = true)
     private Address address;
 
@@ -291,6 +299,32 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute franchisePerformance(FranchisePerformanceHistory franchisePerformanceHistory) {
         this.setFranchisePerformance(franchisePerformanceHistory);
+        return this;
+    }
+
+    public Brand getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public AdditionalAttribute brand(Brand brand) {
+        this.setBrand(brand);
+        return this;
+    }
+
+    public Category getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public AdditionalAttribute category(Category category) {
+        this.setCategory(category);
         return this;
     }
 

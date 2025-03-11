@@ -69,6 +69,18 @@
       "relationshipType": "many-to-one"
     },
     {
+      "otherEntityName": "brand",
+      "relationshipName": "brand",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "category",
+      "relationshipName": "category",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
       "otherEntityName": "address",
       "relationshipName": "address",
       "relationshipSide": "right",

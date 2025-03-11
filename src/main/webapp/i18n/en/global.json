@@ -23,7 +23,10 @@
         "hsn": "Hsn",
         "productPriceHistory": "Product Price History",
         "additionalAttribute": "Additional Attribute",
-        "additionalAttributePossibleValue": "Additional Attribute Possible Value"
+        "additionalAttributePossibleValue": "Additional Attribute Possible Value",
+        "brand": "Brand",
+        "category": "Category",
+        "pincode": "Pincode"
       },
       "account": {
         "main": "Account",

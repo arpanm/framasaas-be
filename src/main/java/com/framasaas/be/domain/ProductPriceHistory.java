@@ -47,6 +47,8 @@ public class ProductPriceHistory implements Serializable {
             "franchise",
             "franchiseStatus",
             "franchisePerformance",
+            "brand",
+            "category",
             "address",
             "location",
             "franchiseUser",
