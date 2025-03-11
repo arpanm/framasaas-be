@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { IFranchise } from 'app/shared/model/franchise.model';
+import { IFranchiseAllocationRule } from 'app/shared/model/franchise-allocation-rule.model';
 
 export interface ILocationMapping {
   id?: number;
@@ -8,7 +8,7 @@ export interface ILocationMapping {
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
-  franchise?: IFranchise | null;
+  franchiseRule?: IFranchiseAllocationRule | null;
 }
 
 export const defaultValue: Readonly<ILocationMapping> = {};

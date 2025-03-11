@@ -1,0 +1,11 @@
+{
+  "framasaasApp": {
+    "FranchiseAllocationRuleType": {
+      "null": "",
+      "BRANDRULE": "BRANDRULE",
+      "CATEGORYRULE": "CATEGORYRULE",
+      "PINCODERULE": "PINCODERULE",
+      "LOCALITYRULE": "LOCALITYRULE"
+    }
+  }
+}

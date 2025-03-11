@@ -2,6 +2,7 @@ package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.AddressTestSamples.*;
+import static com.framasaas.be.domain.FranchiseAllocationRuleSetTestSamples.*;
 import static com.framasaas.be.domain.FranchiseBrandMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseCategoryMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
@@ -9,7 +10,6 @@ import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
-import static com.framasaas.be.domain.LocationMappingTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -90,28 +90,6 @@ class FranchiseTest {
     }
 
     @Test
-    void locationMappingTest() {
-        Franchise franchise = getFranchiseRandomSampleGenerator();
-        LocationMapping locationMappingBack = getLocationMappingRandomSampleGenerator();
-
-        franchise.addLocationMapping(locationMappingBack);
-        assertThat(franchise.getLocationMappings()).containsOnly(locationMappingBack);
-        assertThat(locationMappingBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.removeLocationMapping(locationMappingBack);
-        assertThat(franchise.getLocationMappings()).doesNotContain(locationMappingBack);
-        assertThat(locationMappingBack.getFranchise()).isNull();
-
-        franchise.locationMappings(new HashSet<>(Set.of(locationMappingBack)));
-        assertThat(franchise.getLocationMappings()).containsOnly(locationMappingBack);
-        assertThat(locationMappingBack.getFranchise()).isEqualTo(franchise);
-
-        franchise.setLocationMappings(new HashSet<>());
-        assertThat(franchise.getLocationMappings()).doesNotContain(locationMappingBack);
-        assertThat(locationMappingBack.getFranchise()).isNull();
-    }
-
-    @Test
     void franchiseDocumentTest() {
         Franchise franchise = getFranchiseRandomSampleGenerator();
         FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
@@ -175,6 +153,18 @@ class FranchiseTest {
         franchise.setAdditionalAttributes(new HashSet<>());
         assertThat(franchise.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
         assertThat(additionalAttributeBack.getFranchise()).isNull();
+    }
+
+    @Test
+    void rulesetTest() {
+        Franchise franchise = getFranchiseRandomSampleGenerator();
+        FranchiseAllocationRuleSet franchiseAllocationRuleSetBack = getFranchiseAllocationRuleSetRandomSampleGenerator();
+
+        franchise.setRuleset(franchiseAllocationRuleSetBack);
+        assertThat(franchise.getRuleset()).isEqualTo(franchiseAllocationRuleSetBack);
+
+        franchise.ruleset(null);
+        assertThat(franchise.getRuleset()).isNull();
     }
 
     @Test

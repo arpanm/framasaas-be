@@ -461,7 +461,6 @@ class FranchiseDocumentResourceIT {
             .documentSize(UPDATED_DOCUMENT_SIZE)
             .documentPath(UPDATED_DOCUMENT_PATH)
             .createddBy(UPDATED_CREATEDD_BY)
-            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseDocumentMockMvc

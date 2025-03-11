@@ -66,6 +66,10 @@ export const PincodeDetail = () => {
           <dd>
             {pincodeEntity.updatedTime ? <TextFormat value={pincodeEntity.updatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
           </dd>
+          <dt>
+            <Translate contentKey="framasaasApp.pincode.franchiseRule">Franchise Rule</Translate>
+          </dt>
+          <dd>{pincodeEntity.franchiseRule ? pincodeEntity.franchiseRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/pincode" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

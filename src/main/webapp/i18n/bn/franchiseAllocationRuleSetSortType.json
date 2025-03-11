@@ -1,0 +1,9 @@
+{
+  "framasaasApp": {
+    "FranchiseAllocationRuleSetSortType": {
+      "null": "",
+      "NPS": "NPS",
+      "ROUNDROBIN": "ROUNDROBIN"
+    }
+  }
+}

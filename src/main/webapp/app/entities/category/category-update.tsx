@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './category.reducer';
 
 export const CategoryUpdate = () => {
@@ -17,6 +18,7 @@ export const CategoryUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
   const categoryEntity = useAppSelector(state => state.category.entity);
   const loading = useAppSelector(state => state.category.loading);
   const updating = useAppSelector(state => state.category.updating);
@@ -30,6 +32,8 @@ export const CategoryUpdate = () => {
     if (!isNew) {
       dispatch(getEntity(id));
     }
+
+    dispatch(getFranchiseAllocationRules({}));
   }, []);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export const CategoryUpdate = () => {
     const entity = {
       ...categoryEntity,
       ...values,
+      franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
     };
 
     if (isNew) {
@@ -67,6 +72,7 @@ export const CategoryUpdate = () => {
           ...categoryEntity,
           createdTime: convertDateTimeFromServer(categoryEntity.createdTime),
           updatedTime: convertDateTimeFromServer(categoryEntity.updatedTime),
+          franchiseRule: categoryEntity?.franchiseRule?.id,
         };
 
   return (
@@ -170,6 +176,22 @@ export const CategoryUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                id="category-franchiseRule"
+                name="franchiseRule"
+                data-cy="franchiseRule"
+                label={translate('framasaasApp.category.franchiseRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRules
+                  ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/category" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

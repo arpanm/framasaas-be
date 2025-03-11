@@ -29,7 +29,7 @@
             <column name="updated_time" type="${datetimeType}">
                 <constraints nullable="false" />
             </column>
-            <column name="franchise_id" type="bigint">
+            <column name="franchise_rule_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

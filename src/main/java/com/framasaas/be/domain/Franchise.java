@@ -64,6 +64,9 @@ public class Franchise implements Serializable {
     @Column(name = "performance_tag")
     private PerformanceTag performanceTag;
 
+    @Column(name = "daily_max_service_limit")
+    private Long dailyMaxServiceLimit;
+
     @NotNull
     @Column(name = "createdd_by", nullable = false)
     private String createddBy;
@@ -98,11 +101,6 @@ public class Franchise implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
-    private Set<LocationMapping> locationMappings = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
     private Set<FranchiseDocument> franchiseDocuments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
@@ -132,6 +130,10 @@ public class Franchise implements Serializable {
         allowSetters = true
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "franchises" }, allowSetters = true)
+    private FranchiseAllocationRuleSet ruleset;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -275,6 +277,19 @@ public class Franchise implements Serializable {
         this.performanceTag = performanceTag;
     }
 
+    public Long getDailyMaxServiceLimit() {
+        return this.dailyMaxServiceLimit;
+    }
+
+    public Franchise dailyMaxServiceLimit(Long dailyMaxServiceLimit) {
+        this.setDailyMaxServiceLimit(dailyMaxServiceLimit);
+        return this;
+    }
+
+    public void setDailyMaxServiceLimit(Long dailyMaxServiceLimit) {
+        this.dailyMaxServiceLimit = dailyMaxServiceLimit;
+    }
+
     public String getCreateddBy() {
         return this.createddBy;
     }
@@ -402,37 +417,6 @@ public class Franchise implements Serializable {
         return this;
     }
 
-    public Set<LocationMapping> getLocationMappings() {
-        return this.locationMappings;
-    }
-
-    public void setLocationMappings(Set<LocationMapping> locationMappings) {
-        if (this.locationMappings != null) {
-            this.locationMappings.forEach(i -> i.setFranchise(null));
-        }
-        if (locationMappings != null) {
-            locationMappings.forEach(i -> i.setFranchise(this));
-        }
-        this.locationMappings = locationMappings;
-    }
-
-    public Franchise locationMappings(Set<LocationMapping> locationMappings) {
-        this.setLocationMappings(locationMappings);
-        return this;
-    }
-
-    public Franchise addLocationMapping(LocationMapping locationMapping) {
-        this.locationMappings.add(locationMapping);
-        locationMapping.setFranchise(this);
-        return this;
-    }
-
-    public Franchise removeLocationMapping(LocationMapping locationMapping) {
-        this.locationMappings.remove(locationMapping);
-        locationMapping.setFranchise(null);
-        return this;
-    }
-
     public Set<FranchiseDocument> getFranchiseDocuments() {
         return this.franchiseDocuments;
     }
@@ -523,6 +507,19 @@ public class Franchise implements Serializable {
     public Franchise removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.remove(additionalAttribute);
         additionalAttribute.setFranchise(null);
+        return this;
+    }
+
+    public FranchiseAllocationRuleSet getRuleset() {
+        return this.ruleset;
+    }
+
+    public void setRuleset(FranchiseAllocationRuleSet franchiseAllocationRuleSet) {
+        this.ruleset = franchiseAllocationRuleSet;
+    }
+
+    public Franchise ruleset(FranchiseAllocationRuleSet franchiseAllocationRuleSet) {
+        this.setRuleset(franchiseAllocationRuleSet);
         return this;
     }
 
@@ -621,6 +618,7 @@ public class Franchise implements Serializable {
             ", registrationNumber='" + getRegistrationNumber() + "'" +
             ", performanceScore=" + getPerformanceScore() +
             ", performanceTag='" + getPerformanceTag() + "'" +
+            ", dailyMaxServiceLimit=" + getDailyMaxServiceLimit() +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +

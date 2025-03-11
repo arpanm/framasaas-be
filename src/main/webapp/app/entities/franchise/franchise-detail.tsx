@@ -87,6 +87,12 @@ export const FranchiseDetail = () => {
           </dt>
           <dd>{franchiseEntity.performanceTag}</dd>
           <dt>
+            <span id="dailyMaxServiceLimit">
+              <Translate contentKey="framasaasApp.franchise.dailyMaxServiceLimit">Daily Max Service Limit</Translate>
+            </span>
+          </dt>
+          <dd>{franchiseEntity.dailyMaxServiceLimit}</dd>
+          <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.franchise.createddBy">Createdd By</Translate>
             </span>
@@ -118,6 +124,10 @@ export const FranchiseDetail = () => {
             <Translate contentKey="framasaasApp.franchise.address">Address</Translate>
           </dt>
           <dd>{franchiseEntity.address ? franchiseEntity.address.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.franchise.ruleset">Ruleset</Translate>
+          </dt>
+          <dd>{franchiseEntity.ruleset ? franchiseEntity.ruleset.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/franchise" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

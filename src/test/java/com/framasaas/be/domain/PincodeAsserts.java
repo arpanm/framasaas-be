@@ -61,6 +61,8 @@ public class PincodeAsserts {
      * @param actual the actual entity
      */
     public static void assertPincodeUpdatableRelationshipsEquals(Pincode expected, Pincode actual) {
-        // empty method
+        assertThat(actual)
+            .as("Verify Pincode relationships")
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
     }
 }

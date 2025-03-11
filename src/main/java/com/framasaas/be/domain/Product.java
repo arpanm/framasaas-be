@@ -92,11 +92,11 @@ public class Product implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "products", "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)

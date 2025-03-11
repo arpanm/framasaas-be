@@ -71,9 +71,9 @@ export const LocationMappingDetail = () => {
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="framasaasApp.locationMapping.franchise">Franchise</Translate>
+            <Translate contentKey="framasaasApp.locationMapping.franchiseRule">Franchise Rule</Translate>
           </dt>
-          <dd>{locationMappingEntity.franchise ? locationMappingEntity.franchise.id : ''}</dd>
+          <dd>{locationMappingEntity.franchiseRule ? locationMappingEntity.franchiseRule.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/location-mapping" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

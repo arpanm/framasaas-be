@@ -162,6 +162,9 @@ export const Brand = () => {
                     <Translate contentKey="framasaasApp.brand.updatedTime">Updated Time</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('updatedTime')} />
                   </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.brand.franchiseRule">Franchise Rule</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -181,6 +184,13 @@ export const Brand = () => {
                     <td>{brand.createdTime ? <TextFormat type="date" value={brand.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{brand.updatedBy}</td>
                     <td>{brand.updatedTime ? <TextFormat type="date" value={brand.updatedTime} format={APP_DATE_FORMAT} /> : null}</td>
+                    <td>
+                      {brand.franchiseRule ? (
+                        <Link to={`/franchise-allocation-rule/${brand.franchiseRule.id}`}>{brand.franchiseRule.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/brand/${brand.id}`} color="info" size="sm" data-cy="entityDetailsButton">

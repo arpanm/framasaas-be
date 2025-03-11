@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getFranchiseAllocationRules } from 'app/entities/franchise-allocation-rule/franchise-allocation-rule.reducer';
 import { createEntity, getEntity, updateEntity } from './pincode.reducer';
 
 export const PincodeUpdate = () => {
@@ -17,6 +18,7 @@ export const PincodeUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const franchiseAllocationRules = useAppSelector(state => state.franchiseAllocationRule.entities);
   const pincodeEntity = useAppSelector(state => state.pincode.entity);
   const loading = useAppSelector(state => state.pincode.loading);
   const updating = useAppSelector(state => state.pincode.updating);
@@ -30,6 +32,8 @@ export const PincodeUpdate = () => {
     if (!isNew) {
       dispatch(getEntity(id));
     }
+
+    dispatch(getFranchiseAllocationRules({}));
   }, []);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export const PincodeUpdate = () => {
     const entity = {
       ...pincodeEntity,
       ...values,
+      franchiseRule: franchiseAllocationRules.find(it => it.id.toString() === values.franchiseRule?.toString()),
     };
 
     if (isNew) {
@@ -67,6 +72,7 @@ export const PincodeUpdate = () => {
           ...pincodeEntity,
           createdTime: convertDateTimeFromServer(pincodeEntity.createdTime),
           updatedTime: convertDateTimeFromServer(pincodeEntity.updatedTime),
+          franchiseRule: pincodeEntity?.franchiseRule?.id,
         };
 
   return (
@@ -146,6 +152,22 @@ export const PincodeUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                id="pincode-franchiseRule"
+                name="franchiseRule"
+                data-cy="franchiseRule"
+                label={translate('framasaasApp.pincode.franchiseRule')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRules
+                  ? franchiseAllocationRules.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/pincode" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

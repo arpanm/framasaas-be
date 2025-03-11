@@ -72,6 +72,9 @@ public class FranchiseServiceImpl implements FranchiseService {
                 if (franchise.getPerformanceTag() != null) {
                     existingFranchise.setPerformanceTag(franchise.getPerformanceTag());
                 }
+                if (franchise.getDailyMaxServiceLimit() != null) {
+                    existingFranchise.setDailyMaxServiceLimit(franchise.getDailyMaxServiceLimit());
+                }
                 if (franchise.getCreateddBy() != null) {
                     existingFranchise.setCreateddBy(franchise.getCreateddBy());
                 }

@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
+import { getEntities as getFranchiseAllocationRuleSets } from 'app/entities/franchise-allocation-rule-set/franchise-allocation-rule-set.reducer';
 import { FranchiseStatus } from 'app/shared/model/enumerations/franchise-status.model';
 import { PerformanceTag } from 'app/shared/model/enumerations/performance-tag.model';
 import { createEntity, getEntity, updateEntity } from './franchise.reducer';
@@ -21,6 +22,7 @@ export const FranchiseUpdate = () => {
   const isNew = id === undefined;
 
   const addresses = useAppSelector(state => state.address.entities);
+  const franchiseAllocationRuleSets = useAppSelector(state => state.franchiseAllocationRuleSet.entities);
   const franchiseEntity = useAppSelector(state => state.franchise.entity);
   const loading = useAppSelector(state => state.franchise.loading);
   const updating = useAppSelector(state => state.franchise.updating);
@@ -38,6 +40,7 @@ export const FranchiseUpdate = () => {
     }
 
     dispatch(getAddresses({}));
+    dispatch(getFranchiseAllocationRuleSets({}));
   }, []);
 
   useEffect(() => {
@@ -56,6 +59,9 @@ export const FranchiseUpdate = () => {
     if (values.performanceScore !== undefined && typeof values.performanceScore !== 'number') {
       values.performanceScore = Number(values.performanceScore);
     }
+    if (values.dailyMaxServiceLimit !== undefined && typeof values.dailyMaxServiceLimit !== 'number') {
+      values.dailyMaxServiceLimit = Number(values.dailyMaxServiceLimit);
+    }
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
@@ -63,6 +69,7 @@ export const FranchiseUpdate = () => {
       ...franchiseEntity,
       ...values,
       address: addresses.find(it => it.id.toString() === values.address?.toString()),
+      ruleset: franchiseAllocationRuleSets.find(it => it.id.toString() === values.ruleset?.toString()),
     };
 
     if (isNew) {
@@ -85,6 +92,7 @@ export const FranchiseUpdate = () => {
           createdTime: convertDateTimeFromServer(franchiseEntity.createdTime),
           updatedTime: convertDateTimeFromServer(franchiseEntity.updatedTime),
           address: franchiseEntity?.address?.id,
+          ruleset: franchiseEntity?.ruleset?.id,
         };
 
   return (
@@ -204,6 +212,13 @@ export const FranchiseUpdate = () => {
                 ))}
               </ValidatedField>
               <ValidatedField
+                label={translate('framasaasApp.franchise.dailyMaxServiceLimit')}
+                id="franchise-dailyMaxServiceLimit"
+                name="dailyMaxServiceLimit"
+                data-cy="dailyMaxServiceLimit"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.franchise.createddBy')}
                 id="franchise-createddBy"
                 name="createddBy"
@@ -255,6 +270,22 @@ export const FranchiseUpdate = () => {
                 <option value="" key="0" />
                 {addresses
                   ? addresses.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="franchise-ruleset"
+                name="ruleset"
+                data-cy="ruleset"
+                label={translate('framasaasApp.franchise.ruleset')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseAllocationRuleSets
+                  ? franchiseAllocationRuleSets.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -27,7 +27,8 @@
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
       "product": "Product",
-      "additionalAttribute": "Additional Attribute"
+      "additionalAttribute": "Additional Attribute",
+      "franchiseRule": "Franchise Rule"
     }
   }
 }

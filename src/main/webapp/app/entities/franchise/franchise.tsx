@@ -166,6 +166,10 @@ export const Franchise = () => {
                     <Translate contentKey="framasaasApp.franchise.performanceTag">Performance Tag</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('performanceTag')} />
                   </th>
+                  <th className="hand" onClick={sort('dailyMaxServiceLimit')}>
+                    <Translate contentKey="framasaasApp.franchise.dailyMaxServiceLimit">Daily Max Service Limit</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('dailyMaxServiceLimit')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.franchise.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -184,6 +188,9 @@ export const Franchise = () => {
                   </th>
                   <th>
                     <Translate contentKey="framasaasApp.franchise.address">Address</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.franchise.ruleset">Ruleset</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -209,6 +216,7 @@ export const Franchise = () => {
                     <td>
                       <Translate contentKey={`framasaasApp.PerformanceTag.${franchise.performanceTag}`} />
                     </td>
+                    <td>{franchise.dailyMaxServiceLimit}</td>
                     <td>{franchise.createddBy}</td>
                     <td>
                       {franchise.createdTime ? <TextFormat type="date" value={franchise.createdTime} format={APP_DATE_FORMAT} /> : null}
@@ -218,6 +226,13 @@ export const Franchise = () => {
                       {franchise.updatedTime ? <TextFormat type="date" value={franchise.updatedTime} format={APP_DATE_FORMAT} /> : null}
                     </td>
                     <td>{franchise.address ? <Link to={`/address/${franchise.address.id}`}>{franchise.address.id}</Link> : ''}</td>
+                    <td>
+                      {franchise.ruleset ? (
+                        <Link to={`/franchise-allocation-rule-set/${franchise.ruleset.id}`}>{franchise.ruleset.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/franchise/${franchise.id}`} color="info" size="sm" data-cy="entityDetailsButton">

@@ -42,8 +42,8 @@ class FranchiseResourceIT {
     private static final String DEFAULT_OWNER = "AAAAAAAAAA";
     private static final String UPDATED_OWNER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EMAIL = "-^\\iT~@X;Bg$.$";
-    private static final String UPDATED_EMAIL = "W@s44SDE.I%5a";
+    private static final String DEFAULT_EMAIL = "W]'VEi@k.xZ'F";
+    private static final String UPDATED_EMAIL = "(\"@Lh+Aw0.?b0M";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -62,6 +62,9 @@ class FranchiseResourceIT {
 
     private static final PerformanceTag DEFAULT_PERFORMANCE_TAG = PerformanceTag.High;
     private static final PerformanceTag UPDATED_PERFORMANCE_TAG = PerformanceTag.Medium;
+
+    private static final Long DEFAULT_DAILY_MAX_SERVICE_LIMIT = 1L;
+    private static final Long UPDATED_DAILY_MAX_SERVICE_LIMIT = 2L;
 
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
@@ -114,6 +117,7 @@ class FranchiseResourceIT {
             .registrationNumber(DEFAULT_REGISTRATION_NUMBER)
             .performanceScore(DEFAULT_PERFORMANCE_SCORE)
             .performanceTag(DEFAULT_PERFORMANCE_TAG)
+            .dailyMaxServiceLimit(DEFAULT_DAILY_MAX_SERVICE_LIMIT)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -137,6 +141,7 @@ class FranchiseResourceIT {
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .dailyMaxServiceLimit(UPDATED_DAILY_MAX_SERVICE_LIMIT)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -328,6 +333,7 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.[*].registrationNumber").value(hasItem(DEFAULT_REGISTRATION_NUMBER)))
             .andExpect(jsonPath("$.[*].performanceScore").value(hasItem(DEFAULT_PERFORMANCE_SCORE.doubleValue())))
             .andExpect(jsonPath("$.[*].performanceTag").value(hasItem(DEFAULT_PERFORMANCE_TAG.toString())))
+            .andExpect(jsonPath("$.[*].dailyMaxServiceLimit").value(hasItem(DEFAULT_DAILY_MAX_SERVICE_LIMIT.intValue())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -355,6 +361,7 @@ class FranchiseResourceIT {
             .andExpect(jsonPath("$.registrationNumber").value(DEFAULT_REGISTRATION_NUMBER))
             .andExpect(jsonPath("$.performanceScore").value(DEFAULT_PERFORMANCE_SCORE.doubleValue()))
             .andExpect(jsonPath("$.performanceTag").value(DEFAULT_PERFORMANCE_TAG.toString()))
+            .andExpect(jsonPath("$.dailyMaxServiceLimit").value(DEFAULT_DAILY_MAX_SERVICE_LIMIT.intValue()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -390,6 +397,7 @@ class FranchiseResourceIT {
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .dailyMaxServiceLimit(UPDATED_DAILY_MAX_SERVICE_LIMIT)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -473,10 +481,10 @@ class FranchiseResourceIT {
 
         partialUpdatedFranchise
             .franchiseName(UPDATED_FRANCHISE_NAME)
-            .owner(UPDATED_OWNER)
             .email(UPDATED_EMAIL)
-            .franchiseStatus(UPDATED_FRANCHISE_STATUS)
-            .registrationNumber(UPDATED_REGISTRATION_NUMBER)
+            .contact(UPDATED_CONTACT)
+            .performanceScore(UPDATED_PERFORMANCE_SCORE)
+            .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedTime(UPDATED_UPDATED_TIME);
 
@@ -519,6 +527,7 @@ class FranchiseResourceIT {
             .registrationNumber(UPDATED_REGISTRATION_NUMBER)
             .performanceScore(UPDATED_PERFORMANCE_SCORE)
             .performanceTag(UPDATED_PERFORMANCE_TAG)
+            .dailyMaxServiceLimit(UPDATED_DAILY_MAX_SERVICE_LIMIT)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

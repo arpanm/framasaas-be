@@ -16,5 +16,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="address"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="ruleset_id"
+                                 baseTableName="franchise"
+                                 constraintName="fk_franchise__ruleset_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_allocation_rule_set"
+                                 />
     </changeSet>
 </databaseChangeLog>

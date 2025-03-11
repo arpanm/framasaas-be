@@ -1,0 +1,9 @@
+{
+  "framasaasApp": {
+    "FranchiseAllocationRuleJoinType": {
+      "null": "",
+      "ANDJOIN": "ANDJOIN",
+      "ORJOIN": "ORJOIN"
+    }
+  }
+}

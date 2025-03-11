@@ -459,7 +459,16 @@ class AddressResourceIT {
         Address partialUpdatedAddress = new Address();
         partialUpdatedAddress.setId(address.getId());
 
-        partialUpdatedAddress.address2(UPDATED_ADDRESS_2).state(UPDATED_STATE);
+        partialUpdatedAddress
+            .address1(UPDATED_ADDRESS_1)
+            .address2(UPDATED_ADDRESS_2)
+            .area(UPDATED_AREA)
+            .district(UPDATED_DISTRICT)
+            .state(UPDATED_STATE)
+            .country(UPDATED_COUNTRY)
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restAddressMockMvc
             .perform(

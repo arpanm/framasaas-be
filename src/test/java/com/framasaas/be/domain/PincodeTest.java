@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
 import static com.framasaas.be.domain.PincodeTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,5 +21,17 @@ class PincodeTest {
 
         pincode2 = getPincodeSample2();
         assertThat(pincode1).isNotEqualTo(pincode2);
+    }
+
+    @Test
+    void franchiseRuleTest() {
+        Pincode pincode = getPincodeRandomSampleGenerator();
+        FranchiseAllocationRule franchiseAllocationRuleBack = getFranchiseAllocationRuleRandomSampleGenerator();
+
+        pincode.setFranchiseRule(franchiseAllocationRuleBack);
+        assertThat(pincode.getFranchiseRule()).isEqualTo(franchiseAllocationRuleBack);
+
+        pincode.franchiseRule(null);
+        assertThat(pincode.getFranchiseRule()).isNull();
     }
 }

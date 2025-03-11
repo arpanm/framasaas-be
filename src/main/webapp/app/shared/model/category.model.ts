@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { IFranchiseAllocationRule } from 'app/shared/model/franchise-allocation-rule.model';
 
 export interface ICategory {
   id?: number;
@@ -10,6 +11,7 @@ export interface ICategory {
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
+  franchiseRule?: IFranchiseAllocationRule | null;
 }
 
 export const defaultValue: Readonly<ICategory> = {};

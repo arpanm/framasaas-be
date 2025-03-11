@@ -64,6 +64,8 @@ public class CategoryAsserts {
      * @param actual the actual entity
      */
     public static void assertCategoryUpdatableRelationshipsEquals(Category expected, Category actual) {
-        // empty method
+        assertThat(actual)
+            .as("Verify Category relationships")
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
     }
 }

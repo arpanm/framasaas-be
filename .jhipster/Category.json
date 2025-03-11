@@ -59,6 +59,12 @@
       "relationshipName": "additionalAttribute",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseAllocationRule",
+      "relationshipName": "franchiseRule",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",

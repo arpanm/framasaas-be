@@ -94,7 +94,7 @@ public class Address implements Serializable {
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchiseRule" }, allowSetters = true)
     private LocationMapping location;
 
     @JsonIgnoreProperties(
@@ -102,10 +102,10 @@ public class Address implements Serializable {
             "address",
             "franchiseStatusHistories",
             "franchisePerformanceHistories",
-            "locationMappings",
             "franchiseDocuments",
             "franchiseUsers",
             "additionalAttributes",
+            "ruleset",
             "brands",
             "categories",
         },

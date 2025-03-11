@@ -49,6 +49,10 @@
       "fieldValues": "High,Medium,Low"
     },
     {
+      "fieldName": "dailyMaxServiceLimit",
+      "fieldType": "Long"
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
@@ -94,13 +98,6 @@
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "locationMapping",
-      "otherEntityRelationshipName": "franchise",
-      "relationshipName": "locationMapping",
-      "relationshipSide": "left",
-      "relationshipType": "one-to-many"
-    },
-    {
       "otherEntityName": "franchiseDocument",
       "otherEntityRelationshipName": "franchise",
       "relationshipName": "franchiseDocument",
@@ -120,6 +117,12 @@
       "relationshipName": "additionalAttribute",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "franchiseAllocationRuleSet",
+      "relationshipName": "ruleset",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
     }
   ],
   "searchEngine": "no",

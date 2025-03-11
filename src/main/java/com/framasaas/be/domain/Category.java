@@ -85,6 +85,10 @@ public class Category implements Serializable {
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings" }, allowSetters = true)
+    private FranchiseAllocationRule franchiseRule;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -263,6 +267,19 @@ public class Category implements Serializable {
     public Category removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.remove(additionalAttribute);
         additionalAttribute.setCategory(null);
+        return this;
+    }
+
+    public FranchiseAllocationRule getFranchiseRule() {
+        return this.franchiseRule;
+    }
+
+    public void setFranchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.franchiseRule = franchiseAllocationRule;
+    }
+
+    public Category franchiseRule(FranchiseAllocationRule franchiseAllocationRule) {
+        this.setFranchiseRule(franchiseAllocationRule);
         return this;
     }
 

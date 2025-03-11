@@ -64,6 +64,8 @@ public class BrandAsserts {
      * @param actual the actual entity
      */
     public static void assertBrandUpdatableRelationshipsEquals(Brand expected, Brand actual) {
-        // empty method
+        assertThat(actual)
+            .as("Verify Brand relationships")
+            .satisfies(a -> assertThat(a.getFranchiseRule()).as("check franchiseRule").isEqualTo(expected.getFranchiseRule()));
     }
 }
