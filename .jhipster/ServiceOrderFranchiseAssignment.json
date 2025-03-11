@@ -8,7 +8,7 @@
       "fieldName": "serviceOrderAssignmentStatus",
       "fieldType": "ServiceOrderAssignmentStatus",
       "fieldValidateRules": ["required"],
-      "fieldValues": "ASSIGNED,MOVEDBACK,COMPLETED,CANCELED"
+      "fieldValues": "ASSIGNED,MOVEDBACK,COMPLETEDINIT,COMPLETEDAPPROVED,CANCELATIONINIT,CANCELATIONAPPROVED"
     },
     {
       "fieldName": "nps",
@@ -41,14 +41,6 @@
     {
       "fieldName": "completedTime",
       "fieldType": "Instant"
-    },
-    {
-      "fieldName": "completionOTP",
-      "fieldType": "Long"
-    },
-    {
-      "fieldName": "cancellationOTP",
-      "fieldType": "Long"
     },
     {
       "fieldName": "franchiseCommision",

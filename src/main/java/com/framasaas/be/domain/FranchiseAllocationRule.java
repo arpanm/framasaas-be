@@ -80,6 +80,43 @@ public class FranchiseAllocationRule implements Serializable {
     @JsonIgnoreProperties(value = { "franchiseRule", "fieldAgentSkillRule" }, allowSetters = true)
     private Set<LanguageMapping> languageMappings = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchiseAllocationRule")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = {
+            "additionalAttributePossibleValues",
+            "franchise",
+            "franchiseStatus",
+            "franchisePerformance",
+            "brand",
+            "category",
+            "address",
+            "location",
+            "franchiseUser",
+            "customer",
+            "document",
+            "product",
+            "hsn",
+            "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
+            "article",
+            "articleWarranty",
+            "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
+            "serviceOrderAssignment",
+        },
+        allowSetters = true
+    )
+    private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -325,6 +362,37 @@ public class FranchiseAllocationRule implements Serializable {
     public FranchiseAllocationRule removeLanguageMapping(LanguageMapping languageMapping) {
         this.languageMappings.remove(languageMapping);
         languageMapping.setFranchiseRule(null);
+        return this;
+    }
+
+    public Set<AdditionalAttribute> getAdditionalAttributes() {
+        return this.additionalAttributes;
+    }
+
+    public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        if (this.additionalAttributes != null) {
+            this.additionalAttributes.forEach(i -> i.setFranchiseAllocationRule(null));
+        }
+        if (additionalAttributes != null) {
+            additionalAttributes.forEach(i -> i.setFranchiseAllocationRule(this));
+        }
+        this.additionalAttributes = additionalAttributes;
+    }
+
+    public FranchiseAllocationRule additionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        this.setAdditionalAttributes(additionalAttributes);
+        return this;
+    }
+
+    public FranchiseAllocationRule addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.add(additionalAttribute);
+        additionalAttribute.setFranchiseAllocationRule(this);
+        return this;
+    }
+
+    public FranchiseAllocationRule removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.remove(additionalAttribute);
+        additionalAttribute.setFranchiseAllocationRule(null);
         return this;
     }
 

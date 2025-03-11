@@ -33,6 +33,7 @@ import serviceOrderSpare from 'app/entities/service-order-spare/service-order-sp
 import languageMapping from 'app/entities/language-mapping/language-mapping.reducer';
 import fieldAgentSkillRuleSet from 'app/entities/field-agent-skill-rule-set/field-agent-skill-rule-set.reducer';
 import fieldAgentSkillRule from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
+import serviceOrderFieldAgentAssignment from 'app/entities/service-order-field-agent-assignment/service-order-field-agent-assignment.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -71,6 +72,7 @@ const entitiesReducers = {
   languageMapping,
   fieldAgentSkillRuleSet,
   fieldAgentSkillRule,
+  serviceOrderFieldAgentAssignment,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

@@ -1,14 +1,11 @@
 package com.framasaas.be.domain;
 
-import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderSpareTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
-import java.util.HashSet;
-import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 class ServiceOrderSpareTest {
@@ -25,28 +22,6 @@ class ServiceOrderSpareTest {
 
         serviceOrderSpare2 = getServiceOrderSpareSample2();
         assertThat(serviceOrderSpare1).isNotEqualTo(serviceOrderSpare2);
-    }
-
-    @Test
-    void additionalAttributeTest() {
-        ServiceOrderSpare serviceOrderSpare = getServiceOrderSpareRandomSampleGenerator();
-        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
-
-        serviceOrderSpare.addAdditionalAttribute(additionalAttributeBack);
-        assertThat(serviceOrderSpare.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
-        assertThat(additionalAttributeBack.getServiceOrderSpare()).isEqualTo(serviceOrderSpare);
-
-        serviceOrderSpare.removeAdditionalAttribute(additionalAttributeBack);
-        assertThat(serviceOrderSpare.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
-        assertThat(additionalAttributeBack.getServiceOrderSpare()).isNull();
-
-        serviceOrderSpare.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
-        assertThat(serviceOrderSpare.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
-        assertThat(additionalAttributeBack.getServiceOrderSpare()).isEqualTo(serviceOrderSpare);
-
-        serviceOrderSpare.setAdditionalAttributes(new HashSet<>());
-        assertThat(serviceOrderSpare.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
-        assertThat(additionalAttributeBack.getServiceOrderSpare()).isNull();
     }
 
     @Test

@@ -108,7 +108,7 @@ public class ServiceOrder implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "product" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "serviceOrder", "product" }, allowSetters = true)
     private Set<ServiceOrderSpare> serviceOrderSpares = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
@@ -137,7 +137,11 @@ public class ServiceOrder implements Serializable {
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
             "serviceOrderAssignment",
         },
         allowSetters = true

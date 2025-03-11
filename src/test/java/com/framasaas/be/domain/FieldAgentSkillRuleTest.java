@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.FieldAgentSkillRuleSetTestSamples.*;
@@ -138,6 +139,28 @@ class FieldAgentSkillRuleTest {
         fieldAgentSkillRule.setLanguageMappings(new HashSet<>());
         assertThat(fieldAgentSkillRule.getLanguageMappings()).doesNotContain(languageMappingBack);
         assertThat(languageMappingBack.getFieldAgentSkillRule()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FieldAgentSkillRule fieldAgentSkillRule = getFieldAgentSkillRuleRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        fieldAgentSkillRule.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(fieldAgentSkillRule.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRule);
+
+        fieldAgentSkillRule.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(fieldAgentSkillRule.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRule()).isNull();
+
+        fieldAgentSkillRule.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(fieldAgentSkillRule.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRule()).isEqualTo(fieldAgentSkillRule);
+
+        fieldAgentSkillRule.setAdditionalAttributes(new HashSet<>());
+        assertThat(fieldAgentSkillRule.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFieldAgentSkillRule()).isNull();
     }
 
     @Test

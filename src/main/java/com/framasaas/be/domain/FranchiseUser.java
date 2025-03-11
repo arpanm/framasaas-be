@@ -99,7 +99,11 @@ public class FranchiseUser implements Serializable {
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
-            "serviceOrderSpare",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -125,7 +129,7 @@ public class FranchiseUser implements Serializable {
     private Franchise franchise;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "fieldAgentSkillRules", "franchiseUsers", "additionalAttributes" }, allowSetters = true)
     private FieldAgentSkillRuleSet skillRuleSet;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

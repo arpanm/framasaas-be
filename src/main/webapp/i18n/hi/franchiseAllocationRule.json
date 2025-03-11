@@ -28,7 +28,8 @@
       "category": "Category",
       "pincode": "Pincode",
       "locationMapping": "Location Mapping",
-      "languageMapping": "Language Mapping"
+      "languageMapping": "Language Mapping",
+      "additionalAttribute": "Additional Attribute"
     }
   }
 }

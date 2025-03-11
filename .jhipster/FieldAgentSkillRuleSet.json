@@ -46,6 +46,13 @@
       "relationshipName": "franchiseUser",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "fieldAgentSkillRuleSet",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
     }
   ],
   "searchEngine": "no",

@@ -177,8 +177,32 @@
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityName": "serviceOrderSpare",
-      "relationshipName": "serviceOrderSpare",
+      "otherEntityName": "serviceOrderFieldAgentAssignment",
+      "relationshipName": "serviceOrderFieldAgentAssignment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "franchiseAllocationRuleSet",
+      "relationshipName": "franchiseAllocationRuleSet",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "franchiseAllocationRule",
+      "relationshipName": "franchiseAllocationRule",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "fieldAgentSkillRuleSet",
+      "relationshipName": "fieldAgentSkillRuleSet",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "fieldAgentSkillRule",
+      "relationshipName": "fieldAgentSkillRule",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

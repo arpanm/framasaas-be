@@ -422,8 +422,11 @@ class ServiceOrderPaymentResourceIT {
 
         partialUpdatedServiceOrderPayment
             .paymentStatus(UPDATED_PAYMENT_STATUS)
+            .pgTxnId(UPDATED_PG_TXN_ID)
+            .pgTxnResponseTime(UPDATED_PG_TXN_RESPONSE_TIME)
             .isActive(UPDATED_IS_ACTIVE)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restServiceOrderPaymentMockMvc
             .perform(

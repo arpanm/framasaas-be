@@ -41,12 +41,6 @@
             <column name="completed_time" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
-            <column name="completion_otp" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="cancellation_otp" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <column name="franchise_commision" type="${floatType}">
                 <constraints nullable="true" />
             </column>
@@ -112,8 +106,6 @@
             <column name="spare_order_time" type="date"/>
             <column name="spare_delivery_time" type="date"/>
             <column name="completed_time" type="date"/>
-            <column name="completion_otp" type="numeric"/>
-            <column name="cancellation_otp" type="numeric"/>
             <column name="franchise_commision" type="numeric"/>
             <column name="franchise_commision_tax" type="numeric"/>
             <column name="franchise_invoice_path" type="string"/>

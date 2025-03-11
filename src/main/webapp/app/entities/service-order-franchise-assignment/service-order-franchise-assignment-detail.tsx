@@ -113,18 +113,6 @@ export const ServiceOrderFranchiseAssignmentDetail = () => {
             ) : null}
           </dd>
           <dt>
-            <span id="completionOTP">
-              <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.completionOTP">Completion OTP</Translate>
-            </span>
-          </dt>
-          <dd>{serviceOrderFranchiseAssignmentEntity.completionOTP}</dd>
-          <dt>
-            <span id="cancellationOTP">
-              <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.cancellationOTP">Cancellation OTP</Translate>
-            </span>
-          </dt>
-          <dd>{serviceOrderFranchiseAssignmentEntity.cancellationOTP}</dd>
-          <dt>
             <span id="franchiseCommision">
               <Translate contentKey="framasaasApp.serviceOrderFranchiseAssignment.franchiseCommision">Franchise Commision</Translate>
             </span>

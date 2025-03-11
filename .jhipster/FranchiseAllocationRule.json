@@ -74,6 +74,13 @@
       "relationshipName": "languageMapping",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "franchiseAllocationRule",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
     }
   ],
   "searchEngine": "no",

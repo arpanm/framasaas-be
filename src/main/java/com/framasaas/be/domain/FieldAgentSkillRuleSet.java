@@ -51,7 +51,9 @@ public class FieldAgentSkillRuleSet implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "fieldAgentSkillRuleSet")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "fieldAgentSkillRuleSet" },
+        value = {
+            "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes", "fieldAgentSkillRuleSet",
+        },
         allowSetters = true
     )
     private Set<FieldAgentSkillRule> fieldAgentSkillRules = new HashSet<>();
@@ -63,6 +65,43 @@ public class FieldAgentSkillRuleSet implements Serializable {
         allowSetters = true
     )
     private Set<FranchiseUser> franchiseUsers = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "fieldAgentSkillRuleSet")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = {
+            "additionalAttributePossibleValues",
+            "franchise",
+            "franchiseStatus",
+            "franchisePerformance",
+            "brand",
+            "category",
+            "address",
+            "location",
+            "franchiseUser",
+            "customer",
+            "document",
+            "product",
+            "hsn",
+            "priceHistory",
+            "warrantyMaster",
+            "warrantyMasterPriceHistory",
+            "article",
+            "articleWarranty",
+            "articleWarrantyDocument",
+            "serviceOrder",
+            "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
+            "serviceOrderAssignment",
+        },
+        allowSetters = true
+    )
+    private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -203,6 +242,37 @@ public class FieldAgentSkillRuleSet implements Serializable {
     public FieldAgentSkillRuleSet removeFranchiseUser(FranchiseUser franchiseUser) {
         this.franchiseUsers.remove(franchiseUser);
         franchiseUser.setSkillRuleSet(null);
+        return this;
+    }
+
+    public Set<AdditionalAttribute> getAdditionalAttributes() {
+        return this.additionalAttributes;
+    }
+
+    public void setAdditionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        if (this.additionalAttributes != null) {
+            this.additionalAttributes.forEach(i -> i.setFieldAgentSkillRuleSet(null));
+        }
+        if (additionalAttributes != null) {
+            additionalAttributes.forEach(i -> i.setFieldAgentSkillRuleSet(this));
+        }
+        this.additionalAttributes = additionalAttributes;
+    }
+
+    public FieldAgentSkillRuleSet additionalAttributes(Set<AdditionalAttribute> additionalAttributes) {
+        this.setAdditionalAttributes(additionalAttributes);
+        return this;
+    }
+
+    public FieldAgentSkillRuleSet addAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.add(additionalAttribute);
+        additionalAttribute.setFieldAgentSkillRuleSet(this);
+        return this;
+    }
+
+    public FieldAgentSkillRuleSet removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
+        this.additionalAttributes.remove(additionalAttribute);
+        additionalAttribute.setFieldAgentSkillRuleSet(null);
         return this;
     }
 

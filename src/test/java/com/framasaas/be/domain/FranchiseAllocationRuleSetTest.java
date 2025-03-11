@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleSetTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,5 +46,27 @@ class FranchiseAllocationRuleSetTest {
         franchiseAllocationRuleSet.setFranchises(new HashSet<>());
         assertThat(franchiseAllocationRuleSet.getFranchises()).doesNotContain(franchiseBack);
         assertThat(franchiseBack.getRuleset()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FranchiseAllocationRuleSet franchiseAllocationRuleSet = getFranchiseAllocationRuleSetRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        franchiseAllocationRuleSet.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseAllocationRuleSet.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRuleSet()).isEqualTo(franchiseAllocationRuleSet);
+
+        franchiseAllocationRuleSet.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseAllocationRuleSet.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRuleSet()).isNull();
+
+        franchiseAllocationRuleSet.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(franchiseAllocationRuleSet.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRuleSet()).isEqualTo(franchiseAllocationRuleSet);
+
+        franchiseAllocationRuleSet.setAdditionalAttributes(new HashSet<>());
+        assertThat(franchiseAllocationRuleSet.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRuleSet()).isNull();
     }
 }

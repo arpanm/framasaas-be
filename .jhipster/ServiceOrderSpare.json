@@ -51,13 +51,6 @@
   "pagination": "infinite-scroll",
   "relationships": [
     {
-      "otherEntityName": "additionalAttribute",
-      "otherEntityRelationshipName": "serviceOrderSpare",
-      "relationshipName": "additionalAttribute",
-      "relationshipSide": "left",
-      "relationshipType": "one-to-many"
-    },
-    {
       "otherEntityName": "serviceOrder",
       "relationshipName": "serviceOrder",
       "relationshipSide": "right",

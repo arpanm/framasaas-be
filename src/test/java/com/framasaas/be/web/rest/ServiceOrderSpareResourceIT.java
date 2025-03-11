@@ -393,10 +393,7 @@ class ServiceOrderSpareResourceIT {
         ServiceOrderSpare partialUpdatedServiceOrderSpare = new ServiceOrderSpare();
         partialUpdatedServiceOrderSpare.setId(serviceOrderSpare.getId());
 
-        partialUpdatedServiceOrderSpare
-            .totalCharge(UPDATED_TOTAL_CHARGE)
-            .orderedFrom(UPDATED_ORDERED_FROM)
-            .createdTime(UPDATED_CREATED_TIME);
+        partialUpdatedServiceOrderSpare.tax(UPDATED_TAX).createddBy(UPDATED_CREATEDD_BY).updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderSpareMockMvc
             .perform(

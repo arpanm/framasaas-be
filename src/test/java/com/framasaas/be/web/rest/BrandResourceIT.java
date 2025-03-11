@@ -422,8 +422,6 @@ class BrandResourceIT {
         partialUpdatedBrand
             .brandName(UPDATED_BRAND_NAME)
             .logoPath(UPDATED_LOGO_PATH)
-            .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedTime(UPDATED_UPDATED_TIME);

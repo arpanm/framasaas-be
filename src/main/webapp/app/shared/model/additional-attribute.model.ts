@@ -20,7 +20,11 @@ import { IArticleWarrantyDetailsDocument } from 'app/shared/model/article-warran
 import { IServiceOrder } from 'app/shared/model/service-order.model';
 import { IServiceOrderPayment } from 'app/shared/model/service-order-payment.model';
 import { IServiceOrderFranchiseAssignment } from 'app/shared/model/service-order-franchise-assignment.model';
-import { IServiceOrderSpare } from 'app/shared/model/service-order-spare.model';
+import { IServiceOrderFieldAgentAssignment } from 'app/shared/model/service-order-field-agent-assignment.model';
+import { IFranchiseAllocationRuleSet } from 'app/shared/model/franchise-allocation-rule-set.model';
+import { IFranchiseAllocationRule } from 'app/shared/model/franchise-allocation-rule.model';
+import { IFieldAgentSkillRuleSet } from 'app/shared/model/field-agent-skill-rule-set.model';
+import { IFieldAgentSkillRule } from 'app/shared/model/field-agent-skill-rule.model';
 import { IServiceOrderAssignment } from 'app/shared/model/service-order-assignment.model';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 
@@ -54,7 +58,11 @@ export interface IAdditionalAttribute {
   serviceOrder?: IServiceOrder | null;
   serviceOrderPayment?: IServiceOrderPayment | null;
   serviceOrderFranchiseAssignment?: IServiceOrderFranchiseAssignment | null;
-  serviceOrderSpare?: IServiceOrderSpare | null;
+  serviceOrderFieldAgentAssignment?: IServiceOrderFieldAgentAssignment | null;
+  franchiseAllocationRuleSet?: IFranchiseAllocationRuleSet | null;
+  franchiseAllocationRule?: IFranchiseAllocationRule | null;
+  fieldAgentSkillRuleSet?: IFieldAgentSkillRuleSet | null;
+  fieldAgentSkillRule?: IFieldAgentSkillRule | null;
   serviceOrderAssignment?: IServiceOrderAssignment | null;
 }
 

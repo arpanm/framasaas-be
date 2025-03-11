@@ -74,12 +74,6 @@ public class ServiceOrderFranchiseAssignmentServiceImpl implements ServiceOrderF
                 if (serviceOrderFranchiseAssignment.getCompletedTime() != null) {
                     existingServiceOrderFranchiseAssignment.setCompletedTime(serviceOrderFranchiseAssignment.getCompletedTime());
                 }
-                if (serviceOrderFranchiseAssignment.getCompletionOTP() != null) {
-                    existingServiceOrderFranchiseAssignment.setCompletionOTP(serviceOrderFranchiseAssignment.getCompletionOTP());
-                }
-                if (serviceOrderFranchiseAssignment.getCancellationOTP() != null) {
-                    existingServiceOrderFranchiseAssignment.setCancellationOTP(serviceOrderFranchiseAssignment.getCancellationOTP());
-                }
                 if (serviceOrderFranchiseAssignment.getFranchiseCommision() != null) {
                     existingServiceOrderFranchiseAssignment.setFranchiseCommision(serviceOrderFranchiseAssignment.getFranchiseCommision());
                 }

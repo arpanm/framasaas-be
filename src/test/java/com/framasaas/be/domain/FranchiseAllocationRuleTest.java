@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.BrandTestSamples.*;
 import static com.framasaas.be.domain.CategoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleTestSamples.*;
@@ -137,5 +138,27 @@ class FranchiseAllocationRuleTest {
         franchiseAllocationRule.setLanguageMappings(new HashSet<>());
         assertThat(franchiseAllocationRule.getLanguageMappings()).doesNotContain(languageMappingBack);
         assertThat(languageMappingBack.getFranchiseRule()).isNull();
+    }
+
+    @Test
+    void additionalAttributeTest() {
+        FranchiseAllocationRule franchiseAllocationRule = getFranchiseAllocationRuleRandomSampleGenerator();
+        AdditionalAttribute additionalAttributeBack = getAdditionalAttributeRandomSampleGenerator();
+
+        franchiseAllocationRule.addAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseAllocationRule.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.removeAdditionalAttribute(additionalAttributeBack);
+        assertThat(franchiseAllocationRule.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRule()).isNull();
+
+        franchiseAllocationRule.additionalAttributes(new HashSet<>(Set.of(additionalAttributeBack)));
+        assertThat(franchiseAllocationRule.getAdditionalAttributes()).containsOnly(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRule()).isEqualTo(franchiseAllocationRule);
+
+        franchiseAllocationRule.setAdditionalAttributes(new HashSet<>());
+        assertThat(franchiseAllocationRule.getAdditionalAttributes()).doesNotContain(additionalAttributeBack);
+        assertThat(additionalAttributeBack.getFranchiseAllocationRule()).isNull();
     }
 }

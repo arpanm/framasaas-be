@@ -1,0 +1,87 @@
+{
+  "annotations": {
+    "changelogDate": "20250311191109"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "serviceOrderAssignmentStatus",
+      "fieldType": "ServiceOrderAssignmentStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ASSIGNED,MOVEDBACK,COMPLETEDINIT,COMPLETEDAPPROVED,CANCELATIONINIT,CANCELATIONAPPROVED"
+    },
+    {
+      "fieldName": "nps",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "assignedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "movedBackTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "visitTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "spareOrderTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "spareDeliveryTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "completedTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "completionOTP",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cancellationOTP",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createddBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceOrderFieldAgentAssignment",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "additionalAttribute",
+      "otherEntityRelationshipName": "serviceOrderFieldAgentAssignment",
+      "relationshipName": "additionalAttribute",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

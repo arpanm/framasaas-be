@@ -440,8 +440,8 @@ class FranchiseAllocationRuleSetResourceIT {
         partialUpdatedFranchiseAllocationRuleSet.setId(franchiseAllocationRuleSet.getId());
 
         partialUpdatedFranchiseAllocationRuleSet
-            .sortType(UPDATED_SORT_TYPE)
-            .createdTime(UPDATED_CREATED_TIME)
+            .priority(UPDATED_PRIORITY)
+            .createddBy(UPDATED_CREATEDD_BY)
             .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 

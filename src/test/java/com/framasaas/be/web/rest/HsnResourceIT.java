@@ -412,10 +412,8 @@ class HsnResourceIT {
         partialUpdatedHsn
             .description(UPDATED_DESCRIPTION)
             .taxRate(UPDATED_TAX_RATE)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restHsnMockMvc
             .perform(

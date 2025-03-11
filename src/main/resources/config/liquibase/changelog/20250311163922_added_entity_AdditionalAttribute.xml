@@ -98,7 +98,19 @@
             <column name="service_order_franchise_assignment_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="service_order_spare_id" type="bigint">
+            <column name="service_order_field_agent_assignment_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="franchise_allocation_rule_set_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="franchise_allocation_rule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="field_agent_skill_rule_set_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="field_agent_skill_rule_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="service_order_assignment_id" type="bigint">

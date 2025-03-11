@@ -46,12 +46,17 @@ public class Pincode implements Serializable {
     private Instant updatedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes" },
+        allowSetters = true
+    )
     private FranchiseAllocationRule franchiseRule;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "brands", "categories", "pincodes", "locationMappings", "languageMappings", "fieldAgentSkillRuleSet" },
+        value = {
+            "brands", "categories", "pincodes", "locationMappings", "languageMappings", "additionalAttributes", "fieldAgentSkillRuleSet",
+        },
         allowSetters = true
     )
     private FieldAgentSkillRule fieldAgentSkillRule;

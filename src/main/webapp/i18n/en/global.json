@@ -42,7 +42,8 @@
         "serviceOrderSpare": "Service Order Spare",
         "languageMapping": "Language Mapping",
         "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set",
-        "fieldAgentSkillRule": "Field Agent Skill Rule"
+        "fieldAgentSkillRule": "Field Agent Skill Rule",
+        "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment"
       },
       "account": {
         "main": "Account",

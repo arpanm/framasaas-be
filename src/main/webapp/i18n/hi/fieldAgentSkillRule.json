@@ -29,6 +29,7 @@
       "pincode": "Pincode",
       "locationMapping": "Location Mapping",
       "languageMapping": "Language Mapping",
+      "additionalAttribute": "Additional Attribute",
       "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set"
     }
   }

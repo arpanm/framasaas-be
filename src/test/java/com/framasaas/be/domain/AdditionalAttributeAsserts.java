@@ -102,7 +102,27 @@ public class AdditionalAttributeAsserts {
                     .as("check serviceOrderFranchiseAssignment")
                     .isEqualTo(expected.getServiceOrderFranchiseAssignment())
             )
-            .satisfies(a -> assertThat(a.getServiceOrderSpare()).as("check serviceOrderSpare").isEqualTo(expected.getServiceOrderSpare()))
+            .satisfies(a ->
+                assertThat(a.getServiceOrderFieldAgentAssignment())
+                    .as("check serviceOrderFieldAgentAssignment")
+                    .isEqualTo(expected.getServiceOrderFieldAgentAssignment())
+            )
+            .satisfies(a ->
+                assertThat(a.getFranchiseAllocationRuleSet())
+                    .as("check franchiseAllocationRuleSet")
+                    .isEqualTo(expected.getFranchiseAllocationRuleSet())
+            )
+            .satisfies(a ->
+                assertThat(a.getFranchiseAllocationRule())
+                    .as("check franchiseAllocationRule")
+                    .isEqualTo(expected.getFranchiseAllocationRule())
+            )
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRuleSet()).as("check fieldAgentSkillRuleSet").isEqualTo(expected.getFieldAgentSkillRuleSet())
+            )
+            .satisfies(a ->
+                assertThat(a.getFieldAgentSkillRule()).as("check fieldAgentSkillRule").isEqualTo(expected.getFieldAgentSkillRule())
+            )
             .satisfies(a ->
                 assertThat(a.getServiceOrderAssignment()).as("check serviceOrderAssignment").isEqualTo(expected.getServiceOrderAssignment())
             );

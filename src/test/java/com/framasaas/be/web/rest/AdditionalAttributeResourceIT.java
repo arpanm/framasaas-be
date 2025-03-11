@@ -411,7 +411,7 @@ class AdditionalAttributeResourceIT {
         AdditionalAttribute partialUpdatedAdditionalAttribute = new AdditionalAttribute();
         partialUpdatedAdditionalAttribute.setId(additionalAttribute.getId());
 
-        partialUpdatedAdditionalAttribute.attributeName(UPDATED_ATTRIBUTE_NAME).createdTime(UPDATED_CREATED_TIME);
+        partialUpdatedAdditionalAttribute.attributeValue(UPDATED_ATTRIBUTE_VALUE).createddBy(UPDATED_CREATEDD_BY);
 
         restAdditionalAttributeMockMvc
             .perform(

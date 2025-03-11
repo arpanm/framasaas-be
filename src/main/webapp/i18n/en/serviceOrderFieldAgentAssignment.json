@@ -1,0 +1,39 @@
+{
+  "framasaasApp": {
+    "serviceOrderFieldAgentAssignment": {
+      "home": {
+        "title": "Service Order Field Agent Assignments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service Order Field Agent Assignment",
+        "createOrEditLabel": "Create or edit a Service Order Field Agent Assignment",
+        "notFound": "No Service Order Field Agent Assignments found"
+      },
+      "created": "A new Service Order Field Agent Assignment is created with identifier {{ param }}",
+      "updated": "A Service Order Field Agent Assignment is updated with identifier {{ param }}",
+      "deleted": "A Service Order Field Agent Assignment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Order Field Agent Assignment {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Field Agent Assignment"
+      },
+      "id": "ID",
+      "serviceOrderAssignmentStatus": "Service Order Assignment Status",
+      "nps": "Nps",
+      "isActive": "Is Active",
+      "assignedTime": "Assigned Time",
+      "movedBackTime": "Moved Back Time",
+      "visitTime": "Visit Time",
+      "spareOrderTime": "Spare Order Time",
+      "spareDeliveryTime": "Spare Delivery Time",
+      "completedTime": "Completed Time",
+      "completionOTP": "Completion OTP",
+      "cancellationOTP": "Cancellation OTP",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

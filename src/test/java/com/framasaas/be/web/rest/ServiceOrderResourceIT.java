@@ -498,13 +498,17 @@ class ServiceOrderResourceIT {
         partialUpdatedServiceOrder.setId(serviceOrder.getId());
 
         partialUpdatedServiceOrder
-            .description(UPDATED_DESCRIPTION)
-            .orderStatus(UPDATED_ORDER_STATUS)
+            .inWarranty(UPDATED_IN_WARRANTY)
+            .isFree(UPDATED_IS_FREE)
             .isSpareNeeded(UPDATED_IS_SPARE_NEEDED)
+            .confirmedTime(UPDATED_CONFIRMED_TIME)
+            .tax(UPDATED_TAX)
+            .totalSpareCharges(UPDATED_TOTAL_SPARE_CHARGES)
+            .totalSpareTax(UPDATED_TOTAL_SPARE_TAX)
             .totalCharges(UPDATED_TOTAL_CHARGES)
+            .totalPaymentDone(UPDATED_TOTAL_PAYMENT_DONE)
             .nps(UPDATED_NPS)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .createdTime(UPDATED_CREATED_TIME);
 
         restServiceOrderMockMvc
             .perform(
