@@ -367,6 +367,9 @@ entity Product {
     vendorProductId String required,
     description String,
     price Float required,
+    tax Float required,
+    franchiseCommission Float required,
+    franchiseTax Float required,
     productType ProductType,
     isActive Boolean,
     createddBy String required,
@@ -406,7 +409,11 @@ relationship OneToMany {
 }
 
 entity ProductPriceHistory {
-	price Float required,
+	price Float,
+    tax Float,
+    franchiseCommission Float,
+    franchiseTax Float,
+    updateDescription String,
     updatedBy String required,
     updatedTime Instant required
 }
@@ -421,6 +428,9 @@ entity WarrantyMaster {
     warrantyType WarrantyType required,
     description String,
     price Float required,
+    tax Float required,
+    franchiseCommission Float required,
+    franchiseTax Float required,
     periodInMonths Long required,
     taxRate Float required,
     isActive Boolean,
@@ -435,7 +445,10 @@ relationship OneToMany {
 }
 
 entity WarrantyMasterPriceHistory {
-	price Float required,
+	price Float,
+    tax Float,
+    franchiseCommission Float,
+    franchiseTax Float,
     updatedBy String required,
     updatedTime Instant required
 }
@@ -467,6 +480,9 @@ entity ArticleWarrantyDetails {
     vendorWarrantyMasterId String,
     startDate LocalDate,
     endDate LocalDate,
+    soldBy SoldBy,
+    soldByUser String,
+    soldDate LocalDate,
     isActive Boolean,
     createddBy String required,
     createdTime Instant required,
@@ -478,6 +494,12 @@ enum WarrantyType {
 	BRANDFREEWARRANTY,
     EXTENDEDPAIDWARRANTY,
     OTHER
+}
+
+enum SoldBy {
+	FRANCHISE,
+    ENGINEER,
+    MOTHERCOMPANY
 }
 
 relationship OneToMany {
@@ -509,9 +531,9 @@ entity ServiceOrderMaster {
 	charge Float,
     tax Float,
     franchiseCommissionWithinSla Float,
-    franchiseChargeWithinSlaTax Float,
+    franchiseTaxWithinSlaTax Float,
     franchiseCommissionOutsideSla Float,
-    franchiseChargeOutsideSlaTax Float,
+    franchiseTaxOutsideSlaTax Float,
     isActive Boolean,
     createddBy String required,
     createdTime Instant required,
@@ -661,7 +683,9 @@ entity ServiceOrderSpare {
 	price Float,
     tax Float,
     totalCharge Float,
-    orderedFrom SpareOrderedFrom,
+    franchiseCommision Float,
+    franchiseCommisionTax Float,
+    orderedFrom InventoryLocationType,
 	spareStatus ServiceOrderSpareStatus,
     createddBy String required,
     createdTime Instant required,
@@ -679,7 +703,7 @@ enum ServiceOrderSpareStatus {
     INSTALLED
 }
 
-enum SpareOrderedFrom {
+enum InventoryLocationType {
 	ENGINEER,
     FRANCHISE,
     MOTHERCOMPANY
@@ -691,6 +715,57 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Product to ServiceOrderSpare{product}
+}
+
+
+entity InventoryLocation {
+	name String,
+    locationType InventoryLocationType,
+    isActive Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+entity Inventory {
+	inventoryValue Long required,
+    isSellable Boolean,
+    createddBy String required,
+    createdTime Instant required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+entity InventoryHistory {
+	inventoryValue Long required,
+    reason InventoryChangeReason required,
+    updatedBy String required,
+    updatedTime Instant required
+}
+
+enum InventoryChangeReason {
+	GRIN,
+    RETURNINIT,
+    RETURNAPPROVED,
+    RETURNREJECTED,
+    RETURNDISPATCHED,
+    RETURNRECEIVED,
+    ADJUSTMENTMISSING,
+    ADJUSTMENTDAMAGED,
+    ADJUSTMENTOTHERS,
+    ORDERINIT,
+    ORDERCONFIRMED,
+    ORDERDISPATCHED,
+    ORDERDELIVERED
+}
+
+relationship OneToMany {
+	Product to Inventory{product}
+}
+
+relationship OneToMany {
+	InventoryLocation to Inventory{location}
 }
 
 entity AdditionalAttribute {
@@ -829,6 +904,14 @@ relationship OneToMany {
 
 relationship OneToMany {
 	FieldAgentSkillRule to AdditionalAttribute{fieldAgentSkillRule}
+}
+
+relationship OneToMany {
+	InventoryLocation to AdditionalAttribute{inventoryLocation}
+}
+
+relationship OneToMany {
+	Inventory to AdditionalAttribute{inventory}
 }
 
 // Set pagination options
