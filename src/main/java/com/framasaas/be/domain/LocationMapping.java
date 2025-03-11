@@ -1,5 +1,6 @@
 package com.framasaas.be.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -43,6 +44,22 @@ public class LocationMapping implements Serializable {
     @NotNull
     @Column(name = "updated_time", nullable = false)
     private Instant updatedTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = {
+            "address",
+            "franchiseStatusHistories",
+            "franchisePerformanceHistories",
+            "locationMappings",
+            "franchiseDocuments",
+            "franchiseUsers",
+            "brands",
+            "categories",
+        },
+        allowSetters = true
+    )
+    private Franchise franchise;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -122,6 +139,19 @@ public class LocationMapping implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public Franchise getFranchise() {
+        return this.franchise;
+    }
+
+    public void setFranchise(Franchise franchise) {
+        this.franchise = franchise;
+    }
+
+    public LocationMapping franchise(Franchise franchise) {
+        this.setFranchise(franchise);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

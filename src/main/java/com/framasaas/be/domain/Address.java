@@ -69,11 +69,19 @@ public class Address implements Serializable {
     private Instant updatedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "franchise" }, allowSetters = true)
     private LocationMapping location;
 
     @JsonIgnoreProperties(
         value = {
-            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+            "address",
+            "franchiseStatusHistories",
+            "franchisePerformanceHistories",
+            "locationMappings",
+            "franchiseDocuments",
+            "franchiseUsers",
+            "brands",
+            "categories",
         },
         allowSetters = true
     )

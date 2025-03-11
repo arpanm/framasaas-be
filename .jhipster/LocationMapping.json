@@ -32,7 +32,14 @@
   ],
   "name": "LocationMapping",
   "pagination": "infinite-scroll",
-  "relationships": [],
+  "relationships": [
+    {
+      "otherEntityName": "franchise",
+      "relationshipName": "franchise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
   "searchEngine": "no",
   "service": "serviceImpl"
 }

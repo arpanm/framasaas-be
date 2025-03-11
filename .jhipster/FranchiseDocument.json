@@ -56,7 +56,6 @@
   "relationships": [
     {
       "otherEntityName": "franchise",
-      "otherEntityRelationshipName": "documents",
       "relationshipName": "franchise",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"

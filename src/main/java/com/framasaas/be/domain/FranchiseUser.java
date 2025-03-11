@@ -76,7 +76,14 @@ public class FranchiseUser implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
         value = {
-            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+            "address",
+            "franchiseStatusHistories",
+            "franchisePerformanceHistories",
+            "locationMappings",
+            "franchiseDocuments",
+            "franchiseUsers",
+            "brands",
+            "categories",
         },
         allowSetters = true
     )
