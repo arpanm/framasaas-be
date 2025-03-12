@@ -15,14 +15,22 @@
 # ===================================================================
 
 ---
-# Conditionally disable springdoc on missing api-docs profile
+# Springdoc OpenAPI configuration
 spring:
   config:
     activate:
       on-profile: '!api-docs'
 springdoc:
   api-docs:
-    enabled: false
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui/index.html
+    operationsSorter: method
+    tryItOutEnabled: true
+    filter: true
+    disable-swagger-default-url: true
+  show-actuator: true
+  packages-to-scan: com.framasaas.be.web.rest
 ---
 management:
   endpoints:
