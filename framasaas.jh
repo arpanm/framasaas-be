@@ -84,7 +84,7 @@ relationship OneToOne {
 	Franchise{address} to Address{franchise}
 }
 
-entity FranchiseDocument {
+entity SupportDocument {
 	documentName String required,
     documentType DocumentType required,
     documentFormat DocumentFormat required,
@@ -114,7 +114,7 @@ enum DocumentFormat {
 }
 
 relationship OneToMany {
-	Franchise to FranchiseDocument{franchise}
+	Franchise to SupportDocument{franchise}
 }
 
 entity FranchiseUser {
@@ -433,6 +433,8 @@ entity WarrantyMaster {
     franchiseTax Float required,
     periodInMonths Long required,
     taxRate Float required,
+    coverage String,
+    exclusion String,
     isActive Boolean,
     createddBy String required,
     createdTime Instant required,
@@ -443,6 +445,7 @@ entity WarrantyMaster {
 relationship OneToMany {
 	Product to WarrantyMaster{product}
 }
+
 
 entity WarrantyMasterPriceHistory {
 	price Float,
@@ -460,6 +463,11 @@ relationship OneToMany {
 entity Article {
 	serialNo String,
     vendorArticleId String,
+    isValidated Boolean,
+    purchaseDate LocalDate,
+	puchasePrice Float,
+    purchaseStore String,
+	invoicePath String,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -472,6 +480,10 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Customer to Article{customer}
+}
+
+relationship OneToMany {
+	Article to SupportDocument{article}
 }
 
 entity ArticleWarrantyDetails {
@@ -510,19 +522,8 @@ relationship OneToMany {
 	WarrantyMaster to ArticleWarrantyDetails{warrantyMaster}
 }
 
-entity ArticleWarrantyDetailsDocument {
-	documentPath String required,
-    isValidated Boolean required,
-    validatedBy String required,
-    validatedTime Instant required,
-    createddBy String required,
-    createdTime Instant required,
-    updatedBy String required,
-    updatedTime Instant required
-}
-
 relationship OneToMany {
-	ArticleWarrantyDetails to ArticleWarrantyDetailsDocument{articleWarranty}
+	ArticleWarrantyDetails to SupportDocument{articleWarranty}
 }
 
 entity ServiceOrderMaster {
@@ -597,6 +598,10 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Address to ServiceOrder{address}
+}
+
+relationship OneToMany {
+	ServiceOrder to SupportDocument{serviceOrder}
 }
 
 entity ServiceOrderPayment {
@@ -839,7 +844,7 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	FranchiseDocument to AdditionalAttribute{document}
+	SupportDocument to AdditionalAttribute{document}
 }
 
 relationship OneToMany {
