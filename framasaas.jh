@@ -1,4 +1,3 @@
-
 entity Franchise {
 	franchiseName String required,
     owner String,
@@ -442,6 +441,10 @@ entity WarrantyMaster {
 
 relationship OneToMany {
 	Product to WarrantyMaster{product}
+}
+
+relationship ManyToMany {
+	WarrantyMaster{coveredSpare} to Product{coveredUnderWarranty}
 }
 
 entity WarrantyMasterPriceHistory {
