@@ -83,7 +83,7 @@ relationship OneToOne {
 	Franchise{address} to Address{franchise}
 }
 
-entity FranchiseDocument {
+entity SupportingDocument {
 	documentName String required,
     documentType DocumentType required,
     documentFormat DocumentFormat required,
@@ -113,7 +113,7 @@ enum DocumentFormat {
 }
 
 relationship OneToMany {
-	Franchise to FranchiseDocument{franchise}
+	Franchise to SupportingDocument{franchise}
 }
 
 entity FranchiseUser {
@@ -513,19 +513,8 @@ relationship OneToMany {
 	WarrantyMaster to ArticleWarrantyDetails{warrantyMaster}
 }
 
-entity ArticleWarrantyDetailsDocument {
-	documentPath String required,
-    isValidated Boolean required,
-    validatedBy String required,
-    validatedTime Instant required,
-    createddBy String required,
-    createdTime Instant required,
-    updatedBy String required,
-    updatedTime Instant required
-}
-
 relationship OneToMany {
-	ArticleWarrantyDetails to ArticleWarrantyDetailsDocument{articleWarranty}
+	ArticleWarrantyDetails to SupportingDocument{articleWarranty}
 }
 
 entity ServiceOrderMaster {
@@ -842,7 +831,7 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	FranchiseDocument to AdditionalAttribute{document}
+	SupportingDocument to AdditionalAttribute{supportDocument}
 }
 
 relationship OneToMany {
@@ -871,10 +860,6 @@ relationship OneToMany {
 
 relationship OneToMany {
 	ArticleWarrantyDetails to AdditionalAttribute{articleWarranty}
-}
-
-relationship OneToMany {
-	ArticleWarrantyDetailsDocument to AdditionalAttribute{articleWarrantyDocument}
 }
 
 relationship OneToMany {

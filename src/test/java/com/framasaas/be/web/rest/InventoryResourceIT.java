@@ -381,11 +381,7 @@ class InventoryResourceIT {
         Inventory partialUpdatedInventory = new Inventory();
         partialUpdatedInventory.setId(inventory.getId());
 
-        partialUpdatedInventory
-            .inventoryValue(UPDATED_INVENTORY_VALUE)
-            .isSellable(UPDATED_IS_SELLABLE)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedInventory.inventoryValue(UPDATED_INVENTORY_VALUE);
 
         restInventoryMockMvc
             .perform(

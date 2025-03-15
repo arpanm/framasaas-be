@@ -77,8 +77,8 @@ public class ArticleWarrantyDetails implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
-    private Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments = new HashSet<>();
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise", "articleWarranty" }, allowSetters = true)
+    private Set<SupportingDocument> supportingDocuments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -94,7 +94,7 @@ public class ArticleWarrantyDetails implements Serializable {
             "location",
             "franchiseUser",
             "customer",
-            "document",
+            "supportDocument",
             "product",
             "hsn",
             "priceHistory",
@@ -102,7 +102,6 @@ public class ArticleWarrantyDetails implements Serializable {
             "warrantyMasterPriceHistory",
             "article",
             "articleWarranty",
-            "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
@@ -113,6 +112,8 @@ public class ArticleWarrantyDetails implements Serializable {
             "fieldAgentSkillRule",
             "inventoryLocation",
             "inventory",
+            "document",
+            "articleWarrantyDocument",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -317,34 +318,34 @@ public class ArticleWarrantyDetails implements Serializable {
         this.updatedTime = updatedTime;
     }
 
-    public Set<ArticleWarrantyDetailsDocument> getArticleWarrantyDetailsDocuments() {
-        return this.articleWarrantyDetailsDocuments;
+    public Set<SupportingDocument> getSupportingDocuments() {
+        return this.supportingDocuments;
     }
 
-    public void setArticleWarrantyDetailsDocuments(Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments) {
-        if (this.articleWarrantyDetailsDocuments != null) {
-            this.articleWarrantyDetailsDocuments.forEach(i -> i.setArticleWarranty(null));
+    public void setSupportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        if (this.supportingDocuments != null) {
+            this.supportingDocuments.forEach(i -> i.setArticleWarranty(null));
         }
-        if (articleWarrantyDetailsDocuments != null) {
-            articleWarrantyDetailsDocuments.forEach(i -> i.setArticleWarranty(this));
+        if (supportingDocuments != null) {
+            supportingDocuments.forEach(i -> i.setArticleWarranty(this));
         }
-        this.articleWarrantyDetailsDocuments = articleWarrantyDetailsDocuments;
+        this.supportingDocuments = supportingDocuments;
     }
 
-    public ArticleWarrantyDetails articleWarrantyDetailsDocuments(Set<ArticleWarrantyDetailsDocument> articleWarrantyDetailsDocuments) {
-        this.setArticleWarrantyDetailsDocuments(articleWarrantyDetailsDocuments);
+    public ArticleWarrantyDetails supportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        this.setSupportingDocuments(supportingDocuments);
         return this;
     }
 
-    public ArticleWarrantyDetails addArticleWarrantyDetailsDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
-        this.articleWarrantyDetailsDocuments.add(articleWarrantyDetailsDocument);
-        articleWarrantyDetailsDocument.setArticleWarranty(this);
+    public ArticleWarrantyDetails addSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.add(supportingDocument);
+        supportingDocument.setArticleWarranty(this);
         return this;
     }
 
-    public ArticleWarrantyDetails removeArticleWarrantyDetailsDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
-        this.articleWarrantyDetailsDocuments.remove(articleWarrantyDetailsDocument);
-        articleWarrantyDetailsDocument.setArticleWarranty(null);
+    public ArticleWarrantyDetails removeSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.remove(supportingDocument);
+        supportingDocument.setArticleWarranty(null);
         return this;
     }
 

@@ -42,6 +42,7 @@ import ServiceOrderFieldAgentAssignment from './service-order-field-agent-assign
 import InventoryLocation from './inventory-location';
 import Inventory from './inventory';
 import InventoryHistory from './inventory-history';
+import SupportingDocument from './supporting-document';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -88,6 +89,7 @@ export default () => {
         <Route path="inventory-location/*" element={<InventoryLocation />} />
         <Route path="inventory/*" element={<Inventory />} />
         <Route path="inventory-history/*" element={<InventoryHistory />} />
+        <Route path="supporting-document/*" element={<SupportingDocument />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

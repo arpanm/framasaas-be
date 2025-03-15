@@ -94,10 +94,7 @@ public class WarrantyMaster implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "warrantyMaster")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "articleWarrantyDetailsDocuments", "additionalAttributes", "article", "warrantyMaster" },
-        allowSetters = true
-    )
+    @JsonIgnoreProperties(value = { "supportingDocuments", "additionalAttributes", "article", "warrantyMaster" }, allowSetters = true)
     private Set<ArticleWarrantyDetails> articleWarrantyDetails = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "warrantyMaster")
@@ -114,7 +111,7 @@ public class WarrantyMaster implements Serializable {
             "location",
             "franchiseUser",
             "customer",
-            "document",
+            "supportDocument",
             "product",
             "hsn",
             "priceHistory",
@@ -122,7 +119,6 @@ public class WarrantyMaster implements Serializable {
             "warrantyMasterPriceHistory",
             "article",
             "articleWarranty",
-            "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
@@ -133,6 +129,8 @@ public class WarrantyMaster implements Serializable {
             "fieldAgentSkillRule",
             "inventoryLocation",
             "inventory",
+            "document",
+            "articleWarrantyDocument",
             "serviceOrderAssignment",
         },
         allowSetters = true

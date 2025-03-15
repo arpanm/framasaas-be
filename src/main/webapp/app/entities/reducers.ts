@@ -37,6 +37,7 @@ import serviceOrderFieldAgentAssignment from 'app/entities/service-order-field-a
 import inventoryLocation from 'app/entities/inventory-location/inventory-location.reducer';
 import inventory from 'app/entities/inventory/inventory.reducer';
 import inventoryHistory from 'app/entities/inventory-history/inventory-history.reducer';
+import supportingDocument from 'app/entities/supporting-document/supporting-document.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -79,6 +80,7 @@ const entitiesReducers = {
   inventoryLocation,
   inventory,
   inventoryHistory,
+  supportingDocument,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

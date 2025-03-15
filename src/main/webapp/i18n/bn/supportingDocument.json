@@ -1,0 +1,38 @@
+{
+  "framasaasApp": {
+    "supportingDocument": {
+      "home": {
+        "title": "Supporting Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Supporting Document",
+        "createOrEditLabel": "Create or edit a Supporting Document",
+        "notFound": "No Supporting Documents found"
+      },
+      "created": "A new Supporting Document is created with identifier {{ param }}",
+      "updated": "A Supporting Document is updated with identifier {{ param }}",
+      "deleted": "A Supporting Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supporting Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Supporting Document"
+      },
+      "id": "ID",
+      "documentName": "Document Name",
+      "documentType": "Document Type",
+      "documentFormat": "Document Format",
+      "documentSize": "Document Size",
+      "documentPath": "Document Path",
+      "isValidated": "Is Validated",
+      "validatedBy": "Validated By",
+      "validatedTime": "Validated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise",
+      "articleWarranty": "Article Warranty"
+    }
+  }
+}

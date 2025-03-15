@@ -352,7 +352,7 @@ class InventoryHistoryResourceIT {
         InventoryHistory partialUpdatedInventoryHistory = new InventoryHistory();
         partialUpdatedInventoryHistory.setId(inventoryHistory.getId());
 
-        partialUpdatedInventoryHistory.reason(UPDATED_REASON).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedInventoryHistory.inventoryValue(UPDATED_INVENTORY_VALUE).updatedTime(UPDATED_UPDATED_TIME);
 
         restInventoryHistoryMockMvc
             .perform(

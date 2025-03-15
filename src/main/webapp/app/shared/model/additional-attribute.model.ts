@@ -8,7 +8,7 @@ import { IAddress } from 'app/shared/model/address.model';
 import { ILocationMapping } from 'app/shared/model/location-mapping.model';
 import { IFranchiseUser } from 'app/shared/model/franchise-user.model';
 import { ICustomer } from 'app/shared/model/customer.model';
-import { IFranchiseDocument } from 'app/shared/model/franchise-document.model';
+import { ISupportingDocument } from 'app/shared/model/supporting-document.model';
 import { IProduct } from 'app/shared/model/product.model';
 import { IHsn } from 'app/shared/model/hsn.model';
 import { IProductPriceHistory } from 'app/shared/model/product-price-history.model';
@@ -16,7 +16,6 @@ import { IWarrantyMaster } from 'app/shared/model/warranty-master.model';
 import { IWarrantyMasterPriceHistory } from 'app/shared/model/warranty-master-price-history.model';
 import { IArticle } from 'app/shared/model/article.model';
 import { IArticleWarrantyDetails } from 'app/shared/model/article-warranty-details.model';
-import { IArticleWarrantyDetailsDocument } from 'app/shared/model/article-warranty-details-document.model';
 import { IServiceOrder } from 'app/shared/model/service-order.model';
 import { IServiceOrderPayment } from 'app/shared/model/service-order-payment.model';
 import { IServiceOrderFranchiseAssignment } from 'app/shared/model/service-order-franchise-assignment.model';
@@ -27,6 +26,8 @@ import { IFieldAgentSkillRuleSet } from 'app/shared/model/field-agent-skill-rule
 import { IFieldAgentSkillRule } from 'app/shared/model/field-agent-skill-rule.model';
 import { IInventoryLocation } from 'app/shared/model/inventory-location.model';
 import { IInventory } from 'app/shared/model/inventory.model';
+import { IFranchiseDocument } from 'app/shared/model/franchise-document.model';
+import { IArticleWarrantyDetailsDocument } from 'app/shared/model/article-warranty-details-document.model';
 import { IServiceOrderAssignment } from 'app/shared/model/service-order-assignment.model';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 
@@ -48,7 +49,7 @@ export interface IAdditionalAttribute {
   location?: ILocationMapping | null;
   franchiseUser?: IFranchiseUser | null;
   customer?: ICustomer | null;
-  document?: IFranchiseDocument | null;
+  supportDocument?: ISupportingDocument | null;
   product?: IProduct | null;
   hsn?: IHsn | null;
   priceHistory?: IProductPriceHistory | null;
@@ -56,7 +57,6 @@ export interface IAdditionalAttribute {
   warrantyMasterPriceHistory?: IWarrantyMasterPriceHistory | null;
   article?: IArticle | null;
   articleWarranty?: IArticleWarrantyDetails | null;
-  articleWarrantyDocument?: IArticleWarrantyDetailsDocument | null;
   serviceOrder?: IServiceOrder | null;
   serviceOrderPayment?: IServiceOrderPayment | null;
   serviceOrderFranchiseAssignment?: IServiceOrderFranchiseAssignment | null;
@@ -67,6 +67,8 @@ export interface IAdditionalAttribute {
   fieldAgentSkillRule?: IFieldAgentSkillRule | null;
   inventoryLocation?: IInventoryLocation | null;
   inventory?: IInventory | null;
+  document?: IFranchiseDocument | null;
+  articleWarrantyDocument?: IArticleWarrantyDetailsDocument | null;
   serviceOrderAssignment?: IServiceOrderAssignment | null;
 }
 

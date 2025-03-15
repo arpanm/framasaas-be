@@ -35,7 +35,7 @@
       "location": "Location",
       "franchiseUser": "Franchise User",
       "customer": "Customer",
-      "document": "Document",
+      "supportDocument": "Support Document",
       "product": "Product",
       "hsn": "Hsn",
       "priceHistory": "Price History",
@@ -43,7 +43,6 @@
       "warrantyMasterPriceHistory": "Warranty Master Price History",
       "article": "Article",
       "articleWarranty": "Article Warranty",
-      "articleWarrantyDocument": "Article Warranty Document",
       "serviceOrder": "Service Order",
       "serviceOrderPayment": "Service Order Payment",
       "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
@@ -54,6 +53,8 @@
       "fieldAgentSkillRule": "Field Agent Skill Rule",
       "inventoryLocation": "Inventory Location",
       "inventory": "Inventory",
+      "document": "Document",
+      "articleWarrantyDocument": "Article Warranty Document",
       "serviceOrderAssignment": "Service Order Assignment"
     }
   }

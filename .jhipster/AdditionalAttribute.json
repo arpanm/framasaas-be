@@ -105,8 +105,8 @@
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityName": "franchiseDocument",
-      "relationshipName": "document",
+      "otherEntityName": "supportingDocument",
+      "relationshipName": "supportDocument",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     },
@@ -149,12 +149,6 @@
     {
       "otherEntityName": "articleWarrantyDetails",
       "relationshipName": "articleWarranty",
-      "relationshipSide": "right",
-      "relationshipType": "many-to-one"
-    },
-    {
-      "otherEntityName": "articleWarrantyDetailsDocument",
-      "relationshipName": "articleWarrantyDocument",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     },

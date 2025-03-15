@@ -346,7 +346,7 @@ class ProductPriceHistoryResourceIT {
         ProductPriceHistory partialUpdatedProductPriceHistory = new ProductPriceHistory();
         partialUpdatedProductPriceHistory.setId(productPriceHistory.getId());
 
-        partialUpdatedProductPriceHistory.tax(UPDATED_TAX).updatedBy(UPDATED_UPDATED_BY).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedProductPriceHistory.price(UPDATED_PRICE).tax(UPDATED_TAX).franchiseTax(UPDATED_FRANCHISE_TAX);
 
         restProductPriceHistoryMockMvc
             .perform(

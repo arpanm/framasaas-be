@@ -31,7 +31,7 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
-      "articleWarrantyDetailsDocument": "Article Warranty Details Document",
+      "supportingDocument": "Supporting Document",
       "additionalAttribute": "Additional Attribute",
       "article": "Article",
       "warrantyMaster": "Warranty Master"

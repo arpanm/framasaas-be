@@ -5,12 +5,12 @@ import static com.framasaas.be.domain.AddressTestSamples.*;
 import static com.framasaas.be.domain.FranchiseAllocationRuleSetTestSamples.*;
 import static com.framasaas.be.domain.FranchiseBrandMappingTestSamples.*;
 import static com.framasaas.be.domain.FranchiseCategoryMappingTestSamples.*;
-import static com.framasaas.be.domain.FranchiseDocumentTestSamples.*;
 import static com.framasaas.be.domain.FranchisePerformanceHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseStatusHistoryTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
 import static com.framasaas.be.domain.FranchiseUserTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
+import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -91,25 +91,25 @@ class FranchiseTest {
     }
 
     @Test
-    void franchiseDocumentTest() {
+    void supportingDocumentTest() {
         Franchise franchise = getFranchiseRandomSampleGenerator();
-        FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
+        SupportingDocument supportingDocumentBack = getSupportingDocumentRandomSampleGenerator();
 
-        franchise.addFranchiseDocument(franchiseDocumentBack);
-        assertThat(franchise.getFranchiseDocuments()).containsOnly(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
+        franchise.addSupportingDocument(supportingDocumentBack);
+        assertThat(franchise.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getFranchise()).isEqualTo(franchise);
 
-        franchise.removeFranchiseDocument(franchiseDocumentBack);
-        assertThat(franchise.getFranchiseDocuments()).doesNotContain(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isNull();
+        franchise.removeSupportingDocument(supportingDocumentBack);
+        assertThat(franchise.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getFranchise()).isNull();
 
-        franchise.franchiseDocuments(new HashSet<>(Set.of(franchiseDocumentBack)));
-        assertThat(franchise.getFranchiseDocuments()).containsOnly(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isEqualTo(franchise);
+        franchise.supportingDocuments(new HashSet<>(Set.of(supportingDocumentBack)));
+        assertThat(franchise.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getFranchise()).isEqualTo(franchise);
 
-        franchise.setFranchiseDocuments(new HashSet<>());
-        assertThat(franchise.getFranchiseDocuments()).doesNotContain(franchiseDocumentBack);
-        assertThat(franchiseDocumentBack.getFranchise()).isNull();
+        franchise.setSupportingDocuments(new HashSet<>());
+        assertThat(franchise.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getFranchise()).isNull();
     }
 
     @Test

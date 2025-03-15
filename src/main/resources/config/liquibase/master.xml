@@ -58,6 +58,7 @@
     <include file="config/liquibase/changelog/20250311194028_added_entity_InventoryLocation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311194029_added_entity_Inventory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311194030_added_entity_InventoryHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250315144723_added_entity_SupportingDocument.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20250221035619_added_entity_constraints_Franchise.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035620_added_entity_constraints_FranchiseStatusHistory.xml" relativeToChangelogFile="false"/>
@@ -89,6 +90,7 @@
     <include file="config/liquibase/changelog/20250311185417_added_entity_constraints_LanguageMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311185722_added_entity_constraints_FieldAgentSkillRule.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311194029_added_entity_constraints_Inventory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250315144723_added_entity_constraints_SupportingDocument.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -2,8 +2,8 @@ package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
 import static com.framasaas.be.domain.ArticleTestSamples.*;
-import static com.framasaas.be.domain.ArticleWarrantyDetailsDocumentTestSamples.*;
 import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
+import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,25 +29,25 @@ class ArticleWarrantyDetailsTest {
     }
 
     @Test
-    void articleWarrantyDetailsDocumentTest() {
+    void supportingDocumentTest() {
         ArticleWarrantyDetails articleWarrantyDetails = getArticleWarrantyDetailsRandomSampleGenerator();
-        ArticleWarrantyDetailsDocument articleWarrantyDetailsDocumentBack = getArticleWarrantyDetailsDocumentRandomSampleGenerator();
+        SupportingDocument supportingDocumentBack = getSupportingDocumentRandomSampleGenerator();
 
-        articleWarrantyDetails.addArticleWarrantyDetailsDocument(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetails.getArticleWarrantyDetailsDocuments()).containsOnly(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetailsDocumentBack.getArticleWarranty()).isEqualTo(articleWarrantyDetails);
+        articleWarrantyDetails.addSupportingDocument(supportingDocumentBack);
+        assertThat(articleWarrantyDetails.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticleWarranty()).isEqualTo(articleWarrantyDetails);
 
-        articleWarrantyDetails.removeArticleWarrantyDetailsDocument(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetails.getArticleWarrantyDetailsDocuments()).doesNotContain(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetailsDocumentBack.getArticleWarranty()).isNull();
+        articleWarrantyDetails.removeSupportingDocument(supportingDocumentBack);
+        assertThat(articleWarrantyDetails.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticleWarranty()).isNull();
 
-        articleWarrantyDetails.articleWarrantyDetailsDocuments(new HashSet<>(Set.of(articleWarrantyDetailsDocumentBack)));
-        assertThat(articleWarrantyDetails.getArticleWarrantyDetailsDocuments()).containsOnly(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetailsDocumentBack.getArticleWarranty()).isEqualTo(articleWarrantyDetails);
+        articleWarrantyDetails.supportingDocuments(new HashSet<>(Set.of(supportingDocumentBack)));
+        assertThat(articleWarrantyDetails.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticleWarranty()).isEqualTo(articleWarrantyDetails);
 
-        articleWarrantyDetails.setArticleWarrantyDetailsDocuments(new HashSet<>());
-        assertThat(articleWarrantyDetails.getArticleWarrantyDetailsDocuments()).doesNotContain(articleWarrantyDetailsDocumentBack);
-        assertThat(articleWarrantyDetailsDocumentBack.getArticleWarranty()).isNull();
+        articleWarrantyDetails.setSupportingDocuments(new HashSet<>());
+        assertThat(articleWarrantyDetails.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticleWarranty()).isNull();
     }
 
     @Test

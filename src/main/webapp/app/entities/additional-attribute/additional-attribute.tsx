@@ -195,7 +195,8 @@ export const AdditionalAttribute = () => {
                     <Translate contentKey="framasaasApp.additionalAttribute.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="framasaasApp.additionalAttribute.document">Document</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="framasaasApp.additionalAttribute.supportDocument">Support Document</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.product">Product</Translate> <FontAwesomeIcon icon="sort" />
@@ -222,10 +223,6 @@ export const AdditionalAttribute = () => {
                   </th>
                   <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.articleWarranty">Article Warranty</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
@@ -272,6 +269,13 @@ export const AdditionalAttribute = () => {
                   </th>
                   <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.inventory">Inventory</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.document">Document</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>{' '}
@@ -373,8 +377,10 @@ export const AdditionalAttribute = () => {
                       )}
                     </td>
                     <td>
-                      {additionalAttribute.document ? (
-                        <Link to={`/franchise-document/${additionalAttribute.document.id}`}>{additionalAttribute.document.id}</Link>
+                      {additionalAttribute.supportDocument ? (
+                        <Link to={`/supporting-document/${additionalAttribute.supportDocument.id}`}>
+                          {additionalAttribute.supportDocument.id}
+                        </Link>
                       ) : (
                         ''
                       )}
@@ -427,15 +433,6 @@ export const AdditionalAttribute = () => {
                       {additionalAttribute.articleWarranty ? (
                         <Link to={`/article-warranty-details/${additionalAttribute.articleWarranty.id}`}>
                           {additionalAttribute.articleWarranty.id}
-                        </Link>
-                      ) : (
-                        ''
-                      )}
-                    </td>
-                    <td>
-                      {additionalAttribute.articleWarrantyDocument ? (
-                        <Link to={`/article-warranty-details-document/${additionalAttribute.articleWarrantyDocument.id}`}>
-                          {additionalAttribute.articleWarrantyDocument.id}
                         </Link>
                       ) : (
                         ''
@@ -523,6 +520,22 @@ export const AdditionalAttribute = () => {
                     <td>
                       {additionalAttribute.inventory ? (
                         <Link to={`/inventory/${additionalAttribute.inventory.id}`}>{additionalAttribute.inventory.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.document ? (
+                        <Link to={`/franchise-document/${additionalAttribute.document.id}`}>{additionalAttribute.document.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {additionalAttribute.articleWarrantyDocument ? (
+                        <Link to={`/article-warranty-details-document/${additionalAttribute.articleWarrantyDocument.id}`}>
+                          {additionalAttribute.articleWarrantyDocument.id}
+                        </Link>
                       ) : (
                         ''
                       )}

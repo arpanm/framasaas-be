@@ -410,10 +410,10 @@ class HsnResourceIT {
         partialUpdatedHsn.setId(hsn.getId());
 
         partialUpdatedHsn
+            .hsnCD(UPDATED_HSN_CD)
             .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedTime(UPDATED_UPDATED_TIME);
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME);
 
         restHsnMockMvc
             .perform(

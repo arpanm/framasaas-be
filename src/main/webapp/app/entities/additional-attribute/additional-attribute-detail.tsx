@@ -119,9 +119,9 @@ export const AdditionalAttributeDetail = () => {
           </dt>
           <dd>{additionalAttributeEntity.customer ? additionalAttributeEntity.customer.id : ''}</dd>
           <dt>
-            <Translate contentKey="framasaasApp.additionalAttribute.document">Document</Translate>
+            <Translate contentKey="framasaasApp.additionalAttribute.supportDocument">Support Document</Translate>
           </dt>
-          <dd>{additionalAttributeEntity.document ? additionalAttributeEntity.document.id : ''}</dd>
+          <dd>{additionalAttributeEntity.supportDocument ? additionalAttributeEntity.supportDocument.id : ''}</dd>
           <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.product">Product</Translate>
           </dt>
@@ -150,10 +150,6 @@ export const AdditionalAttributeDetail = () => {
             <Translate contentKey="framasaasApp.additionalAttribute.articleWarranty">Article Warranty</Translate>
           </dt>
           <dd>{additionalAttributeEntity.articleWarranty ? additionalAttributeEntity.articleWarranty.id : ''}</dd>
-          <dt>
-            <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>
-          </dt>
-          <dd>{additionalAttributeEntity.articleWarrantyDocument ? additionalAttributeEntity.articleWarrantyDocument.id : ''}</dd>
           <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.serviceOrder">Service Order</Translate>
           </dt>
@@ -204,6 +200,14 @@ export const AdditionalAttributeDetail = () => {
             <Translate contentKey="framasaasApp.additionalAttribute.inventory">Inventory</Translate>
           </dt>
           <dd>{additionalAttributeEntity.inventory ? additionalAttributeEntity.inventory.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.document">Document</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.document ? additionalAttributeEntity.document.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.additionalAttribute.articleWarrantyDocument">Article Warranty Document</Translate>
+          </dt>
+          <dd>{additionalAttributeEntity.articleWarrantyDocument ? additionalAttributeEntity.articleWarrantyDocument.id : ''}</dd>
           <dt>
             <Translate contentKey="framasaasApp.additionalAttribute.serviceOrderAssignment">Service Order Assignment</Translate>
           </dt>

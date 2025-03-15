@@ -67,7 +67,7 @@ public class AdditionalAttribute implements Serializable {
             "address",
             "franchiseStatusHistories",
             "franchisePerformanceHistories",
-            "franchiseDocuments",
+            "supportingDocuments",
             "franchiseUsers",
             "serviceOrderFranchiseAssignments",
             "additionalAttributes",
@@ -115,8 +115,8 @@ public class AdditionalAttribute implements Serializable {
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
-    private FranchiseDocument document;
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise", "articleWarranty" }, allowSetters = true)
+    private SupportingDocument supportDocument;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
@@ -164,15 +164,8 @@ public class AdditionalAttribute implements Serializable {
     private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(
-        value = { "articleWarrantyDetailsDocuments", "additionalAttributes", "article", "warrantyMaster" },
-        allowSetters = true
-    )
+    @JsonIgnoreProperties(value = { "supportingDocuments", "additionalAttributes", "article", "warrantyMaster" }, allowSetters = true)
     private ArticleWarrantyDetails articleWarranty;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
-    private ArticleWarrantyDetailsDocument articleWarrantyDocument;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
@@ -224,6 +217,14 @@ public class AdditionalAttribute implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "product", "location" }, allowSetters = true)
     private Inventory inventory;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
+    private FranchiseDocument document;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "additionalAttributes", "articleWarranty" }, allowSetters = true)
+    private ArticleWarrantyDetailsDocument articleWarrantyDocument;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
@@ -483,16 +484,16 @@ public class AdditionalAttribute implements Serializable {
         return this;
     }
 
-    public FranchiseDocument getDocument() {
-        return this.document;
+    public SupportingDocument getSupportDocument() {
+        return this.supportDocument;
     }
 
-    public void setDocument(FranchiseDocument franchiseDocument) {
-        this.document = franchiseDocument;
+    public void setSupportDocument(SupportingDocument supportingDocument) {
+        this.supportDocument = supportingDocument;
     }
 
-    public AdditionalAttribute document(FranchiseDocument franchiseDocument) {
-        this.setDocument(franchiseDocument);
+    public AdditionalAttribute supportDocument(SupportingDocument supportingDocument) {
+        this.setSupportDocument(supportingDocument);
         return this;
     }
 
@@ -584,19 +585,6 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute articleWarranty(ArticleWarrantyDetails articleWarrantyDetails) {
         this.setArticleWarranty(articleWarrantyDetails);
-        return this;
-    }
-
-    public ArticleWarrantyDetailsDocument getArticleWarrantyDocument() {
-        return this.articleWarrantyDocument;
-    }
-
-    public void setArticleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
-        this.articleWarrantyDocument = articleWarrantyDetailsDocument;
-    }
-
-    public AdditionalAttribute articleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
-        this.setArticleWarrantyDocument(articleWarrantyDetailsDocument);
         return this;
     }
 
@@ -727,6 +715,32 @@ public class AdditionalAttribute implements Serializable {
 
     public AdditionalAttribute inventory(Inventory inventory) {
         this.setInventory(inventory);
+        return this;
+    }
+
+    public FranchiseDocument getDocument() {
+        return this.document;
+    }
+
+    public void setDocument(FranchiseDocument franchiseDocument) {
+        this.document = franchiseDocument;
+    }
+
+    public AdditionalAttribute document(FranchiseDocument franchiseDocument) {
+        this.setDocument(franchiseDocument);
+        return this;
+    }
+
+    public ArticleWarrantyDetailsDocument getArticleWarrantyDocument() {
+        return this.articleWarrantyDocument;
+    }
+
+    public void setArticleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.articleWarrantyDocument = articleWarrantyDetailsDocument;
+    }
+
+    public AdditionalAttribute articleWarrantyDocument(ArticleWarrantyDetailsDocument articleWarrantyDetailsDocument) {
+        this.setArticleWarrantyDocument(articleWarrantyDetailsDocument);
         return this;
     }
 

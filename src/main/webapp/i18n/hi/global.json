@@ -46,7 +46,8 @@
         "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment",
         "inventoryLocation": "Inventory Location",
         "inventory": "Inventory",
-        "inventoryHistory": "Inventory History"
+        "inventoryHistory": "Inventory History",
+        "supportingDocument": "Supporting Document"
       },
       "account": {
         "main": "खाता",

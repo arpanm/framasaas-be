@@ -342,10 +342,7 @@ class WarrantyMasterPriceHistoryResourceIT {
         WarrantyMasterPriceHistory partialUpdatedWarrantyMasterPriceHistory = new WarrantyMasterPriceHistory();
         partialUpdatedWarrantyMasterPriceHistory.setId(warrantyMasterPriceHistory.getId());
 
-        partialUpdatedWarrantyMasterPriceHistory
-            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
-            .franchiseTax(UPDATED_FRANCHISE_TAX)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedWarrantyMasterPriceHistory.franchiseCommission(UPDATED_FRANCHISE_COMMISSION).updatedBy(UPDATED_UPDATED_BY);
 
         restWarrantyMasterPriceHistoryMockMvc
             .perform(

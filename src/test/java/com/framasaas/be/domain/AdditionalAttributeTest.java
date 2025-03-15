@@ -29,6 +29,7 @@ import static com.framasaas.be.domain.ServiceOrderFieldAgentAssignmentTestSample
 import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderPaymentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
+import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterPriceHistoryTestSamples.*;
 import static com.framasaas.be.domain.WarrantyMasterTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -185,15 +186,15 @@ class AdditionalAttributeTest {
     }
 
     @Test
-    void documentTest() {
+    void supportDocumentTest() {
         AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
-        FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
+        SupportingDocument supportingDocumentBack = getSupportingDocumentRandomSampleGenerator();
 
-        additionalAttribute.setDocument(franchiseDocumentBack);
-        assertThat(additionalAttribute.getDocument()).isEqualTo(franchiseDocumentBack);
+        additionalAttribute.setSupportDocument(supportingDocumentBack);
+        assertThat(additionalAttribute.getSupportDocument()).isEqualTo(supportingDocumentBack);
 
-        additionalAttribute.document(null);
-        assertThat(additionalAttribute.getDocument()).isNull();
+        additionalAttribute.supportDocument(null);
+        assertThat(additionalAttribute.getSupportDocument()).isNull();
     }
 
     @Test
@@ -278,18 +279,6 @@ class AdditionalAttributeTest {
 
         additionalAttribute.articleWarranty(null);
         assertThat(additionalAttribute.getArticleWarranty()).isNull();
-    }
-
-    @Test
-    void articleWarrantyDocumentTest() {
-        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
-        ArticleWarrantyDetailsDocument articleWarrantyDetailsDocumentBack = getArticleWarrantyDetailsDocumentRandomSampleGenerator();
-
-        additionalAttribute.setArticleWarrantyDocument(articleWarrantyDetailsDocumentBack);
-        assertThat(additionalAttribute.getArticleWarrantyDocument()).isEqualTo(articleWarrantyDetailsDocumentBack);
-
-        additionalAttribute.articleWarrantyDocument(null);
-        assertThat(additionalAttribute.getArticleWarrantyDocument()).isNull();
     }
 
     @Test
@@ -410,6 +399,30 @@ class AdditionalAttributeTest {
 
         additionalAttribute.inventory(null);
         assertThat(additionalAttribute.getInventory()).isNull();
+    }
+
+    @Test
+    void documentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        FranchiseDocument franchiseDocumentBack = getFranchiseDocumentRandomSampleGenerator();
+
+        additionalAttribute.setDocument(franchiseDocumentBack);
+        assertThat(additionalAttribute.getDocument()).isEqualTo(franchiseDocumentBack);
+
+        additionalAttribute.document(null);
+        assertThat(additionalAttribute.getDocument()).isNull();
+    }
+
+    @Test
+    void articleWarrantyDocumentTest() {
+        AdditionalAttribute additionalAttribute = getAdditionalAttributeRandomSampleGenerator();
+        ArticleWarrantyDetailsDocument articleWarrantyDetailsDocumentBack = getArticleWarrantyDetailsDocumentRandomSampleGenerator();
+
+        additionalAttribute.setArticleWarrantyDocument(articleWarrantyDetailsDocumentBack);
+        assertThat(additionalAttribute.getArticleWarrantyDocument()).isEqualTo(articleWarrantyDetailsDocumentBack);
+
+        additionalAttribute.articleWarrantyDocument(null);
+        assertThat(additionalAttribute.getArticleWarrantyDocument()).isNull();
     }
 
     @Test

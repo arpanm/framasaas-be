@@ -363,7 +363,7 @@ class ArticleResourceIT {
         Article partialUpdatedArticle = new Article();
         partialUpdatedArticle.setId(article.getId());
 
-        partialUpdatedArticle.createdTime(UPDATED_CREATED_TIME).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedArticle.createdTime(UPDATED_CREATED_TIME);
 
         restArticleMockMvc
             .perform(

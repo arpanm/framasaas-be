@@ -98,9 +98,9 @@
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "franchiseDocument",
+      "otherEntityName": "supportingDocument",
       "otherEntityRelationshipName": "franchise",
-      "relationshipName": "franchiseDocument",
+      "relationshipName": "supportingDocument",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

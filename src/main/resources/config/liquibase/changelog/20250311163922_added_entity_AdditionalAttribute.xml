@@ -62,7 +62,7 @@
             <column name="customer_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="document_id" type="bigint">
+            <column name="support_document_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="product_id" type="bigint">
@@ -84,9 +84,6 @@
                 <constraints nullable="true" />
             </column>
             <column name="article_warranty_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="article_warranty_document_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="service_order_id" type="bigint">
@@ -117,6 +114,12 @@
                 <constraints nullable="true" />
             </column>
             <column name="inventory_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="document_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="article_warranty_document_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="service_order_assignment_id" type="bigint">

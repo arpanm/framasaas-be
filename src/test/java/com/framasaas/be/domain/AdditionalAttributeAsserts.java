@@ -76,7 +76,7 @@ public class AdditionalAttributeAsserts {
             .satisfies(a -> assertThat(a.getLocation()).as("check location").isEqualTo(expected.getLocation()))
             .satisfies(a -> assertThat(a.getFranchiseUser()).as("check franchiseUser").isEqualTo(expected.getFranchiseUser()))
             .satisfies(a -> assertThat(a.getCustomer()).as("check customer").isEqualTo(expected.getCustomer()))
-            .satisfies(a -> assertThat(a.getDocument()).as("check document").isEqualTo(expected.getDocument()))
+            .satisfies(a -> assertThat(a.getSupportDocument()).as("check supportDocument").isEqualTo(expected.getSupportDocument()))
             .satisfies(a -> assertThat(a.getProduct()).as("check product").isEqualTo(expected.getProduct()))
             .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()))
             .satisfies(a -> assertThat(a.getPriceHistory()).as("check priceHistory").isEqualTo(expected.getPriceHistory()))
@@ -88,11 +88,6 @@ public class AdditionalAttributeAsserts {
             )
             .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
             .satisfies(a -> assertThat(a.getArticleWarranty()).as("check articleWarranty").isEqualTo(expected.getArticleWarranty()))
-            .satisfies(a ->
-                assertThat(a.getArticleWarrantyDocument())
-                    .as("check articleWarrantyDocument")
-                    .isEqualTo(expected.getArticleWarrantyDocument())
-            )
             .satisfies(a -> assertThat(a.getServiceOrder()).as("check serviceOrder").isEqualTo(expected.getServiceOrder()))
             .satisfies(a ->
                 assertThat(a.getServiceOrderPayment()).as("check serviceOrderPayment").isEqualTo(expected.getServiceOrderPayment())
@@ -125,6 +120,12 @@ public class AdditionalAttributeAsserts {
             )
             .satisfies(a -> assertThat(a.getInventoryLocation()).as("check inventoryLocation").isEqualTo(expected.getInventoryLocation()))
             .satisfies(a -> assertThat(a.getInventory()).as("check inventory").isEqualTo(expected.getInventory()))
+            .satisfies(a -> assertThat(a.getDocument()).as("check document").isEqualTo(expected.getDocument()))
+            .satisfies(a ->
+                assertThat(a.getArticleWarrantyDocument())
+                    .as("check articleWarrantyDocument")
+                    .isEqualTo(expected.getArticleWarrantyDocument())
+            )
             .satisfies(a ->
                 assertThat(a.getServiceOrderAssignment()).as("check serviceOrderAssignment").isEqualTo(expected.getServiceOrderAssignment())
             );

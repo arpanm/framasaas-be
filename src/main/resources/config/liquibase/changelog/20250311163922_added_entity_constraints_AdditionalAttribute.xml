@@ -73,11 +73,11 @@
                                  referencedTableName="customer"
                                  />
 
-        <addForeignKeyConstraint baseColumnNames="document_id"
+        <addForeignKeyConstraint baseColumnNames="support_document_id"
                                  baseTableName="additional_attribute"
-                                 constraintName="fk_additional_attribute__document_id"
+                                 constraintName="fk_additional_attribute__support_document_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="franchise_document"
+                                 referencedTableName="supporting_document"
                                  />
 
         <addForeignKeyConstraint baseColumnNames="product_id"
@@ -127,13 +127,6 @@
                                  constraintName="fk_additional_attribute__article_warranty_id"
                                  referencedColumnNames="id"
                                  referencedTableName="article_warranty_details"
-                                 />
-
-        <addForeignKeyConstraint baseColumnNames="article_warranty_document_id"
-                                 baseTableName="additional_attribute"
-                                 constraintName="fk_additional_attribute__article_warranty_document_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="article_warranty_details_document"
                                  />
 
         <addForeignKeyConstraint baseColumnNames="service_order_id"
@@ -204,6 +197,20 @@
                                  constraintName="fk_additional_attribute__inventory_id"
                                  referencedColumnNames="id"
                                  referencedTableName="inventory"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="document_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="franchise_document"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="article_warranty_document_id"
+                                 baseTableName="additional_attribute"
+                                 constraintName="fk_additional_attribute__article_warranty_document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article_warranty_details_document"
                                  />
 
         <addForeignKeyConstraint baseColumnNames="service_order_assignment_id"

@@ -389,9 +389,11 @@ class AdditionalAttributePossibleValueResourceIT {
         partialUpdatedAdditionalAttributePossibleValue.setId(additionalAttributePossibleValue.getId());
 
         partialUpdatedAdditionalAttributePossibleValue
+            .possibleValue(UPDATED_POSSIBLE_VALUE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restAdditionalAttributePossibleValueMockMvc
             .perform(

@@ -35,7 +35,7 @@
       "address": "Address",
       "franchiseStatusHistory": "Franchise Status History",
       "franchisePerformanceHistory": "Franchise Performance History",
-      "franchiseDocument": "Franchise Document",
+      "supportingDocument": "Supporting Document",
       "franchiseUser": "Franchise User",
       "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
       "additionalAttribute": "Additional Attribute",

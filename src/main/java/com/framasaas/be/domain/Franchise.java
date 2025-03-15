@@ -100,8 +100,8 @@ public class Franchise implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise" }, allowSetters = true)
-    private Set<FranchiseDocument> franchiseDocuments = new HashSet<>();
+    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise", "articleWarranty" }, allowSetters = true)
+    private Set<SupportingDocument> supportingDocuments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "franchise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -130,7 +130,7 @@ public class Franchise implements Serializable {
             "location",
             "franchiseUser",
             "customer",
-            "document",
+            "supportDocument",
             "product",
             "hsn",
             "priceHistory",
@@ -138,7 +138,6 @@ public class Franchise implements Serializable {
             "warrantyMasterPriceHistory",
             "article",
             "articleWarranty",
-            "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
             "serviceOrderFranchiseAssignment",
@@ -149,6 +148,8 @@ public class Franchise implements Serializable {
             "fieldAgentSkillRule",
             "inventoryLocation",
             "inventory",
+            "document",
+            "articleWarrantyDocument",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -441,34 +442,34 @@ public class Franchise implements Serializable {
         return this;
     }
 
-    public Set<FranchiseDocument> getFranchiseDocuments() {
-        return this.franchiseDocuments;
+    public Set<SupportingDocument> getSupportingDocuments() {
+        return this.supportingDocuments;
     }
 
-    public void setFranchiseDocuments(Set<FranchiseDocument> franchiseDocuments) {
-        if (this.franchiseDocuments != null) {
-            this.franchiseDocuments.forEach(i -> i.setFranchise(null));
+    public void setSupportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        if (this.supportingDocuments != null) {
+            this.supportingDocuments.forEach(i -> i.setFranchise(null));
         }
-        if (franchiseDocuments != null) {
-            franchiseDocuments.forEach(i -> i.setFranchise(this));
+        if (supportingDocuments != null) {
+            supportingDocuments.forEach(i -> i.setFranchise(this));
         }
-        this.franchiseDocuments = franchiseDocuments;
+        this.supportingDocuments = supportingDocuments;
     }
 
-    public Franchise franchiseDocuments(Set<FranchiseDocument> franchiseDocuments) {
-        this.setFranchiseDocuments(franchiseDocuments);
+    public Franchise supportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        this.setSupportingDocuments(supportingDocuments);
         return this;
     }
 
-    public Franchise addFranchiseDocument(FranchiseDocument franchiseDocument) {
-        this.franchiseDocuments.add(franchiseDocument);
-        franchiseDocument.setFranchise(this);
+    public Franchise addSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.add(supportingDocument);
+        supportingDocument.setFranchise(this);
         return this;
     }
 
-    public Franchise removeFranchiseDocument(FranchiseDocument franchiseDocument) {
-        this.franchiseDocuments.remove(franchiseDocument);
-        franchiseDocument.setFranchise(null);
+    public Franchise removeSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.remove(supportingDocument);
+        supportingDocument.setFranchise(null);
         return this;
     }
 

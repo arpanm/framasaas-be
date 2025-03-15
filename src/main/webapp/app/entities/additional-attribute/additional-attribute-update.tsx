@@ -16,7 +16,7 @@ import { getEntities as getAddresses } from 'app/entities/address/address.reduce
 import { getEntities as getLocationMappings } from 'app/entities/location-mapping/location-mapping.reducer';
 import { getEntities as getFranchiseUsers } from 'app/entities/franchise-user/franchise-user.reducer';
 import { getEntities as getCustomers } from 'app/entities/customer/customer.reducer';
-import { getEntities as getFranchiseDocuments } from 'app/entities/franchise-document/franchise-document.reducer';
+import { getEntities as getSupportingDocuments } from 'app/entities/supporting-document/supporting-document.reducer';
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
 import { getEntities as getHsns } from 'app/entities/hsn/hsn.reducer';
 import { getEntities as getProductPriceHistories } from 'app/entities/product-price-history/product-price-history.reducer';
@@ -24,7 +24,6 @@ import { getEntities as getWarrantyMasters } from 'app/entities/warranty-master/
 import { getEntities as getWarrantyMasterPriceHistories } from 'app/entities/warranty-master-price-history/warranty-master-price-history.reducer';
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-warranty-details/article-warranty-details.reducer';
-import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
 import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
 import { getEntities as getServiceOrderPayments } from 'app/entities/service-order-payment/service-order-payment.reducer';
 import { getEntities as getServiceOrderFranchiseAssignments } from 'app/entities/service-order-franchise-assignment/service-order-franchise-assignment.reducer';
@@ -35,6 +34,8 @@ import { getEntities as getFieldAgentSkillRuleSets } from 'app/entities/field-ag
 import { getEntities as getFieldAgentSkillRules } from 'app/entities/field-agent-skill-rule/field-agent-skill-rule.reducer';
 import { getEntities as getInventoryLocations } from 'app/entities/inventory-location/inventory-location.reducer';
 import { getEntities as getInventories } from 'app/entities/inventory/inventory.reducer';
+import { getEntities as getFranchiseDocuments } from 'app/entities/franchise-document/franchise-document.reducer';
+import { getEntities as getArticleWarrantyDetailsDocuments } from 'app/entities/article-warranty-details-document/article-warranty-details-document.reducer';
 import { getEntities as getServiceOrderAssignments } from 'app/entities/service-order-assignment/service-order-assignment.reducer';
 import { AttributeType } from 'app/shared/model/enumerations/attribute-type.model';
 import { createEntity, getEntity, updateEntity } from './additional-attribute.reducer';
@@ -56,7 +57,7 @@ export const AdditionalAttributeUpdate = () => {
   const locationMappings = useAppSelector(state => state.locationMapping.entities);
   const franchiseUsers = useAppSelector(state => state.franchiseUser.entities);
   const customers = useAppSelector(state => state.customer.entities);
-  const franchiseDocuments = useAppSelector(state => state.franchiseDocument.entities);
+  const supportingDocuments = useAppSelector(state => state.supportingDocument.entities);
   const products = useAppSelector(state => state.product.entities);
   const hsns = useAppSelector(state => state.hsn.entities);
   const productPriceHistories = useAppSelector(state => state.productPriceHistory.entities);
@@ -64,7 +65,6 @@ export const AdditionalAttributeUpdate = () => {
   const warrantyMasterPriceHistories = useAppSelector(state => state.warrantyMasterPriceHistory.entities);
   const articles = useAppSelector(state => state.article.entities);
   const articleWarrantyDetails = useAppSelector(state => state.articleWarrantyDetails.entities);
-  const articleWarrantyDetailsDocuments = useAppSelector(state => state.articleWarrantyDetailsDocument.entities);
   const serviceOrders = useAppSelector(state => state.serviceOrder.entities);
   const serviceOrderPayments = useAppSelector(state => state.serviceOrderPayment.entities);
   const serviceOrderFranchiseAssignments = useAppSelector(state => state.serviceOrderFranchiseAssignment.entities);
@@ -75,6 +75,8 @@ export const AdditionalAttributeUpdate = () => {
   const fieldAgentSkillRules = useAppSelector(state => state.fieldAgentSkillRule.entities);
   const inventoryLocations = useAppSelector(state => state.inventoryLocation.entities);
   const inventories = useAppSelector(state => state.inventory.entities);
+  const franchiseDocuments = useAppSelector(state => state.franchiseDocument.entities);
+  const articleWarrantyDetailsDocuments = useAppSelector(state => state.articleWarrantyDetailsDocument.entities);
   const serviceOrderAssignments = useAppSelector(state => state.serviceOrderAssignment.entities);
   const additionalAttributeEntity = useAppSelector(state => state.additionalAttribute.entity);
   const loading = useAppSelector(state => state.additionalAttribute.loading);
@@ -100,7 +102,7 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getLocationMappings({}));
     dispatch(getFranchiseUsers({}));
     dispatch(getCustomers({}));
-    dispatch(getFranchiseDocuments({}));
+    dispatch(getSupportingDocuments({}));
     dispatch(getProducts({}));
     dispatch(getHsns({}));
     dispatch(getProductPriceHistories({}));
@@ -108,7 +110,6 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getWarrantyMasterPriceHistories({}));
     dispatch(getArticles({}));
     dispatch(getArticleWarrantyDetails({}));
-    dispatch(getArticleWarrantyDetailsDocuments({}));
     dispatch(getServiceOrders({}));
     dispatch(getServiceOrderPayments({}));
     dispatch(getServiceOrderFranchiseAssignments({}));
@@ -119,6 +120,8 @@ export const AdditionalAttributeUpdate = () => {
     dispatch(getFieldAgentSkillRules({}));
     dispatch(getInventoryLocations({}));
     dispatch(getInventories({}));
+    dispatch(getFranchiseDocuments({}));
+    dispatch(getArticleWarrantyDetailsDocuments({}));
     dispatch(getServiceOrderAssignments({}));
   }, []);
 
@@ -147,7 +150,7 @@ export const AdditionalAttributeUpdate = () => {
       location: locationMappings.find(it => it.id.toString() === values.location?.toString()),
       franchiseUser: franchiseUsers.find(it => it.id.toString() === values.franchiseUser?.toString()),
       customer: customers.find(it => it.id.toString() === values.customer?.toString()),
-      document: franchiseDocuments.find(it => it.id.toString() === values.document?.toString()),
+      supportDocument: supportingDocuments.find(it => it.id.toString() === values.supportDocument?.toString()),
       product: products.find(it => it.id.toString() === values.product?.toString()),
       hsn: hsns.find(it => it.id.toString() === values.hsn?.toString()),
       priceHistory: productPriceHistories.find(it => it.id.toString() === values.priceHistory?.toString()),
@@ -157,7 +160,6 @@ export const AdditionalAttributeUpdate = () => {
       ),
       article: articles.find(it => it.id.toString() === values.article?.toString()),
       articleWarranty: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarranty?.toString()),
-      articleWarrantyDocument: articleWarrantyDetailsDocuments.find(it => it.id.toString() === values.articleWarrantyDocument?.toString()),
       serviceOrder: serviceOrders.find(it => it.id.toString() === values.serviceOrder?.toString()),
       serviceOrderPayment: serviceOrderPayments.find(it => it.id.toString() === values.serviceOrderPayment?.toString()),
       serviceOrderFranchiseAssignment: serviceOrderFranchiseAssignments.find(
@@ -174,6 +176,8 @@ export const AdditionalAttributeUpdate = () => {
       fieldAgentSkillRule: fieldAgentSkillRules.find(it => it.id.toString() === values.fieldAgentSkillRule?.toString()),
       inventoryLocation: inventoryLocations.find(it => it.id.toString() === values.inventoryLocation?.toString()),
       inventory: inventories.find(it => it.id.toString() === values.inventory?.toString()),
+      document: franchiseDocuments.find(it => it.id.toString() === values.document?.toString()),
+      articleWarrantyDocument: articleWarrantyDetailsDocuments.find(it => it.id.toString() === values.articleWarrantyDocument?.toString()),
       serviceOrderAssignment: serviceOrderAssignments.find(it => it.id.toString() === values.serviceOrderAssignment?.toString()),
     };
 
@@ -204,7 +208,7 @@ export const AdditionalAttributeUpdate = () => {
           location: additionalAttributeEntity?.location?.id,
           franchiseUser: additionalAttributeEntity?.franchiseUser?.id,
           customer: additionalAttributeEntity?.customer?.id,
-          document: additionalAttributeEntity?.document?.id,
+          supportDocument: additionalAttributeEntity?.supportDocument?.id,
           product: additionalAttributeEntity?.product?.id,
           hsn: additionalAttributeEntity?.hsn?.id,
           priceHistory: additionalAttributeEntity?.priceHistory?.id,
@@ -212,7 +216,6 @@ export const AdditionalAttributeUpdate = () => {
           warrantyMasterPriceHistory: additionalAttributeEntity?.warrantyMasterPriceHistory?.id,
           article: additionalAttributeEntity?.article?.id,
           articleWarranty: additionalAttributeEntity?.articleWarranty?.id,
-          articleWarrantyDocument: additionalAttributeEntity?.articleWarrantyDocument?.id,
           serviceOrder: additionalAttributeEntity?.serviceOrder?.id,
           serviceOrderPayment: additionalAttributeEntity?.serviceOrderPayment?.id,
           serviceOrderFranchiseAssignment: additionalAttributeEntity?.serviceOrderFranchiseAssignment?.id,
@@ -223,6 +226,8 @@ export const AdditionalAttributeUpdate = () => {
           fieldAgentSkillRule: additionalAttributeEntity?.fieldAgentSkillRule?.id,
           inventoryLocation: additionalAttributeEntity?.inventoryLocation?.id,
           inventory: additionalAttributeEntity?.inventory?.id,
+          document: additionalAttributeEntity?.document?.id,
+          articleWarrantyDocument: additionalAttributeEntity?.articleWarrantyDocument?.id,
           serviceOrderAssignment: additionalAttributeEntity?.serviceOrderAssignment?.id,
         };
 
@@ -471,15 +476,15 @@ export const AdditionalAttributeUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="additional-attribute-document"
-                name="document"
-                data-cy="document"
-                label={translate('framasaasApp.additionalAttribute.document')}
+                id="additional-attribute-supportDocument"
+                name="supportDocument"
+                data-cy="supportDocument"
+                label={translate('framasaasApp.additionalAttribute.supportDocument')}
                 type="select"
               >
                 <option value="" key="0" />
-                {franchiseDocuments
-                  ? franchiseDocuments.map(otherEntity => (
+                {supportingDocuments
+                  ? supportingDocuments.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
@@ -592,22 +597,6 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {articleWarrantyDetails
                   ? articleWarrantyDetails.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
-              <ValidatedField
-                id="additional-attribute-articleWarrantyDocument"
-                name="articleWarrantyDocument"
-                data-cy="articleWarrantyDocument"
-                label={translate('framasaasApp.additionalAttribute.articleWarrantyDocument')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {articleWarrantyDetailsDocuments
-                  ? articleWarrantyDetailsDocuments.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
@@ -768,6 +757,38 @@ export const AdditionalAttributeUpdate = () => {
                 <option value="" key="0" />
                 {inventories
                   ? inventories.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-document"
+                name="document"
+                data-cy="document"
+                label={translate('framasaasApp.additionalAttribute.document')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {franchiseDocuments
+                  ? franchiseDocuments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="additional-attribute-articleWarrantyDocument"
+                name="articleWarrantyDocument"
+                data-cy="articleWarrantyDocument"
+                label={translate('framasaasApp.additionalAttribute.articleWarrantyDocument')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {articleWarrantyDetailsDocuments
+                  ? articleWarrantyDetailsDocuments.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -410,13 +410,10 @@ class ServiceOrderSpareResourceIT {
         partialUpdatedServiceOrderSpare.setId(serviceOrderSpare.getId());
 
         partialUpdatedServiceOrderSpare
-            .price(UPDATED_PRICE)
+            .tax(UPDATED_TAX)
             .totalCharge(UPDATED_TOTAL_CHARGE)
             .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
-            .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
-            .spareStatus(UPDATED_SPARE_STATUS)
             .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderSpareMockMvc
