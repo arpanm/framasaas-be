@@ -617,13 +617,12 @@ class WarrantyMasterResourceIT {
         partialUpdatedWarrantyMaster.setId(warrantyMaster.getId());
 
         partialUpdatedWarrantyMaster
-            .warrantyType(UPDATED_WARRANTY_TYPE)
+            .vendorWarrantyMasterId(UPDATED_VENDOR_WARRANTY_MASTER_ID)
+            .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
-            .tax(UPDATED_TAX)
-            .franchiseTax(UPDATED_FRANCHISE_TAX)
-            .createddBy(UPDATED_CREATEDD_BY)
-            .createdTime(UPDATED_CREATED_TIME)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
+            .isActive(UPDATED_IS_ACTIVE)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restWarrantyMasterMockMvc
             .perform(

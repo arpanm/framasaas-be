@@ -113,6 +113,14 @@ public class ServiceOrderAssignment implements Serializable {
             "articleWarrantyDocument",
             "serviceOrder",
             "serviceOrderPayment",
+            "serviceOrderFranchiseAssignment",
+            "serviceOrderFieldAgentAssignment",
+            "franchiseAllocationRuleSet",
+            "franchiseAllocationRule",
+            "fieldAgentSkillRuleSet",
+            "fieldAgentSkillRule",
+            "inventoryLocation",
+            "inventory",
             "serviceOrderAssignment",
         },
         allowSetters = true
@@ -121,7 +129,7 @@ public class ServiceOrderAssignment implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "serviceOrderAssignments", "additionalAttributes", "customer", "article", "address" },
+        value = { "serviceOrderFranchiseAssignments", "serviceOrderSpares", "additionalAttributes", "customer", "article", "address" },
         allowSetters = true
     )
     private ServiceOrder serviceOrder;
@@ -134,7 +142,7 @@ public class ServiceOrderAssignment implements Serializable {
             "franchisePerformanceHistories",
             "franchiseDocuments",
             "franchiseUsers",
-            "serviceOrderAssignments",
+            "serviceOrderFranchiseAssignments",
             "additionalAttributes",
             "ruleset",
             "brands",

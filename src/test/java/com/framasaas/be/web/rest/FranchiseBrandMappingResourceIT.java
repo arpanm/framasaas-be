@@ -381,7 +381,10 @@ class FranchiseBrandMappingResourceIT {
         FranchiseBrandMapping partialUpdatedFranchiseBrandMapping = new FranchiseBrandMapping();
         partialUpdatedFranchiseBrandMapping.setId(franchiseBrandMapping.getId());
 
-        partialUpdatedFranchiseBrandMapping.brand(UPDATED_BRAND);
+        partialUpdatedFranchiseBrandMapping
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restFranchiseBrandMappingMockMvc
             .perform(

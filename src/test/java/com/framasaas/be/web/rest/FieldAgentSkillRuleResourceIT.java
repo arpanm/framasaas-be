@@ -372,7 +372,7 @@ class FieldAgentSkillRuleResourceIT {
         FieldAgentSkillRule partialUpdatedFieldAgentSkillRule = new FieldAgentSkillRule();
         partialUpdatedFieldAgentSkillRule.setId(fieldAgentSkillRule.getId());
 
-        partialUpdatedFieldAgentSkillRule.skillType(UPDATED_SKILL_TYPE);
+        partialUpdatedFieldAgentSkillRule.skillType(UPDATED_SKILL_TYPE).joinType(UPDATED_JOIN_TYPE).updatedBy(UPDATED_UPDATED_BY);
 
         restFieldAgentSkillRuleMockMvc
             .perform(

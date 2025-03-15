@@ -36,8 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class CustomerResourceIT {
 
-    private static final String DEFAULT_EMAIL = "T@$.c8.gl";
-    private static final String UPDATED_EMAIL = "#ESN&H@tNaTl.*M[|-Z";
+    private static final String DEFAULT_EMAIL = "pG{M,(@O.LTudM";
+    private static final String UPDATED_EMAIL = "4r+@y{.+0!?j4";
 
     private static final Long DEFAULT_CONTACT = 1000000000L;
     private static final Long UPDATED_CONTACT = 1000000001L;
@@ -406,13 +406,6 @@ class CustomerResourceIT {
         // Update the customer using partial update
         Customer partialUpdatedCustomer = new Customer();
         partialUpdatedCustomer.setId(customer.getId());
-
-        partialUpdatedCustomer
-            .contact(UPDATED_CONTACT)
-            .alternameContact(UPDATED_ALTERNAME_CONTACT)
-            .language(UPDATED_LANGUAGE)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedTime(UPDATED_UPDATED_TIME);
 
         restCustomerMockMvc
             .perform(

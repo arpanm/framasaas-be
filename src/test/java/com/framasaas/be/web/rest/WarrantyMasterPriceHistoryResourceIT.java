@@ -343,8 +343,7 @@ class WarrantyMasterPriceHistoryResourceIT {
         partialUpdatedWarrantyMasterPriceHistory.setId(warrantyMasterPriceHistory.getId());
 
         partialUpdatedWarrantyMasterPriceHistory
-            .price(UPDATED_PRICE)
-            .tax(UPDATED_TAX)
+            .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
             .franchiseTax(UPDATED_FRANCHISE_TAX)
             .updatedBy(UPDATED_UPDATED_BY);
 

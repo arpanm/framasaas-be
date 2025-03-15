@@ -376,8 +376,6 @@ class InventoryLocationResourceIT {
         InventoryLocation partialUpdatedInventoryLocation = new InventoryLocation();
         partialUpdatedInventoryLocation.setId(inventoryLocation.getId());
 
-        partialUpdatedInventoryLocation.isActive(UPDATED_IS_ACTIVE).createddBy(UPDATED_CREATEDD_BY).createdTime(UPDATED_CREATED_TIME);
-
         restInventoryLocationMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedInventoryLocation.getId())

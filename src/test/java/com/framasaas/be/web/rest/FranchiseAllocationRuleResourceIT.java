@@ -408,7 +408,10 @@ class FranchiseAllocationRuleResourceIT {
         FranchiseAllocationRule partialUpdatedFranchiseAllocationRule = new FranchiseAllocationRule();
         partialUpdatedFranchiseAllocationRule.setId(franchiseAllocationRule.getId());
 
-        partialUpdatedFranchiseAllocationRule.ruleType(UPDATED_RULE_TYPE).updatedTime(UPDATED_UPDATED_TIME);
+        partialUpdatedFranchiseAllocationRule
+            .createddBy(UPDATED_CREATEDD_BY)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restFranchiseAllocationRuleMockMvc
             .perform(

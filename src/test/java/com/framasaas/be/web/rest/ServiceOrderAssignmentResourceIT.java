@@ -488,12 +488,12 @@ class ServiceOrderAssignmentResourceIT {
         partialUpdatedServiceOrderAssignment
             .serviceOrderAssignmentStatus(UPDATED_SERVICE_ORDER_ASSIGNMENT_STATUS)
             .nps(UPDATED_NPS)
-            .assignedTime(UPDATED_ASSIGNED_TIME)
+            .visitTime(UPDATED_VISIT_TIME)
             .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
-            .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
-            .completionOTP(UPDATED_COMPLETION_OTP)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
             .franchiseCommisionTax(UPDATED_FRANCHISE_COMMISION_TAX)
-            .createdTime(UPDATED_CREATED_TIME)
+            .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
+            .createddBy(UPDATED_CREATEDD_BY)
             .updatedBy(UPDATED_UPDATED_BY);
 
         restServiceOrderAssignmentMockMvc

@@ -489,11 +489,16 @@ class ServiceOrderFranchiseAssignmentResourceIT {
 
         partialUpdatedServiceOrderFranchiseAssignment
             .serviceOrderAssignmentStatus(UPDATED_SERVICE_ORDER_ASSIGNMENT_STATUS)
-            .nps(UPDATED_NPS)
             .isActive(UPDATED_IS_ACTIVE)
-            .assignedTime(UPDATED_ASSIGNED_TIME)
+            .movedBackTime(UPDATED_MOVED_BACK_TIME)
+            .visitTime(UPDATED_VISIT_TIME)
+            .spareOrderTime(UPDATED_SPARE_ORDER_TIME)
+            .spareDeliveryTime(UPDATED_SPARE_DELIVERY_TIME)
             .completedTime(UPDATED_COMPLETED_TIME)
+            .franchiseCommision(UPDATED_FRANCHISE_COMMISION)
+            .franchiseInvoicePath(UPDATED_FRANCHISE_INVOICE_PATH)
             .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
             .updatedTime(UPDATED_UPDATED_TIME);
 
         restServiceOrderFranchiseAssignmentMockMvc

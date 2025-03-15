@@ -423,7 +423,10 @@ class BrandResourceIT {
             .brandName(UPDATED_BRAND_NAME)
             .logoPath(UPDATED_LOGO_PATH)
             .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE);
+            .isActive(UPDATED_IS_ACTIVE)
+            .createdTime(UPDATED_CREATED_TIME)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restBrandMockMvc
             .perform(

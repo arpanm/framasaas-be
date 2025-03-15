@@ -64,11 +64,11 @@
     <include file="config/liquibase/changelog/20250221035621_added_entity_constraints_FranchiseBrandMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035622_added_entity_constraints_FranchiseCategoryMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035623_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250221035624_added_entity_constraints_LocationMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221035625_added_entity_constraints_FranchiseDocument.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221040159_added_entity_constraints_FranchisePerformanceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221042837_added_entity_constraints_FranchiseUser.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250221042838_added_entity_constraints_FranchiseUserStatusHistory.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250221035624_added_entity_constraints_LocationMapping.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311163919_added_entity_constraints_Product.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311163921_added_entity_constraints_ProductPriceHistory.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250311163922_added_entity_constraints_AdditionalAttribute.xml" relativeToChangelogFile="false"/>

@@ -365,7 +365,7 @@ class FieldAgentSkillRuleSetResourceIT {
         FieldAgentSkillRuleSet partialUpdatedFieldAgentSkillRuleSet = new FieldAgentSkillRuleSet();
         partialUpdatedFieldAgentSkillRuleSet.setId(fieldAgentSkillRuleSet.getId());
 
-        partialUpdatedFieldAgentSkillRuleSet.sortType(UPDATED_SORT_TYPE).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedFieldAgentSkillRuleSet.createddBy(UPDATED_CREATEDD_BY).updatedTime(UPDATED_UPDATED_TIME);
 
         restFieldAgentSkillRuleSetMockMvc
             .perform(

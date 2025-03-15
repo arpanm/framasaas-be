@@ -50,7 +50,16 @@ public class FranchiseCategoryMapping implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
         value = {
-            "address", "franchiseStatusHistories", "franchisePerformanceHistories", "brands", "categories", "documents", "franchiseUsers",
+            "address",
+            "franchiseStatusHistories",
+            "franchisePerformanceHistories",
+            "franchiseDocuments",
+            "franchiseUsers",
+            "serviceOrderFranchiseAssignments",
+            "additionalAttributes",
+            "ruleset",
+            "brands",
+            "categories",
         },
         allowSetters = true
     )
