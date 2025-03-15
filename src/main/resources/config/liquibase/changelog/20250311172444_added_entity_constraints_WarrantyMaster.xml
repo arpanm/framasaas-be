@@ -10,6 +10,20 @@
     -->
     <changeSet id="20250311172444-2" author="jhipster">
 
+        <addForeignKeyConstraint baseColumnNames="warranty_master_id"
+                                 baseTableName="rel_warranty_master__covered_spare"
+                                 constraintName="fk_rel_warranty_master__covered_spare__warranty_master_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warranty_master"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="covered_spare_id"
+                                 baseTableName="rel_warranty_master__covered_spare"
+                                 constraintName="fk_rel_warranty_master__covered_spare__covered_spare_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="product_id"
                                  baseTableName="warranty_master"
                                  constraintName="fk_warranty_master__product_id"

@@ -95,6 +95,24 @@ class WarrantyMasterTest {
     }
 
     @Test
+    void coveredSpareTest() {
+        WarrantyMaster warrantyMaster = getWarrantyMasterRandomSampleGenerator();
+        Product productBack = getProductRandomSampleGenerator();
+
+        warrantyMaster.addCoveredSpare(productBack);
+        assertThat(warrantyMaster.getCoveredSpares()).containsOnly(productBack);
+
+        warrantyMaster.removeCoveredSpare(productBack);
+        assertThat(warrantyMaster.getCoveredSpares()).doesNotContain(productBack);
+
+        warrantyMaster.coveredSpares(new HashSet<>(Set.of(productBack)));
+        assertThat(warrantyMaster.getCoveredSpares()).containsOnly(productBack);
+
+        warrantyMaster.setCoveredSpares(new HashSet<>());
+        assertThat(warrantyMaster.getCoveredSpares()).doesNotContain(productBack);
+    }
+
+    @Test
     void productTest() {
         WarrantyMaster warrantyMaster = getWarrantyMasterRandomSampleGenerator();
         Product productBack = getProductRandomSampleGenerator();

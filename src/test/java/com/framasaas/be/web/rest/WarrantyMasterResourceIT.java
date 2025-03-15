@@ -4,6 +4,7 @@ import static com.framasaas.be.domain.WarrantyMasterAsserts.*;
 import static com.framasaas.be.web.rest.TestUtil.createUpdateProxyForBean;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -12,16 +13,23 @@ import com.framasaas.be.IntegrationTest;
 import com.framasaas.be.domain.WarrantyMaster;
 import com.framasaas.be.domain.enumeration.WarrantyType;
 import com.framasaas.be.repository.WarrantyMasterRepository;
+import com.framasaas.be.service.WarrantyMasterService;
 import jakarta.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -31,6 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Integration tests for the {@link WarrantyMasterResource} REST controller.
  */
 @IntegrationTest
+@ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 @WithMockUser
 class WarrantyMasterResourceIT {
@@ -91,6 +100,12 @@ class WarrantyMasterResourceIT {
 
     @Autowired
     private WarrantyMasterRepository warrantyMasterRepository;
+
+    @Mock
+    private WarrantyMasterRepository warrantyMasterRepositoryMock;
+
+    @Mock
+    private WarrantyMasterService warrantyMasterServiceMock;
 
     @Autowired
     private EntityManager em;
@@ -439,6 +454,23 @@ class WarrantyMasterResourceIT {
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].updatedTime").value(hasItem(DEFAULT_UPDATED_TIME.toString())));
+    }
+
+    @SuppressWarnings({ "unchecked" })
+    void getAllWarrantyMastersWithEagerRelationshipsIsEnabled() throws Exception {
+        when(warrantyMasterServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        restWarrantyMasterMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
+
+        verify(warrantyMasterServiceMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
+    @SuppressWarnings({ "unchecked" })
+    void getAllWarrantyMastersWithEagerRelationshipsIsNotEnabled() throws Exception {
+        when(warrantyMasterServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        restWarrantyMasterMockMvc.perform(get(ENTITY_API_URL + "?eagerload=false")).andExpect(status().isOk());
+        verify(warrantyMasterRepositoryMock, times(1)).findAll(any(Pageable.class));
     }
 
     @Test

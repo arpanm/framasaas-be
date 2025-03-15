@@ -139,6 +139,31 @@ public class WarrantyMaster implements Serializable {
     )
     private Set<AdditionalAttribute> additionalAttributes = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "rel_warranty_master__covered_spare",
+        joinColumns = @JoinColumn(name = "warranty_master_id"),
+        inverseJoinColumns = @JoinColumn(name = "covered_spare_id")
+    )
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = {
+            "productPriceHistories",
+            "warrantyMasters",
+            "articles",
+            "serviceOrderMasters",
+            "serviceOrderSpares",
+            "inventories",
+            "additionalAttributes",
+            "category",
+            "brand",
+            "hsn",
+            "coveredUnderWarranties",
+        },
+        allowSetters = true
+    )
+    private Set<Product> coveredSpares = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
         value = {
@@ -152,6 +177,7 @@ public class WarrantyMaster implements Serializable {
             "category",
             "brand",
             "hsn",
+            "coveredUnderWarranties",
         },
         allowSetters = true
     )
@@ -457,6 +483,29 @@ public class WarrantyMaster implements Serializable {
     public WarrantyMaster removeAdditionalAttribute(AdditionalAttribute additionalAttribute) {
         this.additionalAttributes.remove(additionalAttribute);
         additionalAttribute.setWarrantyMaster(null);
+        return this;
+    }
+
+    public Set<Product> getCoveredSpares() {
+        return this.coveredSpares;
+    }
+
+    public void setCoveredSpares(Set<Product> products) {
+        this.coveredSpares = products;
+    }
+
+    public WarrantyMaster coveredSpares(Set<Product> products) {
+        this.setCoveredSpares(products);
+        return this;
+    }
+
+    public WarrantyMaster addCoveredSpare(Product product) {
+        this.coveredSpares.add(product);
+        return this;
+    }
+
+    public WarrantyMaster removeCoveredSpare(Product product) {
+        this.coveredSpares.remove(product);
         return this;
     }
 

@@ -105,6 +105,13 @@
     },
     {
       "otherEntityName": "product",
+      "otherEntityRelationshipName": "coveredUnderWarranty",
+      "relationshipName": "coveredSpare",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "product",
       "relationshipName": "product",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"

@@ -75,6 +75,9 @@ public class ProductAsserts {
             .as("Verify Product relationships")
             .satisfies(a -> assertThat(a.getCategory()).as("check category").isEqualTo(expected.getCategory()))
             .satisfies(a -> assertThat(a.getBrand()).as("check brand").isEqualTo(expected.getBrand()))
-            .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()));
+            .satisfies(a -> assertThat(a.getHsn()).as("check hsn").isEqualTo(expected.getHsn()))
+            .satisfies(a ->
+                assertThat(a.getCoveredUnderWarranties()).as("check coveredUnderWarranties").isEqualTo(expected.getCoveredUnderWarranties())
+            );
     }
 }

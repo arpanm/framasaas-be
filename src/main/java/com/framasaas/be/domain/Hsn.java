@@ -71,6 +71,7 @@ public class Hsn implements Serializable {
             "category",
             "brand",
             "hsn",
+            "coveredUnderWarranties",
         },
         allowSetters = true
     )

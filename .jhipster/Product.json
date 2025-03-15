@@ -137,6 +137,13 @@
       "relationshipName": "hsn",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "warrantyMaster",
+      "otherEntityRelationshipName": "coveredSpare",
+      "relationshipName": "coveredUnderWarranty",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
     }
   ],
   "searchEngine": "no",

@@ -68,6 +68,20 @@
         <dropDefaultValue tableName="warranty_master" columnName="updated_time" columnDataType="${datetimeType}"/>
     </changeSet>
 
+    <changeSet id="20250311172444-1-relations" author="jhipster">
+
+        <createTable tableName="rel_warranty_master__covered_spare">
+            <column name="covered_spare_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warranty_master_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="warranty_master_id, covered_spare_id" tableName="rel_warranty_master__covered_spare"/>
+    </changeSet>
+
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
 
     <!--

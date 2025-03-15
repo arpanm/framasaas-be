@@ -83,6 +83,7 @@ public class ServiceOrderMaster implements Serializable {
             "category",
             "brand",
             "hsn",
+            "coveredUnderWarranties",
         },
         allowSetters = true
     )

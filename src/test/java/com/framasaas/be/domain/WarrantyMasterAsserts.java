@@ -77,6 +77,7 @@ public class WarrantyMasterAsserts {
     public static void assertWarrantyMasterUpdatableRelationshipsEquals(WarrantyMaster expected, WarrantyMaster actual) {
         assertThat(actual)
             .as("Verify WarrantyMaster relationships")
+            .satisfies(a -> assertThat(a.getCoveredSpares()).as("check coveredSpares").isEqualTo(expected.getCoveredSpares()))
             .satisfies(a -> assertThat(a.getProduct()).as("check product").isEqualTo(expected.getProduct()));
     }
 }

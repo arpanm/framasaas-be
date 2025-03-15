@@ -102,6 +102,7 @@ public class Inventory implements Serializable {
             "category",
             "brand",
             "hsn",
+            "coveredUnderWarranties",
         },
         allowSetters = true
     )

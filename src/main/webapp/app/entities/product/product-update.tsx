@@ -5,11 +5,13 @@ import { Translate, ValidatedField, ValidatedForm, isNumber, translate } from 'r
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getCategories } from 'app/entities/category/category.reducer';
 import { getEntities as getBrands } from 'app/entities/brand/brand.reducer';
 import { getEntities as getHsns } from 'app/entities/hsn/hsn.reducer';
+import { getEntities as getWarrantyMasters } from 'app/entities/warranty-master/warranty-master.reducer';
 import { ProductType } from 'app/shared/model/enumerations/product-type.model';
 import { createEntity, getEntity, updateEntity } from './product.reducer';
 
@@ -24,6 +26,7 @@ export const ProductUpdate = () => {
   const categories = useAppSelector(state => state.category.entities);
   const brands = useAppSelector(state => state.brand.entities);
   const hsns = useAppSelector(state => state.hsn.entities);
+  const warrantyMasters = useAppSelector(state => state.warrantyMaster.entities);
   const productEntity = useAppSelector(state => state.product.entity);
   const loading = useAppSelector(state => state.product.loading);
   const updating = useAppSelector(state => state.product.updating);
@@ -42,6 +45,7 @@ export const ProductUpdate = () => {
     dispatch(getCategories({}));
     dispatch(getBrands({}));
     dispatch(getHsns({}));
+    dispatch(getWarrantyMasters({}));
   }, []);
 
   useEffect(() => {
@@ -75,6 +79,7 @@ export const ProductUpdate = () => {
       category: categories.find(it => it.id.toString() === values.category?.toString()),
       brand: brands.find(it => it.id.toString() === values.brand?.toString()),
       hsn: hsns.find(it => it.id.toString() === values.hsn?.toString()),
+      coveredUnderWarranties: mapIdList(values.coveredUnderWarranties),
     };
 
     if (isNew) {
@@ -98,6 +103,7 @@ export const ProductUpdate = () => {
           category: productEntity?.category?.id,
           brand: productEntity?.brand?.id,
           hsn: productEntity?.hsn?.id,
+          coveredUnderWarranties: productEntity?.coveredUnderWarranties?.map(e => e.id.toString()),
         };
 
   return (
@@ -289,6 +295,23 @@ export const ProductUpdate = () => {
                 <option value="" key="0" />
                 {hsns
                   ? hsns.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                label={translate('framasaasApp.product.coveredUnderWarranty')}
+                id="product-coveredUnderWarranty"
+                data-cy="coveredUnderWarranty"
+                type="select"
+                multiple
+                name="coveredUnderWarranties"
+              >
+                <option value="" key="0" />
+                {warrantyMasters
+                  ? warrantyMasters.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

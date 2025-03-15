@@ -140,12 +140,21 @@ public class WarrantyMasterResource {
      * {@code GET  /warranty-masters} : get all the warrantyMasters.
      *
      * @param pageable the pagination information.
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of warrantyMasters in body.
      */
     @GetMapping("")
-    public ResponseEntity<List<WarrantyMaster>> getAllWarrantyMasters(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
+    public ResponseEntity<List<WarrantyMaster>> getAllWarrantyMasters(
+        @org.springdoc.core.annotations.ParameterObject Pageable pageable,
+        @RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload
+    ) {
         LOG.debug("REST request to get a page of WarrantyMasters");
-        Page<WarrantyMaster> page = warrantyMasterService.findAll(pageable);
+        Page<WarrantyMaster> page;
+        if (eagerload) {
+            page = warrantyMasterService.findAllWithEagerRelationships(pageable);
+        } else {
+            page = warrantyMasterService.findAll(pageable);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

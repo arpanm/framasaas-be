@@ -86,7 +86,7 @@ public class Product implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "product" },
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "coveredSpares", "product" },
         allowSetters = true
     )
     private Set<WarrantyMaster> warrantyMasters = new HashSet<>();
@@ -164,6 +164,14 @@ public class Product implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "products", "additionalAttributes" }, allowSetters = true)
     private Hsn hsn;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "coveredSpares")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "coveredSpares", "product" },
+        allowSetters = true
+    )
+    private Set<WarrantyMaster> coveredUnderWarranties = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -602,6 +610,37 @@ public class Product implements Serializable {
 
     public Product hsn(Hsn hsn) {
         this.setHsn(hsn);
+        return this;
+    }
+
+    public Set<WarrantyMaster> getCoveredUnderWarranties() {
+        return this.coveredUnderWarranties;
+    }
+
+    public void setCoveredUnderWarranties(Set<WarrantyMaster> warrantyMasters) {
+        if (this.coveredUnderWarranties != null) {
+            this.coveredUnderWarranties.forEach(i -> i.removeCoveredSpare(this));
+        }
+        if (warrantyMasters != null) {
+            warrantyMasters.forEach(i -> i.addCoveredSpare(this));
+        }
+        this.coveredUnderWarranties = warrantyMasters;
+    }
+
+    public Product coveredUnderWarranties(Set<WarrantyMaster> warrantyMasters) {
+        this.setCoveredUnderWarranties(warrantyMasters);
+        return this;
+    }
+
+    public Product addCoveredUnderWarranty(WarrantyMaster warrantyMaster) {
+        this.coveredUnderWarranties.add(warrantyMaster);
+        warrantyMaster.getCoveredSpares().add(this);
+        return this;
+    }
+
+    public Product removeCoveredUnderWarranty(WarrantyMaster warrantyMaster) {
+        this.coveredUnderWarranties.remove(warrantyMaster);
+        warrantyMaster.getCoveredSpares().remove(this);
         return this;
     }
 
