@@ -126,6 +126,19 @@ export const ProductDetail = () => {
             <Translate contentKey="framasaasApp.product.hsn">Hsn</Translate>
           </dt>
           <dd>{productEntity.hsn ? productEntity.hsn.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.product.coveredUnderWarranty">Covered Under Warranty</Translate>
+          </dt>
+          <dd>
+            {productEntity.coveredUnderWarranties
+              ? productEntity.coveredUnderWarranties.map((val, i) => (
+                  <span key={val.id}>
+                    <a>{val.id}</a>
+                    {productEntity.coveredUnderWarranties && i === productEntity.coveredUnderWarranties.length - 1 ? '' : ', '}
+                  </span>
+                ))
+              : null}
+          </dd>
         </dl>
         <Button tag={Link} to="/product" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

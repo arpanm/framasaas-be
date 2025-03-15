@@ -19,6 +19,7 @@ export interface IWarrantyMaster {
   createdTime?: dayjs.Dayjs;
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
+  coveredSpares?: IProduct[] | null;
   product?: IProduct | null;
 }
 

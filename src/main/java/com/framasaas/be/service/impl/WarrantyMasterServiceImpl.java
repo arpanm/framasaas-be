@@ -103,11 +103,15 @@ public class WarrantyMasterServiceImpl implements WarrantyMasterService {
         return warrantyMasterRepository.findAll(pageable);
     }
 
+    public Page<WarrantyMaster> findAllWithEagerRelationships(Pageable pageable) {
+        return warrantyMasterRepository.findAllWithEagerRelationships(pageable);
+    }
+
     @Override
     @Transactional(readOnly = true)
     public Optional<WarrantyMaster> findOne(Long id) {
         LOG.debug("Request to get WarrantyMaster : {}", id);
-        return warrantyMasterRepository.findById(id);
+        return warrantyMasterRepository.findOneWithEagerRelationships(id);
     }
 
     @Override

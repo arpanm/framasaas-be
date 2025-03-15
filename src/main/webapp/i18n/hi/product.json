@@ -40,7 +40,8 @@
       "additionalAttribute": "Additional Attribute",
       "category": "Category",
       "brand": "Brand",
-      "hsn": "Hsn"
+      "hsn": "Hsn",
+      "coveredUnderWarranty": "Covered Under Warranty"
     }
   }
 }

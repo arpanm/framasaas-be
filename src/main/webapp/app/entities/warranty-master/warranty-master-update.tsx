@@ -5,6 +5,7 @@ import { Translate, ValidatedField, ValidatedForm, isNumber, translate } from 'r
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
@@ -72,6 +73,7 @@ export const WarrantyMasterUpdate = () => {
     const entity = {
       ...warrantyMasterEntity,
       ...values,
+      coveredSpares: mapIdList(values.coveredSpares),
       product: products.find(it => it.id.toString() === values.product?.toString()),
     };
 
@@ -93,6 +95,7 @@ export const WarrantyMasterUpdate = () => {
           ...warrantyMasterEntity,
           createdTime: convertDateTimeFromServer(warrantyMasterEntity.createdTime),
           updatedTime: convertDateTimeFromServer(warrantyMasterEntity.updatedTime),
+          coveredSpares: warrantyMasterEntity?.coveredSpares?.map(e => e.id.toString()),
           product: warrantyMasterEntity?.product?.id,
         };
 
@@ -277,6 +280,23 @@ export const WarrantyMasterUpdate = () => {
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
               />
+              <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.coveredSpare')}
+                id="warranty-master-coveredSpare"
+                data-cy="coveredSpare"
+                type="select"
+                multiple
+                name="coveredSpares"
+              >
+                <option value="" key="0" />
+                {products
+                  ? products.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <ValidatedField
                 id="warranty-master-product"
                 name="product"

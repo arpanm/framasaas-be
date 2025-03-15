@@ -131,6 +131,19 @@ export const WarrantyMasterDetail = () => {
             ) : null}
           </dd>
           <dt>
+            <Translate contentKey="framasaasApp.warrantyMaster.coveredSpare">Covered Spare</Translate>
+          </dt>
+          <dd>
+            {warrantyMasterEntity.coveredSpares
+              ? warrantyMasterEntity.coveredSpares.map((val, i) => (
+                  <span key={val.id}>
+                    <a>{val.id}</a>
+                    {warrantyMasterEntity.coveredSpares && i === warrantyMasterEntity.coveredSpares.length - 1 ? '' : ', '}
+                  </span>
+                ))
+              : null}
+          </dd>
+          <dt>
             <Translate contentKey="framasaasApp.warrantyMaster.product">Product</Translate>
           </dt>
           <dd>{warrantyMasterEntity.product ? warrantyMasterEntity.product.id : ''}</dd>

@@ -128,7 +128,7 @@ public class ArticleWarrantyDetails implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "product" },
+        value = { "warrantyMasterPriceHistories", "articleWarrantyDetails", "additionalAttributes", "coveredSpares", "product" },
         allowSetters = true
     )
     private WarrantyMaster warrantyMaster;

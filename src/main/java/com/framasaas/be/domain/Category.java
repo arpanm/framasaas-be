@@ -74,6 +74,7 @@ public class Category implements Serializable {
             "category",
             "brand",
             "hsn",
+            "coveredUnderWarranties",
         },
         allowSetters = true
     )

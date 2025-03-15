@@ -223,4 +223,26 @@ class ProductTest {
         product.hsn(null);
         assertThat(product.getHsn()).isNull();
     }
+
+    @Test
+    void coveredUnderWarrantyTest() {
+        Product product = getProductRandomSampleGenerator();
+        WarrantyMaster warrantyMasterBack = getWarrantyMasterRandomSampleGenerator();
+
+        product.addCoveredUnderWarranty(warrantyMasterBack);
+        assertThat(product.getCoveredUnderWarranties()).containsOnly(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getCoveredSpares()).containsOnly(product);
+
+        product.removeCoveredUnderWarranty(warrantyMasterBack);
+        assertThat(product.getCoveredUnderWarranties()).doesNotContain(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getCoveredSpares()).doesNotContain(product);
+
+        product.coveredUnderWarranties(new HashSet<>(Set.of(warrantyMasterBack)));
+        assertThat(product.getCoveredUnderWarranties()).containsOnly(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getCoveredSpares()).containsOnly(product);
+
+        product.setCoveredUnderWarranties(new HashSet<>());
+        assertThat(product.getCoveredUnderWarranties()).doesNotContain(warrantyMasterBack);
+        assertThat(warrantyMasterBack.getCoveredSpares()).doesNotContain(product);
+    }
 }
