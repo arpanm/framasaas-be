@@ -7,6 +7,7 @@ import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderFranchiseAssignmentTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderSpareTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
+import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -28,6 +29,28 @@ class ServiceOrderTest {
 
         serviceOrder2 = getServiceOrderSample2();
         assertThat(serviceOrder1).isNotEqualTo(serviceOrder2);
+    }
+
+    @Test
+    void supportingDocumentTest() {
+        ServiceOrder serviceOrder = getServiceOrderRandomSampleGenerator();
+        SupportingDocument supportingDocumentBack = getSupportingDocumentRandomSampleGenerator();
+
+        serviceOrder.addSupportingDocument(supportingDocumentBack);
+        assertThat(serviceOrder.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getServiceOrder()).isEqualTo(serviceOrder);
+
+        serviceOrder.removeSupportingDocument(supportingDocumentBack);
+        assertThat(serviceOrder.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getServiceOrder()).isNull();
+
+        serviceOrder.supportingDocuments(new HashSet<>(Set.of(supportingDocumentBack)));
+        assertThat(serviceOrder.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getServiceOrder()).isEqualTo(serviceOrder);
+
+        serviceOrder.setSupportingDocuments(new HashSet<>());
+        assertThat(serviceOrder.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getServiceOrder()).isNull();
     }
 
     @Test

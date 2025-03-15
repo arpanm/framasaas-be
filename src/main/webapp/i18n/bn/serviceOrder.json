@@ -40,6 +40,7 @@
       "createdTime": "Created Time",
       "updatedBy": "Updated By",
       "updatedTime": "Updated Time",
+      "supportingDocument": "Supporting Document",
       "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
       "serviceOrderSpare": "Service Order Spare",
       "additionalAttribute": "Additional Attribute",

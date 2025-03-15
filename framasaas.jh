@@ -432,6 +432,8 @@ entity WarrantyMaster {
     franchiseTax Float required,
     periodInMonths Long required,
     taxRate Float required,
+    coverage String,
+    exclusion String,
     isActive Boolean,
     createddBy String required,
     createdTime Instant required,
@@ -463,6 +465,13 @@ relationship OneToMany {
 entity Article {
 	serialNo String,
     vendorArticleId String,
+    purchaseDate LocalDate,
+	puchasePrice Float,
+    purchaseStore String,
+	invoicePath String,
+    isValidated Boolean,
+    validatedBy String,
+    validatedTime Instant,
     createddBy String required,
     createdTime Instant required,
     updatedBy String required,
@@ -475,6 +484,10 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Customer to Article{customer}
+}
+
+relationship OneToMany {
+    Article to SupportingDocument{article}
 }
 
 entity ArticleWarrantyDetails {
@@ -589,6 +602,10 @@ relationship OneToMany {
 
 relationship OneToMany {
 	Address to ServiceOrder{address}
+}
+
+relationship OneToMany {
+    ServiceOrder to SupportingDocument{serviceOrder}
 }
 
 entity ServiceOrderPayment {

@@ -1,11 +1,11 @@
-id;serial_no;vendor_article_id;createdd_by;created_time;updated_by;updated_time
-1;horse;roughly merrily hm;solace;2025-03-10T23:03:06;experience before advanced;2025-03-11T10:57:53
-2;without greatly;when;boo vibraphone;2025-03-11T07:04:44;difficult pink;2025-03-10T19:55:00
-3;cruelly;except wherever dapper;cruel;2025-03-11T10:25:04;fraudster;2025-03-11T06:14:53
-4;rival faithfully failing;dense what;as partially;2025-03-11T06:45:24;yum;2025-03-11T05:30:31
-5;begonia since;upright;though hospitable;2025-03-11T04:44:09;buttery;2025-03-11T12:46:05
-6;pish during;instead yuck;consequently provider;2025-03-10T23:36:35;after;2025-03-11T08:13:24
-7;fence;gee;miserably switchboard yuck;2025-03-11T05:31:13;aw;2025-03-11T04:46:13
-8;polite;overburden uh-huh;never judgementally penalise;2025-03-10T23:20:57;furthermore aw;2025-03-11T02:44:39
-9;fatally;starboard;slimy fake why;2025-03-11T05:59:38;via;2025-03-11T15:08:23
-10;plus steak;hover as;sizzling;2025-03-11T08:01:17;riser wetly;2025-03-10T19:20:52
+id;serial_no;vendor_article_id;purchase_date;puchase_price;purchase_store;invoice_path;is_validated;validated_by;validated_time;createdd_by;created_time;updated_by;updated_time
+1;horse;roughly merrily hm;2025-03-10;23176.48;youthfully experience;fictionalize sleepily;false;unless;2025-03-11T10:11:21;psst gee fervently;2025-03-10T20:24:58;past ski;2025-03-11T08:02:29
+2;loudly thankfully except;jet besides cruel;2025-03-11;5862.59;like toward miserably;failing;true;colon;2025-03-10T21:34:36;drat gah;2025-03-10T19:27:25;sans brr begonia;2025-03-11T06:32:13
+3;populist;boohoo gah jazz;2025-03-10;25591.62;malfunction pish;innocently instead;true;only commercial;2025-03-11T08:15:45;rarely gee;2025-03-10T20:38:04;couch gee;2025-03-11T11:14:48
+4;while beneath;amid aw huge;2025-03-11;20304.69;overburden uh-huh;never judgementally penalise;true;furthermore aw;2025-03-11T02:44:39;fatally;2025-03-11T00:12:20;pro;2025-03-11T12:27:05
+5;staid squirm;which testify;2025-03-11;21910.7;with reassuringly scamper;phew;true;illiterate;2025-03-11T05:16:02;times for;2025-03-11T12:15:27;huzzah sorrowful inquisitively;2025-03-11T00:42:14
+6;gah and but;mid beside roasted;2025-03-11;24856.06;bleakly perfumed fedora;promptly;true;gee what;2025-03-10T18:32:48;pip incidentally;2025-03-10T19:21:06;keel next;2025-03-11T16:09:39
+7;pish off;superior;2025-03-11;4994.73;accomplished gripping yowza;circa highly;true;charming psst despite;2025-03-10T22:41:54;sandbar massage;2025-03-11T02:45:27;grave unlike;2025-03-11T12:42:41
+8;upwardly lest opposite;ugh near likewise;2025-03-11;24381.88;writhing accompany;mmm relaunch;false;jovially;2025-03-11T12:34:57;worth;2025-03-11T14:36:57;fond unless density;2025-03-11T00:03:06
+9;upright;lest always whenever;2025-03-10;27644.29;once elementary;quickly contrast;false;unabashedly whether;2025-03-11T02:50:06;ouch;2025-03-11T07:34:04;tremendously more schlep;2025-03-11T14:34:05
+10;than toward;boo hospitable;2025-03-11;24460.87;duh outside;that absolve;false;scared showboat yesterday;2025-03-10T22:53:40;cautious;2025-03-11T02:36:05;bah shameful;2025-03-11T09:44:18

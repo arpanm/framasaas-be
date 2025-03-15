@@ -77,7 +77,10 @@ public class ArticleWarrantyDetails implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise", "articleWarranty" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "additionalAttributes", "franchise", "article", "articleWarranty", "serviceOrder" },
+        allowSetters = true
+    )
     private Set<SupportingDocument> supportingDocuments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "articleWarranty")
@@ -122,7 +125,7 @@ public class ArticleWarrantyDetails implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
         allowSetters = true
     )
     private Article article;

@@ -53,7 +53,13 @@
             <column name="franchise_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="article_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="article_warranty_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="service_order_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

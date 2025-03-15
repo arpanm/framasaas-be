@@ -94,7 +94,7 @@ public class Product implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
         allowSetters = true
     )
     private Set<Article> articles = new HashSet<>();

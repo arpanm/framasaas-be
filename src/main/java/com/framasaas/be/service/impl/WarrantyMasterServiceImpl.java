@@ -75,6 +75,12 @@ public class WarrantyMasterServiceImpl implements WarrantyMasterService {
                 if (warrantyMaster.getTaxRate() != null) {
                     existingWarrantyMaster.setTaxRate(warrantyMaster.getTaxRate());
                 }
+                if (warrantyMaster.getCoverage() != null) {
+                    existingWarrantyMaster.setCoverage(warrantyMaster.getCoverage());
+                }
+                if (warrantyMaster.getExclusion() != null) {
+                    existingWarrantyMaster.setExclusion(warrantyMaster.getExclusion());
+                }
                 if (warrantyMaster.getIsActive() != null) {
                     existingWarrantyMaster.setIsActive(warrantyMaster.getIsActive());
                 }

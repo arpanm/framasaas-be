@@ -51,6 +51,27 @@ public class ArticleServiceImpl implements ArticleService {
                 if (article.getVendorArticleId() != null) {
                     existingArticle.setVendorArticleId(article.getVendorArticleId());
                 }
+                if (article.getPurchaseDate() != null) {
+                    existingArticle.setPurchaseDate(article.getPurchaseDate());
+                }
+                if (article.getPuchasePrice() != null) {
+                    existingArticle.setPuchasePrice(article.getPuchasePrice());
+                }
+                if (article.getPurchaseStore() != null) {
+                    existingArticle.setPurchaseStore(article.getPurchaseStore());
+                }
+                if (article.getInvoicePath() != null) {
+                    existingArticle.setInvoicePath(article.getInvoicePath());
+                }
+                if (article.getIsValidated() != null) {
+                    existingArticle.setIsValidated(article.getIsValidated());
+                }
+                if (article.getValidatedBy() != null) {
+                    existingArticle.setValidatedBy(article.getValidatedBy());
+                }
+                if (article.getValidatedTime() != null) {
+                    existingArticle.setValidatedTime(article.getValidatedTime());
+                }
                 if (article.getCreateddBy() != null) {
                     existingArticle.setCreateddBy(article.getCreateddBy());
                 }

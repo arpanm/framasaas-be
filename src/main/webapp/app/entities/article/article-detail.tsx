@@ -4,7 +4,7 @@ import { Button, Col, Row } from 'reactstrap';
 import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { APP_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './article.reducer';
@@ -44,6 +44,54 @@ export const ArticleDetail = () => {
             </span>
           </dt>
           <dd>{articleEntity.vendorArticleId}</dd>
+          <dt>
+            <span id="purchaseDate">
+              <Translate contentKey="framasaasApp.article.purchaseDate">Purchase Date</Translate>
+            </span>
+          </dt>
+          <dd>
+            {articleEntity.purchaseDate ? (
+              <TextFormat value={articleEntity.purchaseDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="puchasePrice">
+              <Translate contentKey="framasaasApp.article.puchasePrice">Puchase Price</Translate>
+            </span>
+          </dt>
+          <dd>{articleEntity.puchasePrice}</dd>
+          <dt>
+            <span id="purchaseStore">
+              <Translate contentKey="framasaasApp.article.purchaseStore">Purchase Store</Translate>
+            </span>
+          </dt>
+          <dd>{articleEntity.purchaseStore}</dd>
+          <dt>
+            <span id="invoicePath">
+              <Translate contentKey="framasaasApp.article.invoicePath">Invoice Path</Translate>
+            </span>
+          </dt>
+          <dd>{articleEntity.invoicePath}</dd>
+          <dt>
+            <span id="isValidated">
+              <Translate contentKey="framasaasApp.article.isValidated">Is Validated</Translate>
+            </span>
+          </dt>
+          <dd>{articleEntity.isValidated ? 'true' : 'false'}</dd>
+          <dt>
+            <span id="validatedBy">
+              <Translate contentKey="framasaasApp.article.validatedBy">Validated By</Translate>
+            </span>
+          </dt>
+          <dd>{articleEntity.validatedBy}</dd>
+          <dt>
+            <span id="validatedTime">
+              <Translate contentKey="framasaasApp.article.validatedTime">Validated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {articleEntity.validatedTime ? <TextFormat value={articleEntity.validatedTime} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
           <dt>
             <span id="createddBy">
               <Translate contentKey="framasaasApp.article.createddBy">Createdd By</Translate>

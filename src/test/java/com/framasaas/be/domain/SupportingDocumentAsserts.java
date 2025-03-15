@@ -71,6 +71,8 @@ public class SupportingDocumentAsserts {
         assertThat(actual)
             .as("Verify SupportingDocument relationships")
             .satisfies(a -> assertThat(a.getFranchise()).as("check franchise").isEqualTo(expected.getFranchise()))
-            .satisfies(a -> assertThat(a.getArticleWarranty()).as("check articleWarranty").isEqualTo(expected.getArticleWarranty()));
+            .satisfies(a -> assertThat(a.getArticle()).as("check article").isEqualTo(expected.getArticle()))
+            .satisfies(a -> assertThat(a.getArticleWarranty()).as("check articleWarranty").isEqualTo(expected.getArticleWarranty()))
+            .satisfies(a -> assertThat(a.getServiceOrder()).as("check serviceOrder").isEqualTo(expected.getServiceOrder()));
     }
 }

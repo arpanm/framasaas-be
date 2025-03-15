@@ -13,6 +13,34 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "purchaseDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "puchasePrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "purchaseStore",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoicePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isValidated",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "validatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validatedTime",
+      "fieldType": "Instant"
+    },
+    {
       "fieldName": "createddBy",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
@@ -36,6 +64,13 @@
   "name": "Article",
   "pagination": "infinite-scroll",
   "relationships": [
+    {
+      "otherEntityName": "supportingDocument",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "supportingDocument",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
     {
       "otherEntityName": "articleWarrantyDetails",
       "otherEntityRelationshipName": "article",

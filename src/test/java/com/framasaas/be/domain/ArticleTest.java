@@ -6,6 +6,7 @@ import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.CustomerTestSamples.*;
 import static com.framasaas.be.domain.ProductTestSamples.*;
 import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
+import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.framasaas.be.web.rest.TestUtil;
@@ -27,6 +28,28 @@ class ArticleTest {
 
         article2 = getArticleSample2();
         assertThat(article1).isNotEqualTo(article2);
+    }
+
+    @Test
+    void supportingDocumentTest() {
+        Article article = getArticleRandomSampleGenerator();
+        SupportingDocument supportingDocumentBack = getSupportingDocumentRandomSampleGenerator();
+
+        article.addSupportingDocument(supportingDocumentBack);
+        assertThat(article.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticle()).isEqualTo(article);
+
+        article.removeSupportingDocument(supportingDocumentBack);
+        assertThat(article.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticle()).isNull();
+
+        article.supportingDocuments(new HashSet<>(Set.of(supportingDocumentBack)));
+        assertThat(article.getSupportingDocuments()).containsOnly(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticle()).isEqualTo(article);
+
+        article.setSupportingDocuments(new HashSet<>());
+        assertThat(article.getSupportingDocuments()).doesNotContain(supportingDocumentBack);
+        assertThat(supportingDocumentBack.getArticle()).isNull();
     }
 
     @Test

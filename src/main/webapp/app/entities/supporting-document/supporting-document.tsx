@@ -188,7 +188,14 @@ export const SupportingDocument = () => {
                     <Translate contentKey="framasaasApp.supportingDocument.franchise">Franchise</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.supportingDocument.article">Article</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.supportingDocument.articleWarranty">Article Warranty</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="framasaasApp.supportingDocument.serviceOrder">Service Order</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
@@ -238,10 +245,24 @@ export const SupportingDocument = () => {
                       )}
                     </td>
                     <td>
+                      {supportingDocument.article ? (
+                        <Link to={`/article/${supportingDocument.article.id}`}>{supportingDocument.article.id}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
                       {supportingDocument.articleWarranty ? (
                         <Link to={`/article-warranty-details/${supportingDocument.articleWarranty.id}`}>
                           {supportingDocument.articleWarranty.id}
                         </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {supportingDocument.serviceOrder ? (
+                        <Link to={`/service-order/${supportingDocument.serviceOrder.id}`}>{supportingDocument.serviceOrder.id}</Link>
                       ) : (
                         ''
                       )}

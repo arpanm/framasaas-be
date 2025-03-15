@@ -28,6 +28,8 @@
       "franchiseTax": "Franchise Tax",
       "periodInMonths": "Period In Months",
       "taxRate": "Tax Rate",
+      "coverage": "Coverage",
+      "exclusion": "Exclusion",
       "isActive": "Is Active",
       "createddBy": "Createdd By",
       "createdTime": "Created Time",

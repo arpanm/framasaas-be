@@ -137,8 +137,30 @@ public class SupportingDocument implements Serializable {
     private Franchise franchise;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        allowSetters = true
+    )
+    private Article article;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "supportingDocuments", "additionalAttributes", "article", "warrantyMaster" }, allowSetters = true)
     private ArticleWarrantyDetails articleWarranty;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
+        value = {
+            "supportingDocuments",
+            "serviceOrderFranchiseAssignments",
+            "serviceOrderSpares",
+            "additionalAttributes",
+            "customer",
+            "article",
+            "address",
+        },
+        allowSetters = true
+    )
+    private ServiceOrder serviceOrder;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -355,6 +377,19 @@ public class SupportingDocument implements Serializable {
         return this;
     }
 
+    public Article getArticle() {
+        return this.article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+
+    public SupportingDocument article(Article article) {
+        this.setArticle(article);
+        return this;
+    }
+
     public ArticleWarrantyDetails getArticleWarranty() {
         return this.articleWarranty;
     }
@@ -365,6 +400,19 @@ public class SupportingDocument implements Serializable {
 
     public SupportingDocument articleWarranty(ArticleWarrantyDetails articleWarrantyDetails) {
         this.setArticleWarranty(articleWarrantyDetails);
+        return this;
+    }
+
+    public ServiceOrder getServiceOrder() {
+        return this.serviceOrder;
+    }
+
+    public void setServiceOrder(ServiceOrder serviceOrder) {
+        this.serviceOrder = serviceOrder;
+    }
+
+    public SupportingDocument serviceOrder(ServiceOrder serviceOrder) {
+        this.setServiceOrder(serviceOrder);
         return this;
     }
 

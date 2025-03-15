@@ -55,6 +55,14 @@
       "fieldValidateRules": ["required"]
     },
     {
+      "fieldName": "coverage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exclusion",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "isActive",
       "fieldType": "Boolean"
     },

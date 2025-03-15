@@ -13,6 +13,8 @@ import com.framasaas.be.domain.Article;
 import com.framasaas.be.repository.ArticleRepository;
 import jakarta.persistence.EntityManager;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -39,6 +41,27 @@ class ArticleResourceIT {
 
     private static final String DEFAULT_VENDOR_ARTICLE_ID = "AAAAAAAAAA";
     private static final String UPDATED_VENDOR_ARTICLE_ID = "BBBBBBBBBB";
+
+    private static final LocalDate DEFAULT_PURCHASE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_PURCHASE_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Float DEFAULT_PUCHASE_PRICE = 1F;
+    private static final Float UPDATED_PUCHASE_PRICE = 2F;
+
+    private static final String DEFAULT_PURCHASE_STORE = "AAAAAAAAAA";
+    private static final String UPDATED_PURCHASE_STORE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_INVOICE_PATH = "AAAAAAAAAA";
+    private static final String UPDATED_INVOICE_PATH = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_IS_VALIDATED = false;
+    private static final Boolean UPDATED_IS_VALIDATED = true;
+
+    private static final String DEFAULT_VALIDATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_VALIDATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_VALIDATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_VALIDATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     private static final String DEFAULT_CREATEDD_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATEDD_BY = "BBBBBBBBBB";
@@ -84,6 +107,13 @@ class ArticleResourceIT {
         return new Article()
             .serialNo(DEFAULT_SERIAL_NO)
             .vendorArticleId(DEFAULT_VENDOR_ARTICLE_ID)
+            .purchaseDate(DEFAULT_PURCHASE_DATE)
+            .puchasePrice(DEFAULT_PUCHASE_PRICE)
+            .purchaseStore(DEFAULT_PURCHASE_STORE)
+            .invoicePath(DEFAULT_INVOICE_PATH)
+            .isValidated(DEFAULT_IS_VALIDATED)
+            .validatedBy(DEFAULT_VALIDATED_BY)
+            .validatedTime(DEFAULT_VALIDATED_TIME)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
             .updatedBy(DEFAULT_UPDATED_BY)
@@ -100,6 +130,13 @@ class ArticleResourceIT {
         return new Article()
             .serialNo(UPDATED_SERIAL_NO)
             .vendorArticleId(UPDATED_VENDOR_ARTICLE_ID)
+            .purchaseDate(UPDATED_PURCHASE_DATE)
+            .puchasePrice(UPDATED_PUCHASE_PRICE)
+            .purchaseStore(UPDATED_PURCHASE_STORE)
+            .invoicePath(UPDATED_INVOICE_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -236,6 +273,13 @@ class ArticleResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(article.getId().intValue())))
             .andExpect(jsonPath("$.[*].serialNo").value(hasItem(DEFAULT_SERIAL_NO)))
             .andExpect(jsonPath("$.[*].vendorArticleId").value(hasItem(DEFAULT_VENDOR_ARTICLE_ID)))
+            .andExpect(jsonPath("$.[*].purchaseDate").value(hasItem(DEFAULT_PURCHASE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].puchasePrice").value(hasItem(DEFAULT_PUCHASE_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].purchaseStore").value(hasItem(DEFAULT_PURCHASE_STORE)))
+            .andExpect(jsonPath("$.[*].invoicePath").value(hasItem(DEFAULT_INVOICE_PATH)))
+            .andExpect(jsonPath("$.[*].isValidated").value(hasItem(DEFAULT_IS_VALIDATED)))
+            .andExpect(jsonPath("$.[*].validatedBy").value(hasItem(DEFAULT_VALIDATED_BY)))
+            .andExpect(jsonPath("$.[*].validatedTime").value(hasItem(DEFAULT_VALIDATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
             .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
@@ -256,6 +300,13 @@ class ArticleResourceIT {
             .andExpect(jsonPath("$.id").value(article.getId().intValue()))
             .andExpect(jsonPath("$.serialNo").value(DEFAULT_SERIAL_NO))
             .andExpect(jsonPath("$.vendorArticleId").value(DEFAULT_VENDOR_ARTICLE_ID))
+            .andExpect(jsonPath("$.purchaseDate").value(DEFAULT_PURCHASE_DATE.toString()))
+            .andExpect(jsonPath("$.puchasePrice").value(DEFAULT_PUCHASE_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.purchaseStore").value(DEFAULT_PURCHASE_STORE))
+            .andExpect(jsonPath("$.invoicePath").value(DEFAULT_INVOICE_PATH))
+            .andExpect(jsonPath("$.isValidated").value(DEFAULT_IS_VALIDATED))
+            .andExpect(jsonPath("$.validatedBy").value(DEFAULT_VALIDATED_BY))
+            .andExpect(jsonPath("$.validatedTime").value(DEFAULT_VALIDATED_TIME.toString()))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
             .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
@@ -284,6 +335,13 @@ class ArticleResourceIT {
         updatedArticle
             .serialNo(UPDATED_SERIAL_NO)
             .vendorArticleId(UPDATED_VENDOR_ARTICLE_ID)
+            .purchaseDate(UPDATED_PURCHASE_DATE)
+            .puchasePrice(UPDATED_PUCHASE_PRICE)
+            .purchaseStore(UPDATED_PURCHASE_STORE)
+            .invoicePath(UPDATED_INVOICE_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)
@@ -363,7 +421,11 @@ class ArticleResourceIT {
         Article partialUpdatedArticle = new Article();
         partialUpdatedArticle.setId(article.getId());
 
-        partialUpdatedArticle.createdTime(UPDATED_CREATED_TIME);
+        partialUpdatedArticle
+            .puchasePrice(UPDATED_PUCHASE_PRICE)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .updatedBy(UPDATED_UPDATED_BY)
+            .updatedTime(UPDATED_UPDATED_TIME);
 
         restArticleMockMvc
             .perform(
@@ -394,6 +456,13 @@ class ArticleResourceIT {
         partialUpdatedArticle
             .serialNo(UPDATED_SERIAL_NO)
             .vendorArticleId(UPDATED_VENDOR_ARTICLE_ID)
+            .purchaseDate(UPDATED_PURCHASE_DATE)
+            .puchasePrice(UPDATED_PUCHASE_PRICE)
+            .purchaseStore(UPDATED_PURCHASE_STORE)
+            .invoicePath(UPDATED_INVOICE_PATH)
+            .isValidated(UPDATED_IS_VALIDATED)
+            .validatedBy(UPDATED_VALIDATED_BY)
+            .validatedTime(UPDATED_VALIDATED_TIME)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
             .updatedBy(UPDATED_UPDATED_BY)

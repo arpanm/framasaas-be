@@ -167,6 +167,8 @@ public class CacheConfiguration {
             createCache(cm, com.framasaas.be.domain.ArticleWarrantyDetails.class.getName() + ".supportingDocuments");
             createCache(cm, com.framasaas.be.domain.SupportingDocument.class.getName());
             createCache(cm, com.framasaas.be.domain.SupportingDocument.class.getName() + ".additionalAttributes");
+            createCache(cm, com.framasaas.be.domain.Article.class.getName() + ".supportingDocuments");
+            createCache(cm, com.framasaas.be.domain.ServiceOrder.class.getName() + ".supportingDocuments");
             // jhipster-needle-ehcache-add-entry
         };
     }

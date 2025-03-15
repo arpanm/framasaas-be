@@ -68,6 +68,12 @@ public class WarrantyMaster implements Serializable {
     @Column(name = "tax_rate", nullable = false)
     private Float taxRate;
 
+    @Column(name = "coverage")
+    private String coverage;
+
+    @Column(name = "exclusion")
+    private String exclusion;
+
     @Column(name = "is_active")
     private Boolean isActive;
 
@@ -326,6 +332,32 @@ public class WarrantyMaster implements Serializable {
         this.taxRate = taxRate;
     }
 
+    public String getCoverage() {
+        return this.coverage;
+    }
+
+    public WarrantyMaster coverage(String coverage) {
+        this.setCoverage(coverage);
+        return this;
+    }
+
+    public void setCoverage(String coverage) {
+        this.coverage = coverage;
+    }
+
+    public String getExclusion() {
+        return this.exclusion;
+    }
+
+    public WarrantyMaster exclusion(String exclusion) {
+        this.setExclusion(exclusion);
+        return this;
+    }
+
+    public void setExclusion(String exclusion) {
+        this.exclusion = exclusion;
+    }
+
     public Boolean getIsActive() {
         return this.isActive;
     }
@@ -554,6 +586,8 @@ public class WarrantyMaster implements Serializable {
             ", franchiseTax=" + getFranchiseTax() +
             ", periodInMonths=" + getPeriodInMonths() +
             ", taxRate=" + getTaxRate() +
+            ", coverage='" + getCoverage() + "'" +
+            ", exclusion='" + getExclusion() + "'" +
             ", isActive='" + getIsActive() + "'" +
             ", createddBy='" + getCreateddBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +

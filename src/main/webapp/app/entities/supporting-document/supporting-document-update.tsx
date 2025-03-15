@@ -8,7 +8,9 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getFranchises } from 'app/entities/franchise/franchise.reducer';
+import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getArticleWarrantyDetails } from 'app/entities/article-warranty-details/article-warranty-details.reducer';
+import { getEntities as getServiceOrders } from 'app/entities/service-order/service-order.reducer';
 import { DocumentType } from 'app/shared/model/enumerations/document-type.model';
 import { DocumentFormat } from 'app/shared/model/enumerations/document-format.model';
 import { createEntity, getEntity, updateEntity } from './supporting-document.reducer';
@@ -22,7 +24,9 @@ export const SupportingDocumentUpdate = () => {
   const isNew = id === undefined;
 
   const franchises = useAppSelector(state => state.franchise.entities);
+  const articles = useAppSelector(state => state.article.entities);
   const articleWarrantyDetails = useAppSelector(state => state.articleWarrantyDetails.entities);
+  const serviceOrders = useAppSelector(state => state.serviceOrder.entities);
   const supportingDocumentEntity = useAppSelector(state => state.supportingDocument.entity);
   const loading = useAppSelector(state => state.supportingDocument.loading);
   const updating = useAppSelector(state => state.supportingDocument.updating);
@@ -40,7 +44,9 @@ export const SupportingDocumentUpdate = () => {
     }
 
     dispatch(getFranchises({}));
+    dispatch(getArticles({}));
     dispatch(getArticleWarrantyDetails({}));
+    dispatch(getServiceOrders({}));
   }, []);
 
   useEffect(() => {
@@ -64,7 +70,9 @@ export const SupportingDocumentUpdate = () => {
       ...supportingDocumentEntity,
       ...values,
       franchise: franchises.find(it => it.id.toString() === values.franchise?.toString()),
+      article: articles.find(it => it.id.toString() === values.article?.toString()),
       articleWarranty: articleWarrantyDetails.find(it => it.id.toString() === values.articleWarranty?.toString()),
+      serviceOrder: serviceOrders.find(it => it.id.toString() === values.serviceOrder?.toString()),
     };
 
     if (isNew) {
@@ -89,7 +97,9 @@ export const SupportingDocumentUpdate = () => {
           createdTime: convertDateTimeFromServer(supportingDocumentEntity.createdTime),
           updatedTime: convertDateTimeFromServer(supportingDocumentEntity.updatedTime),
           franchise: supportingDocumentEntity?.franchise?.id,
+          article: supportingDocumentEntity?.article?.id,
           articleWarranty: supportingDocumentEntity?.articleWarranty?.id,
+          serviceOrder: supportingDocumentEntity?.serviceOrder?.id,
         };
 
   return (
@@ -258,6 +268,22 @@ export const SupportingDocumentUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
+                id="supporting-document-article"
+                name="article"
+                data-cy="article"
+                label={translate('framasaasApp.supportingDocument.article')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {articles
+                  ? articles.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
                 id="supporting-document-articleWarranty"
                 name="articleWarranty"
                 data-cy="articleWarranty"
@@ -267,6 +293,22 @@ export const SupportingDocumentUpdate = () => {
                 <option value="" key="0" />
                 {articleWarrantyDetails
                   ? articleWarrantyDetails.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="supporting-document-serviceOrder"
+                name="serviceOrder"
+                data-cy="serviceOrder"
+                label={translate('framasaasApp.supportingDocument.serviceOrder')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrders
+                  ? serviceOrders.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

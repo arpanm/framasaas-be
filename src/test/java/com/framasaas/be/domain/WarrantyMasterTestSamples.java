@@ -16,6 +16,8 @@ public class WarrantyMasterTestSamples {
             .vendorWarrantyMasterId("vendorWarrantyMasterId1")
             .description("description1")
             .periodInMonths(1L)
+            .coverage("coverage1")
+            .exclusion("exclusion1")
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
     }
@@ -27,6 +29,8 @@ public class WarrantyMasterTestSamples {
             .vendorWarrantyMasterId("vendorWarrantyMasterId2")
             .description("description2")
             .periodInMonths(2L)
+            .coverage("coverage2")
+            .exclusion("exclusion2")
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
     }
@@ -38,6 +42,8 @@ public class WarrantyMasterTestSamples {
             .vendorWarrantyMasterId(UUID.randomUUID().toString())
             .description(UUID.randomUUID().toString())
             .periodInMonths(longCount.incrementAndGet())
+            .coverage(UUID.randomUUID().toString())
+            .exclusion(UUID.randomUUID().toString())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());
     }

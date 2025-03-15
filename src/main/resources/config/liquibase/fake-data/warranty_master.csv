@@ -1,11 +1,11 @@
-id;name;vendor_warranty_master_id;warranty_type;description;price;tax;franchise_commission;franchise_tax;period_in_months;tax_rate;is_active;createdd_by;created_time;updated_by;updated_time
-1;instead that even;on typewriter;OTHER;alongside;216.56;25721.24;15477.06;3787.76;12246;2073.61;false;ha;2025-03-11T01:45:29;wherever worst;2025-03-11T06:36:46
-2;heartache always;after punctually minus;OTHER;considering sesame;3886.39;1820.04;28158.52;347.35;6788;9005.15;false;ah splurge the;2025-03-11T02:25:06;oh;2025-03-11T04:50:06
-3;duh;reservation mysteriously ha;OTHER;arrogantly silver surprisingly;30811.14;25814.04;26681.22;18355.14;6931;12849.84;true;filter polished;2025-03-11T07:40:43;cleverly;2025-03-10T17:56:37
-4;ick like a;lovingly monthly;BRANDFREEWARRANTY;regal fortunately;682.45;30884.7;20035.21;18132.69;4598;13843.89;false;atop provided;2025-03-11T13:19:35;a quarterly;2025-03-10T19:46:38
-5;unblinking sneaky;properly gadzooks;BRANDFREEWARRANTY;yahoo anti;21478.4;152.15;8840.75;15438.98;13099;30143.62;true;oof forsaken filter;2025-03-11T07:58:44;psst foolishly curly;2025-03-10T20:19:18
-6;a;courageously finally;EXTENDEDPAIDWARRANTY;egg yuck;13380.98;23342.2;7400.79;26853.19;1224;19721.87;true;oh;2025-03-11T14:31:36;oblong meh;2025-03-11T01:01:09
-7;for;jam-packed scent excepting;BRANDFREEWARRANTY;how woot politely;10436.31;14393.51;16694.28;32682.04;20631;2721.55;false;but;2025-03-11T02:22:28;tooth;2025-03-10T23:02:34
-8;across cripple;ack;BRANDFREEWARRANTY;frightfully;11962.34;32753.98;6186.56;27942.32;26987;3687.76;false;fully sizzle;2025-03-11T04:51:38;whose metallic;2025-03-11T08:49:59
-9;exacerbate;forage sideboard;BRANDFREEWARRANTY;whoever fooey blah;17672.98;7155.6;10402.09;23110.49;9702;2697.58;false;deliquesce meatloaf yum;2025-03-10T22:49:21;inside;2025-03-11T07:43:46
-10;hence till between;reschedule;EXTENDEDPAIDWARRANTY;inside regarding;10532.96;3299.25;4377.23;22149.81;30320;22220.97;false;brr hydrant;2025-03-11T03:16:49;respray waft;2025-03-11T03:12:01
+id;name;vendor_warranty_master_id;warranty_type;description;price;tax;franchise_commission;franchise_tax;period_in_months;tax_rate;coverage;exclusion;is_active;createdd_by;created_time;updated_by;updated_time
+1;instead that even;on typewriter;OTHER;alongside;216.56;25721.24;15477.06;3787.76;12246;2073.61;shovel abandoned;reprimand briskly;false;recovery however;2025-03-10T20:26:48;certainly phew;2025-03-11T07:09:45
+2;unlike reapply frightfully;hence intently label;OTHER;concrete circa;1941.46;4125.99;22204.63;22642.27;26416;676.05;outdo;legging;true;bare um badly;2025-03-10T21:53:59;lest;2025-03-10T23:34:17
+3;filter polished;phooey and;EXTENDEDPAIDWARRANTY;funny hexagon;125.04;12835.03;18671.58;16388.15;20815;2512.01;satirize kiss silent;ugh;true;absent anti;2025-03-11T12:12:35;swing unlike;2025-03-11T16:41:58
+4;familiarize than;safely before underneath;OTHER;yak;11037.44;5636.37;21478.4;152.15;8841;15438.98;offensively gut;but atop;false;tidy sardonic;2025-03-11T06:44:00;through;2025-03-11T05:10:43
+5;fast;finally;EXTENDEDPAIDWARRANTY;egg yuck;13380.98;23342.2;7400.79;26853.19;1224;19721.87;since;phony;false;meh atop;2025-03-10T18:50:58;ack from;2025-03-11T11:44:14
+6;coaxingly monthly;woot;BRANDFREEWARRANTY;meanwhile fervently;16362.22;11723.73;14765.06;17775.77;7562;11166.91;axe towards;claw woot rightfully;false;hmph;2025-03-11T13:10:41;deafening;2025-03-11T01:33:21
+7;sizzle;confiscate minus;EXTENDEDPAIDWARRANTY;which minus;2951.16;11555.22;31653.37;12748.14;480;23308.89;prestigious finally;obligation;false;after;2025-03-11T12:43:46;deliquesce meatloaf yum;2025-03-10T22:49:21
+8;inside;whenever pace;OTHER;cripple;27660.08;5694.3;16647.63;4734.02;4177;10653.51;behind what whoever;awful edge provider;true;whirlwind daily going;2025-03-11T10:11:36;geez instruction suspiciously;2025-03-11T16:25:32
+9;controvert how so;spring;OTHER;unique past;5669.95;22645.82;26590.1;1925.47;11404;26016.13;amongst keenly;yearningly;false;bench salty mortise;2025-03-11T02:14:17;vainly among fondly;2025-03-11T08:48:19
+10;comparison yogurt;minus supposing;EXTENDEDPAIDWARRANTY;bare yawningly;10796.57;15502.78;16748.53;16022.44;18755;7042.34;firm;seemingly;false;tank;2025-03-11T09:19:32;whereas than wisely;2025-03-11T00:08:04

@@ -32,7 +32,9 @@
       "updatedTime": "Updated Time",
       "additionalAttribute": "Additional Attribute",
       "franchise": "Franchise",
-      "articleWarranty": "Article Warranty"
+      "article": "Article",
+      "articleWarranty": "Article Warranty",
+      "serviceOrder": "Service Order"
     }
   }
 }

@@ -49,6 +49,10 @@ export const ArticleUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    if (values.puchasePrice !== undefined && typeof values.puchasePrice !== 'number') {
+      values.puchasePrice = Number(values.puchasePrice);
+    }
+    values.validatedTime = convertDateTimeToServer(values.validatedTime);
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
@@ -69,11 +73,13 @@ export const ArticleUpdate = () => {
   const defaultValues = () =>
     isNew
       ? {
+          validatedTime: displayDefaultDateTime(),
           createdTime: displayDefaultDateTime(),
           updatedTime: displayDefaultDateTime(),
         }
       : {
           ...articleEntity,
+          validatedTime: convertDateTimeFromServer(articleEntity.validatedTime),
           createdTime: convertDateTimeFromServer(articleEntity.createdTime),
           updatedTime: convertDateTimeFromServer(articleEntity.updatedTime),
           product: articleEntity?.product?.id,
@@ -118,6 +124,57 @@ export const ArticleUpdate = () => {
                 name="vendorArticleId"
                 data-cy="vendorArticleId"
                 type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.purchaseDate')}
+                id="article-purchaseDate"
+                name="purchaseDate"
+                data-cy="purchaseDate"
+                type="date"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.puchasePrice')}
+                id="article-puchasePrice"
+                name="puchasePrice"
+                data-cy="puchasePrice"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.purchaseStore')}
+                id="article-purchaseStore"
+                name="purchaseStore"
+                data-cy="purchaseStore"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.invoicePath')}
+                id="article-invoicePath"
+                name="invoicePath"
+                data-cy="invoicePath"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.isValidated')}
+                id="article-isValidated"
+                name="isValidated"
+                data-cy="isValidated"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.validatedBy')}
+                id="article-validatedBy"
+                name="validatedBy"
+                data-cy="validatedBy"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.article.validatedTime')}
+                id="article-validatedTime"
+                name="validatedTime"
+                data-cy="validatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
               />
               <ValidatedField
                 label={translate('framasaasApp.article.createddBy')}

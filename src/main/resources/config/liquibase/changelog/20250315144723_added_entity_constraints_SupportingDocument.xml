@@ -17,11 +17,25 @@
                                  referencedTableName="franchise"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="supporting_document"
+                                 constraintName="fk_supporting_document__article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="article_warranty_id"
                                  baseTableName="supporting_document"
                                  constraintName="fk_supporting_document__article_warranty_id"
                                  referencedColumnNames="id"
                                  referencedTableName="article_warranty_details"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_order_id"
+                                 baseTableName="supporting_document"
+                                 constraintName="fk_supporting_document__service_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order"
                                  />
     </changeSet>
 </databaseChangeLog>

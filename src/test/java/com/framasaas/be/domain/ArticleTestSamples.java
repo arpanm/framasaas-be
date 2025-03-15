@@ -14,6 +14,9 @@ public class ArticleTestSamples {
             .id(1L)
             .serialNo("serialNo1")
             .vendorArticleId("vendorArticleId1")
+            .purchaseStore("purchaseStore1")
+            .invoicePath("invoicePath1")
+            .validatedBy("validatedBy1")
             .createddBy("createddBy1")
             .updatedBy("updatedBy1");
     }
@@ -23,6 +26,9 @@ public class ArticleTestSamples {
             .id(2L)
             .serialNo("serialNo2")
             .vendorArticleId("vendorArticleId2")
+            .purchaseStore("purchaseStore2")
+            .invoicePath("invoicePath2")
+            .validatedBy("validatedBy2")
             .createddBy("createddBy2")
             .updatedBy("updatedBy2");
     }
@@ -32,6 +38,9 @@ public class ArticleTestSamples {
             .id(longCount.incrementAndGet())
             .serialNo(UUID.randomUUID().toString())
             .vendorArticleId(UUID.randomUUID().toString())
+            .purchaseStore(UUID.randomUUID().toString())
+            .invoicePath(UUID.randomUUID().toString())
+            .validatedBy(UUID.randomUUID().toString())
             .createddBy(UUID.randomUUID().toString())
             .updatedBy(UUID.randomUUID().toString());
     }

@@ -1,8 +1,10 @@
 package com.framasaas.be.domain;
 
 import static com.framasaas.be.domain.AdditionalAttributeTestSamples.*;
+import static com.framasaas.be.domain.ArticleTestSamples.*;
 import static com.framasaas.be.domain.ArticleWarrantyDetailsTestSamples.*;
 import static com.framasaas.be.domain.FranchiseTestSamples.*;
+import static com.framasaas.be.domain.ServiceOrderTestSamples.*;
 import static com.framasaas.be.domain.SupportingDocumentTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -62,6 +64,18 @@ class SupportingDocumentTest {
     }
 
     @Test
+    void articleTest() {
+        SupportingDocument supportingDocument = getSupportingDocumentRandomSampleGenerator();
+        Article articleBack = getArticleRandomSampleGenerator();
+
+        supportingDocument.setArticle(articleBack);
+        assertThat(supportingDocument.getArticle()).isEqualTo(articleBack);
+
+        supportingDocument.article(null);
+        assertThat(supportingDocument.getArticle()).isNull();
+    }
+
+    @Test
     void articleWarrantyTest() {
         SupportingDocument supportingDocument = getSupportingDocumentRandomSampleGenerator();
         ArticleWarrantyDetails articleWarrantyDetailsBack = getArticleWarrantyDetailsRandomSampleGenerator();
@@ -71,5 +85,17 @@ class SupportingDocumentTest {
 
         supportingDocument.articleWarranty(null);
         assertThat(supportingDocument.getArticleWarranty()).isNull();
+    }
+
+    @Test
+    void serviceOrderTest() {
+        SupportingDocument supportingDocument = getSupportingDocumentRandomSampleGenerator();
+        ServiceOrder serviceOrderBack = getServiceOrderRandomSampleGenerator();
+
+        supportingDocument.setServiceOrder(serviceOrderBack);
+        assertThat(supportingDocument.getServiceOrder()).isEqualTo(serviceOrderBack);
+
+        supportingDocument.serviceOrder(null);
+        assertThat(supportingDocument.getServiceOrder()).isNull();
     }
 }

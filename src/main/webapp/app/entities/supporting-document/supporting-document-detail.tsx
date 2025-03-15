@@ -121,9 +121,17 @@ export const SupportingDocumentDetail = () => {
           </dt>
           <dd>{supportingDocumentEntity.franchise ? supportingDocumentEntity.franchise.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.supportingDocument.article">Article</Translate>
+          </dt>
+          <dd>{supportingDocumentEntity.article ? supportingDocumentEntity.article.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.supportingDocument.articleWarranty">Article Warranty</Translate>
           </dt>
           <dd>{supportingDocumentEntity.articleWarranty ? supportingDocumentEntity.articleWarranty.id : ''}</dd>
+          <dt>
+            <Translate contentKey="framasaasApp.supportingDocument.serviceOrder">Service Order</Translate>
+          </dt>
+          <dd>{supportingDocumentEntity.serviceOrder ? supportingDocumentEntity.serviceOrder.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/supporting-document" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

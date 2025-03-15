@@ -83,8 +83,20 @@
       "relationshipType": "many-to-one"
     },
     {
+      "otherEntityName": "article",
+      "relationshipName": "article",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
       "otherEntityName": "articleWarrantyDetails",
       "relationshipName": "articleWarranty",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceOrder",
+      "relationshipName": "serviceOrder",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

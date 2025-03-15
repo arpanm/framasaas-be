@@ -14,6 +14,8 @@ export interface IWarrantyMaster {
   franchiseTax?: number;
   periodInMonths?: number;
   taxRate?: number;
+  coverage?: string | null;
+  exclusion?: string | null;
   isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;

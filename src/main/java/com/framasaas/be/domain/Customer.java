@@ -76,7 +76,7 @@ public class Customer implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
         allowSetters = true
     )
     private Set<Article> articles = new HashSet<>();
@@ -84,7 +84,15 @@ public class Customer implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "serviceOrderFranchiseAssignments", "serviceOrderSpares", "additionalAttributes", "customer", "article", "address" },
+        value = {
+            "supportingDocuments",
+            "serviceOrderFranchiseAssignments",
+            "serviceOrderSpares",
+            "additionalAttributes",
+            "customer",
+            "article",
+            "address",
+        },
         allowSetters = true
     )
     private Set<ServiceOrder> serviceOrders = new HashSet<>();

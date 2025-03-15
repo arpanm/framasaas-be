@@ -74,6 +74,12 @@ class WarrantyMasterResourceIT {
     private static final Float DEFAULT_TAX_RATE = 1F;
     private static final Float UPDATED_TAX_RATE = 2F;
 
+    private static final String DEFAULT_COVERAGE = "AAAAAAAAAA";
+    private static final String UPDATED_COVERAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EXCLUSION = "AAAAAAAAAA";
+    private static final String UPDATED_EXCLUSION = "BBBBBBBBBB";
+
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
 
@@ -135,6 +141,8 @@ class WarrantyMasterResourceIT {
             .franchiseTax(DEFAULT_FRANCHISE_TAX)
             .periodInMonths(DEFAULT_PERIOD_IN_MONTHS)
             .taxRate(DEFAULT_TAX_RATE)
+            .coverage(DEFAULT_COVERAGE)
+            .exclusion(DEFAULT_EXCLUSION)
             .isActive(DEFAULT_IS_ACTIVE)
             .createddBy(DEFAULT_CREATEDD_BY)
             .createdTime(DEFAULT_CREATED_TIME)
@@ -160,6 +168,8 @@ class WarrantyMasterResourceIT {
             .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
+            .coverage(UPDATED_COVERAGE)
+            .exclusion(UPDATED_EXCLUSION)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -449,6 +459,8 @@ class WarrantyMasterResourceIT {
             .andExpect(jsonPath("$.[*].franchiseTax").value(hasItem(DEFAULT_FRANCHISE_TAX.doubleValue())))
             .andExpect(jsonPath("$.[*].periodInMonths").value(hasItem(DEFAULT_PERIOD_IN_MONTHS.intValue())))
             .andExpect(jsonPath("$.[*].taxRate").value(hasItem(DEFAULT_TAX_RATE.doubleValue())))
+            .andExpect(jsonPath("$.[*].coverage").value(hasItem(DEFAULT_COVERAGE)))
+            .andExpect(jsonPath("$.[*].exclusion").value(hasItem(DEFAULT_EXCLUSION)))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE)))
             .andExpect(jsonPath("$.[*].createddBy").value(hasItem(DEFAULT_CREATEDD_BY)))
             .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
@@ -495,6 +507,8 @@ class WarrantyMasterResourceIT {
             .andExpect(jsonPath("$.franchiseTax").value(DEFAULT_FRANCHISE_TAX.doubleValue()))
             .andExpect(jsonPath("$.periodInMonths").value(DEFAULT_PERIOD_IN_MONTHS.intValue()))
             .andExpect(jsonPath("$.taxRate").value(DEFAULT_TAX_RATE.doubleValue()))
+            .andExpect(jsonPath("$.coverage").value(DEFAULT_COVERAGE))
+            .andExpect(jsonPath("$.exclusion").value(DEFAULT_EXCLUSION))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE))
             .andExpect(jsonPath("$.createddBy").value(DEFAULT_CREATEDD_BY))
             .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
@@ -532,6 +546,8 @@ class WarrantyMasterResourceIT {
             .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
+            .coverage(UPDATED_COVERAGE)
+            .exclusion(UPDATED_EXCLUSION)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)
@@ -624,8 +640,9 @@ class WarrantyMasterResourceIT {
             .price(UPDATED_PRICE)
             .franchiseCommission(UPDATED_FRANCHISE_COMMISSION)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
+            .coverage(UPDATED_COVERAGE)
             .isActive(UPDATED_IS_ACTIVE)
-            .createdTime(UPDATED_CREATED_TIME);
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restWarrantyMasterMockMvc
             .perform(
@@ -667,6 +684,8 @@ class WarrantyMasterResourceIT {
             .franchiseTax(UPDATED_FRANCHISE_TAX)
             .periodInMonths(UPDATED_PERIOD_IN_MONTHS)
             .taxRate(UPDATED_TAX_RATE)
+            .coverage(UPDATED_COVERAGE)
+            .exclusion(UPDATED_EXCLUSION)
             .isActive(UPDATED_IS_ACTIVE)
             .createddBy(UPDATED_CREATEDD_BY)
             .createdTime(UPDATED_CREATED_TIME)

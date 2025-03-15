@@ -231,6 +231,20 @@ export const WarrantyMasterUpdate = () => {
                 }}
               />
               <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.coverage')}
+                id="warranty-master-coverage"
+                name="coverage"
+                data-cy="coverage"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.warrantyMaster.exclusion')}
+                id="warranty-master-exclusion"
+                name="exclusion"
+                data-cy="exclusion"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('framasaasApp.warrantyMaster.isActive')}
                 id="warranty-master-isActive"
                 name="isActive"

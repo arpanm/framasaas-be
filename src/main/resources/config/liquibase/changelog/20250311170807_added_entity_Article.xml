@@ -20,6 +20,27 @@
             <column name="vendor_article_id" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="purchase_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="puchase_price" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="purchase_store" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="invoice_path" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_validated" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="validated_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="validated_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
             <column name="createdd_by" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -40,6 +61,7 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="article" columnName="validated_time" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="article" columnName="created_time" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="article" columnName="updated_time" columnDataType="${datetimeType}"/>
     </changeSet>
@@ -63,6 +85,13 @@
             <column name="id" type="numeric"/>
             <column name="serial_no" type="string"/>
             <column name="vendor_article_id" type="string"/>
+            <column name="purchase_date" type="date"/>
+            <column name="puchase_price" type="numeric"/>
+            <column name="purchase_store" type="string"/>
+            <column name="invoice_path" type="string"/>
+            <column name="is_validated" type="boolean"/>
+            <column name="validated_by" type="string"/>
+            <column name="validated_time" type="date"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
             <column name="updated_by" type="string"/>

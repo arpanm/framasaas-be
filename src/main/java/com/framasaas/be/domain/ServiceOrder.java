@@ -103,6 +103,14 @@ public class ServiceOrder implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "additionalAttributes", "franchise", "article", "articleWarranty", "serviceOrder" },
+        allowSetters = true
+    )
+    private Set<SupportingDocument> supportingDocuments = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "serviceOrder")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "additionalAttributes", "serviceOrder", "franchise" }, allowSetters = true)
     private Set<ServiceOrderFranchiseAssignment> serviceOrderFranchiseAssignments = new HashSet<>();
 
@@ -157,7 +165,7 @@ public class ServiceOrder implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
         allowSetters = true
     )
     private Article article;
@@ -465,6 +473,37 @@ public class ServiceOrder implements Serializable {
 
     public void setUpdatedTime(Instant updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public Set<SupportingDocument> getSupportingDocuments() {
+        return this.supportingDocuments;
+    }
+
+    public void setSupportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        if (this.supportingDocuments != null) {
+            this.supportingDocuments.forEach(i -> i.setServiceOrder(null));
+        }
+        if (supportingDocuments != null) {
+            supportingDocuments.forEach(i -> i.setServiceOrder(this));
+        }
+        this.supportingDocuments = supportingDocuments;
+    }
+
+    public ServiceOrder supportingDocuments(Set<SupportingDocument> supportingDocuments) {
+        this.setSupportingDocuments(supportingDocuments);
+        return this;
+    }
+
+    public ServiceOrder addSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.add(supportingDocument);
+        supportingDocument.setServiceOrder(this);
+        return this;
+    }
+
+    public ServiceOrder removeSupportingDocument(SupportingDocument supportingDocument) {
+        this.supportingDocuments.remove(supportingDocument);
+        supportingDocument.setServiceOrder(null);
+        return this;
     }
 
     public Set<ServiceOrderFranchiseAssignment> getServiceOrderFranchiseAssignments() {

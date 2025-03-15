@@ -115,7 +115,10 @@ public class AdditionalAttribute implements Serializable {
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "additionalAttributes", "franchise", "articleWarranty" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "additionalAttributes", "franchise", "article", "articleWarranty", "serviceOrder" },
+        allowSetters = true
+    )
     private SupportingDocument supportDocument;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -158,7 +161,7 @@ public class AdditionalAttribute implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
+        value = { "supportingDocuments", "articleWarrantyDetails", "serviceOrders", "additionalAttributes", "product", "customer" },
         allowSetters = true
     )
     private Article article;
@@ -169,7 +172,15 @@ public class AdditionalAttribute implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "serviceOrderFranchiseAssignments", "serviceOrderSpares", "additionalAttributes", "customer", "article", "address" },
+        value = {
+            "supportingDocuments",
+            "serviceOrderFranchiseAssignments",
+            "serviceOrderSpares",
+            "additionalAttributes",
+            "customer",
+            "article",
+            "address",
+        },
         allowSetters = true
     )
     private ServiceOrder serviceOrder;

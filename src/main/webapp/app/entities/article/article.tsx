@@ -5,7 +5,7 @@ import { Button, Table } from 'reactstrap';
 import { TextFormat, Translate, getPaginationState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
-import { APP_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
@@ -138,6 +138,34 @@ export const Article = () => {
                     <Translate contentKey="framasaasApp.article.vendorArticleId">Vendor Article Id</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('vendorArticleId')} />
                   </th>
+                  <th className="hand" onClick={sort('purchaseDate')}>
+                    <Translate contentKey="framasaasApp.article.purchaseDate">Purchase Date</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('purchaseDate')} />
+                  </th>
+                  <th className="hand" onClick={sort('puchasePrice')}>
+                    <Translate contentKey="framasaasApp.article.puchasePrice">Puchase Price</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('puchasePrice')} />
+                  </th>
+                  <th className="hand" onClick={sort('purchaseStore')}>
+                    <Translate contentKey="framasaasApp.article.purchaseStore">Purchase Store</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('purchaseStore')} />
+                  </th>
+                  <th className="hand" onClick={sort('invoicePath')}>
+                    <Translate contentKey="framasaasApp.article.invoicePath">Invoice Path</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('invoicePath')} />
+                  </th>
+                  <th className="hand" onClick={sort('isValidated')}>
+                    <Translate contentKey="framasaasApp.article.isValidated">Is Validated</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isValidated')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedBy')}>
+                    <Translate contentKey="framasaasApp.article.validatedBy">Validated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedTime')}>
+                    <Translate contentKey="framasaasApp.article.validatedTime">Validated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedTime')} />
+                  </th>
                   <th className="hand" onClick={sort('createddBy')}>
                     <Translate contentKey="framasaasApp.article.createddBy">Createdd By</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('createddBy')} />
@@ -173,6 +201,17 @@ export const Article = () => {
                     </td>
                     <td>{article.serialNo}</td>
                     <td>{article.vendorArticleId}</td>
+                    <td>
+                      {article.purchaseDate ? <TextFormat type="date" value={article.purchaseDate} format={APP_LOCAL_DATE_FORMAT} /> : null}
+                    </td>
+                    <td>{article.puchasePrice}</td>
+                    <td>{article.purchaseStore}</td>
+                    <td>{article.invoicePath}</td>
+                    <td>{article.isValidated ? 'true' : 'false'}</td>
+                    <td>{article.validatedBy}</td>
+                    <td>
+                      {article.validatedTime ? <TextFormat type="date" value={article.validatedTime} format={APP_DATE_FORMAT} /> : null}
+                    </td>
                     <td>{article.createddBy}</td>
                     <td>{article.createdTime ? <TextFormat type="date" value={article.createdTime} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{article.updatedBy}</td>

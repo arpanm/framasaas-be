@@ -44,6 +44,12 @@
             <column name="tax_rate" type="${floatType}">
                 <constraints nullable="false" />
             </column>
+            <column name="coverage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="exclusion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="is_active" type="boolean">
                 <constraints nullable="true" />
             </column>
@@ -109,6 +115,8 @@
             <column name="franchise_tax" type="numeric"/>
             <column name="period_in_months" type="numeric"/>
             <column name="tax_rate" type="numeric"/>
+            <column name="coverage" type="string"/>
+            <column name="exclusion" type="string"/>
             <column name="is_active" type="boolean"/>
             <column name="createdd_by" type="string"/>
             <column name="created_time" type="date"/>
