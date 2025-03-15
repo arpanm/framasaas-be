@@ -1,4 +1,3 @@
-
 entity Franchise {
 	franchiseName String required,
     owner String,
