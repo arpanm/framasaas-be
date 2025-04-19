@@ -7,23 +7,23 @@ services:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/framasaas
-      - SPRING_LIQUIBASE_URL=jdbc:postgresql://postgresql:5432/framasaas
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/framasaas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/framasaas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:9001:9001
     healthcheck:
       test:
         - CMD
         - curl
         - -f
-        - http://localhost:8080/management/health
+        - http://localhost:9001/management/health
       interval: 5s
       timeout: 5s
       retries: 40
     depends_on:
-      postgresql:
+      mysql:
         condition: service_healthy
-  postgresql:
+  mysql:
     extends:
-      file: ./postgresql.yml
-      service: postgresql
+      file: ./mysql.yml
+      service: mysql

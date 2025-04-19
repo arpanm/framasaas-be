@@ -1,0 +1,45 @@
+{
+  "framasaasApp": {
+    "warrantyMaster": {
+      "home": {
+        "title": "Warranty Masters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Warranty Master तयार करा",
+        "createOrEditLabel": "Warranty Master तयार किंवा संपादित करा",
+        "notFound": "No Warranty Masters found"
+      },
+      "created": "Warranty Master [identifier: {{ param }}] तयार आहे",
+      "updated": "Warranty Master [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Warranty Master [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Warranty Master [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Warranty Master"
+      },
+      "id": "ID",
+      "name": "Name",
+      "vendorWarrantyMasterId": "Vendor Warranty Master Id",
+      "warrantyType": "Warranty Type",
+      "description": "Description",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "periodInMonths": "Period In Months",
+      "taxRate": "Tax Rate",
+      "coverage": "Coverage",
+      "exclusion": "Exclusion",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "warrantyMasterPriceHistory": "Warranty Master Price History",
+      "articleWarrantyDetails": "Article Warranty Details",
+      "additionalAttribute": "Additional Attribute",
+      "coveredSpare": "Covered Spare",
+      "product": "Product"
+    }
+  }
+}

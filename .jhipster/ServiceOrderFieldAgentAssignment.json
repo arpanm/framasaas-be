@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311191109"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "serviceOrderAssignmentStatus",
@@ -71,6 +72,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ServiceOrderFieldAgentAssignment",
   "pagination": "infinite-scroll",
   "relationships": [

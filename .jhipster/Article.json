@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311170807"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "serialNo",
@@ -61,6 +62,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Article",
   "pagination": "infinite-scroll",
   "relationships": [

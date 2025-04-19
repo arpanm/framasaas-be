@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "PaymentStatus": {
+      "null": "",
+      "INITIATED": "INITIATED",
+      "SUCCESS": "SUCCESS",
+      "FAILURE": "FAILURE"
+    }
+  }
+}

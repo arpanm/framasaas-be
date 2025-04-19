@@ -1,0 +1,12 @@
+{
+  "framasaasApp": {
+    "FranchiseUserRole": {
+      "null": "",
+      "FranchiseAdmin": "FranchiseAdmin",
+      "FinanceUser": "FinanceUser",
+      "ContactCenterAgent": "ContactCenterAgent",
+      "FieldAgent": "FieldAgent",
+      "Other": "Other"
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getCustomers } from 'app/entities/customer/customer.reducer';
+import { getEntities as getServiceOrderMasters } from 'app/entities/service-order-master/service-order-master.reducer';
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { ServiceOrderType } from 'app/shared/model/enumerations/service-order-type.model';
@@ -23,6 +24,7 @@ export const ServiceOrderUpdate = () => {
   const isNew = id === undefined;
 
   const customers = useAppSelector(state => state.customer.entities);
+  const serviceOrderMasters = useAppSelector(state => state.serviceOrderMaster.entities);
   const articles = useAppSelector(state => state.article.entities);
   const addresses = useAppSelector(state => state.address.entities);
   const serviceOrderEntity = useAppSelector(state => state.serviceOrder.entity);
@@ -42,6 +44,7 @@ export const ServiceOrderUpdate = () => {
     }
 
     dispatch(getCustomers({}));
+    dispatch(getServiceOrderMasters({}));
     dispatch(getArticles({}));
     dispatch(getAddresses({}));
   }, []);
@@ -89,6 +92,7 @@ export const ServiceOrderUpdate = () => {
       ...serviceOrderEntity,
       ...values,
       customer: customers.find(it => it.id.toString() === values.customer?.toString()),
+      serviceMaster: serviceOrderMasters.find(it => it.id.toString() === values.serviceMaster?.toString()),
       article: articles.find(it => it.id.toString() === values.article?.toString()),
       address: addresses.find(it => it.id.toString() === values.address?.toString()),
     };
@@ -117,6 +121,7 @@ export const ServiceOrderUpdate = () => {
           createdTime: convertDateTimeFromServer(serviceOrderEntity.createdTime),
           updatedTime: convertDateTimeFromServer(serviceOrderEntity.updatedTime),
           customer: serviceOrderEntity?.customer?.id,
+          serviceMaster: serviceOrderEntity?.serviceMaster?.id,
           article: serviceOrderEntity?.article?.id,
           address: serviceOrderEntity?.address?.id,
         };
@@ -342,6 +347,22 @@ export const ServiceOrderUpdate = () => {
                 <option value="" key="0" />
                 {customers
                   ? customers.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="service-order-serviceMaster"
+                name="serviceMaster"
+                data-cy="serviceMaster"
+                label={translate('framasaasApp.serviceOrder.serviceMaster')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {serviceOrderMasters
+                  ? serviceOrderMasters.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

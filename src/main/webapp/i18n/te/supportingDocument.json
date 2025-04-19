@@ -1,0 +1,40 @@
+{
+  "framasaasApp": {
+    "supportingDocument": {
+      "home": {
+        "title": "Supporting Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Supporting Document  సృష్టించండి",
+        "createOrEditLabel": "Supporting Document సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Supporting Documents found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Supporting Document సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Supporting Document సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Supporting Document తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Supporting Document {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Supporting Document"
+      },
+      "id": "ID",
+      "documentName": "Document Name",
+      "documentType": "Document Type",
+      "documentFormat": "Document Format",
+      "documentSize": "Document Size",
+      "documentPath": "Document Path",
+      "isValidated": "Is Validated",
+      "validatedBy": "Validated By",
+      "validatedTime": "Validated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise",
+      "article": "Article",
+      "articleWarranty": "Article Warranty",
+      "serviceOrder": "Service Order"
+    }
+  }
+}

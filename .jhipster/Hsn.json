@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311163920"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "hsnCD",
@@ -43,6 +44,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Hsn",
   "pagination": "infinite-scroll",
   "relationships": [

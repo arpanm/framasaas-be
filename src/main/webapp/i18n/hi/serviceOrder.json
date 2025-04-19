@@ -45,6 +45,7 @@
       "serviceOrderSpare": "Service Order Spare",
       "additionalAttribute": "Additional Attribute",
       "customer": "Customer",
+      "serviceMaster": "Service Master",
       "article": "Article",
       "address": "Address"
     }

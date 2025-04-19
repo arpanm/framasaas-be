@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311163923"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "possibleValue",
@@ -29,6 +30,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "AdditionalAttributePossibleValue",
   "pagination": "infinite-scroll",
   "relationships": [

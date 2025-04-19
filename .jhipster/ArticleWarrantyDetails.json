@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311170808"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "warrantyType",
@@ -39,6 +40,18 @@
       "fieldType": "LocalDate"
     },
     {
+      "fieldName": "isValidated",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "validatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validatedTime",
+      "fieldType": "Instant"
+    },
+    {
       "fieldName": "isActive",
       "fieldType": "Boolean"
     },
@@ -63,6 +76,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ArticleWarrantyDetails",
   "pagination": "infinite-scroll",
   "relationships": [

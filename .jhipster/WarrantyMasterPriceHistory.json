@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311172445"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "price",
@@ -31,6 +32,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "WarrantyMasterPriceHistory",
   "pagination": "infinite-scroll",
   "relationships": [

@@ -1,0 +1,61 @@
+{
+  "framasaasApp": {
+    "additionalAttribute": {
+      "home": {
+        "title": "Additional Attributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Additional Attribute-ஐ உருவாக்கு",
+        "createOrEditLabel": "Additional Attribute -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Additional Attributes found"
+      },
+      "created": "Additional Attribute புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Additional Attribute மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Additional Attribute நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Additional Attribute {{ id }}?"
+      },
+      "detail": {
+        "title": "Additional Attribute"
+      },
+      "id": "ID",
+      "attributeName": "Attribute Name",
+      "attributeValue": "Attribute Value",
+      "attributeType": "Attribute Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttributePossibleValue": "Additional Attribute Possible Value",
+      "franchise": "Franchise",
+      "franchiseStatus": "Franchise Status",
+      "franchisePerformance": "Franchise Performance",
+      "brand": "Brand",
+      "category": "Category",
+      "address": "Address",
+      "location": "Location",
+      "franchiseUser": "Franchise User",
+      "customer": "Customer",
+      "supportDocument": "Support Document",
+      "product": "Product",
+      "hsn": "Hsn",
+      "priceHistory": "Price History",
+      "warrantyMaster": "Warranty Master",
+      "warrantyMasterPriceHistory": "Warranty Master Price History",
+      "article": "Article",
+      "articleWarranty": "Article Warranty",
+      "serviceOrder": "Service Order",
+      "serviceOrderPayment": "Service Order Payment",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "serviceOrderFieldAgentAssignment": "Service Order Field Agent Assignment",
+      "franchiseAllocationRuleSet": "Franchise Allocation Rule Set",
+      "franchiseAllocationRule": "Franchise Allocation Rule",
+      "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set",
+      "fieldAgentSkillRule": "Field Agent Skill Rule",
+      "inventoryLocation": "Inventory Location",
+      "inventory": "Inventory",
+      "document": "Document",
+      "articleWarrantyDocument": "Article Warranty Document",
+      "serviceOrderAssignment": "Service Order Assignment"
+    }
+  }
+}

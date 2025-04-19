@@ -17,6 +17,13 @@
                                  referencedTableName="customer"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="service_master_id"
+                                 baseTableName="service_order"
+                                 constraintName="fk_service_order__service_master_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_order_master"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="article_id"
                                  baseTableName="service_order"
                                  constraintName="fk_service_order__article_id"

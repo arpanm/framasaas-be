@@ -1,0 +1,35 @@
+{
+  "framasaasApp": {
+    "franchiseAllocationRule": {
+      "home": {
+        "title": "Franchise Allocation Rules",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Franchise Allocation Rule  సృష్టించండి",
+        "createOrEditLabel": "Franchise Allocation Rule సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Franchise Allocation Rules found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Allocation Rule సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Allocation Rule సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Allocation Rule తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Franchise Allocation Rule {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Franchise Allocation Rule"
+      },
+      "id": "ID",
+      "ruleType": "Rule Type",
+      "joinType": "Join Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "brand": "Brand",
+      "category": "Category",
+      "pincode": "Pincode",
+      "locationMapping": "Location Mapping",
+      "languageMapping": "Language Mapping",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

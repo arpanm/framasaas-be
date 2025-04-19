@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "serviceOrderSpare": {
+      "home": {
+        "title": "Service Order Spares",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Service Order Spare-ஐ உருவாக்கு",
+        "createOrEditLabel": "Service Order Spare -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Service Order Spares found"
+      },
+      "created": "Service Order Spare புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Service Order Spare மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Service Order Spare நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Service Order Spare {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Spare"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "totalCharge": "Total Charge",
+      "franchiseCommision": "Franchise Commision",
+      "franchiseCommisionTax": "Franchise Commision Tax",
+      "orderedFrom": "Ordered From",
+      "spareStatus": "Spare Status",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "serviceOrder": "Service Order",
+      "product": "Product"
+    }
+  }
+}

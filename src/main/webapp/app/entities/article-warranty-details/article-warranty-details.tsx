@@ -170,6 +170,18 @@ export const ArticleWarrantyDetails = () => {
                     <Translate contentKey="framasaasApp.articleWarrantyDetails.soldDate">Sold Date</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('soldDate')} />
                   </th>
+                  <th className="hand" onClick={sort('isValidated')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetails.isValidated">Is Validated</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('isValidated')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedBy')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetails.validatedBy">Validated By</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedBy')} />
+                  </th>
+                  <th className="hand" onClick={sort('validatedTime')}>
+                    <Translate contentKey="framasaasApp.articleWarrantyDetails.validatedTime">Validated Time</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('validatedTime')} />
+                  </th>
                   <th className="hand" onClick={sort('isActive')}>
                     <Translate contentKey="framasaasApp.articleWarrantyDetails.isActive">Is Active</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('isActive')} />
@@ -230,6 +242,13 @@ export const ArticleWarrantyDetails = () => {
                     <td>
                       {articleWarrantyDetails.soldDate ? (
                         <TextFormat type="date" value={articleWarrantyDetails.soldDate} format={APP_LOCAL_DATE_FORMAT} />
+                      ) : null}
+                    </td>
+                    <td>{articleWarrantyDetails.isValidated ? 'true' : 'false'}</td>
+                    <td>{articleWarrantyDetails.validatedBy}</td>
+                    <td>
+                      {articleWarrantyDetails.validatedTime ? (
+                        <TextFormat type="date" value={articleWarrantyDetails.validatedTime} format={APP_DATE_FORMAT} />
                       ) : null}
                     </td>
                     <td>{articleWarrantyDetails.isActive ? 'true' : 'false'}</td>

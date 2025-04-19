@@ -1,0 +1,44 @@
+{
+  "framasaasApp": {
+    "serviceOrderAssignment": {
+      "home": {
+        "title": "Service Order Assignments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Service Order Assignment-ஐ உருவாக்கு",
+        "createOrEditLabel": "Service Order Assignment -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Service Order Assignments found"
+      },
+      "created": "Service Order Assignment புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Service Order Assignment மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Service Order Assignment நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Service Order Assignment {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Assignment"
+      },
+      "id": "ID",
+      "serviceOrderAssignmentStatus": "Service Order Assignment Status",
+      "nps": "Nps",
+      "isActive": "Is Active",
+      "assignedTime": "Assigned Time",
+      "movedBackTime": "Moved Back Time",
+      "visitTime": "Visit Time",
+      "spareOrderTime": "Spare Order Time",
+      "spareDeliveryTime": "Spare Delivery Time",
+      "completedTime": "Completed Time",
+      "completionOTP": "Completion OTP",
+      "cancellationOTP": "Cancellation OTP",
+      "franchiseCommision": "Franchise Commision",
+      "franchiseCommisionTax": "Franchise Commision Tax",
+      "franchiseInvoicePath": "Franchise Invoice Path",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "serviceOrder": "Service Order",
+      "franchise": "Franchise"
+    }
+  }
+}

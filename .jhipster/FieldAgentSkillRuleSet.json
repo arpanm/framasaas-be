@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311185721"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "sortType",
@@ -30,6 +31,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "FieldAgentSkillRuleSet",
   "pagination": "infinite-scroll",
   "relationships": [

@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311185028"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "price",
@@ -55,6 +56,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ServiceOrderSpare",
   "pagination": "infinite-scroll",
   "relationships": [

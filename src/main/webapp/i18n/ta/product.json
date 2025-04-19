@@ -1,0 +1,47 @@
+{
+  "framasaasApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Product-ஐ உருவாக்கு",
+        "createOrEditLabel": "Product -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Products found"
+      },
+      "created": "Product புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Product மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Product நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "id": "ID",
+      "productName": "Product Name",
+      "vendorProductId": "Vendor Product Id",
+      "description": "Description",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "productType": "Product Type",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "productPriceHistory": "Product Price History",
+      "warrantyMaster": "Warranty Master",
+      "article": "Article",
+      "serviceOrderMaster": "Service Order Master",
+      "serviceOrderSpare": "Service Order Spare",
+      "inventory": "Inventory",
+      "additionalAttribute": "Additional Attribute",
+      "category": "Category",
+      "brand": "Brand",
+      "hsn": "Hsn",
+      "coveredUnderWarranty": "Covered Under Warranty"
+    }
+  }
+}

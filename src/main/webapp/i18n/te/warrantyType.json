@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "WarrantyType": {
+      "null": "",
+      "BRANDFREEWARRANTY": "BRANDFREEWARRANTY",
+      "EXTENDEDPAIDWARRANTY": "EXTENDEDPAIDWARRANTY",
+      "OTHER": "OTHER"
+    }
+  }
+}

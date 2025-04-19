@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "InventoryLocationType": {
+      "null": "",
+      "ENGINEER": "ENGINEER",
+      "FRANCHISE": "FRANCHISE",
+      "MOTHERCOMPANY": "MOTHERCOMPANY"
+    }
+  }
+}

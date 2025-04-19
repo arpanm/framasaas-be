@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250221042838"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "userSatus",
@@ -21,6 +22,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "FranchiseUserStatusHistory",
   "pagination": "infinite-scroll",
   "relationships": [

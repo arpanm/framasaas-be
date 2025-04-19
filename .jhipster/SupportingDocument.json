@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250315144723"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "documentName",
@@ -66,6 +67,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "SupportingDocument",
   "pagination": "infinite-scroll",
   "relationships": [

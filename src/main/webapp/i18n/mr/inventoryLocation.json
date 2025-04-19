@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "inventoryLocation": {
+      "home": {
+        "title": "Inventory Locations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Inventory Location तयार करा",
+        "createOrEditLabel": "Inventory Location तयार किंवा संपादित करा",
+        "notFound": "No Inventory Locations found"
+      },
+      "created": "Inventory Location [identifier: {{ param }}] तयार आहे",
+      "updated": "Inventory Location [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Inventory Location [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Inventory Location [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Inventory Location"
+      },
+      "id": "ID",
+      "name": "Name",
+      "locationType": "Location Type",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "inventory": "Inventory",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "category": {
+      "home": {
+        "title": "Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Category तयार करा",
+        "createOrEditLabel": "Category तयार किंवा संपादित करा",
+        "notFound": "No Categories found"
+      },
+      "created": "Category [identifier: {{ param }}] तयार आहे",
+      "updated": "Category [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Category [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Category [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Category"
+      },
+      "id": "ID",
+      "categoryName": "Category Name",
+      "imagePath": "Image Path",
+      "vendorCategoryId": "Vendor Category Id",
+      "description": "Description",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "product": "Product",
+      "additionalAttribute": "Additional Attribute",
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
+    }
+  }
+}

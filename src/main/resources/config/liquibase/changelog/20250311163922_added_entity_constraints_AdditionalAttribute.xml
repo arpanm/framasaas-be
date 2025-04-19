@@ -152,7 +152,7 @@
 
         <addForeignKeyConstraint baseColumnNames="service_order_field_agent_assignment_id"
                                  baseTableName="additional_attribute"
-                                 constraintName="fk_additional_attribute__service_order_field_agent_assign_fa_id"
+                                 constraintName="fk_additional_attribute__service_order_field_agent_assignment_id"
                                  referencedColumnNames="id"
                                  referencedTableName="service_order_field_agent_assignment"
                                  />

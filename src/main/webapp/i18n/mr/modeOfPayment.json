@@ -1,0 +1,9 @@
+{
+  "framasaasApp": {
+    "ModeOfPayment": {
+      "null": "",
+      "CASH": "CASH",
+      "ONLINE": "ONLINE"
+    }
+  }
+}

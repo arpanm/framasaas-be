@@ -1,0 +1,28 @@
+{
+  "framasaasApp": {
+    "franchiseStatusHistory": {
+      "home": {
+        "title": "Franchise Status Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise Status History तयार करा",
+        "createOrEditLabel": "Franchise Status History तयार किंवा संपादित करा",
+        "notFound": "No Franchise Status Histories found"
+      },
+      "created": "Franchise Status History [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise Status History [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise Status History [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise Status History [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise Status History"
+      },
+      "id": "ID",
+      "franchiseSatus": "Franchise Satus",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
+    }
+  }
+}

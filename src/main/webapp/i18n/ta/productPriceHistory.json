@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "productPriceHistory": {
+      "home": {
+        "title": "Product Price Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Product Price History-ஐ உருவாக்கு",
+        "createOrEditLabel": "Product Price History -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Product Price Histories found"
+      },
+      "created": "Product Price History புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Product Price History மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Product Price History நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Product Price History {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Price History"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "updateDescription": "Update Description",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "product": "Product"
+    }
+  }
+}

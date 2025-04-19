@@ -1,0 +1,42 @@
+{
+  "framasaasApp": {
+    "serviceOrderFranchiseAssignment": {
+      "home": {
+        "title": "Service Order Franchise Assignments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Service Order Franchise Assignment  సృష్టించండి",
+        "createOrEditLabel": "Service Order Franchise Assignment సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Service Order Franchise Assignments found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Franchise Assignment సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Franchise Assignment సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Franchise Assignment తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Service Order Franchise Assignment {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Service Order Franchise Assignment"
+      },
+      "id": "ID",
+      "serviceOrderAssignmentStatus": "Service Order Assignment Status",
+      "nps": "Nps",
+      "isActive": "Is Active",
+      "assignedTime": "Assigned Time",
+      "movedBackTime": "Moved Back Time",
+      "visitTime": "Visit Time",
+      "spareOrderTime": "Spare Order Time",
+      "spareDeliveryTime": "Spare Delivery Time",
+      "completedTime": "Completed Time",
+      "franchiseCommision": "Franchise Commision",
+      "franchiseCommisionTax": "Franchise Commision Tax",
+      "franchiseInvoicePath": "Franchise Invoice Path",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "serviceOrder": "Service Order",
+      "franchise": "Franchise"
+    }
+  }
+}

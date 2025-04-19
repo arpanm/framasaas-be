@@ -1,0 +1,10 @@
+{
+  "framasaasApp": {
+    "FranchiseUserStatus": {
+      "null": "",
+      "PendingApproval": "PendingApproval",
+      "Active": "Active",
+      "Blocked": "Blocked"
+    }
+  }
+}

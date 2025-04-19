@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { ICustomer } from 'app/shared/model/customer.model';
+import { IServiceOrderMaster } from 'app/shared/model/service-order-master.model';
 import { IArticle } from 'app/shared/model/article.model';
 import { IAddress } from 'app/shared/model/address.model';
 import { ServiceOrderType } from 'app/shared/model/enumerations/service-order-type.model';
@@ -30,6 +31,7 @@ export interface IServiceOrder {
   updatedBy?: string;
   updatedTime?: dayjs.Dayjs;
   customer?: ICustomer | null;
+  serviceMaster?: IServiceOrderMaster | null;
   article?: IArticle | null;
   address?: IAddress | null;
 }

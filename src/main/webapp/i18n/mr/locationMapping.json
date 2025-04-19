@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "locationMapping": {
+      "home": {
+        "title": "Location Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Location Mapping तयार करा",
+        "createOrEditLabel": "Location Mapping तयार किंवा संपादित करा",
+        "notFound": "No Location Mappings found"
+      },
+      "created": "Location Mapping [identifier: {{ param }}] तयार आहे",
+      "updated": "Location Mapping [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Location Mapping [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Location Mapping [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Location Mapping"
+      },
+      "id": "ID",
+      "locationName": "Location Name",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
+    }
+  }
+}

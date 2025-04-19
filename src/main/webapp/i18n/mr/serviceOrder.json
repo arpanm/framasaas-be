@@ -1,0 +1,53 @@
+{
+  "framasaasApp": {
+    "serviceOrder": {
+      "home": {
+        "title": "Service Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Service Order तयार करा",
+        "createOrEditLabel": "Service Order तयार किंवा संपादित करा",
+        "notFound": "No Service Orders found"
+      },
+      "created": "Service Order [identifier: {{ param }}] तयार आहे",
+      "updated": "Service Order [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Service Order [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Service Order [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Service Order"
+      },
+      "id": "ID",
+      "description": "Description",
+      "orderType": "Order Type",
+      "orderStatus": "Order Status",
+      "inWarranty": "In Warranty",
+      "isFree": "Is Free",
+      "isSpareNeeded": "Is Spare Needed",
+      "confirmedTime": "Confirmed Time",
+      "closedTime": "Closed Time",
+      "serviceCharge": "Service Charge",
+      "tax": "Tax",
+      "totalSpareCharges": "Total Spare Charges",
+      "totalSpareTax": "Total Spare Tax",
+      "totalCharges": "Total Charges",
+      "totalPaymentDone": "Total Payment Done",
+      "customerInvoicePath": "Customer Invoice Path",
+      "nps": "Nps",
+      "priority": "Priority",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "supportingDocument": "Supporting Document",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "serviceOrderSpare": "Service Order Spare",
+      "additionalAttribute": "Additional Attribute",
+      "customer": "Customer",
+      "serviceMaster": "Service Master",
+      "article": "Article",
+      "address": "Address"
+    }
+  }
+}

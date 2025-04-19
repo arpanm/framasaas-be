@@ -1,0 +1,47 @@
+{
+  "framasaasApp": {
+    "franchise": {
+      "home": {
+        "title": "Franchises",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Franchise  సృష్టించండి",
+        "createOrEditLabel": "Franchise సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Franchises found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Franchise సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Franchise సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Franchise తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Franchise {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Franchise"
+      },
+      "id": "ID",
+      "franchiseName": "Franchise Name",
+      "owner": "Owner",
+      "email": "Email",
+      "contact": "Contact",
+      "franchiseStatus": "Franchise Status",
+      "gstNumber": "Gst Number",
+      "registrationNumber": "Registration Number",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "dailyMaxServiceLimit": "Daily Max Service Limit",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "address": "Address",
+      "franchiseStatusHistory": "Franchise Status History",
+      "franchisePerformanceHistory": "Franchise Performance History",
+      "supportingDocument": "Supporting Document",
+      "franchiseUser": "Franchise User",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "additionalAttribute": "Additional Attribute",
+      "ruleset": "Ruleset",
+      "brands": "Brands",
+      "categories": "Categories"
+    }
+  }
+}

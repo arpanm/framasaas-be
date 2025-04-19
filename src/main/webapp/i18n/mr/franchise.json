@@ -1,0 +1,47 @@
+{
+  "framasaasApp": {
+    "franchise": {
+      "home": {
+        "title": "Franchises",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise तयार करा",
+        "createOrEditLabel": "Franchise तयार किंवा संपादित करा",
+        "notFound": "No Franchises found"
+      },
+      "created": "Franchise [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise"
+      },
+      "id": "ID",
+      "franchiseName": "Franchise Name",
+      "owner": "Owner",
+      "email": "Email",
+      "contact": "Contact",
+      "franchiseStatus": "Franchise Status",
+      "gstNumber": "Gst Number",
+      "registrationNumber": "Registration Number",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "dailyMaxServiceLimit": "Daily Max Service Limit",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "address": "Address",
+      "franchiseStatusHistory": "Franchise Status History",
+      "franchisePerformanceHistory": "Franchise Performance History",
+      "supportingDocument": "Supporting Document",
+      "franchiseUser": "Franchise User",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "additionalAttribute": "Additional Attribute",
+      "ruleset": "Ruleset",
+      "brands": "Brands",
+      "categories": "Categories"
+    }
+  }
+}

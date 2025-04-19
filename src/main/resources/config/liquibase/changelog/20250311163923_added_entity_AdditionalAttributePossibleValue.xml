@@ -11,7 +11,7 @@
     -->
     <changeSet id="20250311163923-1" author="jhipster">
         <createTable tableName="additional_attribute_possible_value">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="possible_value" type="varchar(255)">

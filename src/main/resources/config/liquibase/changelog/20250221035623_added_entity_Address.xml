@@ -11,7 +11,7 @@
     -->
     <changeSet id="20250221035623-1" author="jhipster">
         <createTable tableName="address">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="address_1" type="varchar(255)">

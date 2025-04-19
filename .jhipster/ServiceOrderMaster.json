@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311180929"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "serviceOrderType",
@@ -62,9 +63,17 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ServiceOrderMaster",
   "pagination": "infinite-scroll",
   "relationships": [
+    {
+      "otherEntityName": "serviceOrder",
+      "otherEntityRelationshipName": "serviceMaster",
+      "relationshipName": "serviceOrder",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
     {
       "otherEntityName": "product",
       "relationshipName": "product",

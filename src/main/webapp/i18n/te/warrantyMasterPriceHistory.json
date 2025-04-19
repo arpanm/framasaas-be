@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "warrantyMasterPriceHistory": {
+      "home": {
+        "title": "Warranty Master Price Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Warranty Master Price History  సృష్టించండి",
+        "createOrEditLabel": "Warranty Master Price History సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Warranty Master Price Histories found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Warranty Master Price History సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Warranty Master Price History సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Warranty Master Price History తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Warranty Master Price History {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Warranty Master Price History"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "warrantyMaster": "Warranty Master"
+    }
+  }
+}

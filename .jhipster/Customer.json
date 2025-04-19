@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311105040"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "email",
@@ -55,6 +56,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Customer",
   "pagination": "infinite-scroll",
   "relationships": [

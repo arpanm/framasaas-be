@@ -53,6 +53,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
+    values.validatedTime = convertDateTimeToServer(values.validatedTime);
     values.createdTime = convertDateTimeToServer(values.createdTime);
     values.updatedTime = convertDateTimeToServer(values.updatedTime);
 
@@ -73,6 +74,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
   const defaultValues = () =>
     isNew
       ? {
+          validatedTime: displayDefaultDateTime(),
           createdTime: displayDefaultDateTime(),
           updatedTime: displayDefaultDateTime(),
         }
@@ -80,6 +82,7 @@ export const ArticleWarrantyDetailsUpdate = () => {
           warrantyType: 'BRANDFREEWARRANTY',
           soldBy: 'FRANCHISE',
           ...articleWarrantyDetailsEntity,
+          validatedTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.validatedTime),
           createdTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.createdTime),
           updatedTime: convertDateTimeFromServer(articleWarrantyDetailsEntity.updatedTime),
           article: articleWarrantyDetailsEntity?.article?.id,
@@ -180,6 +183,29 @@ export const ArticleWarrantyDetailsUpdate = () => {
                 name="soldDate"
                 data-cy="soldDate"
                 type="date"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.isValidated')}
+                id="article-warranty-details-isValidated"
+                name="isValidated"
+                data-cy="isValidated"
+                check
+                type="checkbox"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.validatedBy')}
+                id="article-warranty-details-validatedBy"
+                name="validatedBy"
+                data-cy="validatedBy"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('framasaasApp.articleWarrantyDetails.validatedTime')}
+                id="article-warranty-details-validatedTime"
+                name="validatedTime"
+                data-cy="validatedTime"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
               />
               <ValidatedField
                 label={translate('framasaasApp.articleWarrantyDetails.isActive')}

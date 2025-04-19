@@ -11,7 +11,7 @@
     -->
     <changeSet id="20250311191109-1" author="jhipster">
         <createTable tableName="service_order_field_agent_assignment">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="service_order_assignment_status" type="varchar(255)">

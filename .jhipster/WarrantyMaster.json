@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311172444"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "name",
@@ -87,6 +88,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "WarrantyMaster",
   "pagination": "infinite-scroll",
   "relationships": [

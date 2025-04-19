@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "serviceOrderPayment": {
+      "home": {
+        "title": "Service Order Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Service Order Payment तयार करा",
+        "createOrEditLabel": "Service Order Payment तयार किंवा संपादित करा",
+        "notFound": "No Service Order Payments found"
+      },
+      "created": "Service Order Payment [identifier: {{ param }}] तयार आहे",
+      "updated": "Service Order Payment [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Service Order Payment [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Service Order Payment [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Service Order Payment"
+      },
+      "id": "ID",
+      "paymentLink": "Payment Link",
+      "paymentStatus": "Payment Status",
+      "mop": "Mop",
+      "pgTxnId": "Pg Txn Id",
+      "pgTxnResponse": "Pg Txn Response",
+      "pgTxnResponseTime": "Pg Txn Response Time",
+      "paymentInitiatedBy": "Payment Initiated By",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

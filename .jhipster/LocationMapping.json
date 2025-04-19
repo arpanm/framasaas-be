@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250221035624"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "locationName",
@@ -30,6 +31,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "LocationMapping",
   "pagination": "infinite-scroll",
   "relationships": [
