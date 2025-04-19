@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311163921"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "price",
@@ -35,6 +36,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ProductPriceHistory",
   "pagination": "infinite-scroll",
   "relationships": [

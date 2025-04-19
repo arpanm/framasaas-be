@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "brand": {
+      "home": {
+        "title": "Brands",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Brand  సృష్టించండి",
+        "createOrEditLabel": "Brand సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Brands found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Brand సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Brand సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Brand తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Brand {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Brand"
+      },
+      "id": "ID",
+      "brandName": "Brand Name",
+      "logoPath": "Logo Path",
+      "vendorBrandId": "Vendor Brand Id",
+      "description": "Description",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "product": "Product",
+      "additionalAttribute": "Additional Attribute",
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
+    }
+  }
+}

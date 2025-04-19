@@ -9,6 +9,9 @@ export const languages: any = {
   en: { name: 'English' },
   bn: { name: 'বাংলা' },
   hi: { name: 'हिंदी' },
+  mr: { name: 'मराठी' },
+  ta: { name: 'தமிழ்' },
+  te: { name: 'తెలుగు' },
   // jhipster-needle-i18n-language-key-pipe - JHipster will add/remove languages in this object
 };
 

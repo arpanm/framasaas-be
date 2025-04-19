@@ -1,0 +1,43 @@
+{
+  "framasaasApp": {
+    "articleWarrantyDetails": {
+      "home": {
+        "title": "Article Warranty Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Article Warranty Details तयार करा",
+        "createOrEditLabel": "Article Warranty Details तयार किंवा संपादित करा",
+        "notFound": "No Article Warranty Details found"
+      },
+      "created": "Article Warranty Details [identifier: {{ param }}] तयार आहे",
+      "updated": "Article Warranty Details [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Article Warranty Details [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Article Warranty Details [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Article Warranty Details"
+      },
+      "id": "ID",
+      "warrantyType": "Warranty Type",
+      "vendorArticleWarrantyId": "Vendor Article Warranty Id",
+      "vendorWarrantyMasterId": "Vendor Warranty Master Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "soldBy": "Sold By",
+      "soldByUser": "Sold By User",
+      "soldDate": "Sold Date",
+      "isValidated": "Is Validated",
+      "validatedBy": "Validated By",
+      "validatedTime": "Validated Time",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "supportingDocument": "Supporting Document",
+      "additionalAttribute": "Additional Attribute",
+      "article": "Article",
+      "warrantyMaster": "Warranty Master"
+    }
+  }
+}

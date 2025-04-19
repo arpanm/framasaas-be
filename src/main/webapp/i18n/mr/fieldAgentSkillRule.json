@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "fieldAgentSkillRule": {
+      "home": {
+        "title": "Field Agent Skill Rules",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Field Agent Skill Rule तयार करा",
+        "createOrEditLabel": "Field Agent Skill Rule तयार किंवा संपादित करा",
+        "notFound": "No Field Agent Skill Rules found"
+      },
+      "created": "Field Agent Skill Rule [identifier: {{ param }}] तयार आहे",
+      "updated": "Field Agent Skill Rule [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Field Agent Skill Rule [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Field Agent Skill Rule [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Field Agent Skill Rule"
+      },
+      "id": "ID",
+      "skillType": "Skill Type",
+      "joinType": "Join Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "brand": "Brand",
+      "category": "Category",
+      "pincode": "Pincode",
+      "locationMapping": "Location Mapping",
+      "languageMapping": "Language Mapping",
+      "additionalAttribute": "Additional Attribute",
+      "fieldAgentSkillRuleSet": "Field Agent Skill Rule Set"
+    }
+  }
+}

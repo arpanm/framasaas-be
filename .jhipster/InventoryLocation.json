@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311194028"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "name",
@@ -38,6 +39,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "InventoryLocation",
   "pagination": "infinite-scroll",
   "relationships": [

@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311185722"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "skillType",
@@ -35,6 +36,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "FieldAgentSkillRule",
   "pagination": "infinite-scroll",
   "relationships": [

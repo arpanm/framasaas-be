@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311185417"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "lang",
@@ -31,6 +32,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "LanguageMapping",
   "pagination": "infinite-scroll",
   "relationships": [

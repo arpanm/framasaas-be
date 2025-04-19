@@ -1,0 +1,33 @@
+{
+  "framasaasApp": {
+    "franchiseAllocationRuleSet": {
+      "home": {
+        "title": "Franchise Allocation Rule Sets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise Allocation Rule Set तयार करा",
+        "createOrEditLabel": "Franchise Allocation Rule Set तयार किंवा संपादित करा",
+        "notFound": "No Franchise Allocation Rule Sets found"
+      },
+      "created": "Franchise Allocation Rule Set [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise Allocation Rule Set [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise Allocation Rule Set [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise Allocation Rule Set [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise Allocation Rule Set"
+      },
+      "id": "ID",
+      "name": "Name",
+      "sortType": "Sort Type",
+      "priority": "Priority",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

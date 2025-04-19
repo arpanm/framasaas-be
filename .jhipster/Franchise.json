@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250221035619"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "franchiseName",
@@ -73,6 +74,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Franchise",
   "pagination": "infinite-scroll",
   "relationships": [

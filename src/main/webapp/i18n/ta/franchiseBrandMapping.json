@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "franchiseBrandMapping": {
+      "home": {
+        "title": "Franchise Brand Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Franchise Brand Mapping-ஐ உருவாக்கு",
+        "createOrEditLabel": "Franchise Brand Mapping -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Franchise Brand Mappings found"
+      },
+      "created": "Franchise Brand Mapping புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Franchise Brand Mapping மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Franchise Brand Mapping நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Franchise Brand Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Brand Mapping"
+      },
+      "id": "ID",
+      "brand": "Brand",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise"
+    }
+  }
+}

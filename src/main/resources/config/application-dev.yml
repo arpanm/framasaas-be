@@ -18,7 +18,7 @@ logging:
     ROOT: DEBUG
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
-    com.framasaas.be: DEBUG
+    com.framasaas: DEBUG
 
 spring:
   devtools:
@@ -37,7 +37,7 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/framasaas;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:file:./target/h2db/db/framasaas;DB_CLOSE_DELAY=-1;MODE=MYSQL
     username: framasaas
     password:
     hikari:
@@ -61,7 +61,7 @@ spring:
     cache: false
 
 server:
-  port: 8080
+  port: 9001
   # make sure requests the proxy uri instead of the server one
   forward-headers-strategy: native
 
@@ -96,7 +96,7 @@ jhipster:
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    base-url: http://127.0.0.1:8080
+    base-url: http://127.0.0.1:9001
   logging:
     use-json-format: false # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration

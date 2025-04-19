@@ -1,0 +1,30 @@
+{
+  "framasaasApp": {
+    "languageMapping": {
+      "home": {
+        "title": "Language Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Language Mapping-ஐ உருவாக்கு",
+        "createOrEditLabel": "Language Mapping -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Language Mappings found"
+      },
+      "created": "Language Mapping புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Language Mapping மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Language Mapping நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Language Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Language Mapping"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseRule": "Franchise Rule",
+      "fieldAgentSkillRule": "Field Agent Skill Rule"
+    }
+  }
+}

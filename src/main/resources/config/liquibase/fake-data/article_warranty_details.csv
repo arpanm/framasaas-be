@@ -1,11 +1,11 @@
-id;warranty_type;vendor_article_warranty_id;vendor_warranty_master_id;start_date;end_date;sold_by;sold_by_user;sold_date;is_active;createdd_by;created_time;updated_by;updated_time
-1;BRANDFREEWARRANTY;blank eek;fooey plump;2025-03-10;2025-03-11;ENGINEER;fooey;2025-03-11;true;warming;2025-03-11T03:46:29;doubtfully failing;2025-03-10T23:39:51
-2;OTHER;outflank disinherit;whose role;2025-03-11;2025-03-10;MOTHERCOMPANY;dish likewise;2025-03-11;true;scientific;2025-03-11T01:57:05;deceivingly;2025-03-11T00:32:03
-3;EXTENDEDPAIDWARRANTY;whereas;wire;2025-03-11;2025-03-11;ENGINEER;below oof guidance;2025-03-11;false;and waltz partially;2025-03-11T00:01:15;midst;2025-03-10T23:00:44
-4;EXTENDEDPAIDWARRANTY;tarry crowded continually;bah excluding cluttered;2025-03-11;2025-03-11;MOTHERCOMPANY;ornate acclaimed ew;2025-03-10;false;backbone swiftly squeaky;2025-03-11T06:20:16;academics ugh;2025-03-11T01:14:46
-5;BRANDFREEWARRANTY;sashay;parsnip offend gosh;2025-03-11;2025-03-11;MOTHERCOMPANY;pish likewise;2025-03-11;false;though;2025-03-11T15:01:29;along wallaby round;2025-03-11T12:19:27
-6;EXTENDEDPAIDWARRANTY;equally;apud shinny;2025-03-10;2025-03-11;MOTHERCOMPANY;scarcely irresponsible sudden;2025-03-11;true;as blah;2025-03-10T19:22:06;indeed concerning;2025-03-10T20:26:45
-7;EXTENDEDPAIDWARRANTY;equal psst ugh;sophisticated;2025-03-10;2025-03-10;MOTHERCOMPANY;per mortar;2025-03-10;false;crest;2025-03-10T17:33:13;evenly which;2025-03-11T11:26:09
-8;BRANDFREEWARRANTY;inasmuch phew;secret litter buck;2025-03-11;2025-03-10;FRANCHISE;saturate;2025-03-11;true;throbbing;2025-03-11T01:46:39;quarrelsomely duh;2025-03-11T01:41:06
-9;EXTENDEDPAIDWARRANTY;hygienic mortally beside;brace belabor swelter;2025-03-11;2025-03-10;MOTHERCOMPANY;since summarise cloudy;2025-03-10;true;what whenever creaking;2025-03-11T00:30:39;readily boo;2025-03-11T07:46:23
-10;EXTENDEDPAIDWARRANTY;careless;sparkling as;2025-03-11;2025-03-11;FRANCHISE;what thankfully off;2025-03-11;true;sans pale daily;2025-03-11T17:05:16;next oof;2025-03-10T22:34:57
+id;warranty_type;vendor_article_warranty_id;vendor_warranty_master_id;start_date;end_date;sold_by;sold_by_user;sold_date;is_validated;validated_by;validated_time;is_active;createdd_by;created_time;updated_by;updated_time
+1;BRANDFREEWARRANTY;blank eek;fooey plump;2025-03-10;2025-03-11;ENGINEER;fooey;2025-03-11;true;warming;2025-03-11T03:46:29;true;um ew interviewer;2025-03-10T23:01:22;disinherit aircraft;2025-03-11T16:04:04
+2;OTHER;filthy physically incidentally;flight;2025-03-11;2025-03-11;MOTHERCOMPANY;refute ick excluding;2025-03-10;true;weighty below oof;2025-03-10T19:25:31;true;tattered and;2025-03-10T18:32:14;truthfully before midst;2025-03-10T23:00:44
+3;EXTENDEDPAIDWARRANTY;tarry crowded continually;bah excluding cluttered;2025-03-11;2025-03-11;MOTHERCOMPANY;ornate acclaimed ew;2025-03-10;false;backbone swiftly squeaky;2025-03-11T06:20:16;false;down fit above;2025-03-11T00:35:11;typeface sense sharply;2025-03-11T13:13:30
+4;OTHER;vaguely;fort chime;2025-03-10;2025-03-11;ENGINEER;mmm instead;2025-03-10;false;shear cautiously rubric;2025-03-10T22:23:57;true;shinny;2025-03-10T22:45:30;granular tame;2025-03-11T08:04:14
+5;EXTENDEDPAIDWARRANTY;proper characterization recklessly;especially which;2025-03-10;2025-03-11;ENGINEER;until;2025-03-11;true;farm corporation;2025-03-11T09:20:55;false;urgently upright round;2025-03-11T05:56:33;instance;2025-03-11T00:05:23
+6;BRANDFREEWARRANTY;despite;which;2025-03-11;2025-03-10;ENGINEER;which with secret;2025-03-11;true;confute cinema;2025-03-10T18:34:33;false;brr;2025-03-10T18:22:39;haunting madly;2025-03-11T07:51:06
+7;EXTENDEDPAIDWARRANTY;often gray;mortally beside;2025-03-11;2025-03-10;MOTHERCOMPANY;masquerade;2025-03-11;false;brace partridge beyond;2025-03-11T10:57:10;true;pricey;2025-03-11T05:39:33;briskly;2025-03-11T07:27:12
+8;BRANDFREEWARRANTY;whenever creaking ferociously;vaguely;2025-03-10;2025-03-11;ENGINEER;careless;2025-03-11;false;reclassify;2025-03-10T19:17:07;true;since;2025-03-10T23:27:39;chunter lest;2025-03-11T00:22:41
+9;EXTENDEDPAIDWARRANTY;healthily;mechanically;2025-03-10;2025-03-10;ENGINEER;yet mash by;2025-03-11;true;task;2025-03-11T00:19:06;true;remark greatly swat;2025-03-11T13:57:48;embalm forgo;2025-03-10T22:48:11
+10;OTHER;boo litter;blah lest;2025-03-11;2025-03-11;FRANCHISE;so;2025-03-10;true;concerning drain lounge;2025-03-11T12:01:31;false;phooey marimba;2025-03-11T07:00:13;whenever mortar out;2025-03-10T18:24:39

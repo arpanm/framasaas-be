@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "warrantyMasterPriceHistory": {
+      "home": {
+        "title": "Warranty Master Price Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Warranty Master Price History तयार करा",
+        "createOrEditLabel": "Warranty Master Price History तयार किंवा संपादित करा",
+        "notFound": "No Warranty Master Price Histories found"
+      },
+      "created": "Warranty Master Price History [identifier: {{ param }}] तयार आहे",
+      "updated": "Warranty Master Price History [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Warranty Master Price History [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Warranty Master Price History [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Warranty Master Price History"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "warrantyMaster": "Warranty Master"
+    }
+  }
+}

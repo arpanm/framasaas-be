@@ -499,6 +499,9 @@ entity ArticleWarrantyDetails {
     soldBy SoldBy,
     soldByUser String,
     soldDate LocalDate,
+    isValidated Boolean,
+    validatedBy String,
+    validatedTime Instant,
     isActive Boolean,
     createddBy String required,
     createdTime Instant required,
@@ -594,6 +597,10 @@ enum ServiceOrderType {
 
 relationship OneToMany {
 	Customer to ServiceOrder{customer}
+}
+
+relationship OneToMany {
+	ServiceOrderMaster to ServiceOrder{serviceMaster}
 }
 
 relationship OneToMany {
@@ -919,8 +926,26 @@ relationship OneToMany {
 	Inventory to AdditionalAttribute{inventory}
 }
 
-// Set pagination options
-paginate all with infinite-scroll
-
-// Set service options to all except few
-service all with serviceImpl
+application {
+  config {
+    baseName framasaas
+    applicationType monolith
+    serverPort 9001
+    devDatabaseType h2Disk
+    prodDatabaseType mysql
+    clientFramework react
+    clientPackageManager npm
+    authenticationType jwt
+    buildTool maven
+    enableSwaggerCodegen true
+    enableTranslation true
+    languages	[bn, hi, en, mr, ta, te]
+    nativeLanguage	en
+    packageName com.framasaas
+  }
+  entities *
+  dto * with mapstruct
+  paginate * with infinite-scroll
+  service all with serviceImpl
+  filter *
+}

@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311164620"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "pincode",
@@ -30,6 +31,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Pincode",
   "pagination": "infinite-scroll",
   "relationships": [

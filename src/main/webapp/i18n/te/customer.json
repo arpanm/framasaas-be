@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "customer": {
+      "home": {
+        "title": "Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Customer  సృష్టించండి",
+        "createOrEditLabel": "Customer సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Customers found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Customer సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Customer సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Customer తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Customer {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Customer"
+      },
+      "id": "ID",
+      "email": "Email",
+      "contact": "Contact",
+      "alternameContact": "Altername Contact",
+      "language": "Language",
+      "userStatus": "User Status",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "address": "Address",
+      "article": "Article",
+      "serviceOrder": "Service Order",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

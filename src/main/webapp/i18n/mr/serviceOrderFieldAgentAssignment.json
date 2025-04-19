@@ -1,0 +1,39 @@
+{
+  "framasaasApp": {
+    "serviceOrderFieldAgentAssignment": {
+      "home": {
+        "title": "Service Order Field Agent Assignments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Service Order Field Agent Assignment तयार करा",
+        "createOrEditLabel": "Service Order Field Agent Assignment तयार किंवा संपादित करा",
+        "notFound": "No Service Order Field Agent Assignments found"
+      },
+      "created": "Service Order Field Agent Assignment [identifier: {{ param }}] तयार आहे",
+      "updated": "Service Order Field Agent Assignment [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Service Order Field Agent Assignment [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Service Order Field Agent Assignment [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Service Order Field Agent Assignment"
+      },
+      "id": "ID",
+      "serviceOrderAssignmentStatus": "Service Order Assignment Status",
+      "nps": "Nps",
+      "isActive": "Is Active",
+      "assignedTime": "Assigned Time",
+      "movedBackTime": "Moved Back Time",
+      "visitTime": "Visit Time",
+      "spareOrderTime": "Spare Order Time",
+      "spareDeliveryTime": "Spare Delivery Time",
+      "completedTime": "Completed Time",
+      "completionOTP": "Completion OTP",
+      "cancellationOTP": "Cancellation OTP",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "framasaasApp": {
+    "franchiseDocument": {
+      "home": {
+        "title": "Franchise Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise Document तयार करा",
+        "createOrEditLabel": "Franchise Document तयार किंवा संपादित करा",
+        "notFound": "No Franchise Documents found"
+      },
+      "created": "Franchise Document [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise Document [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise Document [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise Document [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise Document"
+      },
+      "id": "ID",
+      "documentName": "Document Name",
+      "documentType": "Document Type",
+      "documentFormat": "Document Format",
+      "documentSize": "Document Size",
+      "documentPath": "Document Path",
+      "isValidated": "Is Validated",
+      "validatedBy": "Validated By",
+      "validatedTime": "Validated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
+    }
+  }
+}

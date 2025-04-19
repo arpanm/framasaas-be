@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "serviceOrderPayment": {
+      "home": {
+        "title": "Service Order Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Service Order Payment-ஐ உருவாக்கு",
+        "createOrEditLabel": "Service Order Payment -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Service Order Payments found"
+      },
+      "created": "Service Order Payment புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Service Order Payment மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Service Order Payment நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Service Order Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Order Payment"
+      },
+      "id": "ID",
+      "paymentLink": "Payment Link",
+      "paymentStatus": "Payment Status",
+      "mop": "Mop",
+      "pgTxnId": "Pg Txn Id",
+      "pgTxnResponse": "Pg Txn Response",
+      "pgTxnResponseTime": "Pg Txn Response Time",
+      "paymentInitiatedBy": "Payment Initiated By",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "framasaasApp": {
+    "warrantyMaster": {
+      "home": {
+        "title": "Warranty Masters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Warranty Master-ஐ உருவாக்கு",
+        "createOrEditLabel": "Warranty Master -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Warranty Masters found"
+      },
+      "created": "Warranty Master புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Warranty Master மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Warranty Master நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Warranty Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Warranty Master"
+      },
+      "id": "ID",
+      "name": "Name",
+      "vendorWarrantyMasterId": "Vendor Warranty Master Id",
+      "warrantyType": "Warranty Type",
+      "description": "Description",
+      "price": "Price",
+      "tax": "Tax",
+      "franchiseCommission": "Franchise Commission",
+      "franchiseTax": "Franchise Tax",
+      "periodInMonths": "Period In Months",
+      "taxRate": "Tax Rate",
+      "coverage": "Coverage",
+      "exclusion": "Exclusion",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "warrantyMasterPriceHistory": "Warranty Master Price History",
+      "articleWarrantyDetails": "Article Warranty Details",
+      "additionalAttribute": "Additional Attribute",
+      "coveredSpare": "Covered Spare",
+      "product": "Product"
+    }
+  }
+}

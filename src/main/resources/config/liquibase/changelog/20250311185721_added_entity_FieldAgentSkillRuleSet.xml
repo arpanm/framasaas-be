@@ -11,7 +11,7 @@
     -->
     <changeSet id="20250311185721-1" author="jhipster">
         <createTable tableName="field_agent_skill_rule_set">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="sort_type" type="varchar(255)">

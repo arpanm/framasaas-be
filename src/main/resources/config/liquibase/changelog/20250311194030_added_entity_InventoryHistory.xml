@@ -11,7 +11,7 @@
     -->
     <changeSet id="20250311194030-1" author="jhipster">
         <createTable tableName="inventory_history">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="inventory_value" type="bigint">

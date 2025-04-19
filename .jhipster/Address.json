@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250221035623"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "address1",
@@ -60,6 +61,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Address",
   "pagination": "infinite-scroll",
   "relationships": [

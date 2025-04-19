@@ -1,0 +1,47 @@
+{
+  "framasaasApp": {
+    "franchise": {
+      "home": {
+        "title": "Franchises",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Franchise-ஐ உருவாக்கு",
+        "createOrEditLabel": "Franchise -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Franchises found"
+      },
+      "created": "Franchise புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Franchise மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Franchise நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Franchise {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise"
+      },
+      "id": "ID",
+      "franchiseName": "Franchise Name",
+      "owner": "Owner",
+      "email": "Email",
+      "contact": "Contact",
+      "franchiseStatus": "Franchise Status",
+      "gstNumber": "Gst Number",
+      "registrationNumber": "Registration Number",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "dailyMaxServiceLimit": "Daily Max Service Limit",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "address": "Address",
+      "franchiseStatusHistory": "Franchise Status History",
+      "franchisePerformanceHistory": "Franchise Performance History",
+      "supportingDocument": "Supporting Document",
+      "franchiseUser": "Franchise User",
+      "serviceOrderFranchiseAssignment": "Service Order Franchise Assignment",
+      "additionalAttribute": "Additional Attribute",
+      "ruleset": "Ruleset",
+      "brands": "Brands",
+      "categories": "Categories"
+    }
+  }
+}

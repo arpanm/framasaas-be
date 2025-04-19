@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "additionalAttributePossibleValue": {
+      "home": {
+        "title": "Additional Attribute Possible Values",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Additional Attribute Possible Value-ஐ உருவாக்கு",
+        "createOrEditLabel": "Additional Attribute Possible Value -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Additional Attribute Possible Values found"
+      },
+      "created": "Additional Attribute Possible Value புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Additional Attribute Possible Value மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Additional Attribute Possible Value நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Additional Attribute Possible Value {{ id }}?"
+      },
+      "detail": {
+        "title": "Additional Attribute Possible Value"
+      },
+      "id": "ID",
+      "possibleValue": "Possible Value",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "attribute": "Attribute"
+    }
+  }
+}

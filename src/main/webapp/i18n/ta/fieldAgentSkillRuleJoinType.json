@@ -1,0 +1,9 @@
+{
+  "framasaasApp": {
+    "FieldAgentSkillRuleJoinType": {
+      "null": "",
+      "ANDJOIN": "ANDJOIN",
+      "ORJOIN": "ORJOIN"
+    }
+  }
+}

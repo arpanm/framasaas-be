@@ -14,6 +14,9 @@ export interface IArticleWarrantyDetails {
   soldBy?: keyof typeof SoldBy | null;
   soldByUser?: string | null;
   soldDate?: dayjs.Dayjs | null;
+  isValidated?: boolean | null;
+  validatedBy?: string | null;
+  validatedTime?: dayjs.Dayjs | null;
   isActive?: boolean | null;
   createddBy?: string;
   createdTime?: dayjs.Dayjs;
@@ -24,5 +27,6 @@ export interface IArticleWarrantyDetails {
 }
 
 export const defaultValue: Readonly<IArticleWarrantyDetails> = {
+  isValidated: false,
   isActive: false,
 };

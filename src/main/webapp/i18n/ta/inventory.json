@@ -1,0 +1,32 @@
+{
+  "framasaasApp": {
+    "inventory": {
+      "home": {
+        "title": "Inventories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Inventory-ஐ உருவாக்கு",
+        "createOrEditLabel": "Inventory -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Inventories found"
+      },
+      "created": "Inventory புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Inventory மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Inventory நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Inventory {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory"
+      },
+      "id": "ID",
+      "inventoryValue": "Inventory Value",
+      "isSellable": "Is Sellable",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "additionalAttribute": "Additional Attribute",
+      "product": "Product",
+      "location": "Location"
+    }
+  }
+}

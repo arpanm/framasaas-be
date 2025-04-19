@@ -7,6 +7,9 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/en';
 import 'dayjs/locale/bn';
 import 'dayjs/locale/hi';
+import 'dayjs/locale/mr';
+import 'dayjs/locale/ta';
+import 'dayjs/locale/te';
 
 // DAYJS CONFIGURATION
 dayjs.extend(customParseFormat);

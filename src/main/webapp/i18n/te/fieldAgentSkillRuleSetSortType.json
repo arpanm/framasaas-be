@@ -1,0 +1,11 @@
+{
+  "framasaasApp": {
+    "FieldAgentSkillRuleSetSortType": {
+      "null": "",
+      "NPS": "NPS",
+      "ROUNDROBIN": "ROUNDROBIN",
+      "PROXIMITY": "PROXIMITY",
+      "EXPERIENCELEVEL": "EXPERIENCELEVEL"
+    }
+  }
+}

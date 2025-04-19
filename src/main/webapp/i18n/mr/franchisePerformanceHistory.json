@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "franchisePerformanceHistory": {
+      "home": {
+        "title": "Franchise Performance Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise Performance History तयार करा",
+        "createOrEditLabel": "Franchise Performance History तयार किंवा संपादित करा",
+        "notFound": "No Franchise Performance Histories found"
+      },
+      "created": "Franchise Performance History [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise Performance History [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise Performance History [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise Performance History [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise Performance History"
+      },
+      "id": "ID",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
+    }
+  }
+}

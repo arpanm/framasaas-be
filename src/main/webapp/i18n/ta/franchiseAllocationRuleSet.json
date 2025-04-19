@@ -1,0 +1,33 @@
+{
+  "framasaasApp": {
+    "franchiseAllocationRuleSet": {
+      "home": {
+        "title": "Franchise Allocation Rule Sets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Franchise Allocation Rule Set-ஐ உருவாக்கு",
+        "createOrEditLabel": "Franchise Allocation Rule Set -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Franchise Allocation Rule Sets found"
+      },
+      "created": "Franchise Allocation Rule Set புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Franchise Allocation Rule Set மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Franchise Allocation Rule Set நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Franchise Allocation Rule Set {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Allocation Rule Set"
+      },
+      "id": "ID",
+      "name": "Name",
+      "sortType": "Sort Type",
+      "priority": "Priority",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

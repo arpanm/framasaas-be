@@ -93,6 +93,28 @@ export const ArticleWarrantyDetailsDetail = () => {
             ) : null}
           </dd>
           <dt>
+            <span id="isValidated">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.isValidated">Is Validated</Translate>
+            </span>
+          </dt>
+          <dd>{articleWarrantyDetailsEntity.isValidated ? 'true' : 'false'}</dd>
+          <dt>
+            <span id="validatedBy">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.validatedBy">Validated By</Translate>
+            </span>
+          </dt>
+          <dd>{articleWarrantyDetailsEntity.validatedBy}</dd>
+          <dt>
+            <span id="validatedTime">
+              <Translate contentKey="framasaasApp.articleWarrantyDetails.validatedTime">Validated Time</Translate>
+            </span>
+          </dt>
+          <dd>
+            {articleWarrantyDetailsEntity.validatedTime ? (
+              <TextFormat value={articleWarrantyDetailsEntity.validatedTime} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
             <span id="isActive">
               <Translate contentKey="framasaasApp.articleWarrantyDetails.isActive">Is Active</Translate>
             </span>

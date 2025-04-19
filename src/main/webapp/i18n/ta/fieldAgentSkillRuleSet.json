@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "fieldAgentSkillRuleSet": {
+      "home": {
+        "title": "Field Agent Skill Rule Sets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Field Agent Skill Rule Set-ஐ உருவாக்கு",
+        "createOrEditLabel": "Field Agent Skill Rule Set -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Field Agent Skill Rule Sets found"
+      },
+      "created": "Field Agent Skill Rule Set புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Field Agent Skill Rule Set மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Field Agent Skill Rule Set நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Field Agent Skill Rule Set {{ id }}?"
+      },
+      "detail": {
+        "title": "Field Agent Skill Rule Set"
+      },
+      "id": "ID",
+      "sortType": "Sort Type",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "fieldAgentSkillRule": "Field Agent Skill Rule",
+      "franchiseUser": "Franchise User",
+      "additionalAttribute": "Additional Attribute"
+    }
+  }
+}

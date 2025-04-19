@@ -1,0 +1,38 @@
+{
+  "framasaasApp": {
+    "serviceOrderMaster": {
+      "home": {
+        "title": "Service Order Masters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Service Order Master  సృష్టించండి",
+        "createOrEditLabel": "Service Order Master సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Service Order Masters found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Master సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Master సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Master తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Service Order Master {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Service Order Master"
+      },
+      "id": "ID",
+      "serviceOrderType": "Service Order Type",
+      "slaInHours": "Sla In Hours",
+      "charge": "Charge",
+      "tax": "Tax",
+      "franchiseCommissionWithinSla": "Franchise Commission Within Sla",
+      "franchiseTaxWithinSlaTax": "Franchise Tax Within Sla Tax",
+      "franchiseCommissionOutsideSla": "Franchise Commission Outside Sla",
+      "franchiseTaxOutsideSlaTax": "Franchise Tax Outside Sla Tax",
+      "isActive": "Is Active",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "serviceOrder": "Service Order",
+      "product": "Product"
+    }
+  }
+}

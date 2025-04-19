@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311185027"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "serviceOrderAssignmentStatus",
@@ -75,6 +76,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ServiceOrderFranchiseAssignment",
   "pagination": "infinite-scroll",
   "relationships": [

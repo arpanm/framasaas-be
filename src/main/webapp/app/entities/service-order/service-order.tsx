@@ -223,6 +223,10 @@ export const ServiceOrder = () => {
                     <Translate contentKey="framasaasApp.serviceOrder.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
+                    <Translate contentKey="framasaasApp.serviceOrder.serviceMaster">Service Master</Translate>{' '}
+                    <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
                     <Translate contentKey="framasaasApp.serviceOrder.article">Article</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
@@ -281,6 +285,13 @@ export const ServiceOrder = () => {
                     </td>
                     <td>
                       {serviceOrder.customer ? <Link to={`/customer/${serviceOrder.customer.id}`}>{serviceOrder.customer.id}</Link> : ''}
+                    </td>
+                    <td>
+                      {serviceOrder.serviceMaster ? (
+                        <Link to={`/service-order-master/${serviceOrder.serviceMaster.id}`}>{serviceOrder.serviceMaster.id}</Link>
+                      ) : (
+                        ''
+                      )}
                     </td>
                     <td>{serviceOrder.article ? <Link to={`/article/${serviceOrder.article.id}`}>{serviceOrder.article.id}</Link> : ''}</td>
                     <td>{serviceOrder.address ? <Link to={`/address/${serviceOrder.address.id}`}>{serviceOrder.address.id}</Link> : ''}</td>

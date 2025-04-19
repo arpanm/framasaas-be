@@ -1,0 +1,31 @@
+{
+  "framasaasApp": {
+    "franchisePerformanceHistory": {
+      "home": {
+        "title": "Franchise Performance Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Franchise Performance History-ஐ உருவாக்கு",
+        "createOrEditLabel": "Franchise Performance History -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Franchise Performance Histories found"
+      },
+      "created": "Franchise Performance History புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Franchise Performance History மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Franchise Performance History நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Franchise Performance History {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise Performance History"
+      },
+      "id": "ID",
+      "performanceScore": "Performance Score",
+      "performanceTag": "Performance Tag",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise"
+    }
+  }
+}

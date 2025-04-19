@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "serviceOrderSpare": {
+      "home": {
+        "title": "Service Order Spares",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Service Order Spare  సృష్టించండి",
+        "createOrEditLabel": "Service Order Spare సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Service Order Spares found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Spare సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Spare సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Service Order Spare తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Service Order Spare {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Service Order Spare"
+      },
+      "id": "ID",
+      "price": "Price",
+      "tax": "Tax",
+      "totalCharge": "Total Charge",
+      "franchiseCommision": "Franchise Commision",
+      "franchiseCommisionTax": "Franchise Commision Tax",
+      "orderedFrom": "Ordered From",
+      "spareStatus": "Spare Status",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "serviceOrder": "Service Order",
+      "product": "Product"
+    }
+  }
+}

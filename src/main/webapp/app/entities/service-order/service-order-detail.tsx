@@ -185,6 +185,10 @@ export const ServiceOrderDetail = () => {
           </dt>
           <dd>{serviceOrderEntity.customer ? serviceOrderEntity.customer.id : ''}</dd>
           <dt>
+            <Translate contentKey="framasaasApp.serviceOrder.serviceMaster">Service Master</Translate>
+          </dt>
+          <dd>{serviceOrderEntity.serviceMaster ? serviceOrderEntity.serviceMaster.id : ''}</dd>
+          <dt>
             <Translate contentKey="framasaasApp.serviceOrder.article">Article</Translate>
           </dt>
           <dd>{serviceOrderEntity.article ? serviceOrderEntity.article.id : ''}</dd>

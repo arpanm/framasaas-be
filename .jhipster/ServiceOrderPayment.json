@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311180931"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "paymentLink",
@@ -59,6 +60,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "ServiceOrderPayment",
   "pagination": "infinite-scroll",
   "relationships": [

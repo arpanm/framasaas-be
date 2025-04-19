@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311164618"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "brandName",
@@ -47,6 +48,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "Brand",
   "pagination": "infinite-scroll",
   "relationships": [

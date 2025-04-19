@@ -1,0 +1,36 @@
+{
+  "framasaasApp": {
+    "franchiseUser": {
+      "home": {
+        "title": "Franchise Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise User तयार करा",
+        "createOrEditLabel": "Franchise User तयार किंवा संपादित करा",
+        "notFound": "No Franchise Users found"
+      },
+      "created": "Franchise User [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise User [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise User [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise User [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise User"
+      },
+      "id": "ID",
+      "userName": "User Name",
+      "email": "Email",
+      "contact": "Contact",
+      "userStatus": "User Status",
+      "userRole": "User Role",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseUserStatusHistory": "Franchise User Status History",
+      "additionalAttribute": "Additional Attribute",
+      "franchise": "Franchise",
+      "skillRuleSet": "Skill Rule Set"
+    }
+  }
+}

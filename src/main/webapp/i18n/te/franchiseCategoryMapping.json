@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "franchiseCategoryMapping": {
+      "home": {
+        "title": "Franchise Category Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Franchise Category Mapping  సృష్టించండి",
+        "createOrEditLabel": "Franchise Category Mapping సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Franchise Category Mappings found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Category Mapping సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Category Mapping సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Franchise Category Mapping తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Franchise Category Mapping {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Franchise Category Mapping"
+      },
+      "id": "ID",
+      "serviceCategory": "Service Category",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise"
+    }
+  }
+}

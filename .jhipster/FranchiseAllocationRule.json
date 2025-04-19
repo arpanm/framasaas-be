@@ -2,7 +2,8 @@
   "annotations": {
     "changelogDate": "20250311165900"
   },
-  "applications": "*",
+  "applications": ["framasaas"],
+  "dto": "mapstruct",
   "fields": [
     {
       "fieldName": "ruleType",
@@ -37,6 +38,7 @@
       "fieldValidateRules": ["required"]
     }
   ],
+  "jpaMetamodelFiltering": true,
   "name": "FranchiseAllocationRule",
   "pagination": "infinite-scroll",
   "relationships": [

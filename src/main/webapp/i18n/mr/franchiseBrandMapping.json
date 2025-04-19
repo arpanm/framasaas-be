@@ -1,0 +1,29 @@
+{
+  "framasaasApp": {
+    "franchiseBrandMapping": {
+      "home": {
+        "title": "Franchise Brand Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नवीन Franchise Brand Mapping तयार करा",
+        "createOrEditLabel": "Franchise Brand Mapping तयार किंवा संपादित करा",
+        "notFound": "No Franchise Brand Mappings found"
+      },
+      "created": "Franchise Brand Mapping [identifier: {{ param }}] तयार आहे",
+      "updated": "Franchise Brand Mapping [identifier: {{ param }}] सुधारित केले आहे",
+      "deleted": "Franchise Brand Mapping [identifier: {{ param }}] हटविले आहे",
+      "delete": {
+        "question": "Franchise Brand Mapping [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+      },
+      "detail": {
+        "title": "Franchise Brand Mapping"
+      },
+      "id": "ID",
+      "brand": "Brand",
+      "createddBy": "Createdd By",
+      "createdTime": "Created Time",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchise": "Franchise"
+    }
+  }
+}

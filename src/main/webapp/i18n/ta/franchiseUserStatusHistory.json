@@ -1,0 +1,27 @@
+{
+  "framasaasApp": {
+    "franchiseUserStatusHistory": {
+      "home": {
+        "title": "Franchise User Status Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Franchise User Status History-ஐ உருவாக்கு",
+        "createOrEditLabel": "Franchise User Status History -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Franchise User Status Histories found"
+      },
+      "created": "Franchise User Status History புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Franchise User Status History மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Franchise User Status History நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Franchise User Status History {{ id }}?"
+      },
+      "detail": {
+        "title": "Franchise User Status History"
+      },
+      "id": "ID",
+      "userSatus": "User Satus",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time",
+      "franchiseUser": "Franchise User"
+    }
+  }
+}

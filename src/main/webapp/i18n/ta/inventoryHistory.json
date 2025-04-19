@@ -1,0 +1,27 @@
+{
+  "framasaasApp": {
+    "inventoryHistory": {
+      "home": {
+        "title": "Inventory Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Inventory History-ஐ உருவாக்கு",
+        "createOrEditLabel": "Inventory History -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Inventory Histories found"
+      },
+      "created": "Inventory History புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Inventory History மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Inventory History நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Inventory History {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory History"
+      },
+      "id": "ID",
+      "inventoryValue": "Inventory Value",
+      "reason": "Reason",
+      "updatedBy": "Updated By",
+      "updatedTime": "Updated Time"
+    }
+  }
+}
